@@ -3,22 +3,78 @@ import { useLocation } from 'react-router-dom';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import MouseGlow from './MouseGlow';
+import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-motion';
 
 export default function Layout({ children }) {
     const location = useLocation();
     const isLeire = location.pathname === '/leire';
 
+    const { scrollY } = useScroll();
+
+    // The Luminous Descent - Color Maps
+    const leireDarkMap = ["#151214", "#D1AEA6", "#F4F2EF"]; // Charcoal Noir -> Clay Blush -> Matte Ivory
+    const kinDarkMap = ["#111111", "#E4DCD3", "#F4F2EF"];   // Charcoal Black -> Warm Beige -> Matte Ivory
+
+    const leireBaseMap = ["#292528", "#ECA2C1", "#F4F2EF"]; // Charcoal Noir -> Soft Pink -> Matte Ivory
+    const kinBaseMap = ["#1E1B3C", "#ECA2C1", "#E4DCD3"];   // Deep Indigo -> Soft Pink -> Warm Beige
+
+    const leireTextMap = ["#F8F5F5", "#333333", "#111111"]; // White -> Dark Gray -> Black
+    const kinTextMap = ["#F8F8FD", "#333333", "#111111"];   // Off-White -> Dark Gray -> Black
+
+    // Pre-calculate transforms for both themes to ensure smooth transition caching
+    const kinDark = useTransform(scrollY, [0, 1000, 2500], kinDarkMap);
+    const kinBase = useTransform(scrollY, [0, 1000, 2500], kinBaseMap);
+    const kinText = useTransform(scrollY, [0, 1000, 2500], kinTextMap);
+
+    const leireDark = useTransform(scrollY, [0, 1000, 2500], leireDarkMap);
+    const leireBase = useTransform(scrollY, [0, 1000, 2500], leireBaseMap);
+    const leireText = useTransform(scrollY, [0, 1000, 2500], leireTextMap);
+
+    // Global intercept loop to map the scroll directly into the DOM root so all Tailwind classes (text-white, etc) dynamically shift
+    useMotionValueEvent(scrollY, "change", () => {
+        const cd = isLeire ? leireDark.get() : kinDark.get();
+        const cb = isLeire ? leireBase.get() : kinBase.get();
+        const ct = isLeire ? leireText.get() : kinText.get();
+
+        document.documentElement.style.setProperty("--color-dark", cd);
+        document.documentElement.style.setProperty("--color-base", cb);
+        document.documentElement.style.setProperty("--text-color", ct);
+    });
+
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location.pathname]);
+
+        // Force reset colors to absolute top on mount/route change
+        document.documentElement.style.setProperty("--color-dark", isLeire ? leireDarkMap[0] : kinDarkMap[0]);
+        document.documentElement.style.setProperty("--color-base", isLeire ? leireBaseMap[0] : kinBaseMap[0]);
+        document.documentElement.style.setProperty("--text-color", isLeire ? leireTextMap[0] : kinTextMap[0]);
+    }, [location.pathname, isLeire]);
+
+    // Ambient tech light overlay at the top, which fades out as we transition into the bright 'Descent' zone
+    const lightOpacity = useTransform(scrollY, [0, 400, 1200], [0, 0.4, 0]);
+    const bgY = useTransform(scrollY, [0, 1200], ["-20%", "0%"]);
 
     return (
-        <div className={`min-h-screen flex flex-col transition-colors duration-700 ${isLeire ? 'theme-leire' : ''}`}>
+        <div className={`min-h-screen flex flex-col ${isLeire ? 'theme-leire' : ''}`}>
             <MouseGlow />
             <Navbar />
+
             <main className="flex-grow pt-20 z-10 relative flex flex-col">
+                {/* Global Reactive Scroll Lighting Overlay (Only visible near the dark top) */}
+                <motion.div
+                    style={{
+                        opacity: lightOpacity,
+                        y: bgY,
+                        background: isLeire
+                            ? `radial-gradient(circle at 50% 0%, rgba(209, 174, 166, 0.25) 0%, transparent 60%), linear-gradient(to bottom, transparent 30%, rgba(173, 58, 60, 0.2) 100%)`
+                            : `radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 50%), linear-gradient(to bottom, transparent 20%, rgba(91, 62, 150, 0.15) 60%, rgba(209, 174, 166, 0.12) 100%)`
+                    }}
+                    className="fixed inset-0 z-[5] pointer-events-none mix-blend-screen scale-110"
+                />
+
                 {children}
             </main>
+
             <Footer />
         </div>
     );

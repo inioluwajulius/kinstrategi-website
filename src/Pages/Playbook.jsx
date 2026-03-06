@@ -1,94 +1,261 @@
 import { motion } from 'framer-motion';
 import playbookBg from '../assets/The Playbook_ Creative Ops Hierarchy.png';
 
+const levels = [
+    {
+        level: "Level 1",
+        title: "Project Match",
+        subtitle: "Talent Matching & Specialist Sourcing",
+        bestFor: "Campaigns, short-term projects, and high-impact creative needs.",
+        pointsHeading: "We source vetted creative professionals including:",
+        points: ["Graphic designers", "Brand strategists", "Videographers", "Content creators", "Copywriters", "Developers", "Creative directors"],
+        description: "We shortlist 2–3 pre-vetted specialists with 80%+ Harmony Match™ alignment. We manage onboarding, contracts, and quality milestones.",
+        footer: "This is structured freelance sourcing with operational oversight.",
+        accent: "brand-accent-2"
+    },
+    {
+        level: "Level 2",
+        title: "Strategy & Advisory",
+        subtitle: "Brand Strategy & Positioning",
+        bestFor: "Startups and growing teams needing brand clarity and alignment.",
+        pointsHeading: "We help you define:",
+        points: ["Brand positioning", "Target audience clarity", "Messaging frameworks", "90-day execution plans"],
+        description: "",
+        footer: "Deliverable: A clear brand roadmap and messaging system.",
+        accent: "brand-accent-3"
+    },
+    {
+        level: "Level 3",
+        title: "Full Brand Development",
+        subtitle: "End-to-End Brand Systems",
+        bestFor: "Businesses building long-term brand equity.",
+        pointsHeading: "Includes:",
+        points: ["Visual identity systems", "Brand guidelines", "Campaign direction", "Launch strategy"],
+        description: "",
+        footer: "This is brand strategy + brand design + rollout planning.",
+        accent: "brand-accent-1"
+    },
+    {
+        level: "Level 4",
+        title: "Content & Production",
+        subtitle: "Content Strategy, Social Media Content, Video Production",
+        bestFor: "Brands needing consistent, high-quality content creation.",
+        pointsHeading: "Includes:",
+        points: ["Content calendars", "Social media strategy", "Campaign-ready assets", "Video production", "Photography", "Platform optimization (Instagram, TikTok, LinkedIn)"],
+        description: "",
+        footer: "This is managed creative production with structure.",
+        accent: "brand-accent-2"
+    },
+    {
+        level: "Level 5",
+        title: "AI & Smart Systems",
+        subtitle: "AI Workflow Automation & Content Systems",
+        bestFor: "Teams who want to scale output without hiring more staff.",
+        pointsHeading: "We build:",
+        points: ["Custom AI prompts", "Automated lead systems", "Content generation workflows", "Research systems", "Voice-consistent AI frameworks"],
+        description: "",
+        footer: "This is AI integration for marketing and operations teams.",
+        accent: "brand-accent-3"
+    },
+    {
+        level: "Level 6",
+        title: "Technical & Data Systems",
+        subtitle: "Web Development, App Development, DevOps & Security",
+        bestFor: "Companies scaling seriously.",
+        pointsHeading: "We provide:",
+        points: ["Website development (basic to advanced)", "Mobile app MVP builds", "Data dashboards", "Cloud architecture consulting", "DevOps support", "Security audits", "Security implementation"],
+        description: "",
+        footer: "This is senior-level engineering and infrastructure support.",
+        accent: "brand-accent-1"
+    }
+];
+
 export default function Playbook() {
     return (
-        <div className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-24">
-            {/* Slow pan effect on background */}
+        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden py-32">
+            {/* Background Image Setup */}
             <motion.div
-                animate={{ backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"] }}
-                transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-color-dodge"
-                style={{ backgroundImage: `url('${playbookBg}')`, backgroundSize: "120% auto" }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 0.15 }}
+                transition={{ duration: 2 }}
+                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat mix-blend-color-dodge"
+                style={{ backgroundImage: `url('${playbookBg}')` }}
             />
-            <div className="absolute inset-0 z-0 bg-brand-dark/90" />
+            <div className="fixed inset-0 z-0 bg-brand-dark/95" />
 
-            {/* Animated grid overlay */}
-            <motion.div
-                className="absolute inset-0 z-0 opacity-10"
+            {/* Grid Overlay */}
+            <div
+                className="fixed inset-0 z-0 opacity-10 pointer-events-none"
                 style={{
-                    backgroundImage: `linear-gradient(rgba(212, 175, 55, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.2) 1px, transparent 1px)`,
-                    backgroundSize: '50px 50px'
+                    backgroundImage: `linear-gradient(rgba(212, 175, 55, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 55, 0.1) 1px, transparent 1px)`,
+                    backgroundSize: '40px 40px'
                 }}
-                animate={{ y: [0, 50] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
             />
 
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative z-10 w-full max-w-6xl mx-auto px-4"
-            >
-                <div className="text-center mb-16">
-                    <motion.h1
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className="font-heading text-4xl md:text-6xl font-bold mb-4 tracking-tight"
-                    >
-                        The <span className="text-brand-accent-2">Playbook</span>
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1, delay: 0.6 }}
-                        className="font-tech text-gray-400 uppercase tracking-widest text-sm"
-                    >
-                        Creative Ops Hierarchy
-                    </motion.p>
-                </div>
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8">
+                {/* Hero Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center max-w-4xl mx-auto mb-24"
+                >
+                    <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase">
+                        The KinStrategi <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-3 to-brand-accent-2">Playbook</span>
+                    </h1>
+                    <h2 className="font-tech text-brand-accent-2 text-xl md:text-2xl tracking-[0.2em] uppercase mb-8 opacity-90">
+                        Pick your level. Scale when ready.
+                    </h2>
+                    <p className="font-body text-gray-300 text-lg md:text-xl font-light leading-relaxed">
+                        We offer structured creative services across our core service categories. Identify your operational constraints, and deploy the precise architecture needed to override them.
+                    </p>
+                </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-                    {[1, 2, 3].map((step) => (
+                {/* Levels Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-24">
+                    {levels.map((item, idx) => (
                         <motion.div
-                            key={step}
-                            initial={{ opacity: 0, y: 30 }}
+                            key={item.level}
+                            initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: step * 0.2, duration: 0.6 }}
-                            whileHover={{
-                                y: -10,
-                                borderColor: 'rgba(91, 62, 150, 0.5)',
-                                boxShadow: "0 10px 30px rgba(0,0,0,0.5)"
-                            }}
-                            className="bg-brand-base/40 border border-white/5 p-8 backdrop-blur-md relative overflow-hidden group cursor-pointer"
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6, delay: idx * 0.1 }}
+                            whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}
+                            className="bg-brand-base/30 border border-white/5 backdrop-blur-md p-8 relative overflow-hidden group flex flex-col h-full"
                         >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-brand-accent-1/10 rounded-full blur-[50px] group-hover:bg-brand-accent-1/30 transition-colors duration-500" />
-
-                            <motion.div
-                                className="font-tech text-brand-accent-1 text-4xl mb-6 relative z-10 opacity-50 font-bold"
-                                groupHover={{ scale: 1.1, opacity: 1 }}
-                            >
-                                0{step}
-                            </motion.div>
-                            <h3 className="font-heading text-xl font-bold mb-3 relative z-10">Protocol Phase {step}</h3>
-                            <p className="font-body text-gray-400 text-sm font-light leading-relaxed relative z-10">
-                                Execute structured methodologies to orchestrate complex creative architectures and streamline operational fidelity.
-                            </p>
+                            {/* Accent Glow Top Right */}
+                            <div className={`absolute top-0 right-0 w-48 h-48 bg-${item.accent}/10 rounded-full blur-[60px] group-hover:bg-${item.accent}/20 transition-colors duration-700 pointer-events-none translate-x-1/2 -translate-y-1/2`} />
 
                             {/* Decorative line mapping path */}
                             <motion.div
-                                className="absolute bottom-0 left-0 h-[2px] bg-brand-accent-1"
+                                className={`absolute top-0 left-0 h-[2px] bg-${item.accent}`}
                                 initial={{ width: 0 }}
                                 whileHover={{ width: "100%" }}
                                 transition={{ duration: 0.4 }}
                             />
+
+                            <div className="flex items-baseline justify-between mb-8 relative z-10 border-b border-white/10 pb-6">
+                                <div>
+                                    <span className={`font-tech text-${item.accent} tracking-widest uppercase text-sm mb-2 block`}>
+                                        {item.level}
+                                    </span>
+                                    <h3 className="font-heading text-3xl font-bold">{item.title}</h3>
+                                </div>
+                            </div>
+
+                            <div className="flex-grow space-y-6 relative z-10">
+                                <div>
+                                    <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Operation Scope</p>
+                                    <p className="font-body text-white font-medium text-lg leading-snug">{item.subtitle}</p>
+                                </div>
+
+                                <div>
+                                    <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Best For</p>
+                                    <p className="font-body text-gray-400 font-light">{item.bestFor}</p>
+                                </div>
+
+                                <div>
+                                    <p className={`font-tech text-xs tracking-widest uppercase mb-3 text-${item.accent}`}>{item.pointsHeading}</p>
+                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                                        {item.points.map((point, pIdx) => (
+                                            <li key={pIdx} className="flex items-start gap-2 font-body text-sm text-gray-300 font-light">
+                                                <span className={`text-${item.accent} mt-[2px]`}>✦</span>
+                                                <span className="leading-tight">{point}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                {item.description && (
+                                    <p className="font-body text-gray-400 font-light text-sm italic border-l-2 border-white/20 pl-4 py-1">
+                                        {item.description}
+                                    </p>
+                                )}
+                            </div>
+
+                            <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-xs text-${item.accent} uppercase tracking-widest opacity-80 relative z-10`}>
+                                // {item.footer}
+                            </div>
                         </motion.div>
                     ))}
                 </div>
-            </motion.div>
+
+                {/* Flagship Retainer: KinOps */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="relative w-full border border-brand-accent-2/30 bg-gradient-to-r from-brand-base/60 to-brand-dark/80 backdrop-blur-xl p-8 md:p-16 overflow-hidden group mb-24"
+                >
+                    {/* KinOps Animated Background Elements */}
+                    <div className="absolute inset-0 z-0 bg-brand-accent-2/5 mix-blend-screen pointer-events-none" />
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        transition={{ duration: 2 }}
+                        className="absolute right-0 bottom-0 w-96 h-96 bg-brand-accent-2/10 blur-[100px] pointer-events-none z-0"
+                    />
+
+                    {/* Scanning Line */}
+                    <motion.div
+                        className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-brand-accent-2 to-transparent opacity-50 z-0"
+                        animate={{ top: ["-100%", "100%"] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                    />
+
+                    <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-12">
+                        <div className="lg:w-1/2">
+                            <span className="inline-block px-3 py-1 bg-brand-accent-2/20 border border-brand-accent-2 text-brand-accent-2 font-tech text-xs tracking-[0.2em] uppercase mb-6 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
+                                Flagship Retainer
+                            </span>
+                            <h2 className="font-heading text-5xl md:text-6xl font-bold mb-4 drop-shadow-md">KinOps</h2>
+                            <p className="font-tech text-brand-accent-2/80 text-lg uppercase tracking-widest mb-8">
+                                Fractional Creative Operations<br />& Talent Management
+                            </p>
+
+                            <div className="bg-brand-dark/50 p-6 border-l-2 border-brand-accent-2 mb-8">
+                                <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-2">Best For</p>
+                                <p className="font-body text-gray-200 text-lg md:text-xl font-light">
+                                    Founders scaling without expanding payroll.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="lg:w-1/2 flex flex-col justify-between h-full w-full">
+                            <ul className="space-y-4 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
+                                {[
+                                    "Talent sourcing and vetting",
+                                    "Workflow management",
+                                    "Strategy check-ins",
+                                    "Performance tracking",
+                                    "Operational playbooks",
+                                    "Creative team oversight"
+                                ].map((point, idx) => (
+                                    <li key={idx} className="flex items-center gap-4 bg-white/5 p-4 border border-white/5 hover:border-brand-accent-2/30 transition-colors">
+                                        <div className="w-1.5 h-1.5 bg-brand-accent-2 rounded-full shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
+                                        <span className="font-body text-sm font-medium">{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
+
+                            <div className="flex items-center justify-between border-t border-brand-accent-2/20 pt-6">
+                                {/* <span className="font-tech text-sm text-brand-accent-2 uppercase tracking-widest opacity-80">
+                                    // This is ongoing operations management.
+                                </span> */}
+                                <motion.button
+                                    whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.4)" }}
+                                    whileTap={{ scale: 0.95 }}
+                                    className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold"
+                                >
+                                    Initialize KinOps
+                                </motion.button>
+                            </div>
+                        </div>
+                    </div>
+                </motion.div>
+
+            </div>
         </div>
     );
 }

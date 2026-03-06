@@ -17,36 +17,53 @@
 }
 
 @keyframes pulse-slow {
-  0%, 100% { opacity: 1; }
-  50% { opacity: .5; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: .5;
+  }
 }
 
 :root {
-  /* KinStrategi Mode (Default) */
-  --color-base: #1E1B3C;      /* Deep Indigo */
-  --color-dark: #111111;      /* Charcoal Black */
-  --color-accent-1: #5B3E96;  /* Royal Purple */
-  --color-accent-2: #D4AF37;  /* Gold */
-  --color-accent-3: #00A7A7;  /* Teal */
-  
+  /* KinStrategi Mode (Default - Initial State) */
+  --color-base: #1E1B3C;
+  /* Deep Indigo */
+  --color-dark: #111111;
+  /* Charcoal Black */
+  --color-accent-1: #5B3E96;
+  /* Royal Purple */
+  --color-accent-2: #D4AF37;
+  /* Gold */
+  --color-accent-3: #00A7A7;
+  /* Teal */
+
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-tech: 'Syne Mono', monospace;
-  
+
   --bg-color: var(--color-dark);
-  --text-color: #F8F8FD;
+  --text-color: #FFFFFF;
 }
 
 .theme-leire {
-  /* Leiré Mode */
-  --color-base: #292528;      /* Charcoal Noir */
-  --color-dark: #151214;      /* Darker Noir for contrast */
-  --color-accent-1: #AD3A3C;  /* Carmine Ember mapped to Accent 1 */
-  --color-accent-2: #D1AEA6;  /* Clay Blush mapped to Accent 2 */
-  --color-accent-3: #AD3A3C;  /* Carmine backup for Accent 3 */
+  /* Leiré Mode Base (Initial State) */
+  --color-base: #292528;
+  /* Charcoal Noir */
+  --color-dark: #151214;
+  /* Darker Noir for contrast */
+  --color-accent-1: #AD3A3C;
+  /* Carmine Ember mapped to Accent 1 */
+  --color-accent-2: #D1AEA6;
+  /* Clay Blush mapped to Accent 2 */
+  --color-accent-3: #AD3A3C;
+  /* Carmine backup for Accent 3 */
 
-  --font-heading: 'Playfair Display', serif; /* Acting as Recoleta / Editorial New */
-  
+  --font-heading: 'Playfair Display', serif;
+
   --bg-color: var(--color-dark);
   --text-color: #F8F5F5;
 }
@@ -55,14 +72,69 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-body);
-  transition: background-color 0.5s ease;
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
 }
 
 .font-tech {
   font-family: var(--font-tech);
+}
+
+/* Luminous Descent Dynamic Overrides */
+/* This intercepts Tailwind utility classes so they adapt to the light theme on scroll */
+/* Using increased specificity to override Tailwind defaults where necessary */
+body .text-white {
+  color: var(--text-color) !important;
+}
+
+body .text-gray-100 {
+  color: color-mix(in srgb, var(--text-color) 90%, transparent) !important;
+}
+
+body .text-gray-200 {
+  color: color-mix(in srgb, var(--text-color) 80%, transparent) !important;
+}
+
+body .text-gray-300 {
+  color: color-mix(in srgb, var(--text-color) 70%, transparent) !important;
+}
+
+body .text-gray-400 {
+  color: color-mix(in srgb, var(--text-color) 60%, transparent) !important;
+}
+
+body .bg-white {
+  background-color: var(--text-color) !important;
+}
+
+body .bg-white\/5 {
+  background-color: color-mix(in srgb, var(--text-color) 5%, transparent) !important;
+}
+
+body .bg-white\/10 {
+  background-color: color-mix(in srgb, var(--text-color) 10%, transparent) !important;
+}
+
+body .border-white {
+  border-color: var(--text-color) !important;
+}
+
+body .border-white\/5 {
+  border-color: color-mix(in srgb, var(--text-color) 5%, transparent) !important;
+}
+
+body .border-white\/10 {
+  border-color: color-mix(in srgb, var(--text-color) 10%, transparent) !important;
+}
+
+body .border-white\/20 {
+  border-color: color-mix(in srgb, var(--text-color) 20%, transparent) !important;
 }

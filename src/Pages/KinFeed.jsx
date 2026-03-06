@@ -41,7 +41,7 @@ export default function KinFeed() {
                     A highly curated nexus connecting visionary entities with pre-vetted, elite operational talent.
                 </p>
 
-                <div className="flex flex-wrap justify-center gap-6">
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-6">
                     <motion.div
                         whileHover={{ scale: 1.05, y: -5, boxShadow: "0 0 30px rgba(91, 62, 150, 0.6)" }}
                         className="w-full md:w-auto bg-brand-base border border-brand-accent-1/50 px-10 py-5 rounded-sm cursor-pointer relative overflow-hidden group"
