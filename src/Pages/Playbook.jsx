@@ -1,76 +1,79 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import playbookBg from '../assets/The Playbook_ Creative Ops Hierarchy.png';
 
-const levels = [
+const services = [
     {
-        level: "Level 1",
-        title: "Project Match",
-        subtitle: "Talent Matching & Specialist Sourcing",
-        bestFor: "Campaigns, short-term projects, and high-impact creative needs.",
-        pointsHeading: "We source vetted creative professionals including:",
-        points: ["Graphic designers", "Brand strategists", "Videographers", "Content creators", "Copywriters", "Developers", "Creative directors"],
-        description: "We shortlist 2–3 pre-vetted specialists with 80%+ Harmony Match™ alignment. We manage onboarding, contracts, and quality milestones.",
-        footer: "This is structured freelance sourcing with operational oversight.",
+        level: "01",
+        title: "Brand Strategy & Development",
+        subtitle: "Build a brand that knows exactly what it stands for.",
+        bestFor: "Startups and growing teams needing clarity before they scale.",
+        pointsHeading: "Services:",
+        points: ["Brand Positioning", "Target Audience Clarity", "Messaging Frameworks", "90-Day Execution Plans"],
+        footer: "Deliverable: A clear brand roadmap and messaging system.",
+        cta: "Kini your strategy →",
         accent: "brand-accent-2"
     },
     {
-        level: "Level 2",
-        title: "Strategy & Advisory",
-        subtitle: "Brand Strategy & Positioning",
-        bestFor: "Startups and growing teams needing brand clarity and alignment.",
-        pointsHeading: "We help you define:",
-        points: ["Brand positioning", "Target audience clarity", "Messaging frameworks", "90-day execution plans"],
-        description: "",
-        footer: "Deliverable: A clear brand roadmap and messaging system.",
+        level: "02",
+        title: "Creative Production",
+        subtitle: "The people your project actually needs. Vetted, matched, and ready to move.",
+        bestFor: "Campaigns, short-term projects, and high-impact creative needs.",
+        pointsHeading: "Services:",
+        points: ["Talent Matching & Specialist Sourcing", "Onboarding & Contract Management", "Quality Milestone Oversight", "Creative Team Coordination"],
+        description: "Note: We shortlist 2–3 pre-vetted specialists with 80%+ Harmony Match™ alignment.",
+        footer: "",
+        cta: "Let’s Yap →",
         accent: "brand-accent-3"
     },
     {
-        level: "Level 3",
-        title: "Full Brand Development",
-        subtitle: "End-to-End Brand Systems",
-        bestFor: "Businesses building long-term brand equity.",
-        pointsHeading: "Includes:",
-        points: ["Visual identity systems", "Brand guidelines", "Campaign direction", "Launch strategy"],
-        description: "",
-        footer: "This is brand strategy + brand design + rollout planning.",
+        level: "03",
+        title: "Campaign Strategy",
+        subtitle: "Campaigns that make people feel something, then do something.",
+        bestFor: "Brands launching something new or scaling awareness with purpose.",
+        pointsHeading: "Services:",
+        points: ["Campaign Concept & Direction", "Multi-Channel Strategy", "Performance Tracking", "Launch Planning"],
+        footer: "",
+        cta: "Kini your strategy →",
         accent: "brand-accent-1"
     },
     {
-        level: "Level 4",
-        title: "Content & Production",
-        subtitle: "Content Strategy, Social Media Content, Video Production",
+        level: "04",
+        title: "Content Creation",
+        subtitle: "The right content, on the right platform, at the right time.",
         bestFor: "Brands needing consistent, high-quality content creation.",
-        pointsHeading: "Includes:",
-        points: ["Content calendars", "Social media strategy", "Campaign-ready assets", "Video production", "Photography", "Platform optimization (Instagram, TikTok, LinkedIn)"],
-        description: "",
-        footer: "This is managed creative production with structure.",
+        pointsHeading: "Services:",
+        points: ["Content Calendars & Strategy", "Social Media Content (Instagram, TikTok, LinkedIn)", "Video Production & Photography", "Platform Optimisation"],
+        footer: "",
+        cta: "Let’s Yap →",
         accent: "brand-accent-2"
     },
     {
-        level: "Level 5",
-        title: "AI & Smart Systems",
-        subtitle: "AI Workflow Automation & Content Systems",
-        bestFor: "Teams who want to scale output without hiring more staff.",
-        pointsHeading: "We build:",
-        points: ["Custom AI prompts", "Automated lead systems", "Content generation workflows", "Research systems", "Voice-consistent AI frameworks"],
-        description: "",
-        footer: "This is AI integration for marketing and operations teams.",
+        level: "05",
+        title: "Cultural Storytelling",
+        subtitle: "Storytelling that actually sounds like the people it's made for.",
+        bestFor: "Brands building with African audiences or navigating cultural nuance in their messaging.",
+        pointsHeading: "Services:",
+        points: ["Culturally-Rooted Campaign Concepts", "African Market Narrative Strategy", "Heritage & Identity Brand Storytelling", "Editorial & Thought Leadership Writing"],
+        footer: "",
+        cta: "Connect with Us About This →",
         accent: "brand-accent-3"
     },
     {
-        level: "Level 6",
-        title: "Technical & Data Systems",
-        subtitle: "Web Development, App Development, DevOps & Security",
-        bestFor: "Companies scaling seriously.",
-        pointsHeading: "We provide:",
-        points: ["Website development (basic to advanced)", "Mobile app MVP builds", "Data dashboards", "Cloud architecture consulting", "DevOps support", "Security audits", "Security implementation"],
-        description: "",
-        footer: "This is senior-level engineering and infrastructure support.",
+        level: "06",
+        title: "Creative Operations (Ops-as-a-Service)",
+        subtitle: "The operational layer your creative team has been missing.",
+        bestFor: "Founders scaling without expanding payroll. Teams who want to scale output without hiring more staff.",
+        pointsHeading: "Services:",
+        points: ["Fractional Creative Operations Management", "Workflow Design & Systems", "AI Workflow Automation & Content Systems", "Technical Infrastructure & DevOps Support"],
+        footer: "",
+        cta: "Connect with Us About This →",
         accent: "brand-accent-1"
     }
 ];
 
 export default function Playbook() {
+    const navigate = useNavigate();
     return (
         <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden py-32">
             {/* Background Image Setup */}
@@ -113,7 +116,7 @@ export default function Playbook() {
 
                 {/* Levels Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-24">
-                    {levels.map((item, idx) => (
+                    {services.map((item, idx) => (
                         <motion.div
                             key={item.level}
                             initial={{ opacity: 0, y: 40 }}
@@ -145,7 +148,7 @@ export default function Playbook() {
 
                             <div className="flex-grow space-y-6 relative z-10">
                                 <div>
-                                    <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Operation Scope</p>
+                                    <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Positioning</p>
                                     <p className="font-body text-white font-medium text-lg leading-snug">{item.subtitle}</p>
                                 </div>
 
@@ -173,8 +176,19 @@ export default function Playbook() {
                                 )}
                             </div>
 
-                            <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-xs text-${item.accent} uppercase tracking-widest opacity-80 relative z-10`}>
-                                // {item.footer}
+                            {item.footer && (
+                                <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-xs text-${item.accent} uppercase tracking-widest opacity-80 relative z-10`}>
+                                    // {item.footer}
+                                </div>
+                            )}
+                            <div className="mt-6">
+                                <motion.button
+                                    onClick={() => navigate('/sign-station')}
+                                    whileHover={{ color: "#fff" }}
+                                    className={`font-tech text-xs tracking-widest uppercase opacity-90 text-${item.accent} transition-colors cursor-pointer z-20 relative`}
+                                >
+                                    [ {item.cta} ]
+                                </motion.button>
                             </div>
                         </motion.div>
                     ))}
@@ -223,6 +237,9 @@ export default function Playbook() {
                         </div>
 
                         <div className="lg:w-1/2 flex flex-col justify-between h-full w-full">
+                            <p className="font-body text-gray-300 font-light text-lg mb-8">
+                                KinOps is our retainer model. You get a dedicated creative ops partner handling talent, workflows, and project oversight.
+                            </p>
                             <ul className="space-y-4 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                                 {[
                                     "Talent sourcing and vetting",
@@ -230,7 +247,7 @@ export default function Playbook() {
                                     "Strategy check-ins",
                                     "Performance tracking",
                                     "Operational playbooks",
-                                    "Creative team oversight"
+                                    "Team oversight"
                                 ].map((point, idx) => (
                                     <li key={idx} className="flex items-center gap-4 bg-white/5 p-4 border border-white/5 hover:border-brand-accent-2/30 transition-colors">
                                         <div className="w-1.5 h-1.5 bg-brand-accent-2 rounded-full shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
@@ -240,19 +257,38 @@ export default function Playbook() {
                             </ul>
 
                             <div className="flex items-center justify-between border-t border-brand-accent-2/20 pt-6">
-                                {/* <span className="font-tech text-sm text-brand-accent-2 uppercase tracking-widest opacity-80">
-                                    // This is ongoing operations management.
-                                </span> */}
                                 <motion.button
+                                    onClick={() => navigate('/sign-station')}
                                     whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.4)" }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold"
+                                    className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer"
                                 >
-                                    Initialize KinOps
+                                    Let's Talk KinOps →
                                 </motion.button>
                             </div>
                         </div>
                     </div>
+                </motion.div>
+
+                {/* Closing Call to Action */}
+                <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.8 }}
+                    className="text-center pb-24"
+                >
+                    <p className="font-body text-gray-300 text-xl font-light leading-relaxed mb-6">
+                        Not sure where to start? We'll figure it out together.
+                    </p>
+                    <motion.button
+                        onClick={() => navigate('/sign-station')}
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer"
+                    >
+                        Let's Talk Strategy
+                    </motion.button>
                 </motion.div>
 
             </div>

@@ -1,24 +1,25 @@
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import leireBg from '../assets/Leiré_ Alte Gothic Surrealism Studio.png';
 
 const services = [
-    "Ideation workshops", "Concept decks", "Narrative frameworks",
-    "Ghostwriting", "Scriptwriting", "Campaign concept development",
-    "Film direction", "Event storytelling", "Creative production"
+    "Ideation Workshops", "Concept Decks", "Narrative Frameworks",
+    "Ghostwriting & Scriptwriting", "Campaign Concept Development",
+    "Film Direction", "Event Storytelling", "Creative Production"
 ];
 
 const specialties = [
     {
         title: "Travel Writing",
-        desc: "Literary narratives. Immersive essays. Location stories that capture more than what you see."
+        desc: "We write places the way they actually feel. Narratives and essays that go beyond what's on the surface."
     },
     {
         title: "Freelance Writing Services",
-        desc: "Books, memoirs, thought leadership. We write for people with stories but not the time."
+        desc: "You have the story. We find the words. Books, memoirs, thought leadership — written for people who are too busy living it to write it down."
     },
     {
         title: "Culturally-Rooted Campaigns",
-        desc: "Copy that feels authentic. Concepts that connect. We get nuance."
+        desc: "Work that resonates because it was made with the audience in mind, not just made for them."
     }
 ];
 
@@ -45,15 +46,23 @@ const steps = [
     }
 ];
 
-const audience = [
-    "Founders who need more than execution",
-    "Brands launching something new",
-    "Filmmakers shaping a concept",
-    "Event producers designing experiences",
-    "Anyone who knows the idea matters as much as the work"
+const scenarios = [
+    {
+        title: "Brand Campaign",
+        desc: "KinStrategi sources the photographer, videographer, designer. Leiré develops the campaign concept, writes scripts, and directs creative production. Outcome: seamless end-to-end campaign with aligned vision and execution."
+    },
+    {
+        title: "Event Launch",
+        desc: "KinStrategi coordinates vendors and sources talent. Leiré designs the event narrative, theme, spatial storytelling, and experiential flow. Outcome: immersive event with clear creative direction."
+    },
+    {
+        title: "Content Production",
+        desc: "KinStrategi builds the content team and manages workflow. Leiré writes concepts, scripts, and creative direction. Outcome: a content calendar that tells a cohesive brand story."
+    }
 ];
 
 export default function Leire() {
+    const navigate = useNavigate();
     return (
         <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-24 pb-32">
             {/* Background with slow push-in animation */}
@@ -115,9 +124,10 @@ export default function Leire() {
                     </div>
 
                     <motion.button
+                        onClick={() => navigate('/sign-station')}
                         whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(173, 58, 60, 0.4)" }}
                         whileTap={{ scale: 0.95 }}
-                        className="bg-brand-accent-1/10 border border-brand-accent-1 text-white px-10 py-5 font-heading tracking-widest uppercase text-sm shadow-[0_0_15px_rgba(173,58,60,0.2)] transition-all overflow-hidden relative group backdrop-blur-sm"
+                        className="bg-brand-accent-1/10 border border-brand-accent-1 text-white px-10 py-5 font-heading tracking-widest uppercase text-sm shadow-[0_0_15px_rgba(173,58,60,0.2)] transition-all overflow-hidden relative group backdrop-blur-sm cursor-pointer z-20"
                     >
                         <span className="relative z-10">What's the Big Idea?</span>
                         <motion.div
@@ -234,9 +244,10 @@ export default function Leire() {
                                 Four steps. No fluff. We keep the process grounded so the ideas can be limitless.
                             </p>
                             <motion.button
+                                onClick={() => navigate('/sign-station')}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="bg-brand-accent-2 text-brand-dark px-8 py-4 font-heading tracking-widest uppercase text-sm font-bold shadow-lg"
+                                className="bg-brand-accent-2 text-brand-dark px-8 py-4 font-heading tracking-widest uppercase text-sm font-bold shadow-lg cursor-pointer"
                             >
                                 Start a Project
                             </motion.button>
@@ -244,9 +255,9 @@ export default function Leire() {
 
                         <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-12">
                             {steps.map((item, idx) => (
-                                <div key={idx} className="relative">
-                                    <span className="font-tech text-3xl text-brand-accent-1/30 absolute -top-4 -left-4 z-0 font-bold select-none">{item.step}</span>
-                                    <div className="relative z-10">
+                                <div key={idx} className="relative pt-6">
+                                    <span className="font-tech text-3xl text-brand-accent-1/40 absolute top-0 left-0 z-0 font-bold select-none">{item.step}</span>
+                                    <div className="relative z-10 mt-6">
                                         <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
                                         <p className="font-body text-gray-400 font-light text-sm leading-relaxed">{item.desc}</p>
                                     </div>
@@ -256,7 +267,7 @@ export default function Leire() {
                     </div>
                 </motion.div>
 
-                {/* Who This Is For + Close */}
+                {/* How KinStrategi & Leiré Work Together + Close */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -265,12 +276,13 @@ export default function Leire() {
                     className="flex flex-col md:flex-row gap-16 items-center"
                 >
                     <div className="w-full md:w-1/2 p-12 bg-black/30 border border-brand-accent-1/20 backdrop-blur-sm">
-                        <h2 className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-8 block">Who This Is For</h2>
-                        <ul className="space-y-4">
-                            {audience.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-3">
-                                    <div className="w-1.5 h-1.5 bg-brand-accent-2 rounded-full mt-2" />
-                                    <span className="font-body font-light text-gray-300">{item}</span>
+                        <h2 className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-4 block">How KinStrategi & Leiré Work Together</h2>
+                        <h3 className="font-heading text-2xl font-bold mb-8 italic text-white drop-shadow-md">KinStrategi builds the engine. Leiré ignites the idea.</h3>
+                        <ul className="space-y-6">
+                            {scenarios.map((item, idx) => (
+                                <li key={idx} className="flex flex-col gap-1 border-b border-white/5 pb-4 last:border-b-0 last:pb-0">
+                                    <span className="font-tech text-brand-accent-2 text-[10px] tracking-widest uppercase">Scenario {idx + 1} — {item.title}</span>
+                                    <span className="font-body font-light text-gray-300 text-sm leading-relaxed">{item.desc}</span>
                                 </li>
                             ))}
                         </ul>
@@ -285,9 +297,10 @@ export default function Leire() {
                         </p>
 
                         <motion.button
+                            onClick={() => navigate('/sign-station')}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(209, 174, 166, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-brand-accent-2/10 border border-brand-accent-2 text-brand-accent-2 px-10 py-5 font-heading tracking-widest uppercase text-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent-2/50"
+                            className="bg-brand-accent-2/10 border border-brand-accent-2 text-brand-accent-2 px-10 py-5 font-heading tracking-widest uppercase text-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent-2/50 cursor-pointer"
                         >
                             Let's Yap
                         </motion.button>

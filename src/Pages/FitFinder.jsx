@@ -34,13 +34,13 @@ export default function FitFinder() {
                     transition={{ duration: 3, repeat: Infinity }}
                     className="font-tech text-brand-accent-2 tracking-widest uppercase text-sm mb-4 block"
                 >
-                    Interactive Diagnostic
+                    Fit Finder
                 </motion.span>
                 <h1 className="font-heading text-5xl md:text-7xl font-bold mb-8">
-                    Fit <span className="text-brand-accent-2">Finder</span>
+                    Find Your <span className="text-brand-accent-2">Fit.</span>
                 </h1>
                 <p className="font-body text-xl text-gray-300 font-light mb-12 max-w-2xl mx-auto">
-                    Calibrate your operational matrix to discover optimal structural configurations.
+                    Are you a brand looking for the right creative team? Or a creative looking for the right clients?
                 </p>
 
                 <motion.div
@@ -57,11 +57,11 @@ export default function FitFinder() {
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-accent-2 to-transparent opacity-50"></div>
 
                     <div className="mb-8 relative z-10">
-                        <h3 className="font-tech text-brand-accent-2 text-sm uppercase mb-4">Phase 1: Operational Baseline</h3>
+                        <h3 className="font-tech text-brand-accent-2 text-sm uppercase mb-4">Don't blink — you're almost done. We just need to decode how your engine runs.</h3>
                         <div className="w-full bg-black/50 h-2 rounded-full overflow-hidden relative">
                             <motion.div
                                 initial={{ width: 0 }}
-                                animate={{ width: "25%" }}
+                                animate={{ width: "20%" }}
                                 transition={{ duration: 1.5, delay: 0.5, ease: "easeInOut" }}
                                 className="h-full bg-brand-accent-2"
                             />
@@ -69,15 +69,15 @@ export default function FitFinder() {
                                 animate={{ opacity: [0, 1, 0] }}
                                 transition={{ duration: 1.5, repeat: Infinity }}
                                 className="absolute top-0 h-full w-4 bg-white/50 blur-[2px]"
-                                style={{ left: "calc(25% - 8px)" }}
+                                style={{ left: "calc(20% - 8px)" }}
                             />
                         </div>
                     </div>
 
-                    <h2 className="font-heading text-2xl font-semibold mb-6 relative z-10">What is the primary constraint vector in your current scaling phase?</h2>
+                    <h2 className="font-heading text-2xl font-semibold mb-6 relative z-10">Select your aesthetic DNA:</h2>
 
                     <div className="space-y-4 relative z-10">
-                        {['Talent Acquisition Velocity', 'Structural Fidelity', 'Creative Output Bandwidth', 'Cross-Functional Alignment'].map((option, idx) => (
+                        {['Minimal & modern', 'Bold & experimental', 'Warm & human-centered', 'Timeless & classic', 'Playful & expressive', 'Cultural & heritage-inspired'].map((option, idx) => (
                             <motion.label
                                 key={idx}
                                 whileHover={{ x: 10, backgroundColor: "rgba(255,255,255,0.05)" }}
@@ -92,11 +92,12 @@ export default function FitFinder() {
 
                     <div className="mt-10 flex justify-end relative z-10">
                         <motion.button
+                            onClick={() => alert("This diagnostic tool will be fully integrated with a platform like Typeform/SurveyMonkey soon.")}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="uppercase font-tech text-sm tracking-widest border border-brand-accent-2 text-brand-accent-2 px-8 py-3 hover:bg-brand-accent-2 hover:text-brand-dark hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all"
+                            className="uppercase font-tech text-sm tracking-widest border border-brand-accent-2 text-brand-accent-2 px-8 py-3 hover:bg-brand-accent-2 hover:text-brand-dark hover:shadow-[0_0_20px_rgba(212,175,55,0.5)] transition-all cursor-pointer"
                         >
-                            Initialize Phase 2
+                            Next Question
                         </motion.button>
                     </div>
                 </motion.div>

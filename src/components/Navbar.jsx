@@ -3,16 +3,20 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
+import kinLogoWhite from '../assets/kinstrategi-logo-white.png';
+import kinLogoColor from '../assets/kinstrategi-logo-color.png';
+
 const NAV_LINKS = [
     { name: 'Home', path: '/' },
-    { name: 'Playbook', path: '/playbook' },
-    { name: 'Harmony Match', path: '/harmony' },
-    { name: 'Fit Finder', path: '/fit-finder' },
-    { name: 'Fit Hub', path: '/fit-hub' },
+    { name: 'The Playbook', path: '/playbook' },
+    { name: 'Leiré', path: '/leire' },
     { name: 'Manifesto', path: '/manifesto' },
-    { name: 'Signal Station', path: '/signals' },
+    { name: 'Signal Station', path: '/signal-station' },
+    { name: 'Fit Finder', path: '/fit-finder' },
+    { name: 'The Citadel', path: '/citadel' },
     { name: 'Kin Feed', path: '/kin-feed' },
-    { name: 'Leiré', path: '/leire' }
+    { name: 'Our Work', path: '/our-work' },
+    { name: 'Sign Station', path: '/sign-station' }
 ];
 
 export default function Navbar() {
@@ -27,9 +31,32 @@ export default function Navbar() {
                     <div className="flex justify-between items-center h-20">
 
                         <Link to="/" className="flex-shrink-0 flex items-center gap-2 relative z-[110]">
-                            <span className="font-heading text-xl md:text-2xl font-bold tracking-tight text-white drop-shadow-lg">
-                                {isLeire ? 'Leiré Studio' : 'KinStrategi'}
-                            </span>
+                            {isLeire ? (
+                                <span className="font-heading text-xl md:text-2xl font-bold tracking-tight text-white drop-shadow-lg">
+                                    Leiré Studio
+                                </span>
+                            ) : (
+                                <div className="h-6 md:h-8 w-40 md:w-56 relative group flex items-center">
+                                    <div
+                                        className="absolute inset-0 bg-white transition-opacity duration-500 group-hover:opacity-0 pointer-events-none"
+                                        style={{
+                                            WebkitMaskImage: `url(${kinLogoWhite})`,
+                                            WebkitMaskSize: 'contain',
+                                            WebkitMaskRepeat: 'no-repeat',
+                                            WebkitMaskPosition: 'left center',
+                                            maskImage: `url(${kinLogoWhite})`,
+                                            maskSize: 'contain',
+                                            maskRepeat: 'no-repeat',
+                                            maskPosition: 'left center'
+                                        }}
+                                    />
+                                    <img
+                                        src={kinLogoColor}
+                                        alt="KinStrategi Logo"
+                                        className="h-full w-auto object-contain object-left opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                    />
+                                </div>
+                            )}
                         </Link>
 
                         {/* Desktop Menu */}

@@ -7,19 +7,19 @@ import { motion, useScroll, useTransform, useMotionValueEvent } from 'framer-mot
 
 export default function Layout({ children }) {
     const location = useLocation();
-    const isLeire = location.pathname === '/leire';
+    const isLeire = location.pathname.includes('/leire');
 
     const { scrollY } = useScroll();
 
     // The Luminous Descent - Color Maps
-    const leireDarkMap = ["#151214", "#D1AEA6", "#F4F2EF"]; // Charcoal Noir -> Clay Blush -> Matte Ivory
-    const kinDarkMap = ["#111111", "#E4DCD3", "#F4F2EF"];   // Charcoal Black -> Warm Beige -> Matte Ivory
+    const leireDarkMap = ["#151214", "#FAFAF8", "#FAFAF8"]; // Charcoal Noir -> Friendly White -> Matte Ivory
+    const kinDarkMap = ["#111111", "#FAFAF8", "#FAFAF8"];   // Charcoal Black -> Friendly White -> Matte Ivory
 
-    const leireBaseMap = ["#292528", "#ECA2C1", "#F4F2EF"]; // Charcoal Noir -> Soft Pink -> Matte Ivory
-    const kinBaseMap = ["#1E1B3C", "#ECA2C1", "#E4DCD3"];   // Deep Indigo -> Soft Pink -> Warm Beige
+    const leireBaseMap = ["#292528", "#FFFFFF", "#FAFAF8"]; // Charcoal Noir -> True White -> Matte Ivory
+    const kinBaseMap = ["#1E1B3C", "#FFFFFF", "#E4DCD3"];   // Deep Indigo -> True White -> Warm Beige
 
-    const leireTextMap = ["#F8F5F5", "#333333", "#111111"]; // White -> Dark Gray -> Black
-    const kinTextMap = ["#F8F8FD", "#333333", "#111111"];   // Off-White -> Dark Gray -> Black
+    const leireTextMap = ["#F8F5F5", "#222222", "#111111"];
+    const kinTextMap = ["#F8F8FD", "#222222", "#111111"];
 
     // Pre-calculate transforms for both themes to ensure smooth transition caching
     const kinDark = useTransform(scrollY, [0, 1000, 2500], kinDarkMap);
@@ -48,6 +48,14 @@ export default function Layout({ children }) {
         document.documentElement.style.setProperty("--color-dark", isLeire ? leireDarkMap[0] : kinDarkMap[0]);
         document.documentElement.style.setProperty("--color-base", isLeire ? leireBaseMap[0] : kinBaseMap[0]);
         document.documentElement.style.setProperty("--text-color", isLeire ? leireTextMap[0] : kinTextMap[0]);
+
+        // Dynamically assign Accents to root, resolving nested scopes
+        document.documentElement.style.setProperty("--color-accent-1", isLeire ? "#AD3A3C" : "#5B3E96");
+        document.documentElement.style.setProperty("--color-accent-2", isLeire ? "#D1AEA6" : "#D4AF37");
+        document.documentElement.style.setProperty("--color-accent-3", isLeire ? "#AD3A3C" : "#00A7A7");
+
+        // Swap Fonts globally
+        document.documentElement.style.setProperty("--font-heading", isLeire ? "'Playfair Display', serif" : "'Space Grotesk', sans-serif");
     }, [location.pathname, isLeire]);
 
     // Ambient tech light overlay at the top, which fades out as we transition into the bright 'Descent' zone
@@ -55,7 +63,7 @@ export default function Layout({ children }) {
     const bgY = useTransform(scrollY, [0, 1200], ["-20%", "0%"]);
 
     return (
-        <div className={`min-h-screen flex flex-col ${isLeire ? 'theme-leire' : ''}`}>
+        <div className="min-h-screen flex flex-col">
             <MouseGlow />
             <Navbar />
 

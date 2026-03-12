@@ -4,22 +4,22 @@ import signalBg from '../assets/Signal Station_ Thought Leadership Feed.png';
 const categories = [
     {
         title: "Behind the Scenes",
-        desc: "Our thinking process, laid out for you to see. How we find people, manage projects, and make decisions.",
+        desc: "A look at how we actually work — how we hire, how we manage projects, and what we've learned along the way.",
         accent: "brand-accent-2"
     },
     {
         title: "Client Results",
-        desc: "Clear proof that our systems work. The problem, the strategy, the system, and the final outcome.",
+        desc: "Real projects, broken down honestly. What wasn't working, what we did about it, and what changed.",
         accent: "brand-accent-3"
     },
     {
         title: "Kin Praise",
-        desc: "The full story behind the feedback. The starting point, the change, and why it actually worked.",
+        desc: "Testimonials with context. Not just what clients said, but why it mattered and what got them there.",
         accent: "brand-accent-1"
     },
     {
-        title: "Culture & Strategy",
-        desc: "The human side of business. Team dynamics, hiring fails, and why structure gives you freedom.",
+        title: "Culture & Strategy Insights",
+        desc: "The human side of creative work. Team dynamics, hiring mistakes, what good fit actually looks like, and why structure isn't the enemy of creativity.",
         accent: "brand-accent-2"
     }
 ];
@@ -109,12 +109,14 @@ export default function SignalStation() {
                         <span className="font-tech text-brand-accent-2 text-sm uppercase tracking-[0.3em] mb-4 block opacity-80">
                             Strategy & Insights Blog
                         </span>
-                        <h1 className="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wider mb-6">
-                            Signal <span className="text-brand-accent-2">Station</span>
+                        <h1 className="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wider mb-2">
+                            Signal <span className="text-brand-accent-2">Station.</span>
                         </h1>
+                        <h2 className="font-heading text-2xl md:text-3xl font-light text-brand-accent-2 mb-6">
+                            No fluff. Just the stuff that actually matters.
+                        </h2>
                         <p className="font-body text-xl text-gray-300 font-light leading-relaxed max-w-2xl">
-                            Short. Sharp. Insight over noise. <br />
-                            We aren't just sharing for the sake of it. We are cutting out the fluff to give you deep, honest insights into how real strategy meets the real story.
+                            We write about what we know. Creative operations, team dynamics, brand strategy, and the thinking behind work that holds up over time.
                         </p>
                     </div>
 
@@ -176,6 +178,7 @@ export default function SignalStation() {
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                                 whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }}
+                                onClick={() => alert("Full reading page for this ping coming soon.")}
                                 className="bg-brand-base/40 border border-white/5 backdrop-blur-md relative overflow-hidden group cursor-pointer flex flex-col h-full"
                             >
                                 {/* Hover sweep effect */}

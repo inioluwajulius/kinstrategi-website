@@ -1,35 +1,37 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import manifestoBg from '../assets/Manifesto_ The KinStrategi Philosophy.png';
 
 const beliefs = [
     {
         num: "01",
-        title: "Fit matters just as much as talent.",
-        text: "Skill on its own isn't enough. If people don't work well together, there will be friction. When the right talent comes together in the right way, everything moves better."
+        title: "FIT MATTERS AS MUCH AS TALENT.",
+        text: "The most skilled person in the room can still be the wrong hire. When the right people come together in the right way, the work shows it."
     },
     {
         num: "02",
-        title: "Structure helps creativity.",
-        text: "Having clear systems doesn't limit ideas. It actually gives creative people the space to do their best work."
+        title: "STRUCTURE HELPS CREATIVITY.",
+        text: "A clear system isn't a cage for ideas. It's what gives creative people the breathing room to actually do their best work"
     },
     {
         num: "03",
-        title: "Ideas need depth.",
-        text: "We don't follow trends or take the obvious route. We think deeply and explore original ways to express your message. Our focus is to communicate it in a way that feels real, human, and true to the heart of the idea."
+        title: "IDEAS NEED DEPTH.",
+        text: "We don't take the obvious route. We dig into what a brand is really trying to say, and find the most honest way to say it."
     },
     {
         num: "04",
-        title: "Energy matters.",
-        text: "Teams are made up of real people, not just job titles. We don't choose based on resumes alone. We look at how people think, how they work, and how they work with others."
+        title: "ENERGY MATTERS.",
+        text: "A resume tells you what someone has done. It doesn't tell you how they think, how they show up, or how they work with others. We pay attention to all of it."
     },
     {
         num: "05",
-        title: "Creativity needs support.",
-        text: "It's not just a one-time project or a trend. It needs the right people, structure, and care to grow and last. It's something that must be nurtured, supported, and sustained."
+        title: "CREATIVITY NEEDS SUPPORT.",
+        text: "Great creative work doesn't sustain itself. It needs the right people around it, the right systems behind it, and someone paying attention to it long-term."
     }
 ];
 
 export default function Manifesto() {
+    const navigate = useNavigate();
     const { scrollY } = useScroll();
     const y1 = useTransform(scrollY, [0, 2000], [0, 400]);
 
@@ -93,7 +95,7 @@ export default function Manifesto() {
                         <h2 className="font-tech text-brand-accent-1 text-sm tracking-[0.2em] uppercase mb-6 block">Why We Exist</h2>
                         <h3 className="font-heading text-4xl mb-8">We've seen:</h3>
                         <ul className="space-y-6 font-body text-lg text-gray-400 font-light">
-                            <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Founders with vision but no operational backbone.</li>
+                            <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Founders with vision and no operational backbone.</li>
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Teams burning out from poor coordination.</li>
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Agencies chasing output without depth.</li>
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Talent placed into rooms where they never belonged.</li>
@@ -114,10 +116,10 @@ export default function Manifesto() {
                         <div className="mt-8 pt-8 border-t border-white/10">
                             <p className="font-tech text-brand-accent-3 text-xs uppercase mb-4 opacity-70 tracking-widest">Together, we bridge:</p>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-sm text-gray-400">
-                                <span>Idea & execution</span>
-                                <span>Talent & alignment</span>
-                                <span>Art & infrastructure</span>
-                                <span>Imagination & scale</span>
+                                <span>Idea and execution</span>
+                                <span>Talent and alignment</span>
+                                <span>Art and infrastructure</span>
+                                <span>Imagination and scale</span>
                             </div>
                         </div>
                     </div>
@@ -129,7 +131,7 @@ export default function Manifesto() {
                     viewport={{ once: true }}
                     className="text-center max-w-3xl mx-auto mb-40 text-2xl md:text-3xl text-gray-200 font-light leading-relaxed"
                 >
-                    <p className="mb-4">We're not here to just put things out for attention.</p>
+                    <p className="mb-4">We're not here to just put things out.</p>
                     <p className="text-brand-accent-2 font-medium">We're here to build creative systems that are strong, meaningful, and built to last.</p>
                 </motion.div>
 
@@ -164,7 +166,7 @@ export default function Manifesto() {
                     </div>
                 </div>
 
-                {/* 4. Scroll Storytelling / Close */}
+                {/* 4. Closing CTAs */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -172,37 +174,21 @@ export default function Manifesto() {
                     transition={{ duration: 1 }}
                     className="text-center max-w-4xl mx-auto space-y-12"
                 >
-                    <p className="font-body text-xl md:text-2xl text-gray-400 font-light">
-                        We're not trying to fix hiring.<br />
-                        We're focused on bringing the right people together so they work well as a team.
-                    </p>
-
-                    <h2 className="font-heading text-4xl md:text-6xl font-bold leading-tight">
-                        We connect the right energy <br />
-                        <span className="text-brand-accent-3">to the right vision.</span>
-                    </h2>
-
-                    <div className="font-body text-xl text-gray-300 font-light space-y-4">
-                        <p>Talent is everywhere.</p>
-                        <p>Finding the right fit takes thought and strategy.</p>
-                        <p className="text-brand-accent-2 text-2xl">
-                            We're building a world where the right people are in the right roles, working in sync and moving forward together.
-                        </p>
-                    </div>
-
                     <div className="pt-16 flex flex-col sm:flex-row gap-6 justify-center">
                         <motion.button
+                            onClick={() => navigate('/sign-station')}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 167, 167, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-brand-accent-3/20 border border-brand-accent-3 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm transition-all"
+                            className="bg-brand-accent-3/20 border border-brand-accent-3 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm transition-all cursor-pointer"
                         >
                             Let's Talk Strategy
                         </motion.button>
 
                         <motion.button
+                            onClick={() => navigate('/citadel')}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
-                            className="bg-brand-accent-1/20 border border-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm transition-all"
+                            className="bg-brand-accent-1/20 border border-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm transition-all cursor-pointer"
                         >
                             Join the Citadel
                         </motion.button>
