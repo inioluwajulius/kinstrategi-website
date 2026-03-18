@@ -15,7 +15,7 @@ export default function KinFeed() {
                 className="absolute inset-0 z-0 bg-cover bg-no-repeat"
                 style={{ backgroundImage: `url('${kinBg}')`, backgroundSize: "150% auto" }}
             />
-            <div className="absolute inset-0 z-0 bg-black/70 backdrop-blur-[1px]" />
+            <div className="absolute inset-0 z-0 bg-black/85 backdrop-blur-[2px]" />
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -30,10 +30,10 @@ export default function KinFeed() {
                     <h2 className="font-heading text-2xl md:text-3xl text-brand-accent-2 mb-6">
                         These are the missions we are matching for right now.
                     </h2>
-                    <p className="font-body text-xl text-gray-300 font-light mb-4">
+                    <p className="font-body text-xl text-white font-medium mb-4 drop-shadow-md">
                         We don't do blind job boards. Every role we share is matched directly from our private talent pool, built on alignment, vetting, and trust.
                     </p>
-                    <p className="font-body text-xl text-gray-300 font-light">
+                    <p className="font-body text-xl text-white font-medium drop-shadow-md">
                         To take on a mission, you must be a member of the KinStrategi Citadel. We only match roles with talent we already know and trust.
                     </p>
                 </div>

@@ -43,6 +43,7 @@ export default function Footer() {
 
                 {/* Column 2 — Services */}
                 <div>
+                    <h3 className="text-white font-heading font-medium mb-4">Services</h3>
                     <ul className="space-y-3 text-sm font-light text-gray-400">
                         <li>Brand Strategy & Development</li>
                         <li>Creative Production</li>
@@ -55,6 +56,7 @@ export default function Footer() {
 
                 {/* Column 3 — Navigate */}
                 <div>
+                    <h3 className="text-white font-heading font-medium mb-4">Navigate</h3>
                     <ul className="space-y-3 text-sm font-light text-gray-400">
                         <li><Link to="/" className="hover:text-brand-accent-1 transition-colors">Home</Link></li>
                         <li><Link to="/playbook" className="hover:text-brand-accent-1 transition-colors">The Playbook</Link></li>
@@ -64,16 +66,17 @@ export default function Footer() {
                         <li><Link to="/our-work" className="hover:text-brand-accent-1 transition-colors">Our Work</Link></li>
                         <li><Link to="/citadel" className="hover:text-brand-accent-1 transition-colors">The Citadel</Link></li>
                         <li><Link to="/kin-feed" className="hover:text-brand-accent-1 transition-colors">Kin Feed</Link></li>
-                        <li><Link to="/sign-station" className="hover:text-brand-accent-1 transition-colors">Sign Station</Link></li>
+                        <li><Link to="/sign-station" className="hover:text-brand-accent-1 transition-colors">Reception</Link></li>
                     </ul>
                 </div>
 
                 {/* Column 4 — Signals & Legal */}
                 <div>
+                    <h3 className="text-white font-heading font-medium mb-4">Signals & Legal</h3>
                     <ul className="space-y-3 text-sm font-light text-gray-400">
-                        <li><Link to="/signal-station" className="hover:text-brand-accent-3 transition-colors">Signal Station (Blog/Insights)</Link></li>
-                        <li><a href="#" className="hover:text-brand-accent-3 transition-colors">On the Record (Vodcasts)</a></li>
-                        <li><Link to="/kin-feed" className="hover:text-brand-accent-3 transition-colors">Kin Feed (Jobs)</Link></li>
+                        <li><Link to="/signal-station" className="hover:text-brand-accent-3 transition-colors">Signal Station</Link></li>
+                        <li><a href="#" className="hover:text-brand-accent-3 transition-colors">On the Record</a></li>
+                        <li><Link to="/kin-feed" className="hover:text-brand-accent-3 transition-colors">Kin Feed</Link></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Referrals</a></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Privacy Policy</a></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Terms & Conditions</a></li>

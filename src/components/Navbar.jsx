@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 
 import kinLogoWhite from '../assets/kinstrategi-logo-white.png';
 import kinLogoColor from '../assets/kinstrategi-logo-color.png';
+import leireLogo from '../assets/Leire icon.png';
 
 const NAV_LINKS = [
     { name: 'Home', path: '/' },
@@ -16,7 +17,7 @@ const NAV_LINKS = [
     { name: 'The Citadel', path: '/citadel' },
     { name: 'Kin Feed', path: '/kin-feed' },
     { name: 'Our Work', path: '/our-work' },
-    { name: 'Sign Station', path: '/sign-station' }
+    { name: 'Reception', path: '/sign-station' }
 ];
 
 export default function Navbar() {
@@ -32,9 +33,16 @@ export default function Navbar() {
 
                         <Link to="/" className="flex-shrink-0 flex items-center gap-2 relative z-[110]">
                             {isLeire ? (
-                                <span className="font-heading text-xl md:text-2xl font-bold tracking-tight text-white drop-shadow-lg">
-                                    Leiré Studio
-                                </span>
+                                <div className="flex items-center gap-1">
+                                    <img
+                                        src={leireLogo}
+                                        alt="Leiré Studio Logo"
+                                        className="h-12 md:h-16 w-auto object-contain"
+                                    />
+                                    <span className="font-heading text-xl md:text-2xl font-bold tracking-tight text-white drop-shadow-lg">
+                                        Leiré Studio
+                                    </span>
+                                </div>
                             ) : (
                                 <div className="h-6 md:h-8 w-40 md:w-56 relative group flex items-center">
                                     <div

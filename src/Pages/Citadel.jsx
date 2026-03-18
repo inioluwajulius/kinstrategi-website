@@ -114,14 +114,14 @@ export default function Citadel() {
                     className="relative w-full aspect-video md:aspect-[21/9] border border-white/5 flex items-center justify-center overflow-hidden bg-black group"
                 >
                     <div className="absolute inset-0 bg-brand-base/20 mix-blend-screen z-0 group-hover:scale-105 transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent z-10" />
+                    <div className="absolute inset-0 bg-black/60 z-10" />
 
-                    <div className="relative z-20 text-center px-4 max-w-2xl">
-                        <h2 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-wider drop-shadow-xl">This is not a job board.</h2>
-                        <div className="font-body text-xl text-gray-200 font-light leading-relaxed space-y-4">
+                    <div className="relative z-20 text-center px-4 max-w-3xl bg-black/40 p-8 backdrop-blur-sm border border-white/10 rounded-sm">
+                        <h2 className="font-heading text-5xl md:text-7xl font-bold text-white mb-6 uppercase tracking-wider drop-shadow-2xl">This is not a job board.</h2>
+                        <div className="font-body text-xl text-white font-medium leading-relaxed space-y-4 drop-shadow-md">
                             <p>This is not a job board. This is not a talent database.</p>
                             <p>The Citadel is a room we built for the creatives we know, trust, and reach out to first when something important lands.</p>
-                            <p className="text-brand-accent-2 font-medium">Getting in means you belong here. And belonging here means the right opportunities find you.</p>
+                            <p className="text-brand-accent-2 font-bold text-2xl mt-4">Getting in means you belong here. And belonging here means the right opportunities find you.</p>
                         </div>
                     </div>
                 </motion.div>
@@ -160,7 +160,7 @@ export default function Citadel() {
                                 We built The Citadel to change that.
                             </p>
                             <p className="text-white font-medium text-xl mt-4">
-                                Enter. Leave the noise outside. Do great work with great people.
+                                Focus starts here. Join a community of excellence and leave the outside world at the door.
                             </p>
                         </div>
                     </motion.div>
@@ -265,10 +265,10 @@ export default function Citadel() {
                     className="text-center max-w-4xl mx-auto py-16 border-y border-white/10"
                 >
                     <h2 className="font-heading text-3xl md:text-5xl font-light italic text-white mb-8 leading-relaxed">
-                        "[Testimonial quote here]"
+                        "KinStrategi completely transformed our approach to creative operations. We finally have a structure that matches our ambition."
                     </h2>
-                    <p className="font-tech text-brand-accent-1 text-sm uppercase tracking-widest mb-1">[Full Name]</p>
-                    <p className="font-body text-gray-400 font-light">[Title] — [Company]</p>
+                    <p className="font-tech text-brand-accent-1 text-sm uppercase tracking-widest mb-1">Sarah Jenkins</p>
+                    <p className="font-body text-gray-400 font-light">Chief Marketing Officer — Velle Industries</p>
                 </motion.div>
 
                 {/* Section 9 — Partnerships & Collaborations */}

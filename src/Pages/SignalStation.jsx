@@ -75,7 +75,10 @@ const pings = [
     }
 ];
 
+import { useState } from 'react';
 export default function SignalStation() {
+    const [selectedPing, setSelectedPing] = useState(null);
+
     return (
         <div className="relative min-h-screen py-32 overflow-hidden flex flex-col justify-start">
             <style dangerouslySetInnerHTML={{
@@ -178,7 +181,7 @@ export default function SignalStation() {
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.5, delay: idx * 0.1 }}
                                 whileHover={{ y: -5, boxShadow: "0 15px 30px rgba(0,0,0,0.5)" }}
-                                onClick={() => alert("Full reading page for this ping coming soon.")}
+                                onClick={() => setSelectedPing(ping)}
                                 className="bg-brand-base/40 border border-white/5 backdrop-blur-md relative overflow-hidden group cursor-pointer flex flex-col h-full"
                             >
                                 {/* Hover sweep effect */}
@@ -224,6 +227,33 @@ export default function SignalStation() {
                 </motion.div>
 
             </div>
+
+            {/* Coming Soon Modal */}
+            {selectedPing && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center px-4">
+                    <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" onClick={() => setSelectedPing(null)} />
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="relative z-10 w-full max-w-lg bg-brand-dark border border-white/10 p-8 shadow-2xl"
+                    >
+                        <div className={`w-8 h-1 bg-${selectedPing.accent} mb-6`} />
+                        <h3 className="font-heading text-3xl font-bold mb-4">{selectedPing.title}</h3>
+                        <p className="font-body text-gray-300 font-light mb-8">
+                            This full article is being finalized and will be pushed to the Signal Station shortly.
+                        </p>
+                        <div className="flex justify-end">
+                            <button
+                                onClick={() => setSelectedPing(null)}
+                                className="font-tech text-xs uppercase tracking-widest text-white/50 hover:text-white transition-colors"
+                            >
+                                Close
+                            </button>
+                        </div>
+                    </motion.div>
+                </div>
+            )}
         </div>
     );
 }
