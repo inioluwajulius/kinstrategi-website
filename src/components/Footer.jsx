@@ -31,7 +31,7 @@ export default function Footer() {
                             />
                         </div>
                     </Link>
-                    <p className="font-body text-sm font-light text-brand-accent-2 italic relative z-10 left-1 pt-2">Creative teams that just click.</p>
+                    <p className="font-body text-sm font-light text-brand-accent-2 italic relative z-10 left-1 pt-2">For founders building beyond borders.</p>
                     <div className="flex gap-4">
                         {/* Social Icons Placeholder */}
                         <a href="#" className="hover:text-brand-accent-2 transition-colors">Insta</a>
@@ -45,12 +45,12 @@ export default function Footer() {
                 <div>
                     <h3 className="text-white font-heading font-medium mb-4">Services</h3>
                     <ul className="space-y-3 text-sm font-light text-gray-400">
-                        <li>Brand Strategy & Development</li>
-                        <li>Creative Production</li>
-                        <li>Campaign Strategy</li>
-                        <li>Content Creation</li>
-                        <li>Cultural Storytelling</li>
-                        <li>Creative Ops (Ops-as-a-Service)</li>
+                        <li>Brand & Growth Strategy</li>
+                        <li>Talent & Team Building</li>
+                        <li>Creative Operations (KinOps)</li>
+                        <li>AI & Intelligent Operations</li>
+                        <li>Launch & Expansion</li>
+                        <li>Market Access (Leiré Passage)</li>
                     </ul>
                 </div>
 
@@ -64,7 +64,6 @@ export default function Footer() {
                         <li><Link to="/manifesto" className="hover:text-brand-accent-1 transition-colors">Manifesto</Link></li>
                         <li><Link to="/signal-station" className="hover:text-brand-accent-1 transition-colors">Signal Station</Link></li>
                         <li><Link to="/our-work" className="hover:text-brand-accent-1 transition-colors">Our Work</Link></li>
-                        <li><Link to="/citadel" className="hover:text-brand-accent-1 transition-colors">The Citadel</Link></li>
                         <li><Link to="/kin-feed" className="hover:text-brand-accent-1 transition-colors">Kin Feed</Link></li>
                         <li><Link to="/sign-station" className="hover:text-brand-accent-1 transition-colors">Reception</Link></li>
                     </ul>

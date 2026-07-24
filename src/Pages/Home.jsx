@@ -35,7 +35,7 @@ export default function Home() {
         show: { opacity: 1, y: 0 }
     };
 
-    const headlineText = "Your partner in creative operations";
+    const headlineText = "We help founders build businesses that work.";
 
     return (
         <div className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-32 pb-64">
@@ -80,7 +80,7 @@ export default function Home() {
                     variants={textItem}
                     className="font-tech text-brand-accent-3 tracking-[0.3em] uppercase text-sm mb-8 block drop-shadow-sm font-medium"
                 >
-                    Creative teams that just click.
+                    For founders building beyond borders.
                 </motion.span>
 
                 <motion.div variants={textItem} className="relative group cursor-crosshair w-full flex justify-center mb-10">
@@ -115,7 +115,7 @@ export default function Home() {
 
                 <motion.div variants={textItem} className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-3xl mx-auto">
                     <motion.button
-                        onClick={() => navigate('/fit-finder')}
+                        onClick={() => navigate('/playbook')}
                         whileHover={{
                             scale: 1.05,
                             boxShadow: "0 0 30px rgba(0, 167, 167, 0.4)",
@@ -124,8 +124,8 @@ export default function Home() {
                         whileTap={{ scale: 0.95 }}
                         className="flex-1 bg-brand-accent-2/10 border border-brand-accent-3 text-white px-8 py-5 font-heading uppercase tracking-widest text-sm backdrop-blur-md transition-all relative overflow-hidden group/btn flex flex-col items-center justify-center gap-1 cursor-pointer z-20"
                     >
-                        <span className="relative z-10 font-bold tracking-[0.2em] text-lg">Start Matching</span>
-                        <span className="relative z-10 text-[11px] opacity-70 normal-case tracking-widest font-tech text-brand-accent-3">— for clients</span>
+                        <span className="relative z-10 font-bold tracking-[0.2em] text-lg">Explore the Playbook</span>
+                        <span className="relative z-10 text-[11px] opacity-70 normal-case tracking-widest font-tech text-brand-accent-3">— discover our services</span>
                         <motion.div
                             className="absolute inset-0 bg-brand-accent-3/20 z-0 origin-left"
                             initial={{ scaleX: 0 }}
@@ -135,7 +135,7 @@ export default function Home() {
                     </motion.button>
 
                     <motion.button
-                        onClick={() => navigate('/citadel')}
+                        onClick={() => navigate('/sign-station')}
                         whileHover={{
                             scale: 1.05,
                             boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)",
@@ -144,8 +144,8 @@ export default function Home() {
                         whileTap={{ scale: 0.95 }}
                         className="flex-1 bg-brand-accent-1/5 border border-brand-accent-1 text-white px-8 py-5 font-heading uppercase tracking-widest text-sm backdrop-blur-md transition-all relative overflow-hidden group/btn flex flex-col items-center justify-center gap-1 cursor-pointer z-20"
                     >
-                        <span className="relative z-10 font-bold tracking-[0.2em] text-lg">Join the Citadel</span>
-                        <span className="relative z-10 text-[11px] opacity-70 normal-case tracking-widest font-tech text-brand-accent-1">— for talent</span>
+                        <span className="relative z-10 font-bold tracking-[0.2em] text-lg">Let's Talk Strategy</span>
+                        <span className="relative z-10 text-[11px] opacity-70 normal-case tracking-widest font-tech text-brand-accent-1">— get started</span>
                         <motion.div
                             className="absolute inset-0 bg-brand-accent-1/20 z-0 origin-left"
                             initial={{ scaleX: 0 }}
@@ -231,14 +231,12 @@ export default function Home() {
                     <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-widest block opacity-70">Services</span>
                     <h2 className="font-heading text-4xl md:text-5xl font-bold mb-2">Six ways we show up for your brand.</h2>
                     <ul className="text-left md:text-center grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mt-8 mb-12 max-w-4xl mx-auto w-full">
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Brand Strategy & Development</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Creative Production</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Campaign Strategy</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Content Creation</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Cultural Storytelling</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">AI & Smart Systems</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Technical & Data Systems</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Creative Operations (Ops-as-a-Service)</li>
+                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Brand & Growth Strategy</li>
+                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Talent & Team Building</li>
+                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Creative Operations (KinOps)</li>
+                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">AI & Intelligent Operations</li>
+                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Launch & Expansion</li>
+                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Market Access (Leiré Passage)</li>
                     </ul>
                     <motion.button
                         onClick={() => navigate('/playbook')}
@@ -261,7 +259,7 @@ export default function Home() {
                     <h2 className="font-heading text-3xl md:text-4xl font-light italic text-white mb-8 leading-relaxed">
                         "Hi Shewa, thank you so much for all your help. I’ve recommended your services to a few friends. Looking forward to working on other projects."
                     </h2>
-                    <p className="font-tech text-brand-accent-2 text-sm uppercase tracking-widest">Bisola Akinduro — Founder & Aesthetician, Bacardi B/Living in Sanaa</p>
+                    <p className="font-tech text-brand-accent-2 text-sm uppercase tracking-widest">Bisola A. — Founder & Aesthetician, Bacardi B/Living in Sanaa</p>
                 </motion.div>
 
                 {/* Newsletter Sign-Up */}

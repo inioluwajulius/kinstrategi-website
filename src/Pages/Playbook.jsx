@@ -5,68 +5,67 @@ import playbookBg from '../assets/The Playbook_ Creative Ops Hierarchy.png';
 const services = [
     {
         level: "01",
-        title: "Brand Strategy & Development",
-        subtitle: "Build a brand that knows exactly what it stands for.",
+        title: "Brand & Growth Strategy",
+        subtitle: "We help you define what you're building, who it's for, and how to grow it with clarity and confidence.",
         bestFor: "Startups and growing teams needing clarity before they scale.",
-        pointsHeading: "Services:",
-        points: ["Brand Positioning", "Target Audience Clarity", "Messaging Frameworks", "90-Day Execution Plans"],
-        footer: "Deliverable: A clear brand roadmap and messaging system.",
+        pointsHeading: "Includes:",
+        points: ["Brand Positioning", "Market Research & Insights", "Audience Strategy", "Messaging Architecture", "Go-to-Market Strategy", "Market Expansion Planning", "Cultural Intelligence", "Launch Strategy", "90-Day Growth Roadmap"],
+        footer: "Starting from ₦650,000",
         cta: "Kini your strategy →",
         accent: "brand-accent-2"
     },
     {
         level: "02",
-        title: "Creative Production",
-        subtitle: "The people your project actually needs. Vetted, matched, and ready to move.",
-        bestFor: "Campaigns, short-term projects, and high-impact creative needs.",
-        pointsHeading: "Services:",
-        points: ["Talent Matching & Specialist Sourcing", "Onboarding & Contract Management", "Quality Milestone Oversight", "Creative Team Coordination"],
-        description: "Note: We shortlist 2–3 pre-vetted specialists with 80%+ Harmony Match™ alignment.",
-        footer: "",
-        cta: "Let’s Yap →",
+        title: "Talent & Team Building",
+        subtitle: "We source, vet, and match the right creative professionals, specialists, and partners for your business.",
+        bestFor: "Founders seeking the right talent fit without the overhead.",
+        pointsHeading: "Includes:",
+        points: ["Role Definition", "Talent Sourcing", "Candidate Vetting", "Team Matching", "Vendor Sourcing", "Hiring Support", "Onboarding Guidance"],
+        footer: "₦500,000 per successful placement",
+        cta: "Let's Yap →",
         accent: "brand-accent-3"
     },
     {
         level: "03",
-        title: "Campaign Strategy",
-        subtitle: "Campaigns that make people feel something, then do something.",
-        bestFor: "Brands launching something new or scaling awareness with purpose.",
-        pointsHeading: "Services:",
-        points: ["Campaign Concept & Direction", "Multi-Channel Strategy", "Performance Tracking", "Launch Planning"],
-        footer: "",
-        cta: "Kini your strategy →",
+        title: "Creative Operations (KinOps)",
+        subtitle: "We build the structure behind your creative work, bringing together people, projects, and processes.",
+        bestFor: "Founders scaling without expanding payroll.",
+        pointsHeading: "Includes:",
+        points: ["Creative Project Management", "Workflow Design", "Team Coordination", "Production Planning", "SOP Development", "Weekly Operations Oversight", "Founder Support", "Cross-functional Communication", "Quality Assurance", "Performance Reporting"],
+        footer: "Starting from ₦750,000/month",
+        cta: "Connect with Us About This →",
         accent: "brand-accent-1"
     },
     {
         level: "04",
-        title: "Content Creation",
-        subtitle: "The right content, on the right platform, at the right time.",
-        bestFor: "Brands needing consistent, high-quality content creation.",
-        pointsHeading: "Services:",
-        points: ["Content Calendars & Strategy", "Social Media Content (Instagram, TikTok, LinkedIn)", "Video Production & Photography", "Platform Optimisation"],
-        footer: "",
-        cta: "Let’s Yap →",
+        title: "AI & Intelligent Operations",
+        subtitle: "We design intelligent systems that help your business operate more efficiently, reduce manual work, and scale.",
+        bestFor: "Businesses wanting to optimize workflows.",
+        pointsHeading: "Includes:",
+        points: ["AI Workflow Design", "Business Process Automation", "Internal Knowledge Systems", "Tech Stack Advisory", "Workspace & Platform Setup", "Documentation Systems", "Dashboards & Reporting", "Operational Optimisation"],
+        footer: "Starting from ₦750,000",
+        cta: "Let's Yap →",
         accent: "brand-accent-2"
     },
     {
         level: "05",
-        title: "Cultural Storytelling",
-        subtitle: "Storytelling that actually sounds like the people it's made for.",
-        bestFor: "Brands building with African audiences or navigating cultural nuance in their messaging.",
-        pointsHeading: "Services:",
-        points: ["Culturally-Rooted Campaign Concepts", "African Market Narrative Strategy", "Heritage & Identity Brand Storytelling", "Editorial & Thought Leadership Writing"],
-        footer: "",
-        cta: "Connect with Us About This →",
+        title: "Launch & Expansion",
+        subtitle: "We coordinate the people, timelines, and moving parts behind your launch or expansion.",
+        bestFor: "Brands launching something new or scaling.",
+        pointsHeading: "Includes:",
+        points: ["Launch Strategy", "Rollout Planning", "Production Coordination", "Vendor Management", "Timeline Management", "Cross-Team Collaboration", "Market Entry Planning", "Post-Launch Review"],
+        footer: "Starting from ₦700,000",
+        cta: "Kini your strategy →",
         accent: "brand-accent-3"
     },
     {
         level: "06",
-        title: "Creative Operations (Ops-as-a-Service)",
-        subtitle: "The operational layer your creative team has been missing.",
-        bestFor: "Founders scaling without expanding payroll. Teams who want to scale output without hiring more staff.",
-        pointsHeading: "Services:",
-        points: ["Fractional Creative Operations Management", "Workflow Design & Systems", "AI Workflow Automation & Content Systems", "Technical Infrastructure & DevOps Support"],
-        footer: "",
+        title: "Market Access (Leiré Passage)",
+        subtitle: "For founders building beyond the markets they know. We coordinate practical details and experiences.",
+        bestFor: "Founders expanding into new global markets.",
+        pointsHeading: "Includes:",
+        points: ["Founder Travel & Local Coordination", "Arrival & Settling Support", "Curated Founder Experiences"],
+        footer: "Starting from ₦450,000",
         cta: "Connect with Us About This →",
         accent: "brand-accent-1"
     }
@@ -148,20 +147,20 @@ export default function Playbook() {
 
                             <div className="flex-grow space-y-6 relative z-10">
                                 <div>
-                                    <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Positioning</p>
+                                    <p className="font-tech text-white/70 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Positioning</p>
                                     <p className="font-body text-white font-medium text-lg leading-snug">{item.subtitle}</p>
                                 </div>
 
                                 <div>
-                                    <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Best For</p>
-                                    <p className="font-body text-gray-400 font-light">{item.bestFor}</p>
+                                    <p className="font-tech text-white/70 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Best For</p>
+                                    <p className="font-body text-gray-200 font-medium">{item.bestFor}</p>
                                 </div>
 
                                 <div>
                                     <p className={`font-tech text-xs tracking-widest uppercase mb-3 text-${item.accent}`}>{item.pointsHeading}</p>
                                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         {item.points.map((point, pIdx) => (
-                                            <li key={pIdx} className="flex items-start gap-2 font-body text-sm text-gray-300 font-light">
+                                            <li key={pIdx} className="flex items-start gap-2 font-body text-sm text-gray-100 font-medium">
                                                 <span className={`text-${item.accent} mt-[2px]`}>✦</span>
                                                 <span className="leading-tight">{point}</span>
                                             </li>
@@ -170,14 +169,14 @@ export default function Playbook() {
                                 </div>
 
                                 {item.description && (
-                                    <p className="font-body text-gray-400 font-light text-sm italic border-l-2 border-white/20 pl-4 py-1">
+                                    <p className="font-body text-gray-200 font-medium text-sm italic border-l-2 border-white/20 pl-4 py-1">
                                         {item.description}
                                     </p>
                                 )}
                             </div>
 
                             {item.footer && (
-                                <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-xs text-${item.accent} uppercase tracking-widest opacity-80 relative z-10`}>
+                                <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-xs text-${item.accent} uppercase tracking-widest opacity-90 relative z-10`}>
                                     // {item.footer}
                                 </div>
                             )}
@@ -225,7 +224,7 @@ export default function Playbook() {
                             </span>
                             <h2 className="font-heading text-5xl md:text-6xl font-bold mb-4 drop-shadow-md">KinOps</h2>
                             <p className="font-tech text-brand-accent-2/80 text-lg uppercase tracking-widest mb-8">
-                                Fractional Creative Operations<br />& Talent Management
+                                Creative Operations<br />& Management
                             </p>
 
                             <div className="bg-brand-dark/50 p-6 border-l-2 border-brand-accent-2 mb-8">

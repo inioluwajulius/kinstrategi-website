@@ -6,9 +6,7 @@ import Manifesto from './Pages/Manifesto';
 import SignalStation from './Pages/SignalStation';
 import KinFeed from './Pages/KinFeed';
 import FitHub from './Pages/FitHub';
-import FitFinder from './Pages/FitFinder';
 import Leire from './Pages/Leire';
-import Citadel from './Pages/Citadel';
 import OurWork from './Pages/OurWork';
 import SignStation from './Pages/SignStation';
 
@@ -26,8 +24,6 @@ function App() {
           <Route path="/signal-station" element={<SignalStation />} />
           <Route path="/kin-feed" element={<KinFeed />} />
           <Route path="/fit-hub" element={<FitHub />} />
-          <Route path="/fit-finder" element={<FitFinder />} />
-          <Route path="/citadel" element={<Citadel />} />
           <Route path="/leire" element={<Leire />} />
           <Route path="/our-work" element={<OurWork />} />
           <Route path="/sign-station" element={<SignStation />} />

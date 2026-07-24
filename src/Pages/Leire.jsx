@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import leireBg from '../assets/Leiré_ Alte Gothic Surrealism Studio.png';
 
 const services = [
-    "Ideation Workshops", "Concept Decks", "Narrative Frameworks",
-    "Ghostwriting & Scriptwriting", "Campaign Concept Development",
-    "Film Direction", "Event Storytelling", "Creative Production"
+    "Creative Direction & World-Building",
+    "Brand Storytelling & Narrative Development",
+    "Ghostwriting & Editorial",
+    "Film Development & Creative Direction",
+    "Experience & Campaign Design"
 ];
 
 const specialties = [

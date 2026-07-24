@@ -34,7 +34,7 @@ export default function KinFeed() {
                         We don't do blind job boards. Every role we share is matched directly from our private talent pool, built on alignment, vetting, and trust.
                     </p>
                     <p className="font-body text-xl text-white font-medium drop-shadow-md">
-                        To take on a mission, you must be a member of the KinStrategi Citadel. We only match roles with talent we already know and trust.
+                        To take on a mission, you must go through our vetting process. We only match roles with talent we know and trust.
                     </p>
                 </div>
 
@@ -96,15 +96,15 @@ export default function KinFeed() {
 
                     <div className="flex flex-col items-start gap-4">
                         <motion.button
-                            onClick={() => navigate('/citadel')}
+                            onClick={() => navigate('/sign-station')}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-brand-accent-1 text-white px-8 py-4 font-heading uppercase tracking-widest text-sm shadow-[0_0_20px_rgba(91,62,150,0.3)] cursor-pointer"
                         >
-                            Find My Match
+                            Apply Now
                         </motion.button>
                         <p className="font-tech text-[10px] text-brand-accent-2/70 uppercase tracking-widest max-w-lg mt-4">
-                            To take on this mission, you must be a member of the KinStrategi Citadel. New here? <Link to="/citadel" className="underline hover:text-white transition-colors">Join the Citadel</Link>. Already in? <span className="underline cursor-pointer hover:text-white transition-colors" onClick={() => alert("Login portal coming soon.")}>Log in to Apply</span>.
+                            Ready to join the mission? <Link to="/sign-station" className="underline hover:text-white transition-colors">Submit your profile</Link> at our reception to get vetted.
                         </p>
                     </div>
                 </div>

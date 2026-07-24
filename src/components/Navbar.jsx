@@ -13,8 +13,6 @@ const NAV_LINKS = [
     { name: 'Leiré', path: '/leire' },
     { name: 'Manifesto', path: '/manifesto' },
     { name: 'Signal Station', path: '/signal-station' },
-    { name: 'Fit Finder', path: '/fit-finder' },
-    { name: 'The Citadel', path: '/citadel' },
     { name: 'Kin Feed', path: '/kin-feed' },
     { name: 'Our Work', path: '/our-work' },
     { name: 'Reception', path: '/sign-station' }

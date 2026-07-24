@@ -64,22 +64,9 @@ export default function Layout({ children }) {
 
     return (
         <div className="min-h-screen flex flex-col">
-            <MouseGlow />
             <Navbar />
 
             <main className="flex-grow pt-20 z-10 relative flex flex-col">
-                {/* Global Reactive Scroll Lighting Overlay (Only visible near the dark top) */}
-                <motion.div
-                    style={{
-                        opacity: lightOpacity,
-                        y: bgY,
-                        background: isLeire
-                            ? `radial-gradient(circle at 50% 0%, rgba(209, 174, 166, 0.25) 0%, transparent 60%), linear-gradient(to bottom, transparent 30%, rgba(173, 58, 60, 0.2) 100%)`
-                            : `radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 50%), linear-gradient(to bottom, transparent 20%, rgba(91, 62, 150, 0.15) 60%, rgba(209, 174, 166, 0.12) 100%)`
-                    }}
-                    className="fixed inset-0 z-[5] pointer-events-none mix-blend-screen scale-110"
-                />
-
                 {children}
             </main>
 
