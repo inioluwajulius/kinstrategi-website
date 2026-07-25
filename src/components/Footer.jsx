@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <footer className="bg-brand-dark border-t border-white/5 py-12 px-4 sm:px-6 lg:px-8 mt-auto z-10 relative text-gray-400 font-body">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-                {/* Column 1 — Brand */}
+                {/* Column 1 —For Brand */}
                 <div className="space-y-6">
                     <Link to="/" className="flex flex-col gap-2">
                         <div className="h-8 md:h-10 w-48 relative group flex items-start">
