@@ -123,7 +123,7 @@ export default function Playbook() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
                             whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}
-                            className="bg-black/90 border border-white/10 p-8 relative overflow-hidden group flex flex-col h-full"
+                            className="bg-brand-base/20 backdrop-blur-md border border-white/10 p-8 relative overflow-hidden group flex flex-col h-full"
                         >
                             {/* Accent Glow Top Right */}
                             <div className={`absolute top-0 right-0 w-48 h-48 bg-${item.accent}/10 rounded-full blur-[60px] group-hover:bg-${item.accent}/20 transition-colors duration-700 pointer-events-none translate-x-1/2 -translate-y-1/2`} />

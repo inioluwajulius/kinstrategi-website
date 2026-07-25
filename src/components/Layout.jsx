@@ -30,24 +30,8 @@ export default function Layout({ children }) {
     const leireBase = useTransform(scrollY, [0, 1000, 2500], leireBaseMap);
     const leireText = useTransform(scrollY, [0, 1000, 2500], leireTextMap);
 
-    // Global intercept loop to map the scroll directly into the DOM root so all Tailwind classes (text-white, etc) dynamically shift
-    useMotionValueEvent(scrollY, "change", () => {
-        const cd = isLeire ? leireDark.get() : kinDark.get();
-        const cb = isLeire ? leireBase.get() : kinBase.get();
-        const ct = isLeire ? leireText.get() : kinText.get();
-
-        document.documentElement.style.setProperty("--color-dark", cd);
-        document.documentElement.style.setProperty("--color-base", cb);
-        document.documentElement.style.setProperty("--text-color", ct);
-    });
-
     useEffect(() => {
         window.scrollTo(0, 0);
-
-        // Force reset colors to absolute top on mount/route change
-        document.documentElement.style.setProperty("--color-dark", isLeire ? leireDarkMap[0] : kinDarkMap[0]);
-        document.documentElement.style.setProperty("--color-base", isLeire ? leireBaseMap[0] : kinBaseMap[0]);
-        document.documentElement.style.setProperty("--text-color", isLeire ? leireTextMap[0] : kinTextMap[0]);
 
         // Dynamically assign Accents to root, resolving nested scopes
         document.documentElement.style.setProperty("--color-accent-1", isLeire ? "#AD3A3C" : "#5B3E96");
@@ -63,7 +47,15 @@ export default function Layout({ children }) {
     const bgY = useTransform(scrollY, [0, 1200], ["-20%", "0%"]);
 
     return (
-        <div className="min-h-screen flex flex-col">
+        <motion.div 
+            className="min-h-screen flex flex-col transition-colors duration-0"
+            style={{ 
+                backgroundColor: isLeire ? leireDark : kinDark,
+                "--color-dark": isLeire ? leireDark : kinDark, 
+                "--color-base": isLeire ? leireBase : kinBase, 
+                "--text-color": isLeire ? leireText : kinText 
+            }}
+        >
             <Navbar />
 
             <main className="flex-grow pt-20 z-10 relative flex flex-col">
