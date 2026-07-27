@@ -39,7 +39,7 @@ export default function KinFeed() {
                     <p className="font-body text-xl text-white font-medium mb-4 drop-shadow-md">
                         If a role speaks to you, apply. We'll review every submission with care and reach out when there's a strong fit.
                     </p>
-                    <p className="font-body text-lg text-gray-300 italic">
+                    <p className="font-body text-lg opacity-70 italic">
                         Some opportunities are open to public applications. Others are filled through our trusted creative network.
                     </p>
                 </div>
@@ -47,15 +47,15 @@ export default function KinFeed() {
                 <div className="mb-24 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="border border-white/10 bg-brand-base/30 p-8 backdrop-blur-sm">
                         <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-widest block mb-4">Step 1 — Discover the Opportunity</span>
-                        <p className="font-body text-gray-300 font-light">Explore our current opportunities and choose the one that aligns with your experience, interests, and creative practice.</p>
+                        <p className="font-body opacity-70 font-light">Explore our current opportunities and choose the one that aligns with your experience, interests, and creative practice.</p>
                     </div>
                     <div className="border border-white/10 bg-brand-base/30 p-8 backdrop-blur-sm">
                         <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest block mb-4">Step 2 — Share Your Work</span>
-                        <p className="font-body text-gray-300 font-light">Submit your application along with your portfolio, relevant work, and anything that helps us understand how you think, create, and collaborate.</p>
+                        <p className="font-body opacity-70 font-light">Submit your application along with your portfolio, relevant work, and anything that helps us understand how you think, create, and collaborate.</p>
                     </div>
                     <div className="border border-white/10 bg-brand-base/30 p-8 backdrop-blur-sm">
                         <span className="font-tech text-brand-accent-3 text-xs uppercase tracking-widest block mb-4">Step 3 — Continue the Conversation</span>
-                        <p className="font-body text-gray-300 font-light">If your experience and perspective align with what we're building, we'll invite you to the next stage. Every collaboration begins with a conversation.</p>
+                        <p className="font-body opacity-70 font-light">If your experience and perspective align with what we're building, we'll invite you to the next stage. Every collaboration begins with a conversation.</p>
                     </div>
                 </div>
 
@@ -67,33 +67,33 @@ export default function KinFeed() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 mb-8 border-b border-white/10 pb-8">
                         <div>
-                            <span className="font-tech text-xs text-gray-500 uppercase tracking-widest block mb-1">The Commitment</span>
+                            <span className="font-tech text-xs opacity-50 uppercase tracking-widest block mb-1">The Commitment</span>
                             <span className="font-body text-white">Full-time · Remote · Global</span>
                         </div>
                         <div>
-                            <span className="font-tech text-xs text-gray-500 uppercase tracking-widest block mb-1">The Industry</span>
+                            <span className="font-tech text-xs opacity-50 uppercase tracking-widest block mb-1">The Industry</span>
                             <span className="font-body text-white">Cybersecurity / GRC (Governance, Risk & Compliance)</span>
                         </div>
                         <div>
-                            <span className="font-tech text-xs text-gray-500 uppercase tracking-widest block mb-1">Compensation</span>
+                            <span className="font-tech text-xs opacity-50 uppercase tracking-widest block mb-1">Compensation</span>
                             <span className="font-body text-white font-medium">₦205,000 – ₦300,000</span>
                         </div>
                         <div>
-                            <span className="font-tech text-xs text-gray-500 uppercase tracking-widest block mb-1">Learn More</span>
+                            <span className="font-tech text-xs opacity-50 uppercase tracking-widest block mb-1">Learn More</span>
                             <a href="#" className="font-body text-brand-accent-2 underline">protectforward.org</a>
                         </div>
                     </div>
 
                     <div className="mb-8">
                         <h4 className="font-tech text-brand-accent-2 text-sm uppercase tracking-widest mb-3">The Mission</h4>
-                        <p className="font-body text-gray-300 font-light leading-relaxed">
+                        <p className="font-body opacity-70 font-light leading-relaxed">
                             CAMP — Cyber Assets Management & Protection by Protect Forward, is looking for a commercially driven leader to identify leads, own conversations with potential clients, and close deals from first contact to signed contract.
                         </p>
                     </div>
 
                     <div className="mb-10">
                         <h4 className="font-tech text-brand-accent-3 text-sm uppercase tracking-widest mb-3">Must Have</h4>
-                        <ul className="font-body text-gray-300 font-light leading-relaxed space-y-2">
+                        <ul className="font-body opacity-70 font-light leading-relaxed space-y-2">
                             <li className="flex gap-3"><span className="text-brand-accent-3">✦</span> 2–3 years B2B sales experience</li>
                             <li className="flex gap-3"><span className="text-brand-accent-3">✦</span> Cyber/GRC knowledge: NIST, ISO, NDPR, HIPAA</li>
                             <li className="flex gap-3"><span className="text-brand-accent-3">✦</span> Proven track record of self-sourced revenue</li>

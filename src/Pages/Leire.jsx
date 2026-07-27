@@ -120,7 +120,7 @@ export default function Leire() {
                         Where ideas <br />
                         <span className="text-brand-accent-2">burst into form.</span>
                     </motion.h1>
-                    <div className="font-body text-2xl text-gray-300 font-light leading-relaxed mb-10 max-w-lg border-l-2 border-brand-accent-1 pl-6">
+                    <div className="font-body text-2xl opacity-70 font-light leading-relaxed mb-10 max-w-lg border-l-2 border-brand-accent-1 pl-6">
                         <p className="mb-2"><span className="font-medium text-white shadow-sm">KinStrategi</span> builds the system.</p>
                         <p><span className="font-medium text-brand-accent-2 shadow-sm italic">Leiré</span> builds the idea.</p>
                     </div>
@@ -184,7 +184,7 @@ export default function Leire() {
                 >
                     <div className="lg:w-1/3 text-left">
                         <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 italic text-brand-accent-2">What We Do</h2>
-                        <p className="font-body text-gray-300 font-light text-lg mb-8 leading-relaxed">
+                        <p className="font-body opacity-70 font-light text-lg mb-8 leading-relaxed">
                             Leiré focuses entirely on creative direction, writing, storytelling, and immersive concepts.
                             We are the creative studio behind the concepts, stories, and experiences that make brands unforgettable.
                         </p>
@@ -218,7 +218,7 @@ export default function Leire() {
                         {specialties.map((spec, idx) => (
                             <div key={idx} className="border-t border-brand-accent-2/30 pt-6 relative group">
                                 <h3 className="font-heading text-2xl font-bold mb-4 italic text-brand-accent-2 group-hover:text-white transition-colors">{spec.title}</h3>
-                                <p className="font-body text-gray-400 font-light leading-relaxed">{spec.desc}</p>
+                                <p className="font-body opacity-60 font-light leading-relaxed">{spec.desc}</p>
                                 <motion.div
                                     className="absolute top-0 left-0 h-[1px] bg-brand-accent-1"
                                     initial={{ width: 0 }}
@@ -241,10 +241,10 @@ export default function Leire() {
                     <div className="flex flex-col lg:flex-row gap-16 justify-between items-start">
                         <div className="lg:w-1/3">
                             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 italic text-brand-accent-2">How to Work with Us</h2>
-                            <p className="font-body text-gray-300 font-light text-lg mb-4 leading-relaxed font-bold">
+                            <p className="font-body opacity-70 font-light text-lg mb-4 leading-relaxed font-bold">
                                 Simple by design. Thoughtful by nature.
                             </p>
-                            <p className="font-body text-gray-300 font-light text-lg mb-8 leading-relaxed">
+                            <p className="font-body opacity-70 font-light text-lg mb-8 leading-relaxed">
                                 Our process removes the friction without removing the creativity. Four clear steps that take your idea from possibility to execution.
                             </p>
                             <motion.button
@@ -263,7 +263,7 @@ export default function Leire() {
                                     <span className="font-tech text-3xl text-brand-accent-1/40 absolute top-0 left-0 z-0 font-bold select-none">{item.step}</span>
                                     <div className="relative z-10 mt-6">
                                         <h3 className="font-heading text-xl font-bold mb-3">{item.title}</h3>
-                                        <p className="font-body text-gray-400 font-light text-sm leading-relaxed">{item.desc}</p>
+                                        <p className="font-body opacity-60 font-light text-sm leading-relaxed">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -282,7 +282,7 @@ export default function Leire() {
                     <div className="w-full md:w-1/2 p-12 bg-brand-base shadow-xl border border-brand-accent-1/20">
                         <h2 className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-4 block">How KinStrategi & Leiré Work Together</h2>
                         <h3 className="font-heading text-2xl font-bold mb-4 italic text-white drop-shadow-md">Two disciplines. One seamless creative ecosystem.</h3>
-                        <div className="font-body text-gray-300 font-light text-sm leading-relaxed space-y-4 mb-8">
+                        <div className="font-body opacity-70 font-light text-sm leading-relaxed space-y-4 mb-8">
                             <p>Every great idea needs both vision and execution.</p>
                             <p><strong className="text-white">KinStrategi</strong> designs the infrastructure—building the right teams, systems, workflows, and partnerships to bring ambitious ideas to life.</p>
                             <p><strong className="text-white italic">Leiré</strong> shapes the creative vision—developing concepts, narratives, worlds, campaigns, and experiences that give those ideas meaning.</p>
@@ -292,7 +292,7 @@ export default function Leire() {
                             {scenarios.map((item, idx) => (
                                 <li key={idx} className="flex flex-col gap-1 border-b border-white/5 pb-4 last:border-b-0 last:pb-0">
                                     <span className="font-tech text-brand-accent-2 text-[10px] tracking-widest uppercase">Scenario {idx + 1} — {item.title}</span>
-                                    <span className="font-body font-light text-gray-300 text-sm leading-relaxed">{item.desc}</span>
+                                    <span className="font-body font-light opacity-70 text-sm leading-relaxed">{item.desc}</span>
                                 </li>
                             ))}
                         </ul>

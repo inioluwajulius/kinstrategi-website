@@ -72,7 +72,7 @@ export default function Manifesto() {
                             <span className="text-brand-accent-2">It will be built by those who know how to sustain them.</span>
                         </p>
 
-                        <div className="text-xl md:text-2xl text-gray-300 font-light font-body space-y-6 text-center">
+                        <div className="text-xl md:text-2xl opacity-70 font-light font-body space-y-6 text-center">
                             <p>We believe creativity is never just a department. It is a way of seeing. A way of solving. A way of building.</p>
                             <p>Our work is to take ideas that matter and give them everything they need to exist—clarity, systems, stories, teams, technology, and uncompromising execution.</p>
                             <p>Because the world's most vital ideas deserve far more than potential.</p>
@@ -87,7 +87,7 @@ export default function Manifesto() {
                             <span className="flex items-center gap-2"><span className="text-white">➔</span> Growth Is Intentional</span>
                         </div>
 
-                        <div className="text-xl md:text-2xl text-gray-300 font-light font-body space-y-4">
+                        <div className="text-xl md:text-2xl opacity-70 font-light font-body space-y-4">
                             <p>Creativity deserves the right environment.</p>
                             <p>Vision deserves the right direction.</p>
                             <p className="text-white font-medium">Teams should move in harmony, not in conflict.</p>
@@ -106,7 +106,7 @@ export default function Manifesto() {
                     <div>
                         <h2 className="font-tech text-brand-accent-1 text-sm tracking-[0.2em] uppercase mb-6 block">Why We Exist</h2>
                         <h3 className="font-heading text-4xl mb-8">We've seen—</h3>
-                        <ul className="space-y-6 font-body text-lg text-gray-200 font-normal">
+                        <ul className="space-y-6 font-body text-lg opacity-80 font-normal">
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Great ideas dismissed before they had the chance to evolve.</li>
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Creativity constrained by fragmented systems and unclear direction.</li>
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Founders expected to carry vision, strategy, execution, and leadership all at once.</li>
@@ -121,7 +121,7 @@ export default function Manifesto() {
                             We exist because we believe creativity flourishes when imagination and execution are treated as partners, not opposites.
                         </p>
 
-                        <div className="space-y-6 font-body text-gray-100 font-normal text-lg">
+                        <div className="space-y-6 font-body opacity-90 font-normal text-lg">
                             <p>That's why <strong className="text-white font-medium">KinStrategi</strong> exists—to develop the systems, strategy, and creative infrastructure that ambitious work needs to succeed.</p>
                             <p>That's why <strong className="text-white font-medium italic">Leiré</strong> exists—to protect the original spark, expand it into compelling ideas, and shape the stories that move people.</p>
                             <p className="text-white font-medium pt-4">One develops the foundation.<br/>One develops the vision.<br/>Together, they develop what's possible.</p>
@@ -129,7 +129,7 @@ export default function Manifesto() {
 
                         <div className="mt-8 pt-8 border-t border-white/10">
                             <p className="font-tech text-brand-accent-3 text-xs uppercase mb-4 opacity-70 tracking-widest">Together, we bridge:</p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-sm text-gray-200">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-sm opacity-80">
                                 <span><span className="text-brand-accent-1 mr-2">✦</span>Vision and execution</span>
                                 <span><span className="text-brand-accent-1 mr-2">✦</span>Creativity and strategy</span>
                                 <span><span className="text-brand-accent-1 mr-2">✦</span>Story and structure</span>
@@ -143,7 +143,7 @@ export default function Manifesto() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="text-center max-w-3xl mx-auto mb-40 text-2xl md:text-3xl text-gray-200 font-light leading-relaxed"
+                    className="text-center max-w-3xl mx-auto mb-40 text-2xl md:text-3xl opacity-80 font-light leading-relaxed"
                 >
                     <p className="mb-4">We're not here to simply create what's next.</p>
                     <p className="text-brand-accent-2 font-medium">We're here to build the creative systems, partnerships, and ideas that stand the test of time.</p>
@@ -173,7 +173,7 @@ export default function Manifesto() {
                                 </div>
                                 <div className="pt-2 md:pt-4 z-10 relative">
                                     <h3 className="font-heading text-2xl md:text-3xl font-bold mb-4 text-white group-hover:text-brand-accent-2 transition-colors">{belief.title}</h3>
-                                    <p className="font-body text-lg text-gray-400 font-light leading-relaxed max-w-2xl">{belief.text}</p>
+                                    <p className="font-body text-lg opacity-60 font-light leading-relaxed max-w-2xl">{belief.text}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -188,7 +188,7 @@ export default function Manifesto() {
                         <h3 className="font-heading text-3xl font-bold text-white mb-2">Adeshewa Adeniran</h3>
                         <p className="font-tech text-brand-accent-2 text-sm uppercase tracking-[0.2em] mb-12">Creative Development Producer</p>
                         
-                        <div className="space-y-6 font-body text-gray-300 font-light text-lg leading-relaxed">
+                        <div className="space-y-6 font-body opacity-70 font-light text-lg leading-relaxed">
                             <h4 className="font-heading text-2xl font-bold text-white mb-4">Do You Believe in Aliens?</h4>
                             <p>I do.</p>
                             <p>Actually... I think you do, too.</p>

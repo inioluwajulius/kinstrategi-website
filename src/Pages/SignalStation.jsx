@@ -118,7 +118,7 @@ export default function SignalStation() {
                         <h2 className="font-heading text-2xl md:text-3xl font-light text-brand-accent-2 mb-6">
                             Where ideas become clearer.
                         </h2>
-                        <p className="font-body text-xl text-gray-300 font-light leading-relaxed max-w-2xl">
+                        <p className="font-body text-xl opacity-70 font-light leading-relaxed max-w-2xl">
                             This isn't another content hub. It's a collection of perspectives on creative development, strategic thinking, AI, operations, storytelling, and the systems that help ambitious ideas thrive.
                         </p>
                     </div>
@@ -151,7 +151,7 @@ export default function SignalStation() {
                             <div key={idx} className="bg-brand-base/20 border border-white/5 p-6 hover:border-brand-accent-2/30 transition-colors">
                                 <div className={`w-8 h-1 bg-${cat.accent} mb-6`} />
                                 <h3 className="font-heading text-xl font-bold mb-3">{cat.title}</h3>
-                                <p className="font-body text-sm text-gray-400 font-light leading-relaxed">
+                                <p className="font-body text-sm opacity-60 font-light leading-relaxed">
                                     {cat.desc}
                                 </p>
                             </div>
@@ -200,7 +200,7 @@ export default function SignalStation() {
                                         </span>
                                     </div>
 
-                                    <h3 className="font-heading text-2xl font-bold mb-6 group-hover:text-white text-gray-100 transition-colors leading-snug flex-grow">
+                                    <h3 className="font-heading text-2xl font-bold mb-6 group-hover:text-white opacity-90 transition-colors leading-snug flex-grow">
                                         {ping.title}
                                     </h3>
 
@@ -211,7 +211,7 @@ export default function SignalStation() {
                                         </div>
 
                                         <div className="flex items-center gap-3">
-                                            <span className="font-body text-xs text-gray-400">{ping.readTime}</span>
+                                            <span className="font-body text-xs opacity-60">{ping.readTime}</span>
                                             <div className={`w-8 h-8 rounded-full border border-${ping.accent}/30 flex items-center justify-center group-hover:bg-${ping.accent}/10 transition-colors`}>
                                                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={`text-${ping.accent}`}>
                                                     <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -240,7 +240,7 @@ export default function SignalStation() {
                     >
                         <div className={`w-8 h-1 bg-${selectedPing.accent} mb-6`} />
                         <h3 className="font-heading text-3xl font-bold mb-4">{selectedPing.title}</h3>
-                        <p className="font-body text-gray-300 font-light mb-8">
+                        <p className="font-body opacity-70 font-light mb-8">
                             This full article is being finalized and will be pushed to the Signal Station shortly.
                         </p>
                         <div className="flex justify-end">

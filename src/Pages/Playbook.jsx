@@ -133,7 +133,7 @@ export default function Playbook() {
                     <h2 className="font-tech text-brand-accent-2 text-xl md:text-2xl tracking-[0.2em] uppercase mb-8 opacity-90">
                         Pick your level. Scale when ready.
                     </h2>
-                    <p className="font-body text-gray-300 text-lg md:text-xl font-light leading-relaxed">
+                    <p className="font-body opacity-70 text-lg md:text-xl font-light leading-relaxed">
                         We offer structured creative services across our core service categories. Identify your operational constraints, and deploy the precise architecture needed to override them.
                     </p>
                 </motion.div>
@@ -178,14 +178,14 @@ export default function Playbook() {
 
                                 <div>
                                     <p className="font-tech text-white/70 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Best For</p>
-                                    <p className="font-body text-gray-200 font-medium text-base">{item.bestFor}</p>
+                                    <p className="font-body opacity-80 font-medium text-base">{item.bestFor}</p>
                                 </div>
 
                                 <div>
                                     <p className={`font-tech text-xs tracking-widest uppercase mb-3 text-${item.accent}`}>{item.pointsHeading}</p>
                                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         {item.points.map((point, pIdx) => (
-                                            <li key={pIdx} className="flex items-start gap-2 font-body text-base text-gray-100 font-medium">
+                                            <li key={pIdx} className="flex items-start gap-2 font-body text-base opacity-90 font-medium">
                                                 <span className={`text-${item.accent} mt-[2px]`}>✦</span>
                                                 <span className="leading-tight">{point}</span>
                                             </li>
@@ -194,7 +194,7 @@ export default function Playbook() {
                                 </div>
 
                                 {item.description && (
-                                    <p className="font-body text-gray-200 font-medium text-sm italic border-l-2 border-white/20 pl-4 py-1">
+                                    <p className="font-body opacity-80 font-medium text-sm italic border-l-2 border-white/20 pl-4 py-1">
                                         {item.description}
                                     </p>
                                 )}
@@ -254,7 +254,7 @@ export default function Playbook() {
 
                             <div className="bg-brand-dark/50 p-6 border-l-2 border-brand-accent-2 mb-8">
                                 <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-2">Best For</p>
-                                <p className="font-body text-gray-200 text-lg md:text-xl font-light">
+                                <p className="font-body opacity-80 text-lg md:text-xl font-light">
                                     Founders who need ongoing strategic and operational support without building a full in-house team.
                                 </p>
                             </div>
@@ -262,7 +262,7 @@ export default function Playbook() {
 
                         <div className="lg:w-1/2 flex flex-col justify-between h-full w-full">
                             <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-2">What It Is</p>
-                            <p className="font-body text-gray-300 font-light text-lg mb-8">
+                            <p className="font-body opacity-70 font-light text-lg mb-8">
                                 KinOps is our flagship retainer. We partner with founders to bring structure to ideas, coordinate execution, and build the systems that keep creative work moving forward.
                             </p>
                             
@@ -286,7 +286,7 @@ export default function Playbook() {
                             <div className="flex items-center justify-between border-t border-brand-accent-2/20 pt-6">
                                 <div>
                                     <p className="font-body text-white font-medium">Investment: From ₦1,200,000/month</p>
-                                    <p className="font-body text-sm text-gray-400 mt-1 italic">Every partnership is tailored to your goals, team, and stage of growth.</p>
+                                    <p className="font-body text-sm opacity-60 mt-1 italic">Every partnership is tailored to your goals, team, and stage of growth.</p>
                                 </div>
                                 <motion.button
                                     onClick={() => navigate('/sign-station')}
@@ -309,7 +309,7 @@ export default function Playbook() {
                     transition={{ duration: 0.8 }}
                     className="text-center pb-24"
                 >
-                    <p className="font-body text-gray-300 text-xl font-light leading-relaxed mb-6">
+                    <p className="font-body opacity-70 text-xl font-light leading-relaxed mb-6">
                         Not sure where to start? We'll figure it out together.
                     </p>
                     <motion.button

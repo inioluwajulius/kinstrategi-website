@@ -108,7 +108,7 @@ export default function Home() {
 
                 <motion.p
                     variants={textItem}
-                    className="font-body text-lg md:text-xl text-gray-300 font-light max-w-2xl mx-auto mb-16 leading-relaxed"
+                    className="font-body text-lg md:text-xl opacity-70 font-light max-w-2xl mx-auto mb-16 leading-relaxed"
                 >
                     We match vibe to vision for businesses who need real firepower, and creatives who deserve the right fit.
                 </motion.p>
@@ -166,13 +166,13 @@ export default function Home() {
                     className="flex flex-col items-center gap-8 text-center"
                 >
                     <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">Does any of this sound familiar?</h2>
-                    <div className="font-body text-gray-300 text-lg md:text-xl font-light leading-relaxed max-w-3xl space-y-4">
+                    <div className="font-body opacity-70 text-lg md:text-xl font-light leading-relaxed max-w-3xl space-y-4">
                         <p>You're briefing agencies who don't understand your market.</p>
                         <p>You post consistently. But nothing is actually connecting.</p>
                         <p>You've hired creatives who looked great on paper. It still didn't work out.</p>
                         <p>You know your brand has more to say, but the right people to say it haven't shown up yet.</p>
                         <p>Your audience is specific. Your content keeps looking too generic.</p>
-                        <p className="pt-4 font-medium text-white">If any of that hit, then you already know the cost of the wrong creative partner.</p>
+                        <p className="pt-4 font-medium opacity-100">If any of that hit, then you already know the cost of the wrong creative partner.</p>
                     </div>
                 </motion.div>
 
@@ -188,7 +188,7 @@ export default function Home() {
                         <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest mb-4 block opacity-70">About / Why We Started</span>
                         <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight">We started KinStrategi because we lived this problem.</h2>
                         <div className="w-16 h-[2px] bg-gradient-to-r from-brand-accent-1 to-brand-accent-3 mb-8" />
-                        <div className="font-body text-gray-300 text-lg font-light leading-relaxed space-y-6">
+                        <div className="font-body opacity-70 text-lg font-light leading-relaxed space-y-6">
                             <p>
                                 We've been in the rooms where brilliant briefs get handed to the wrong teams. Where talented creatives get placed into projects that were never built for them. Where creative ops looked like chaos dressed up as process.
                             </p>
@@ -204,7 +204,7 @@ export default function Home() {
                     <div className="w-full md:w-1/2 border border-white/10 bg-brand-base/20 backdrop-blur-sm p-8 flex flex-col items-start text-left">
                         <h3 className="font-heading text-3xl font-bold mb-2">Adeshewa Adeniran</h3>
                         <p className="font-tech text-brand-accent-3 text-sm uppercase tracking-widest mb-6 border-b border-brand-accent-3/30 pb-4 inline-block">Founding Director & Operations Specialist, KinStrategi</p>
-                        <div className="font-body text-gray-300 text-base font-light leading-relaxed space-y-4 mb-8">
+                        <div className="font-body opacity-70 text-base font-light leading-relaxed space-y-4 mb-8">
                             <p>Adeshewa Adeniran didn't start KinStrategi on a whim, she built it out of conviction. Having spent years deeply embedded in the creative industry, she watched the same story play out repeatedly: talented creatives landing in the wrong rooms, and brilliant brands struggling to find the right people to bring their vision to life.</p>
                             <p>She believes that fit matters as much as skill, that structure unlocks creativity, and that the right team changes everything.</p>
                             <p>Beyond the business, Adeshewa is a connector in the truest sense. Through her creative communities, she has helped countless creatives step into opportunities that were actually built for them, not just roles to fill, but roles that fit. She doesn't just source talent; she advocates for it.</p>
@@ -231,12 +231,12 @@ export default function Home() {
                     <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-widest block opacity-70">Services</span>
                     <h2 className="font-heading text-4xl md:text-5xl font-bold mb-2">Six ways we show up for your brand.</h2>
                     <ul className="text-left md:text-center grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mt-8 mb-12 max-w-4xl mx-auto w-full">
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Brand & Growth Strategy</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Talent & Team Building</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Creative Operations (KinOps)</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">AI & Intelligent Operations</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Launch & Expansion</li>
-                        <li className="font-body text-xl font-light text-gray-300 border-b border-white/5 pb-4">Market Access (Leiré Passage)</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Brand & Growth Strategy</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Talent & Team Building</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Operations (KinOps)</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">AI & Intelligent Operations</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Launch & Expansion</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Market Access (Leiré Passage)</li>
                     </ul>
                     <motion.button
                         onClick={() => navigate('/playbook')}
@@ -271,7 +271,7 @@ export default function Home() {
                     className="border border-white/10 bg-brand-base/30 backdrop-blur-md p-12 text-center max-w-3xl mx-auto mb-24"
                 >
                     <h2 className="font-heading text-4xl font-bold mb-4">Stay in the Know.</h2>
-                    <p className="font-body text-gray-300 font-light mb-8 max-w-lg mx-auto">
+                    <p className="font-body opacity-70 font-light text-xl leading-relaxed mb-8">
                         With what’s moving in brand and culture. What's working in creative work. And every now and then, exactly what we think about it. Straight to your inbox.
                     </p>
                     <form

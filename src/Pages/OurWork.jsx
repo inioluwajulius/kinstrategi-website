@@ -49,7 +49,7 @@ export default function OurWork() {
                     <h1 className="font-heading text-6xl md:text-8xl font-bold uppercase tracking-wider mb-6 text-white drop-shadow-xl">
                         The <span className="text-brand-accent-1">Work.</span>
                     </h1>
-                    <p className="font-body text-xl md:text-2xl text-gray-300 font-light leading-relaxed">
+                    <p className="font-body text-xl md:text-2xl opacity-70 font-light leading-relaxed">
                         Strategy in action. Brands we've helped build, campaigns we've helped launch, and creative systems we've helped fix.
                     </p>
                 </motion.div>
@@ -84,8 +84,8 @@ export default function OurWork() {
 
                                 <div>
                                     <h3 className="font-heading text-2xl font-bold mb-1 text-white group-hover:text-brand-accent-1 transition-colors">{cs.brand}</h3>
-                                    <p className="font-body text-xs text-gray-400 mb-2 truncate">{cs.services}</p>
-                                    <p className="font-body text-sm font-light text-gray-300 italic">"{cs.outcome}"</p>
+                                    <p className="font-body text-xs opacity-60 mb-2 truncate">{cs.services}</p>
+                                    <p className="font-body text-sm font-light opacity-70 italic">"{cs.outcome}"</p>
                                 </div>
 
                                 <motion.button

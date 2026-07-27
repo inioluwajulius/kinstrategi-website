@@ -23,7 +23,7 @@ export default function SignStation() {
                     <h1 className="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wider mb-6 text-white drop-shadow-xl">
                         Let's build <span className="text-brand-accent-2">something good.</span>
                     </h1>
-                    <p className="font-body text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto">
+                    <p className="font-body text-xl md:text-2xl opacity-70 font-light max-w-2xl mx-auto">
                         Whether you have a brief ready or just want to talk it through… we're here.
                     </p>
                 </div>
@@ -36,7 +36,7 @@ export default function SignStation() {
                     <div className="lg:col-span-2 space-y-12 pr-0 lg:pr-8 border-b lg:border-b-0 lg:border-r border-white/10 pb-12 lg:pb-0">
                         <div>
                             <span className="font-tech text-brand-accent-1/70 text-xs uppercase tracking-widest block mb-4">Contact Details</span>
-                            <ul className="space-y-4 font-body text-gray-300 font-light">
+                            <ul className="space-y-4 font-body opacity-70 font-light">
                                 <li className="flex items-start gap-4">
                                     <span className="text-brand-accent-1 text-lg">✦</span>
                                     <span>shewa@kinstrategi.com</span>
@@ -60,7 +60,7 @@ export default function SignStation() {
                                 {[1, 2].map((i) => (
                                     <div key={i} className="group cursor-pointer">
                                         <p className="font-heading text-lg font-bold text-white group-hover:text-brand-accent-2 transition-colors mb-1">Brand Name {i}</p>
-                                        <p className="font-body text-xs text-gray-400">Brief outcome summary mapping to project success.</p>
+                                        <p className="font-body text-xs opacity-60">Brief outcome summary mapping to project success.</p>
                                     </div>
                                 ))}
                                 <a href="/our-work" className="font-tech text-xs tracking-widest uppercase text-brand-accent-1 hover:text-white transition-colors mt-4">
@@ -119,7 +119,7 @@ export default function SignStation() {
 
                             <label className="flex items-start gap-4 cursor-pointer pt-4">
                                 <input type="checkbox" className="form-checkbox bg-transparent border-white/30 text-brand-accent-2 rounded-sm focus:ring-offset-brand-base focus:ring-brand-accent-2 mt-1" required />
-                                <span className="font-body text-sm font-light text-gray-400 leading-snug">
+                                <span className="font-body text-sm font-light opacity-60 leading-snug">
                                     By initiating this signal, you agree to our Terms & Conditions and consent to your data being stored in accordance with our Privacy Policy. I've read the Privacy Policy and agree to receive updates from KinStrategi.
                                 </span>
                             </label>

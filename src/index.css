@@ -78,30 +78,7 @@ body .text-white {
   color: var(--text-color) !important;
 }
 
-body .text-gray-100 {
-  color: var(--text-color) !important;
-  opacity: 0.9 !important;
-}
 
-body .text-gray-200 {
-  color: var(--text-color) !important;
-  opacity: 0.8 !important;
-}
-
-body .text-gray-300 {
-  color: var(--text-color) !important;
-  opacity: 0.7 !important;
-}
-
-body .text-gray-400 {
-  color: var(--text-color) !important;
-  opacity: 0.6 !important;
-}
-
-body .text-gray-500 {
-  color: var(--text-color) !important;
-  opacity: 0.45 !important;
-}
 
 body .bg-white {
   background-color: var(--text-color) !important;
