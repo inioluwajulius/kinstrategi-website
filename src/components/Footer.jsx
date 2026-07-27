@@ -32,12 +32,14 @@ export default function Footer() {
                         </div>
                     </Link>
                     <p className="font-body text-sm font-light text-brand-accent-2 italic relative z-10 left-1 pt-2">For founders building beyond borders.</p>
-                    <div className="flex gap-4">
-                        {/* Social Icons Placeholder */}
-                        <a href="#" className="hover:text-brand-accent-2 transition-colors">Insta</a>
-                        <a href="#" className="hover:text-brand-accent-2 transition-colors">LinkedIn</a>
+                    <div className="flex flex-col gap-2 mt-4">
+                        <a href="mailto:shewa@kinstrategi.com" className="hover:text-brand-accent-2 transition-colors text-sm">shewa@kinstrategi.com</a>
+                        <span className="text-sm">+234 9165235522</span>
+                    </div>
+                    <div className="flex gap-4 mt-4">
+                        <a href="https://www.instagram.com/kinstrategi/" target="_blank" rel="noreferrer" className="hover:text-brand-accent-2 transition-colors">Instagram</a>
+                        <a href="https://www.linkedin.com/in/adeshewa-adeniran-76a6a0166/" target="_blank" rel="noreferrer" className="hover:text-brand-accent-2 transition-colors">LinkedIn</a>
                         <a href="#" className="hover:text-brand-accent-2 transition-colors">X</a>
-                        <a href="#" className="hover:text-brand-accent-2 transition-colors">TikTok</a>
                     </div>
                 </div>
 
@@ -45,12 +47,12 @@ export default function Footer() {
                 <div>
                     <h3 className="text-white font-heading font-medium mb-4">Services</h3>
                     <ul className="space-y-3 text-sm font-light text-gray-400">
-                        <li>Brand & Growth Strategy</li>
-                        <li>Talent & Team Building</li>
-                        <li>Creative Operations (KinOps)</li>
-                        <li>AI & Intelligent Operations</li>
-                        <li>Launch & Expansion</li>
-                        <li>Market Access (Leiré Passage)</li>
+                        <li>Creative Strategy & Brand Development</li>
+                        <li>Creative Partnerships</li>
+                        <li>Creative Development & Operations (KinOps)</li>
+                        <li>AI & Intelligent Systems</li>
+                        <li>Launches & Market Growth</li>
+                        <li>Global Expansion (Leiré Passage)</li>
                     </ul>
                 </div>
 
@@ -74,11 +76,10 @@ export default function Footer() {
                     <h3 className="text-white font-heading font-medium mb-4">Signals & Legal</h3>
                     <ul className="space-y-3 text-sm font-light text-gray-400">
                         <li><Link to="/signal-station" className="hover:text-brand-accent-3 transition-colors">Signal Station</Link></li>
-                        <li><a href="#" className="hover:text-brand-accent-3 transition-colors">On the Record</a></li>
                         <li><Link to="/kin-feed" className="hover:text-brand-accent-3 transition-colors">Kin Feed</Link></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Referrals</a></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Terms & Conditions</a></li>
+                        <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Terms & Condition</a></li>
                     </ul>
                 </div>
             </div>
@@ -86,10 +87,8 @@ export default function Footer() {
             {/* Contact Strip */}
             <div className="max-w-7xl mx-auto border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-light tracking-wide text-gray-500">
                 <div className="flex flex-col md:flex-row gap-4 md:gap-8 items-center">
-                    <span>Email: <a href="mailto:shewa@kinstrategi.com" className="text-brand-accent-2 hover:underline">shewa@kinstrategi.com</a></span>
-                    <span className="hidden md:inline">•</span>
-                    <span>Location: Lagos, Nigeria</span>
-                    <span className="hidden md:inline">•</span>
+                        <span><a href="mailto:shewa@kinstrategi.com" className="text-brand-accent-2 hover:underline">shewa@kinstrategi.com</a></span>
+                        <span className="hidden md:inline">•</span>
                     <span>We serve clients worldwide.</span>
                 </div>
                 <div>

@@ -28,28 +28,34 @@ export default function KinFeed() {
                         Open <span className="text-brand-accent-1">Opportunities.</span>
                     </h1>
                     <h2 className="font-heading text-2xl md:text-3xl text-brand-accent-2 mb-6">
-                        These are the missions we are matching for right now.
+                        Build What's Next
                     </h2>
                     <p className="font-body text-xl text-white font-medium mb-4 drop-shadow-md">
-                        We don't do blind job boards. Every role we share is matched directly from our private talent pool, built on alignment, vetting, and trust.
+                        We occasionally open opportunities to collaborate on brands, campaigns, productions, ventures, and creative initiatives we're helping develop.
                     </p>
-                    <p className="font-body text-xl text-white font-medium drop-shadow-md">
-                        To take on a mission, you must go through our vetting process. We only match roles with talent we know and trust.
+                    <p className="font-body text-xl text-white font-medium mb-4 drop-shadow-md">
+                        Every opportunity is shared with intention. We value curiosity, thoughtful collaboration, and people who care deeply about meaningful work.
+                    </p>
+                    <p className="font-body text-xl text-white font-medium mb-4 drop-shadow-md">
+                        If a role speaks to you, apply. We'll review every submission with care and reach out when there's a strong fit.
+                    </p>
+                    <p className="font-body text-lg text-gray-300 italic">
+                        Some opportunities are open to public applications. Others are filled through our trusted creative network.
                     </p>
                 </div>
 
                 <div className="mb-24 grid grid-cols-1 md:grid-cols-3 gap-8">
                     <div className="border border-white/10 bg-brand-base/30 p-8 backdrop-blur-sm">
-                        <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-widest block mb-4">Step 1 — Enter the Pool</span>
-                        <p className="font-body text-gray-300 font-light">Create your profile. Tell us about you, not just what you do.</p>
+                        <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-widest block mb-4">Step 1 — Discover the Opportunity</span>
+                        <p className="font-body text-gray-300 font-light">Explore our current opportunities and choose the one that aligns with your experience, interests, and creative practice.</p>
                     </div>
                     <div className="border border-white/10 bg-brand-base/30 p-8 backdrop-blur-sm">
-                        <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest block mb-4">Step 2 — The Vibe-Check</span>
-                        <p className="font-body text-gray-300 font-light">Our team looks at your skills, your experience, and your actual working rhythm.</p>
+                        <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest block mb-4">Step 2 — Share Your Work</span>
+                        <p className="font-body text-gray-300 font-light">Submit your application along with your portfolio, relevant work, and anything that helps us understand how you think, create, and collaborate.</p>
                     </div>
                     <div className="border border-white/10 bg-brand-base/30 p-8 backdrop-blur-sm">
-                        <span className="font-tech text-brand-accent-3 text-xs uppercase tracking-widest block mb-4">Step 3 — The Perfect Match</span>
-                        <p className="font-body text-gray-300 font-light">When a role fits your DNA, we reach out to you.</p>
+                        <span className="font-tech text-brand-accent-3 text-xs uppercase tracking-widest block mb-4">Step 3 — Continue the Conversation</span>
+                        <p className="font-body text-gray-300 font-light">If your experience and perspective align with what we're building, we'll invite you to the next stage. Every collaboration begins with a conversation.</p>
                     </div>
                 </div>
 

@@ -3,72 +3,72 @@ import signalBg from '../assets/Signal Station_ Thought Leadership Feed.png';
 
 const categories = [
     {
-        title: "Behind the Scenes",
-        desc: "A look at how we actually work — how we hire, how we manage projects, and what we've learned along the way.",
+        title: "Behind the Build",
+        desc: "A closer look at how ideas evolve—from early concepts and creative direction to systems, collaboration, and execution.",
         accent: "brand-accent-2"
     },
     {
-        title: "Client Results",
-        desc: "Real projects, broken down honestly. What wasn't working, what we did about it, and what changed.",
+        title: "Field Notes",
+        desc: "An honest look at the work. The challenge, the process, the thinking, and the outcomes that shaped each project.",
         accent: "brand-accent-3"
     },
     {
-        title: "Kin Praise",
-        desc: "Testimonials with context. Not just what clients said, but why it mattered and what got them there.",
+        title: "Client Stories",
+        desc: "Experiences shared by the people we've partnered with, highlighting not just the results, but the journey that made them possible.",
         accent: "brand-accent-1"
     },
     {
-        title: "Culture & Strategy Insights",
-        desc: "The human side of creative work. Team dynamics, hiring mistakes, what good fit actually looks like, and why structure isn't the enemy of creativity.",
+        title: "Perspectives",
+        desc: "Essays and insights on creative development, strategy, storytelling, AI, leadership, collaboration, and the future of building meaningful work.",
         accent: "brand-accent-2"
     }
 ];
 
 const pings = [
     {
-        id: "042",
-        category: "Behind the Scenes",
-        title: "Why 'Good Talent' Isn't Enough if the Fit is Wrong",
+        id: "001",
+        category: "Field Notes",
+        title: "Building a Luxury Adornment House from the Ground Up",
         date: "MAR 04",
         readTime: "3 MIN READ",
         accent: "brand-accent-2"
     },
     {
-        id: "041",
-        category: "Client Results",
-        title: "Scaling a 30-Person Agency Without Expanding Payroll",
+        id: "002",
+        category: "Field Notes",
+        title: "Scaling Creative Operations Across Multiple Ventures",
         date: "FEB 28",
         readTime: "5 MIN READ",
         accent: "brand-accent-3"
     },
     {
-        id: "040",
-        category: "Culture & Strategy",
-        title: "How Systems Actually Give You More Freedom to Create",
+        id: "003",
+        category: "Field Notes",
+        title: "Building the Foundation for a Multi-Platform Creative Brand",
         date: "FEB 21",
         readTime: "4 MIN READ",
         accent: "brand-accent-2"
     },
     {
-        id: "039",
-        category: "Kin Praise",
-        title: "From Chaos to Clarity: The 'Arc' Campaign Overhaul",
+        id: "004",
+        category: "Field Notes",
+        title: "Making Cybersecurity More Human",
         date: "FEB 15",
         readTime: "4 MIN READ",
         accent: "brand-accent-1"
     },
     {
-        id: "038",
-        category: "Behind the Scenes",
-        title: "The Architecture of a Proper Creative Brief",
+        id: "005",
+        category: "Field Notes",
+        title: "Designing a Creative Development Studio",
         date: "FEB 02",
         readTime: "6 MIN READ",
         accent: "brand-accent-2"
     },
     {
-        id: "037",
-        category: "Culture & Strategy",
-        title: "Stop Chasing Output. Build the Infrastructure.",
+        id: "006",
+        category: "Field Notes",
+        title: "Reimagining KinStrategi",
         date: "JAN 25",
         readTime: "3 MIN READ",
         accent: "brand-accent-2"
@@ -110,16 +110,16 @@ export default function SignalStation() {
                 >
                     <div className="md:w-2/3">
                         <span className="font-tech text-brand-accent-2 text-sm uppercase tracking-[0.3em] mb-4 block opacity-80">
-                            Strategy & Insights Blog
+                            Strategy & Insights
                         </span>
                         <h1 className="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wider mb-2">
                             Signal <span className="text-brand-accent-2">Station.</span>
                         </h1>
                         <h2 className="font-heading text-2xl md:text-3xl font-light text-brand-accent-2 mb-6">
-                            No fluff. Just the stuff that actually matters.
+                            Where ideas become clearer.
                         </h2>
                         <p className="font-body text-xl text-gray-300 font-light leading-relaxed max-w-2xl">
-                            We write about what we know. Creative operations, team dynamics, brand strategy, and the thinking behind work that holds up over time.
+                            This isn't another content hub. It's a collection of perspectives on creative development, strategic thinking, AI, operations, storytelling, and the systems that help ambitious ideas thrive.
                         </p>
                     </div>
 

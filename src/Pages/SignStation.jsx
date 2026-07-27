@@ -39,11 +39,7 @@ export default function SignStation() {
                             <ul className="space-y-4 font-body text-gray-300 font-light">
                                 <li className="flex items-start gap-4">
                                     <span className="text-brand-accent-1 text-lg">✦</span>
-                                    <span><strong>Location:</strong> Lagos, Nigeria</span>
-                                </li>
-                                <li className="flex items-start gap-4">
-                                    <span className="text-brand-accent-1 text-lg">✦</span>
-                                    <span><strong>Email:</strong> shewa@kinstrategi.com</span>
+                                    <span>shewa@kinstrategi.com</span>
                                 </li>
                                 <li className="flex items-start gap-4">
                                     <span className="text-brand-accent-1 text-lg">✦</span>
@@ -51,11 +47,7 @@ export default function SignStation() {
                                 </li>
                                 <li className="flex items-start gap-4">
                                     <span className="text-brand-accent-1 text-lg">✦</span>
-                                    <span>Mon–Fri, 10AM–6PM WAT</span>
-                                </li>
-                                <li className="flex items-start gap-4">
-                                    <span className="text-brand-accent-1 text-lg">✦</span>
-                                    <span>We respond within 24 hours.</span>
+                                    <span>We respond within 24hrs.</span>
                                 </li>
                             </ul>
                         </div>
@@ -139,7 +131,7 @@ export default function SignStation() {
                                     whileTap={{ scale: 0.95 }}
                                     className="bg-brand-accent-2 text-brand-dark px-12 py-5 font-heading uppercase tracking-widest font-bold text-sm w-full sm:w-auto cursor-pointer"
                                 >
-                                    Schedule a Call
+                                    What's the Big Idea?
                                 </motion.button>
                             </div>
                         </form>

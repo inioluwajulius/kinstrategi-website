@@ -13,53 +13,53 @@ const services = [
 const specialties = [
     {
         title: "Travel Writing",
-        desc: "We write places the way they actually feel. Narratives and essays that go beyond what's on the surface."
+        desc: "Some journeys become itineraries. Others become stories. We write from lived experience, capturing the people, emotions, unexpected moments, and observations that stay with us long after we've returned home. Whether through personal essays, creative nonfiction, or reflections that later find their way into novels and screenplays, We believe every journey has the potential to become something far greater than a memory."
     },
     {
-        title: "Freelance Writing Services",
-        desc: "You have the story. We find the words. Books, memoirs, thought leadership — written for people who are too busy living it to write it down."
+        title: "Writing & Narrative Development",
+        desc: "Every story deserves to be told well. Whether you're preserving a lived experience, developing an unforgettable novel, or bringing a screenplay to life, We help transform ideas into compelling narratives that move people. From books, memoirs, and thought leadership for founders and industry experts to original fiction, dark romance, psychological thrillers, and cinematic screenplays, We craft stories with emotional depth, memorable characters, and worlds that stay with audiences long after the final page or closing scene. Whether you have a story to tell, or need one imagined from the ground up, we're here to help bring it to life."
     },
     {
-        title: "Culturally-Rooted Campaigns",
-        desc: "Work that resonates because it was made with the audience in mind, not just made for them."
+        title: "Culturally Intelligent Campaigns",
+        desc: "Campaigns that do more than reach an audience–they recognize them. Rooted in deep cultural fluency, emotional nuance, and strategic intent, we craft work that feels unmistakably authentic because it speaks from the inside out."
     }
 ];
 
 const steps = [
     {
         step: "01",
-        title: "Tell us what you're thinking",
-        desc: "Book a call or send a brief. We'll ask questions, listen, and figure out what you actually need."
+        title: "Tell Us What You're Thinking",
+        desc: "Every great project begins with a conversation. Book a discovery call or send us your brief, we'll ask thoughtful questions, uncover what matters most, and explore the best way forward together."
     },
     {
         step: "02",
-        title: "We shape the concept",
-        desc: "Ideas become structured. Structure becomes a plan. You'll know exactly what we're making and why."
+        title: "We Shape the Vision",
+        desc: "Together, we refine the idea into a clear creative direction. Every decision is intentional, every element has a purpose, and every step moves us closer to the outcome we're building."
     },
     {
         step: "03",
-        title: "We create it",
-        desc: "Writing, directing, producing — whatever the project needs. We stay close until it's done right."
+        title: "We Bring It to Life",
+        desc: "This is where ideas become reality. Whether we're writing, producing, directing, designing, or building systems behind the scenes, we stay hands-on to ensure every detail serves the vision."
     },
     {
         step: "04",
-        title: "You get memorable work",
-        desc: "Not just a deliverable. A story. A concept. Something people remember."
+        title: "You Leave with More Than Deliverables",
+        desc: "The result is work that commands presence—meticulously crafted, strategically sound, and built to linger with its audience long after the campaign concludes."
     }
 ];
 
 const scenarios = [
     {
-        title: "Brand Campaign",
-        desc: "KinStrategi sources the photographer, videographer, designer. Leiré develops the campaign concept, writes scripts, and directs creative production. Outcome: seamless end-to-end campaign with aligned vision and execution."
+        title: "Brand Campaigns",
+        desc: "KinStrategi assembles the right creative team, manages production, and oversees delivery. Leiré develops the campaign concept, crafts the narrative, writes scripts, and leads the creative direction. Outcome: A campaign where strategy, storytelling, and execution move as one."
     },
     {
-        title: "Event Launch",
-        desc: "KinStrategi coordinates vendors and sources talent. Leiré designs the event narrative, theme, spatial storytelling, and experiential flow. Outcome: immersive event with clear creative direction."
+        title: "Events & Experiences",
+        desc: "KinStrategi coordinates vendors, talent, logistics, and production timelines. Leiré creates the event concept, thematic direction, spatial storytelling, and guest experience. Outcome: An immersive experience where every detail serves the story."
     },
     {
-        title: "Content Production",
-        desc: "KinStrategi builds the content team and manages workflow. Leiré writes concepts, scripts, and creative direction. Outcome: a content calendar that tells a cohesive brand story."
+        title: "Content & Editorial Production",
+        desc: "KinStrategi builds the production workflow, manages collaborators, and keeps execution on track. Leiré develops creative concepts, editorial direction, scripts, and narrative systems that connect every piece of content. Outcome: A cohesive body of work that builds a recognizable, enduring brand."
     }
 ];
 
@@ -101,26 +101,26 @@ export default function Leire() {
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    transition={{ duration: 0.8, ease: "easeOut" }}
                     className="md:w-1/2 text-left"
                 >
                     <motion.span
                         initial={{ opacity: 0, letterSpacing: "0.1em" }}
                         animate={{ opacity: 1, letterSpacing: "0.4em" }}
-                        transition={{ duration: 2, delay: 0.5 }}
-                        className="font-tech text-brand-accent-1 uppercase text-xs mb-6 block drop-shadow-sm"
+                        transition={{ duration: 1.2, delay: 0.2 }}
+                        className="font-tech text-brand-accent-1 uppercase text-sm mb-6 block drop-shadow-sm"
                     >
                         Leiré is our creative ideation and storytelling studio.
                     </motion.span>
                     <motion.h1
                         animate={{ textShadow: ["0 0 0px #AD3A3C", "0 0 20px #AD3A3C", "0 0 0px #AD3A3C"] }}
                         transition={{ duration: 4, repeat: Infinity }}
-                        className="font-heading text-6xl md:text-7xl lg:text-8xl font-bold mb-8 text-white drop-shadow-2xl italic leading-tight"
+                        className="font-heading text-7xl md:text-8xl lg:text-9xl font-bold mb-8 text-white drop-shadow-2xl italic leading-tight"
                     >
                         Where ideas <br />
                         <span className="text-brand-accent-2">burst into form.</span>
                     </motion.h1>
-                    <div className="font-body text-xl text-gray-300 font-light leading-relaxed mb-10 max-w-lg border-l-2 border-brand-accent-1 pl-6">
+                    <div className="font-body text-2xl text-gray-300 font-light leading-relaxed mb-10 max-w-lg border-l-2 border-brand-accent-1 pl-6">
                         <p className="mb-2"><span className="font-medium text-white shadow-sm">KinStrategi</span> builds the system.</p>
                         <p><span className="font-medium text-brand-accent-2 shadow-sm italic">Leiré</span> builds the idea.</p>
                     </div>
@@ -146,8 +146,8 @@ export default function Leire() {
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={{ opacity: 1, scale: 1, y: [-10, 10, -10] }}
                     transition={{
-                        opacity: { duration: 1.5, delay: 0.3 },
-                        scale: { duration: 1.5, delay: 0.3 },
+                        opacity: { duration: 1.0, delay: 0.2 },
+                        scale: { duration: 1.0, delay: 0.2 },
                         y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
                     }}
                     className="md:w-1/2 flex justify-center"
@@ -180,7 +180,7 @@ export default function Leire() {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.5 }}
                     className="flex flex-col lg:flex-row gap-16"
                 >
                     <div className="lg:w-1/3 text-left">
@@ -209,7 +209,7 @@ export default function Leire() {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.5 }}
                     className="text-center"
                 >
                     <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-4 block">Specialties</span>
@@ -236,14 +236,17 @@ export default function Leire() {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.5 }}
                     className="border border-white/5 bg-brand-base/40 backdrop-blur-xl p-8 lg:p-16"
                 >
                     <div className="flex flex-col lg:flex-row gap-16 justify-between items-start">
                         <div className="lg:w-1/3">
                             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 italic text-brand-accent-2">How to Work with Us</h2>
+                            <p className="font-body text-gray-300 font-light text-lg mb-4 leading-relaxed font-bold">
+                                Simple by design. Thoughtful by nature.
+                            </p>
                             <p className="font-body text-gray-300 font-light text-lg mb-8 leading-relaxed">
-                                Four steps. No fluff. We keep the process grounded so the ideas can be limitless.
+                                Our process removes the friction without removing the creativity. Four clear steps that take your idea from possibility to execution.
                             </p>
                             <motion.button
                                 onClick={() => navigate('/sign-station')}
@@ -274,12 +277,18 @@ export default function Leire() {
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.5 }}
                     className="flex flex-col md:flex-row gap-16 items-center"
                 >
                     <div className="w-full md:w-1/2 p-12 bg-black/30 border border-brand-accent-1/20 backdrop-blur-sm">
                         <h2 className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-4 block">How KinStrategi & Leiré Work Together</h2>
-                        <h3 className="font-heading text-2xl font-bold mb-8 italic text-white drop-shadow-md">KinStrategi builds the engine. Leiré ignites the idea.</h3>
+                        <h3 className="font-heading text-2xl font-bold mb-4 italic text-white drop-shadow-md">Two disciplines. One seamless creative ecosystem.</h3>
+                        <div className="font-body text-gray-300 font-light text-sm leading-relaxed space-y-4 mb-8">
+                            <p>Every great idea needs both vision and execution.</p>
+                            <p><strong className="text-white">KinStrategi</strong> designs the infrastructure—building the right teams, systems, workflows, and partnerships to bring ambitious ideas to life.</p>
+                            <p><strong className="text-white italic">Leiré</strong> shapes the creative vision—developing concepts, narratives, worlds, campaigns, and experiences that give those ideas meaning.</p>
+                            <p>Together, they transform possibilities into work that's both strategically sound and creatively unforgettable.</p>
+                        </div>
                         <ul className="space-y-6">
                             {scenarios.map((item, idx) => (
                                 <li key={idx} className="flex flex-col gap-1 border-b border-white/5 pb-4 last:border-b-0 last:pb-0">
