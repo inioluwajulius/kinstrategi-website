@@ -106,7 +106,7 @@ export default function Manifesto() {
                     <div>
                         <h2 className="font-tech text-brand-accent-1 text-sm tracking-[0.2em] uppercase mb-6 block">Why We Exist</h2>
                         <h3 className="font-heading text-4xl mb-8">We've seen—</h3>
-                        <ul className="space-y-6 font-body text-lg text-gray-400 font-light">
+                        <ul className="space-y-6 font-body text-lg text-gray-200 font-normal">
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Great ideas dismissed before they had the chance to evolve.</li>
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Creativity constrained by fragmented systems and unclear direction.</li>
                             <li className="flex gap-4"><span className="text-brand-accent-1">✦</span> Founders expected to carry vision, strategy, execution, and leadership all at once.</li>
@@ -121,7 +121,7 @@ export default function Manifesto() {
                             We exist because we believe creativity flourishes when imagination and execution are treated as partners, not opposites.
                         </p>
 
-                        <div className="space-y-6 font-body text-gray-300 font-light text-lg">
+                        <div className="space-y-6 font-body text-gray-100 font-normal text-lg">
                             <p>That's why <strong className="text-white font-medium">KinStrategi</strong> exists—to develop the systems, strategy, and creative infrastructure that ambitious work needs to succeed.</p>
                             <p>That's why <strong className="text-white font-medium italic">Leiré</strong> exists—to protect the original spark, expand it into compelling ideas, and shape the stories that move people.</p>
                             <p className="text-white font-medium pt-4">One develops the foundation.<br/>One develops the vision.<br/>Together, they develop what's possible.</p>
@@ -129,7 +129,7 @@ export default function Manifesto() {
 
                         <div className="mt-8 pt-8 border-t border-white/10">
                             <p className="font-tech text-brand-accent-3 text-xs uppercase mb-4 opacity-70 tracking-widest">Together, we bridge:</p>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-sm text-gray-400">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-sm text-gray-200">
                                 <span><span className="text-brand-accent-1 mr-2">✦</span>Vision and execution</span>
                                 <span><span className="text-brand-accent-1 mr-2">✦</span>Creativity and strategy</span>
                                 <span><span className="text-brand-accent-1 mr-2">✦</span>Story and structure</span>

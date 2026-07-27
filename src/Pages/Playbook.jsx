@@ -148,7 +148,7 @@ export default function Playbook() {
                             viewport={{ once: true, margin: "-50px" }}
                             transition={{ duration: 0.6, delay: idx * 0.1 }}
                             whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}
-                            className="bg-brand-base/20 backdrop-blur-md border border-white/10 p-8 relative overflow-hidden group flex flex-col h-full"
+                            className="bg-brand-dark/90 border border-white/10 p-8 relative overflow-hidden group flex flex-col h-full"
                         >
                             {/* Accent Glow Top Right */}
                             <div className={`absolute top-0 right-0 w-48 h-48 bg-${item.accent}/10 rounded-full blur-[60px] group-hover:bg-${item.accent}/20 transition-colors duration-700 pointer-events-none translate-x-1/2 -translate-y-1/2`} />
@@ -178,14 +178,14 @@ export default function Playbook() {
 
                                 <div>
                                     <p className="font-tech text-white/70 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Best For</p>
-                                    <p className="font-body text-gray-200 font-medium">{item.bestFor}</p>
+                                    <p className="font-body text-gray-200 font-medium text-base">{item.bestFor}</p>
                                 </div>
 
                                 <div>
                                     <p className={`font-tech text-xs tracking-widest uppercase mb-3 text-${item.accent}`}>{item.pointsHeading}</p>
                                     <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                         {item.points.map((point, pIdx) => (
-                                            <li key={pIdx} className="flex items-start gap-2 font-body text-sm text-gray-100 font-medium">
+                                            <li key={pIdx} className="flex items-start gap-2 font-body text-base text-gray-100 font-medium">
                                                 <span className={`text-${item.accent} mt-[2px]`}>✦</span>
                                                 <span className="leading-tight">{point}</span>
                                             </li>
@@ -202,7 +202,7 @@ export default function Playbook() {
 
                             {item.footer && (
                                 <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-sm text-${item.accent} uppercase tracking-widest font-bold drop-shadow-lg relative z-10 mb-6 flex flex-col gap-1`}>
-                                    <span>{item.footer}{formatUSD(item.footer)}</span>
+                                    <span>{item.footer.replace('// ', '')}{formatUSD(item.footer)}</span>
                                 </div>
                             )}
                             <div className="mt-auto">

@@ -99,15 +99,15 @@ export default function Leire() {
             {/* Hero Section */}
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-16 min-h-[85vh]">
                 <motion.div
-                    initial={{ opacity: 0, x: -50 }}
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut" }}
+                    transition={{ duration: 0.4, ease: "easeOut" }}
                     className="md:w-1/2 text-left"
                 >
                     <motion.span
                         initial={{ opacity: 0, letterSpacing: "0.1em" }}
                         animate={{ opacity: 1, letterSpacing: "0.4em" }}
-                        transition={{ duration: 1.2, delay: 0.2 }}
+                        transition={{ duration: 0.6, delay: 0.1 }}
                         className="font-tech text-brand-accent-1 uppercase text-sm mb-6 block drop-shadow-sm"
                     >
                         Leiré is our creative ideation and storytelling studio.
