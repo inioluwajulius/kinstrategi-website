@@ -128,8 +128,7 @@ export default function Leire() {
                     <motion.button
                         onClick={() => navigate('/sign-station')}
                         whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(173, 58, 60, 0.4)" }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-brand-accent-1/10 border border-brand-accent-1 text-white px-10 py-5 font-heading tracking-widest uppercase text-sm shadow-[0_0_15px_rgba(173,58,60,0.2)] transition-all overflow-hidden relative group backdrop-blur-sm cursor-pointer z-20"
+                        className="bg-brand-accent-1/10 border border-brand-accent-1 text-white px-10 py-5 font-heading tracking-widest uppercase text-sm shadow-[0_0_15px_rgba(173,58,60,0.2)] transition-all overflow-hidden relative group cursor-pointer z-20"
                     >
                         <span className="relative z-10">What's the Big Idea?</span>
                         <motion.div
@@ -152,7 +151,7 @@ export default function Leire() {
                     }}
                     className="md:w-1/2 flex justify-center"
                 >
-                    <div className="w-80 h-[28rem] border border-brand-accent-2/20 rounded-t-full bg-brand-accent-2/5 backdrop-blur-sm relative overflow-hidden flex items-center justify-center group shadow-2xl">
+                    <div className="w-80 h-[28rem] border border-brand-accent-2/20 rounded-t-full bg-brand-accent-2/5 relative overflow-hidden flex items-center justify-center group shadow-2xl">
                         <motion.div
                             animate={{ opacity: [0.2, 0.5, 0.2] }}
                             transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -194,8 +193,8 @@ export default function Leire() {
                         {services.map((service, idx) => (
                             <motion.div
                                 key={idx}
-                                whileHover={{ y: -5, backgroundColor: "rgba(209, 174, 166, 0.1)" }}
-                                className="border border-white/10 bg-brand-base/30 p-6 flex items-center backdrop-blur-sm transition-colors group"
+                                whileHover={{ y: -5, backgroundColor: "var(--color-accent-2)" }}
+                                className="border border-white/10 bg-brand-base p-6 flex items-center transition-colors group"
                             >
                                 <div className="w-2 h-2 bg-brand-accent-1 rounded-full mr-4 group-hover:scale-150 transition-transform" />
                                 <span className="font-heading text-lg font-medium tracking-wide">{service}</span>
@@ -237,7 +236,7 @@ export default function Leire() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5 }}
-                    className="border border-white/5 bg-brand-base/40 backdrop-blur-xl p-8 lg:p-16"
+                    className="border border-white/5 bg-brand-base p-8 lg:p-16 shadow-xl"
                 >
                     <div className="flex flex-col lg:flex-row gap-16 justify-between items-start">
                         <div className="lg:w-1/3">
@@ -280,7 +279,7 @@ export default function Leire() {
                     transition={{ duration: 0.5 }}
                     className="flex flex-col md:flex-row gap-16 items-center"
                 >
-                    <div className="w-full md:w-1/2 p-12 bg-black/30 border border-brand-accent-1/20 backdrop-blur-sm">
+                    <div className="w-full md:w-1/2 p-12 bg-brand-base shadow-xl border border-brand-accent-1/20">
                         <h2 className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-4 block">How KinStrategi & Leiré Work Together</h2>
                         <h3 className="font-heading text-2xl font-bold mb-4 italic text-white drop-shadow-md">Two disciplines. One seamless creative ecosystem.</h3>
                         <div className="font-body text-gray-300 font-light text-sm leading-relaxed space-y-4 mb-8">

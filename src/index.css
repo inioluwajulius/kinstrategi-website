@@ -79,23 +79,28 @@ body .text-white {
 }
 
 body .text-gray-100 {
-  color: color-mix(in srgb, var(--text-color) 90%, transparent) !important;
+  color: var(--text-color) !important;
+  opacity: 0.9 !important;
 }
 
 body .text-gray-200 {
-  color: color-mix(in srgb, var(--text-color) 80%, transparent) !important;
+  color: var(--text-color) !important;
+  opacity: 0.8 !important;
 }
 
 body .text-gray-300 {
-  color: color-mix(in srgb, var(--text-color) 70%, transparent) !important;
+  color: var(--text-color) !important;
+  opacity: 0.7 !important;
 }
 
 body .text-gray-400 {
-  color: color-mix(in srgb, var(--text-color) 60%, transparent) !important;
+  color: var(--text-color) !important;
+  opacity: 0.6 !important;
 }
 
 body .text-gray-500 {
-  color: color-mix(in srgb, var(--text-color) 45%, transparent) !important;
+  color: var(--text-color) !important;
+  opacity: 0.45 !important;
 }
 
 body .bg-white {
@@ -103,23 +108,28 @@ body .bg-white {
 }
 
 body .bg-white\/5 {
-  background-color: color-mix(in srgb, var(--text-color) 5%, transparent) !important;
+  background-color: transparent !important;
+  background-color: rgb(from var(--text-color) r g b / 5%) !important;
 }
 
 body .bg-white\/10 {
-  background-color: color-mix(in srgb, var(--text-color) 10%, transparent) !important;
+  background-color: transparent !important;
+  background-color: rgb(from var(--text-color) r g b / 10%) !important;
 }
 
 body .bg-black\/30 {
-  background-color: color-mix(in srgb, var(--color-dark) 30%, transparent) !important;
+  background-color: transparent !important;
+  background-color: rgb(from var(--color-dark) r g b / 30%) !important;
 }
 
 body .bg-black\/40 {
-  background-color: color-mix(in srgb, var(--color-dark) 40%, transparent) !important;
+  background-color: transparent !important;
+  background-color: rgb(from var(--color-dark) r g b / 40%) !important;
 }
 
 body .bg-black\/50 {
-  background-color: color-mix(in srgb, var(--color-dark) 50%, transparent) !important;
+  background-color: transparent !important;
+  background-color: rgb(from var(--color-dark) r g b / 50%) !important;
 }
 
 body .border-white {
@@ -127,13 +137,16 @@ body .border-white {
 }
 
 body .border-white\/5 {
-  border-color: color-mix(in srgb, var(--text-color) 5%, transparent) !important;
+  border-color: transparent !important;
+  border-color: rgb(from var(--text-color) r g b / 5%) !important;
 }
 
 body .border-white\/10 {
-  border-color: color-mix(in srgb, var(--text-color) 10%, transparent) !important;
+  border-color: transparent !important;
+  border-color: rgb(from var(--text-color) r g b / 10%) !important;
 }
 
 body .border-white\/20 {
-  border-color: color-mix(in srgb, var(--text-color) 20%, transparent) !important;
+  border-color: transparent !important;
+  border-color: rgb(from var(--text-color) r g b / 20%) !important;
 }
