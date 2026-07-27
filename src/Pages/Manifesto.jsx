@@ -168,7 +168,7 @@ export default function Manifesto() {
                             >
                                 <div className="absolute left-10 md:left-14 top-16 bottom-[-6rem] w-px bg-white/5 z-0 group-last:hidden" />
 
-                                <div className="font-tech text-5xl md:text-7xl text-brand-accent-1/20 font-bold z-10 shrink-0 select-none">
+                                <div className="font-tech text-5xl md:text-7xl text-brand-accent-1 opacity-70 font-bold z-10 shrink-0 select-none">
                                     {belief.num}
                                 </div>
                                 <div className="pt-2 md:pt-4 z-10 relative">
