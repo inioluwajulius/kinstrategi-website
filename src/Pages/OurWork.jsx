@@ -1,6 +1,41 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
+function ExpandableText({ text, source, isQuote = false }) {
+    const [isExpanded, setIsExpanded] = useState(false);
+    
+    // Check if text is long enough to need expansion (rough estimate by length)
+    const needsExpansion = text.length > 150;
+    
+    return (
+        <div className={`relative ${isQuote ? 'border-l-2 border-brand-accent-3 pl-6 py-2' : ''}`}>
+            <div className={`transition-all duration-500 overflow-hidden ${!isExpanded && needsExpansion ? 'max-h-24' : 'max-h-[1000px]'}`}>
+                <p className={`font-body opacity-90 leading-relaxed ${isQuote ? 'text-xl md:text-2xl font-light italic mb-4' : 'text-base font-light'}`}>
+                    {text}
+                </p>
+            </div>
+            
+            {!isExpanded && needsExpansion && (
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#25224A]/90 to-transparent pointer-events-none" />
+            )}
+            
+            {source && (
+                <p className={`font-tech text-xs tracking-widest uppercase text-brand-accent-3 ${!isQuote ? 'mt-4' : ''}`}>{source}</p>
+            )}
+            
+            {needsExpansion && (
+                <button 
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="mt-4 text-brand-accent-2 font-tech uppercase tracking-widest text-[10px] hover:text-white transition-colors"
+                >
+                    {isExpanded ? 'Read Less' : 'Read More'}
+                </button>
+            )}
+        </div>
+    );
+}
+
+
 // Placements
 import aySubzImg from '../safe-assets/brands/aysubz.png';
 import bmeImg from '../safe-assets/brands/bme.png';
@@ -26,6 +61,9 @@ import jameson3 from '../safe-assets/brands/jameson3.jpg';
 import test1 from '../safe-assets/testimonials/test1.jpg';
 import test2 from '../safe-assets/testimonials/test2.jpg';
 import test3 from '../safe-assets/testimonials/test3.jpg';
+
+// Avatar
+import ademarisExcited from '../safe-assets/navigator/ademaris-excited.png';
 
 const categories = [
     {
@@ -172,14 +210,26 @@ export default function OurWork() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-center md:text-left max-w-3xl mb-16"
+                    className="flex flex-col md:flex-row items-center md:items-start justify-between mb-24 relative"
                 >
-                    <h1 className="font-heading text-6xl md:text-8xl font-bold uppercase tracking-wider mb-6 text-white drop-shadow-xl">
-                        The <span className="text-brand-accent-1">Work.</span>
-                    </h1>
-                    <p className="font-body text-xl md:text-2xl opacity-70 font-light leading-relaxed">
-                        Strategy in action. A curated index of our field notes, cases, and the talent we've placed.
-                    </p>
+                    <div className="text-center md:text-left max-w-2xl relative z-10 pt-10">
+                        <h1 className="font-heading text-6xl md:text-8xl font-bold uppercase tracking-wider mb-6 text-white drop-shadow-xl">
+                            The <span className="text-brand-accent-1">Work.</span>
+                        </h1>
+                        <p className="font-body text-xl md:text-2xl opacity-70 font-light leading-relaxed">
+                            Strategy in action. A curated index of our field notes, cases, and the talent we've placed.
+                        </p>
+                    </div>
+
+                    <div className="hidden md:block w-1/3 max-w-[250px] relative mt-10 md:mt-0 z-0 pointer-events-none">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-2/20 rounded-full blur-[40px] mix-blend-screen" />
+                        <img 
+                            src={ademarisExcited} 
+                            alt="Ademaris Excited" 
+                            className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] animate-[floating_6s_ease-in-out_infinite] mix-blend-screen"
+                            style={{ animationName: 'floating' }}
+                        />
+                    </div>
                 </motion.div>
 
                 <div className="flex flex-col lg:flex-row gap-12">
@@ -231,7 +281,7 @@ export default function OurWork() {
                                                         <div className="space-y-6">
                                                             <div>
                                                                 <h4 className="font-tech text-[10px] text-brand-accent-2 tracking-widest uppercase mb-2">The Challenge</h4>
-                                                                <p className="font-body opacity-80 font-light leading-relaxed">{log.challenge}</p>
+                                                                <ExpandableText text={log.challenge} />
                                                             </div>
                                                             <div>
                                                                 <h4 className="font-tech text-[10px] text-brand-accent-3 tracking-widest uppercase mb-2">What We Did</h4>
@@ -243,7 +293,7 @@ export default function OurWork() {
                                                             </div>
                                                             <div>
                                                                 <h4 className="font-tech text-[10px] text-brand-accent-1 tracking-widest uppercase mb-2">Impact</h4>
-                                                                <p className="font-body opacity-90 font-light leading-relaxed italic border-l border-white/20 pl-4 py-1">{log.impact}</p>
+                                                                <ExpandableText text={log.impact} />
                                                             </div>
                                                         </div>
                                                     </div>
@@ -329,10 +379,7 @@ export default function OurWork() {
                                             <div className="space-y-12">
                                                 <div className="space-y-8">
                                                     {cat.content.filter(t => t.quote).map((test, idx) => (
-                                                        <div key={idx} className="border-l-2 border-brand-accent-3 pl-6 py-2">
-                                                            <p className="font-body text-xl md:text-2xl font-light italic opacity-90 leading-relaxed mb-4">"{test.quote}"</p>
-                                                            <p className="font-tech text-xs tracking-widest uppercase text-brand-accent-3">{test.source}</p>
-                                                        </div>
+                                                        <ExpandableText key={idx} text={`"${test.quote}"`} source={test.source} isQuote={true} />
                                                     ))}
                                                 </div>
                                                 

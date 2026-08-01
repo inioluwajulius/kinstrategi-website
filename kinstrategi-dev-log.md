@@ -22,3 +22,14 @@ When you return to continue building:
 1. **Share this file:** You can point the AI or yourself to this file (`kinstrategi-dev-log.md`) to instantly catch up on the architectural decisions we made regarding CSS and Tailwind.
 2. **Continue Building:** You can safely build new components knowing that the CSS variable inheritance and Tailwind utility classes are now stable and bug-free. 
 3. **Use Opacity:** Remember to use `opacity-70` instead of `text-gray-300` when you want semi-transparent text!
+
+## UI Remodeling & Global Avatar Integration (August 2026)
+- **Home Page Structure:** Split "Why We Started" and "About the Founder" into distinct full-width and side-by-side components. Recreated the testimonial strip and newsletter block to match the original design layout.
+- **Cyber-Luxury Aesthetic:** Enhanced blocks across the Home page with glassmorphism, subtle glowing grid lines, and gradient effects to maintain the premium, tech-forward aesthetic.
+- **"Read More" Component:** Implemented an `ExpandableText` component across "About the Founder", "Field Notes", and Testimonials to keep the UI clean while supporting deep, long-form content.
+- **Global Avatars & Native Background Removal:** Placed the Ademaris avatars across the site. Because the source images had solid dark backgrounds, we utilized the CSS `mix-blend-screen` technique on the `<img />` tags themselves. This smartly knocked out the black backgrounds so the avatars stand alone seamlessly against our dark layouts and glowing auroras without needing destructive file edits.
+  - `Ademaris - Greeting` on Home.
+  - `Ademaris - Excited` on Our Work.
+  - `Ademaris - Guiding` on The Playbook.
+  - `Ademaris - Smile` on Manifesto.
+  - `Ademaris - Curious` on Sign Station (Contact).

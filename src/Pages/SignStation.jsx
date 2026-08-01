@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import ademarisCurious from '../safe-assets/navigator/ademaris-curious.png';
 
 export default function SignStation() {
     return (
@@ -19,13 +20,24 @@ export default function SignStation() {
             <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
 
                 {/* Hero Section */}
-                <div className="text-center pt-12">
-                    <h1 className="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wider mb-6 text-white drop-shadow-xl">
-                        Let's build <span className="text-brand-accent-2">something good.</span>
-                    </h1>
-                    <p className="font-body text-xl md:text-2xl opacity-70 font-light max-w-2xl mx-auto">
-                        Whether you have a brief ready or just want to talk it through… we're here.
-                    </p>
+                <div className="text-center pt-12 pb-12 relative flex flex-col md:flex-row items-center justify-center gap-12">
+                    <div className="hidden md:block w-48 h-48 relative shrink-0">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-2/20 rounded-full blur-[40px] mix-blend-screen pointer-events-none" />
+                        <img 
+                            src={ademarisCurious} 
+                            alt="Ademaris Curious" 
+                            className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] animate-[floating_6s_ease-in-out_infinite] mix-blend-screen"
+                            style={{ animationName: 'floating' }}
+                        />
+                    </div>
+                    <div className="text-center md:text-left relative z-10">
+                        <h1 className="font-heading text-5xl md:text-7xl font-bold uppercase tracking-wider mb-6 text-white drop-shadow-xl">
+                            Let's build <span className="text-brand-accent-2">something good.</span>
+                        </h1>
+                        <p className="font-body text-xl md:text-2xl opacity-70 font-light max-w-2xl">
+                            Whether you have a brief ready or just want to talk it through… we're here.
+                        </p>
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-16 lg:gap-8 bg-brand-base/20 border border-white/5 backdrop-blur-md p-8 md:p-12 relative overflow-hidden">

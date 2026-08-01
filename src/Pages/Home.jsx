@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import homeBg from '../assets/KinStrategi Home_ Cyber-Luxury Hub.png';
 import founderImg from '../safe-assets/about/founder.jpg';
+import ademarisGreeting from '../safe-assets/navigator/ademaris-greeting.png';
 
 function TerminalText({ text }) {
     const [displayedText, setDisplayedText] = useState('');
@@ -22,6 +23,7 @@ function TerminalText({ text }) {
 
 export default function Home() {
     const navigate = useNavigate();
+    const [isFounderExpanded, setIsFounderExpanded] = useState(false);
 
     const textContainer = {
         hidden: { opacity: 0 },
@@ -183,57 +185,89 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col md:flex-row items-start gap-16"
+                    className="w-full text-left bg-gradient-to-br from-brand-base/40 via-[#1E1B3C]/40 to-brand-dark/60 backdrop-blur-xl border border-white/10 p-8 md:p-16 mb-24 relative overflow-hidden shadow-[0_0_40px_rgba(91,62,150,0.15)] group"
                 >
-                    <div className="w-full md:w-1/2 text-left">
-                        <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest mb-4 block opacity-70">About / Why We Started</span>
-                        <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 leading-tight">We started KinStrategi because we lived this problem.</h2>
-                        <div className="w-16 h-[2px] bg-gradient-to-r from-brand-accent-1 to-brand-accent-3 mb-8" />
-                        <div className="font-body opacity-70 text-lg font-light leading-relaxed space-y-6">
-                            <p>
-                                We've been in the rooms where brilliant briefs get handed to the wrong teams. Where talented creatives get placed into projects that were never built for them. Where creative ops looked like chaos dressed up as process.
-                            </p>
-                            <p>
-                                KinStrategi was built to fix that. Not by posting jobs and praying, but by building a smarter system, one that matches talent to strategy, vision to execution, and teams to the vibe they actually need.
-                            </p>
-                            <p>
-                                We work at the intersection of creative culture and operational intelligence. And we're building the infrastructure that makes creative work make sense.
-                            </p>
-                        </div>
+                    {/* Cyber Accents */}
+                    <div className="absolute top-0 left-0 w-32 h-32 bg-brand-accent-1/20 blur-[80px] pointer-events-none group-hover:bg-brand-accent-1/30 transition-colors" />
+                    <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-accent-3/20 blur-[80px] pointer-events-none group-hover:bg-brand-accent-3/30 transition-colors" />
+                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-accent-1/50 to-transparent opacity-30" />
+                    
+                    <div className="relative z-10">
+                    <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest mb-4 block opacity-70">About / Why We Started</span>
+                    <h2 className="font-heading text-4xl md:text-5xl font-bold mb-8 leading-tight max-w-4xl">We started KinStrategi because we lived this problem.</h2>
+                    <div className="w-24 h-[2px] bg-gradient-to-r from-brand-accent-1 to-brand-accent-3 mb-12" />
+                    <div className="font-body opacity-80 text-lg md:text-xl font-light leading-relaxed space-y-6 max-w-4xl">
+                        <p>
+                            We've been in the rooms where brilliant briefs get handed to the wrong teams. Where talented creatives get placed into projects that were never built for them. Where creative ops looked like chaos dressed up as process.
+                        </p>
+                        <p>
+                            KinStrategi was built to fix that. Not by posting jobs and praying, but by building a smarter system, one that matches talent to strategy, vision to execution, and teams to the vibe they actually need.
+                        </p>
+                        <p>
+                            We work at the intersection of creative culture and operational intelligence. And we're building the infrastructure that makes creative work make sense.
+                        </p>
                     </div>
-                    {/* About the Founder */}
-                    <div className="w-full md:w-1/2 border border-white/10 bg-brand-base/20 backdrop-blur-sm p-8 flex flex-col items-start text-left">
-                        <div className="w-full h-72 md:h-96 bg-brand-dark border border-white/10 mb-8 relative overflow-hidden group">
-                            <img src={founderImg} alt="Adeshewa Adeniran" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-                            <div className="absolute inset-0 bg-brand-accent-1/10 mix-blend-overlay group-hover:bg-brand-accent-1/0 transition-colors duration-500" />
+                    </div>
+                </motion.div>
+
+                {/* About the Founder */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8 }}
+                    className="flex flex-col lg:flex-row border border-white/10 bg-gradient-to-br from-[#25224A]/90 to-brand-dark/95 backdrop-blur-2xl overflow-hidden shadow-[0_0_50px_rgba(0,167,167,0.1)] relative group"
+                >
+                    {/* Cyber Grid Overlay */}
+                    <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
+                    
+                    <div className="w-full lg:w-2/5 h-96 lg:h-auto relative group/img shrink-0 z-10 border-b lg:border-b-0 lg:border-r border-white/10">
+                        <img src={founderImg} alt="Adeshewa Adeniran" className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out" />
+                        <div className="absolute inset-0 bg-brand-accent-1/20 mix-blend-overlay group-hover/img:bg-brand-accent-1/0 transition-colors duration-500" />
+                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#25224A] to-transparent pointer-events-none hidden lg:block" />
+                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#25224A] to-transparent pointer-events-none block lg:hidden" />
+                    </div>
+                    
+                    <div className="w-full lg:w-3/5 p-8 md:p-16 flex flex-col items-start text-left relative">
+                        <h3 className="font-heading text-4xl font-bold mb-2">Adeshewa Adeniran</h3>
+                        <p className="font-tech text-brand-accent-3 text-sm uppercase tracking-widest mb-10 border-b border-brand-accent-3/30 pb-4 inline-block">Founding Director & Operations Specialist</p>
+                        
+                        <div className={`relative w-full transition-all duration-700 ease-in-out overflow-hidden ${isFounderExpanded ? 'max-h-[1500px]' : 'max-h-[220px]'}`}>
+                            <div className="font-body opacity-80 text-lg font-light leading-relaxed space-y-6 pb-8">
+                                <p>
+                                    Adeshewa Adeniran didn't start KinStrategi on a whim, she built it out of conviction. Having spent years deeply embedded in the creative industry, she watched the same story play out repeatedly: talented creatives landing in the wrong rooms, and brilliant brands struggling to find the right people to bring their vision to life.
+                                </p>
+                                <p>
+                                    She believes that fit matters as much as skill, that structure unlocks creativity, and that the right team changes everything.
+                                </p>
+                                <p>
+                                    Beyond the business, Adeshewa is a connector in the truest sense. Through her creative communities, she has helped countless creatives step into opportunities that were actually built for them, not just roles to fill, but roles that fit. She doesn't just source talent; she advocates for it.
+                                </p>
+                                <p>
+                                    She is woven into the fabric of the creative industry, understanding its rhythms, its tensions, and its potential in a way that only comes from truly living inside it. She combines a sharp instinct for spotting standout creative talent with the operational precision to build teams that don't just work... they click.
+                                </p>
+                            </div>
                         </div>
-                        <h3 className="font-heading text-3xl font-bold mb-2">Adeshewa Adeniran</h3>
-                        <p className="font-tech text-brand-accent-3 text-sm uppercase tracking-widest mb-6 border-b border-brand-accent-3/30 pb-4 inline-block">Creative Development Producer</p>
-                        <div className="font-body opacity-70 text-base font-light leading-relaxed space-y-4 mb-8">
-                            <h4 className="font-heading text-xl font-bold text-white mb-2">Do You Believe in Aliens?</h4>
-                            <p>I do.</p>
-                            <p>Actually... I think you do, too. Not the sci-fi kind, but the ones who never quite fit the mold. The minds that look at disarray, and instantly spot the foreboding bottlenecks.</p>
-                            <p>Allow me to introduce you to one.</p>
-                            <p>Hello, I'm Adeshewa Adeniran.</p>
-                            <p>People have called me creative, strategic, operational, analytical, or simply "too many things at once." I've always suspected they were all trying to say the same thing: I don't believe in choosing between imagination and structure.</p>
-                            <p>My mind is an ecosystem where storytelling, process engineering, and brand building live under one roof. One moment I'm worldbuilding a campaign; the next, I'm engineering operational workflows or aligning talent that was meant to cross paths. To me, these aren't separate disciplines, they are facets of a single creative act.</p>
-                            <h4 className="font-heading text-lg font-bold text-white mt-6 mb-2">Why KinStrategi Exists</h4>
-                            <p>I watched the same tragedy repeat across the creative industries: brilliant founders exhausted by friction, and profound ideas fracturing not for lack of imagination, but for lack of structural alignment. The industry was hunting for talent; no one was hunting for a fit.</p>
-                            <p>That obsession became KinStrategi.</p>
-                            <p>KinStrategi exists to bring rare harmony to creative execution—curating teams that don't merely function, but fundamentally click. Because enduring creative outcomes happen when the right people, systems, and vision converge.</p>
-                            <p>Anchoring all of this motion are my two dogs, Neo-Wolf and Jojo.</p>
-                            <p>They interrupt for unprompted cuddles and force me into a world where I'd happily vanish down creative rabbit holes. They've taught me a principle I carry into every boardroom and brand partnership: the most resilient relationships are built on trust, patience, insatiable curiosity, and showing up consistently.</p>
-                            <p>So, yes... perhaps I am an alien. Not because I belong to another planet, but because I've never viewed creativity, operations, strategy, and human connection as separate worlds.</p>
-                            <p>To me, they have always been the same universe.</p>
-                            <p>Welcome to mine.</p>
+                        
+                        {!isFounderExpanded && (
+                            <div className="absolute bottom-32 left-0 right-0 h-32 bg-gradient-to-t from-[#25224A] via-[#25224A]/80 to-transparent pointer-events-none" />
+                        )}
+
+                        <div className="flex flex-wrap gap-6 items-center mt-6 pt-6 border-t border-white/10 w-full relative z-10">
+                            <button 
+                                onClick={() => setIsFounderExpanded(!isFounderExpanded)}
+                                className="text-brand-accent-3 font-tech uppercase tracking-widest text-sm border border-brand-accent-3/50 px-6 py-3 hover:bg-brand-accent-3 hover:text-white transition-all duration-300"
+                            >
+                                {isFounderExpanded ? 'Read Less' : 'Read Full Bio'}
+                            </button>
+                            <motion.button
+                                onClick={() => window.location.href = "mailto:shewa@kinstrategi.com"}
+                                whileHover={{ color: "#fff" }}
+                                className="text-brand-accent-2 font-tech uppercase tracking-widest text-sm transition-colors cursor-pointer ml-auto"
+                            >
+                                Connect with Adeshewa →
+                            </motion.button>
                         </div>
-                        <motion.button
-                            onClick={() => window.location.href = "mailto:shewa@kinstrategi.com"}
-                            whileHover={{ backgroundColor: "rgba(212, 175, 55, 0.15)" }}
-                            className="text-brand-accent-2 border-b-2 border-brand-accent-2 pb-1 font-tech uppercase tracking-widest text-sm transition-colors cursor-pointer"
-                        >
-                            Connect with Adeshewa
-                        </motion.button>
                     </div>
                 </motion.div>
 
@@ -279,35 +313,68 @@ export default function Home() {
                     <p className="font-tech text-brand-accent-2 text-sm uppercase tracking-widest">Bisola A. — Founder & Aesthetician, Bacardi B/Living in Sanaa</p>
                 </motion.div>
 
-                {/* Newsletter Sign-Up */}
+                {/* Newsletter Sign-Up & Avatar Container */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="border border-white/10 bg-brand-base/30 backdrop-blur-md p-12 text-center max-w-3xl mx-auto mb-24"
+                    className="relative max-w-5xl mx-auto mb-24 pt-24 md:pt-0"
                 >
-                    <h2 className="font-heading text-4xl font-bold mb-4">Stay in the Know.</h2>
-                    <p className="font-body opacity-70 font-light text-xl leading-relaxed mb-8">
-                        With what’s moving in brand and culture. What's working in creative work. And every now and then, exactly what we think about it. Straight to your inbox.
-                    </p>
-                    <form
-                        className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            alert("You're officially tuned in. Keep an eye on your inbox.");
-                        }}
-                    >
-                        <input
-                            type="email"
-                            placeholder="Your email address"
-                            className="bg-brand-dark/50 border border-white/20 px-4 py-3 text-white placeholder-gray-500 font-body outline-none focus:border-brand-accent-3 transition-colors flex-1"
-                            required
-                        />
-                        <button type="submit" className="bg-brand-accent-3 text-white px-6 py-3 font-tech uppercase tracking-widest text-sm hover:bg-brand-accent-3/80 transition-colors cursor-pointer">
-                            Tune In
-                        </button>
-                    </form>
+                    {/* Cyber Console Background */}
+                    <div className="w-full border border-white/10 bg-gradient-to-br from-brand-base/60 via-[#1E1B3C]/70 to-brand-dark/80 backdrop-blur-2xl shadow-[0_0_60px_rgba(91,62,150,0.2)] flex flex-col md:flex-row relative z-0 overflow-visible rounded-sm">
+                        
+                        {/* Abstract Tech Decorations */}
+                        <div className="absolute top-0 right-0 w-32 h-[1px] bg-brand-accent-2/50" />
+                        <div className="absolute bottom-0 left-0 w-32 h-[1px] bg-brand-accent-1/50" />
+                        
+                        {/* Avatar Section - Absolutely positioned to break the box */}
+                        <div className="md:w-1/3 flex justify-center relative md:-ml-8 md:mt-[-80px] -mt-32 z-20 pointer-events-none">
+                            {/* Glowing Aura behind Avatar */}
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-accent-3/30 rounded-full blur-[60px] mix-blend-screen" />
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-1/20 rounded-full blur-[40px] mix-blend-plus-lighter" />
+                            
+                            <img 
+                                src={ademarisGreeting} 
+                                alt="Ademaris" 
+                                className="w-full h-auto max-w-[320px] drop-shadow-[0_0_20px_rgba(212,175,55,0.3)] relative z-10 animate-[floating_6s_ease-in-out_infinite] mix-blend-screen"
+                                style={{ animationName: 'floating' }}
+                            />
+                            <style dangerouslySetInnerHTML={{
+                                __html: `
+                                @keyframes floating {
+                                    0%, 100% { transform: translateY(0); }
+                                    50% { transform: translateY(-15px); }
+                                }
+                            `}} />
+                        </div>
+                        
+                        {/* Newsletter Form Section */}
+                        <div className="w-full md:w-2/3 p-10 md:p-16 text-left relative z-10 flex flex-col justify-center">
+                            <span className="font-tech text-brand-accent-3 text-[10px] uppercase tracking-[0.3em] mb-4 block opacity-70">Broadcast Channel</span>
+                            <h2 className="font-heading text-4xl lg:text-5xl font-bold mb-6 text-white drop-shadow-md">Stay in the Know.</h2>
+                            <p className="font-body opacity-80 font-light text-lg leading-relaxed mb-8 max-w-lg">
+                                Industry trends. Benchmark campaigns. African brand strategy. Cultural storytelling. Brand evolution. And the occasional hot take from Team KinStrategi. Straight to your inbox.
+                            </p>
+                            <form
+                                className="flex flex-col sm:flex-row gap-3 w-full max-w-md relative z-20"
+                                onSubmit={(e) => {
+                                    e.preventDefault();
+                                    alert("You're officially tuned in. Keep an eye on your inbox.");
+                                }}
+                            >
+                                <input
+                                    type="email"
+                                    placeholder="Your email address"
+                                    className="bg-brand-dark/60 border border-white/20 px-5 py-4 text-white placeholder-white/40 font-body outline-none focus:border-brand-accent-3 focus:bg-brand-dark/80 transition-all flex-1 backdrop-blur-sm"
+                                    required
+                                />
+                                <button type="submit" className="bg-brand-accent-3 text-brand-dark font-bold px-8 py-4 font-tech uppercase tracking-widest text-sm hover:bg-brand-accent-3/90 transition-colors cursor-pointer shadow-[0_0_20px_rgba(0,167,167,0.3)] hover:shadow-[0_0_30px_rgba(0,167,167,0.5)]">
+                                    Tune In
+                                </button>
+                            </form>
+                        </div>
+                    </div>
                 </motion.div>
             </div>
         </div>

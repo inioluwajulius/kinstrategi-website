@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import manifestoBg from '../assets/Manifesto_ The KinStrategi Philosophy.png';
-import ademarisGreeting from '../safe-assets/navigator/ademaris.png';
+import ademarisSmile from '../safe-assets/navigator/ademaris-smile.png';
 
 const beliefs = [
     {
@@ -188,18 +188,25 @@ export default function Manifesto() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 1 }}
-                    className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 py-24 border-t border-white/10 mt-24 mb-24 bg-brand-base/20 backdrop-blur-sm px-8 md:px-16"
+                    className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 py-24 border-t border-white/10 mt-24 mb-24 bg-brand-base/20 backdrop-blur-sm px-8 md:px-16 relative"
                 >
-                    <div className="w-48 h-48 md:w-64 md:h-64 relative shrink-0">
-                        <div className="absolute inset-0 bg-brand-accent-3/20 rounded-full blur-3xl animate-pulse" />
-                        <img src={ademarisGreeting} alt="Ademaris - The Navigator" className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform duration-500" />
+                    <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-64 h-64 bg-brand-accent-3/10 rounded-full blur-[60px] mix-blend-screen pointer-events-none" />
+                    
+                    <div className="w-64 h-64 md:w-80 md:h-80 relative shrink-0">
+                        <div className="absolute inset-0 bg-brand-accent-3/20 rounded-full blur-[40px] mix-blend-screen animate-pulse" />
+                        <img 
+                            src={ademarisSmile} 
+                            alt="Ademaris Smile" 
+                            className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_25px_rgba(255,255,255,0.3)] animate-[floating_6s_ease-in-out_infinite] mix-blend-screen"
+                            style={{ animationName: 'floating' }}
+                        />
                     </div>
-                    <div className="text-center md:text-left max-w-xl">
-                        <h3 className="font-heading text-3xl font-bold mb-4 text-brand-accent-2">Meet Ademaris.</h3>
-                        <p className="font-body text-lg opacity-80 font-light leading-relaxed mb-6">
+                    <div className="text-center md:text-left max-w-xl relative z-10">
+                        <h3 className="font-heading text-4xl font-bold mb-4 text-brand-accent-2 drop-shadow-md">Meet Ademaris.</h3>
+                        <p className="font-body text-lg opacity-90 font-light leading-relaxed mb-6">
                             She is our Navigator—the voice and guiding spirit of KinStrategi. Always curious, meticulously structured, and deeply attuned to the creative pulse, she ensures you never lose your way within our ecosystem.
                         </p>
-                        <p className="font-tech text-xs tracking-widest uppercase text-white/50 border-l-2 border-brand-accent-2 pl-4">
+                        <p className="font-tech text-xs tracking-widest uppercase text-white/70 border-l-2 border-brand-accent-2 pl-4 shadow-sm">
                             Allow her to guide you into the next phase of your vision.
                         </p>
                     </div>

@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import playbookBg from '../assets/The Playbook_ Creative Ops Hierarchy.png';
+import ademarisGuiding from '../safe-assets/navigator/ademaris-guiding.png';
 
 const services = [
     {
@@ -282,23 +283,35 @@ export default function Playbook() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="text-center pb-24"
+                    className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto pb-24 relative"
                 >
-                    <h3 className="font-heading text-3xl font-bold mb-4">Not sure what you need?</h3>
-                    <p className="font-body opacity-70 text-xl font-light leading-relaxed mb-4 max-w-2xl mx-auto">
-                        Many founders come to us with an idea, not a fully defined scope, and that's perfectly okay.
-                    </p>
-                    <p className="font-body opacity-70 text-lg font-light leading-relaxed mb-8 max-w-2xl mx-auto">
-                        We'll help you clarify the vision, identify the right level of support, and recommend the partnership that makes the most sense before any work begins.
-                    </p>
-                    <motion.button
-                        onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
-                        whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer"
-                    >
-                        Let's Talk Strategy →
-                    </motion.button>
+                    <div className="w-full md:w-1/3 relative z-10 flex justify-center order-2 md:order-1">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-1/20 rounded-full blur-[40px] mix-blend-screen pointer-events-none" />
+                        <img 
+                            src={ademarisGuiding} 
+                            alt="Ademaris Guiding" 
+                            className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] animate-[floating_6s_ease-in-out_infinite] mix-blend-screen"
+                            style={{ animationName: 'floating' }}
+                        />
+                    </div>
+                    
+                    <div className="w-full md:w-2/3 text-center md:text-left order-1 md:order-2">
+                        <h3 className="font-heading text-3xl md:text-5xl font-bold mb-6">Not sure what you need?</h3>
+                        <p className="font-body opacity-80 text-xl font-light leading-relaxed mb-4 max-w-2xl">
+                            Many founders come to us with an idea, not a fully defined scope, and that's perfectly okay.
+                        </p>
+                        <p className="font-body opacity-80 text-lg font-light leading-relaxed mb-8 max-w-2xl">
+                            We'll help you clarify the vision, identify the right level of support, and recommend the partnership that makes the most sense before any work begins.
+                        </p>
+                        <motion.button
+                            onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
+                            whileTap={{ scale: 0.95 }}
+                            className="bg-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer shadow-[0_0_20px_rgba(91,62,150,0.3)] hover:shadow-[0_0_40px_rgba(91,62,150,0.5)] transition-shadow"
+                        >
+                            Let's Talk Strategy →
+                        </motion.button>
+                    </div>
                 </motion.div>
 
             </div>
