@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import homeBg from '../assets/KinStrategi Home_ Cyber-Luxury Hub.png';
 import founderImg from '../safe-assets/about/founder.jpg';
@@ -221,51 +221,105 @@ export default function Home() {
                     {/* Cyber Grid Overlay */}
                     <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
                     
-                    <div className="w-full lg:w-2/5 h-96 lg:h-auto relative group/img shrink-0 z-10 border-b lg:border-b-0 lg:border-r border-white/10">
-                        <img src={founderImg} alt="Adeshewa Adeniran" className="w-full h-full object-cover group-hover/img:scale-105 transition-transform duration-700 ease-out" />
-                        <div className="absolute inset-0 bg-brand-accent-1/20 mix-blend-overlay group-hover/img:bg-brand-accent-1/0 transition-colors duration-500" />
-                        <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-[#25224A] to-transparent pointer-events-none hidden lg:block" />
-                        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#25224A] to-transparent pointer-events-none block lg:hidden" />
+                    <div className="w-full lg:w-2/5 min-h-[380px] lg:min-h-full relative group/img shrink-0 z-10 border-b lg:border-b-0 lg:border-r border-white/10 overflow-hidden">
+                        <img 
+                            src={founderImg} 
+                            alt="Adeshewa Adeniran" 
+                            className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-700 ease-out" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute inset-0 bg-brand-accent-1/10 mix-blend-overlay group-hover/img:opacity-0 transition-opacity duration-500 pointer-events-none" />
                     </div>
                     
-                    <div className="w-full lg:w-3/5 p-8 md:p-16 flex flex-col items-start text-left relative">
-                        <h3 className="font-heading text-4xl font-bold mb-2">Adeshewa Adeniran</h3>
-                        <p className="font-tech text-brand-accent-3 text-sm uppercase tracking-widest mb-10 border-b border-brand-accent-3/30 pb-4 inline-block">Founding Director & Operations Specialist</p>
-                        
-                        <div className={`relative w-full transition-all duration-700 ease-in-out overflow-hidden ${isFounderExpanded ? 'max-h-[1500px]' : 'max-h-[220px]'}`}>
-                            <div className="font-body opacity-80 text-lg font-light leading-relaxed space-y-6 pb-8">
-                                <p>
-                                    Adeshewa Adeniran didn't start KinStrategi on a whim, she built it out of conviction. Having spent years deeply embedded in the creative industry, she watched the same story play out repeatedly: talented creatives landing in the wrong rooms, and brilliant brands struggling to find the right people to bring their vision to life.
+                    <div className="w-full lg:w-3/5 p-8 md:p-12 lg:p-14 flex flex-col justify-between text-left relative z-10">
+                        <div>
+                            <h3 className="font-heading text-3xl md:text-4xl font-bold mb-2 text-white">Adeshewa Adeniran</h3>
+                            <p className="font-tech text-brand-accent-3 text-xs md:text-sm uppercase tracking-widest mb-6 border-b border-brand-accent-3/30 pb-3 inline-block">
+                                Creative Development Producer
+                            </p>
+                            
+                            {/* Balanced Visible Excerpt */}
+                            <div className="font-body opacity-80 text-base md:text-lg font-light leading-relaxed space-y-4">
+                                <h4 className="font-heading text-xl md:text-2xl text-brand-accent-2 italic font-semibold mb-2">
+                                    Do You Believe in Aliens?
+                                </h4>
+                                <p className="text-white font-medium">
+                                    I do.
                                 </p>
                                 <p>
-                                    She believes that fit matters as much as skill, that structure unlocks creativity, and that the right team changes everything.
+                                    Actually... I think you do, too. Not the sci-fi kind, but the ones who never quite fit the mold. The minds that look at disarray, and instantly spot the foreboding bottlenecks.
+                                </p>
+                                <p className="italic text-brand-accent-2/90">
+                                    Allow me to introduce you to one.
+                                </p>
+                                <p className="font-medium text-white">
+                                    Hello, I’m Adeshewa Adeniran.
                                 </p>
                                 <p>
-                                    Beyond the business, Adeshewa is a connector in the truest sense. Through her creative communities, she has helped countless creatives step into opportunities that were actually built for them, not just roles to fill, but roles that fit. She doesn't just source talent; she advocates for it.
+                                    People have called me creative, strategic, operational, analytical, or simply "too many things at once." I’ve always suspected they were all trying to say the same thing: I don't believe in choosing between imagination and structure.
                                 </p>
                                 <p>
-                                    She is woven into the fabric of the creative industry, understanding its rhythms, its tensions, and its potential in a way that only comes from truly living inside it. She combines a sharp instinct for spotting standout creative talent with the operational precision to build teams that don't just work... they click.
+                                    My mind is an ecosystem where storytelling, process engineering, and brand building live under one roof. One moment I’m worldbuilding a campaign; the next, I’m engineering operational workflows or aligning talent that was meant to cross paths. To me, these aren't separate disciplines, they are facets of a single creative act.
                                 </p>
                             </div>
-                        </div>
-                        
-                        {!isFounderExpanded && (
-                            <div className="absolute bottom-32 left-0 right-0 h-32 bg-gradient-to-t from-[#25224A] via-[#25224A]/80 to-transparent pointer-events-none" />
-                        )}
 
-                        <div className="flex flex-wrap gap-6 items-center mt-6 pt-6 border-t border-white/10 w-full relative z-10">
+                            {/* Smooth Expandable Content */}
+                            <AnimatePresence>
+                                {isFounderExpanded && (
+                                    <motion.div
+                                        initial={{ opacity: 0, height: 0 }}
+                                        animate={{ opacity: 1, height: 'auto' }}
+                                        exit={{ opacity: 0, height: 0 }}
+                                        transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+                                        className="overflow-hidden font-body opacity-80 text-base md:text-lg font-light leading-relaxed space-y-4 pt-4"
+                                    >
+                                        <h5 className="font-heading text-xl text-white font-bold pt-2 text-brand-accent-1">
+                                            Why KinStrategi Exists
+                                        </h5>
+                                        <p>
+                                            I watched the same tragedy repeat across the creative industries: brilliant founders exhausted by friction, and profound ideas fracturing not for lack of imagination, but for lack of structural alignment. The industry was hunting for talent; no one was hunting for a fit.
+                                        </p>
+                                        <p>
+                                            That obsession became <strong className="text-white font-medium">KinStrategi</strong>.
+                                        </p>
+                                        <p>
+                                            <strong className="text-white font-medium">KinStrategi</strong> exists to bring rare harmony to creative execution—curating teams that don't merely function, but fundamentally click. Because enduring creative outcomes happen when the right people, systems, and vision converge.
+                                        </p>
+                                        <p>
+                                            Anchoring all of this motion are my two dogs, <strong className="text-brand-accent-2 font-medium">Neo-Wolf</strong> and <strong className="text-brand-accent-2 font-medium">Jojo</strong>.
+                                        </p>
+                                        <p>
+                                            They interrupt for unprompted cuddles and force me into a world where I'd happily vanish down creative rabbit holes. They’ve taught me a principle I carry into every boardroom and brand partnership: the most resilient relationships are built on trust, patience, insatiable curiosity, and showing up consistently.
+                                        </p>
+                                        <p>
+                                            So, yes... perhaps I am an alien. Not because I belong to another planet, but because I’ve never viewed creativity, operations, strategy, and human connection as separate worlds.
+                                        </p>
+                                        <p className="text-brand-accent-2 font-medium">
+                                            To me, they have always been the same universe.
+                                        </p>
+                                        <p className="font-heading text-xl italic text-white pt-2">
+                                            Welcome to mine.
+                                        </p>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
+
+                        <div className="flex flex-wrap gap-4 items-center justify-between mt-8 pt-6 border-t border-white/10 w-full relative z-10">
                             <button 
                                 onClick={() => setIsFounderExpanded(!isFounderExpanded)}
-                                className="text-brand-accent-3 font-tech uppercase tracking-widest text-sm border border-brand-accent-3/50 px-6 py-3 hover:bg-brand-accent-3 hover:text-white transition-all duration-300"
+                                className="text-brand-accent-3 font-tech uppercase tracking-widest text-xs md:text-sm border border-brand-accent-3/50 px-5 py-2.5 hover:bg-brand-accent-3 hover:text-brand-dark transition-all duration-300 cursor-pointer flex items-center gap-2"
                             >
-                                {isFounderExpanded ? 'Read Less' : 'Read Full Bio'}
+                                <span>{isFounderExpanded ? 'Read Less' : 'Read More'}</span>
+                                <span>{isFounderExpanded ? '↑' : '↓'}</span>
                             </button>
                             <motion.button
                                 onClick={() => window.location.href = "mailto:shewa@kinstrategi.com"}
-                                whileHover={{ color: "#fff" }}
-                                className="text-brand-accent-2 font-tech uppercase tracking-widest text-sm transition-colors cursor-pointer ml-auto"
+                                whileHover={{ x: 4, color: "#fff" }}
+                                className="text-brand-accent-2 font-tech uppercase tracking-widest text-xs md:text-sm transition-all cursor-pointer flex items-center gap-1.5"
                             >
-                                Connect with Adeshewa →
+                                <span>Connect with Adeshewa</span>
+                                <span>→</span>
                             </motion.button>
                         </div>
                     </div>

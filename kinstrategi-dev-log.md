@@ -33,3 +33,8 @@ When you return to continue building:
   - `Ademaris - Guiding` on The Playbook.
   - `Ademaris - Smile` on Manifesto.
   - `Ademaris - Curious` on Sign Station (Contact).
+
+## Founder Card Refactoring & Polish (August 2026)
+- **Balanced "Read More" Interaction:** Implemented a clean, proportional collapsible state. In default mode, a rich excerpt of Adeshewa's story fills the right column naturally alongside the photo without leaving dead space.
+- **Smooth `AnimatePresence` Motion:** Clicking `"Read More ↓"` smoothly unfolds the remainder of her story ("Why KinStrategi Exists", her dogs Neo-Wolf & Jojo, and closing note), with `"Read Less ↑"` returning it smoothly.
+- **Clean Bottom Bar:** Features balanced action buttons on both sides (`Read More` on the left, `Connect with Adeshewa →` on the right) anchored directly to the bottom border.
