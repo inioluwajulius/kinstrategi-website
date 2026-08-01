@@ -1,40 +1,96 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
-function ExpandableText({ text, source, isQuote = false }) {
+// Dedicated Stateful Log Card for Field Notes with Smooth Read More / Read Less
+function LogCard({ log }) {
     const [isExpanded, setIsExpanded] = useState(false);
-    
-    // Check if text is long enough to need expansion (rough estimate by length)
-    const needsExpansion = text.length > 150;
-    
+
+    // Extract log code if formatted as "LOG 001 - Title"
+    const logCode = log.title.includes(' - ') ? log.title.split(' - ')[0] : 'LOG';
+    const logHeading = log.title.includes(' - ') ? log.title.split(' - ').slice(1).join(' - ') : log.title;
+
     return (
-        <div className={`relative ${isQuote ? 'border-l-2 border-brand-accent-3 pl-6 py-2' : ''}`}>
-            <div className={`transition-all duration-500 overflow-hidden ${!isExpanded && needsExpansion ? 'max-h-24' : 'max-h-[1000px]'}`}>
-                <p className={`font-body opacity-90 leading-relaxed ${isQuote ? 'text-xl md:text-2xl font-light italic mb-4' : 'text-base font-light'}`}>
-                    {text}
-                </p>
+        <div className="bg-black/30 border border-white/10 p-5 sm:p-6 relative overflow-hidden group flex flex-col justify-between hover:border-brand-accent-1/40 transition-all duration-300">
+            <div className="absolute top-0 left-0 w-1 h-full bg-brand-accent-1/50 group-hover:bg-brand-accent-1 transition-colors" />
+            
+            <div>
+                {/* Header Meta */}
+                <div className="flex items-center justify-between gap-2 mb-3">
+                    <span className="font-tech text-[10px] uppercase tracking-widest text-brand-accent-1 bg-brand-accent-1/10 border border-brand-accent-1/25 px-2.5 py-0.5">
+                        {logCode}
+                    </span>
+                    <span className="font-tech text-[10px] text-white/40 uppercase tracking-wider truncate max-w-[150px]">
+                        {log.industry}
+                    </span>
+                </div>
+
+                {/* Title */}
+                <h3 className="font-heading text-lg sm:text-xl font-bold text-white mb-3 group-hover:text-brand-accent-1 transition-colors leading-snug">
+                    {logHeading}
+                </h3>
+                
+                {/* Client & Role Row */}
+                <div className="flex flex-wrap gap-x-3 gap-y-1.5 mb-3 font-body font-light text-xs opacity-75 border-b border-white/5 pb-3">
+                    <div><span className="text-brand-accent-1 uppercase font-tech text-[10px] tracking-wider mr-1">Client:</span>{log.client}</div>
+                    <div><span className="text-brand-accent-1 uppercase font-tech text-[10px] tracking-wider mr-1">Role:</span>{log.role}</div>
+                </div>
+
+                {/* The Challenge (Concise in collapsed state, full in expanded state) */}
+                <div className="text-xs sm:text-sm text-white/80 font-light leading-relaxed mb-1">
+                    <p className="font-tech text-[10px] text-brand-accent-2 tracking-widest uppercase mb-1">The Challenge</p>
+                    <p className={!isExpanded ? "line-clamp-2 opacity-90" : "opacity-100"}>
+                        {log.challenge}
+                    </p>
+                </div>
+
+                {/* Smooth Expandable Section */}
+                <AnimatePresence>
+                    {isExpanded && (
+                        <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.35, ease: [0.04, 0.62, 0.23, 0.98] }}
+                            className="overflow-hidden space-y-4 pt-3 mt-3 border-t border-white/5 text-xs sm:text-sm"
+                        >
+                            <div>
+                                <h4 className="font-tech text-[10px] text-brand-accent-3 tracking-widest uppercase mb-1.5">What We Did</h4>
+                                <ul className="flex flex-wrap gap-1.5">
+                                    {log.whatWeDid.map((item, i) => (
+                                        <li key={i} className="bg-white/5 border border-white/10 px-2.5 py-0.5 font-body text-[11px] text-white/90">
+                                            ✦ {item}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            
+                            <div className="bg-brand-accent-1/5 border-l-2 border-brand-accent-1 p-3 mt-2">
+                                <h4 className="font-tech text-[10px] text-brand-accent-1 tracking-widest uppercase mb-1">Impact</h4>
+                                <p className="font-body text-xs sm:text-sm text-white/90 italic leading-relaxed">
+                                    {log.impact}
+                                </p>
+                            </div>
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
-            
-            {!isExpanded && needsExpansion && (
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#25224A]/90 to-transparent pointer-events-none" />
-            )}
-            
-            {source && (
-                <p className={`font-tech text-xs tracking-widest uppercase text-brand-accent-3 ${!isQuote ? 'mt-4' : ''}`}>{source}</p>
-            )}
-            
-            {needsExpansion && (
-                <button 
+
+            {/* Read More / Read Less Action Bar */}
+            <div className="mt-4 pt-3 border-t border-white/5 flex items-center justify-between">
+                <button
+                    type="button"
                     onClick={() => setIsExpanded(!isExpanded)}
-                    className="mt-4 text-brand-accent-2 font-tech uppercase tracking-widest text-[10px] hover:text-white transition-colors"
+                    className="font-tech uppercase tracking-widest text-[11px] text-brand-accent-2 hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer py-1 px-2 -ml-2 rounded hover:bg-white/5"
+                    aria-expanded={isExpanded}
                 >
-                    {isExpanded ? 'Read Less' : 'Read More'}
+                    <span>{isExpanded ? 'Read Less' : 'Read More'}</span>
+                    <span className="text-xs">{isExpanded ? '↑' : '↓'}</span>
                 </button>
-            )}
+                <span className="text-brand-accent-1 text-xs opacity-40 group-hover:opacity-100 transition-opacity">✦</span>
+            </div>
         </div>
     );
 }
-
 
 // Placements
 import aySubzImg from '../safe-assets/brands/aysubz.png';
@@ -56,11 +112,6 @@ import ajopawC3 from '../safe-assets/brands/ajopaw3.jpeg';
 import jameson1 from '../safe-assets/brands/jameson1.jpg';
 import jameson2 from '../safe-assets/brands/jameson2.jpg';
 import jameson3 from '../safe-assets/brands/jameson3.jpg';
-
-// Testimonials
-import test1 from '../safe-assets/testimonials/test1.jpg';
-import test2 from '../safe-assets/testimonials/test2.jpg';
-import test3 from '../safe-assets/testimonials/test3.jpg';
 
 // Avatar
 import ademarisExcited from '../safe-assets/navigator/ademaris-excited.png';
@@ -180,11 +231,34 @@ const categories = [
         title: "Testimonials",
         description: "A curated collection of client feedback, collaborator reflections, and partner testimonials.",
         type: "testimonials",
+        featured: {
+            quote: "These people don't just create beautiful work. They create the conditions for beautiful work to happen.",
+            author: "Strategic Partner",
+            role: "Creative Advisory & Brand Operations",
+            tag: "Operating Philosophy"
+        },
         content: [
-            { quote: "These people don't just create beautiful work. They create the conditions for beautiful work to happen.", source: "Client / Partner" },
-            { img: test1 },
-            { img: test2 },
-            { img: test3 }
+            {
+                quote: "Shewa is amazing 👏🏾 hired someone. Orientation is today. Feedback from my friend: 👌🏾",
+                author: "Venture Founder",
+                role: "Talent Placement & Operations",
+                tag: "Talent Matching",
+                date: "Partner Feedback"
+            },
+            {
+                quote: "Hi Shewa, thank you so much for all your help. I sent a little something to show my appreciation. I also owe you a post, but I've also recommended your services to a few friends. Looking forward to working on other projects.",
+                author: "Creative Founder",
+                role: "Founder Support & Operations",
+                tag: "Founder Support",
+                date: "Client Reflection"
+            },
+            {
+                quote: "The world is waiting. 🌍 Something is coming to this page — a new country, every single weekday, for every curious kid... Shewaaaa! We are moving! 🔥",
+                author: "Publishing Partner",
+                role: "ÀJỌPÀW / TOFO House Collaboration",
+                tag: "Launch Momentum",
+                date: "Campaign Launch"
+            }
         ]
     }
 ];
@@ -193,7 +267,7 @@ export default function OurWork() {
     const [activeTab, setActiveTab] = useState(categories[0].id);
 
     return (
-        <div className="relative min-h-[90vh] py-32 overflow-hidden flex flex-col justify-start">
+        <div className="relative min-h-[90vh] py-12 sm:py-16 md:py-24 overflow-hidden flex flex-col justify-start">
             <div className="fixed inset-0 z-0 bg-brand-dark" />
             
             {/* Grid Overlay */}
@@ -206,23 +280,24 @@ export default function OurWork() {
             />
 
             <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Header */}
                 <motion.div
-                    initial={{ opacity: 0, y: 30 }}
+                    initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="flex flex-col md:flex-row items-center md:items-start justify-between mb-24 relative"
+                    transition={{ duration: 0.6 }}
+                    className="flex flex-col md:flex-row items-center md:items-start justify-between mb-8 sm:mb-12 md:mb-16 relative"
                 >
-                    <div className="text-center md:text-left max-w-2xl relative z-10 pt-10">
-                        <h1 className="font-heading text-6xl md:text-8xl font-bold uppercase tracking-wider mb-6 text-white drop-shadow-xl">
+                    <div className="text-center md:text-left max-w-2xl relative z-10 pt-2 sm:pt-4 md:pt-6">
+                        <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-wider mb-3 sm:mb-4 text-white drop-shadow-xl">
                             The <span className="text-brand-accent-1">Work.</span>
                         </h1>
-                        <p className="font-body text-xl md:text-2xl opacity-70 font-light leading-relaxed">
+                        <p className="font-body text-base sm:text-lg md:text-xl opacity-70 font-light leading-relaxed">
                             Strategy in action. A curated index of our field notes, cases, and the talent we've placed.
                         </p>
                     </div>
 
-                    <div className="hidden md:block w-1/3 max-w-[250px] relative mt-10 md:mt-0 z-0 pointer-events-none">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-2/20 rounded-full blur-[40px] mix-blend-screen" />
+                    <div className="hidden md:block w-1/4 max-w-[200px] relative mt-6 md:mt-0 z-0 pointer-events-none">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-36 h-36 bg-brand-accent-2/20 rounded-full blur-[35px] mix-blend-screen" />
                         <img 
                             src={ademarisExcited} 
                             alt="Ademaris Excited" 
@@ -232,14 +307,15 @@ export default function OurWork() {
                     </div>
                 </motion.div>
 
-                <div className="flex flex-col lg:flex-row gap-12">
-                    {/* Sidebar / Tabs */}
-                    <div className="lg:w-1/4 flex flex-col gap-2">
+                {/* Main Content Layout */}
+                <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-10">
+                    {/* Responsive Navigation Tabs (Horizontal swipeable on mobile, vertical sidebar on desktop) */}
+                    <div className="lg:w-1/4 flex flex-row lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 shrink-0 no-scrollbar border-b lg:border-b-0 border-white/10">
                         {categories.map((cat) => (
                             <button
                                 key={cat.id}
                                 onClick={() => setActiveTab(cat.id)}
-                                className={`text-left px-6 py-4 font-heading text-xl md:text-2xl transition-all duration-300 border-l-2 ${activeTab === cat.id ? 'border-brand-accent-1 text-white bg-white/5' : 'border-transparent text-white/50 hover:text-white/80 hover:bg-white/5'}`}
+                                className={`text-left px-4 sm:px-5 py-3 sm:py-3.5 font-heading text-base sm:text-lg md:text-xl transition-all duration-300 border-b-2 lg:border-b-0 lg:border-l-2 whitespace-nowrap cursor-pointer ${activeTab === cat.id ? 'border-brand-accent-1 text-white bg-white/10 font-semibold' : 'border-transparent text-white/50 hover:text-white/80 hover:bg-white/5'}`}
                             >
                                 {cat.title}
                             </button>
@@ -253,50 +329,22 @@ export default function OurWork() {
                                 cat.id === activeTab && (
                                     <motion.div
                                         key={cat.id}
-                                        initial={{ opacity: 0, y: 20 }}
+                                        initial={{ opacity: 0, y: 15 }}
                                         animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, y: -20 }}
-                                        transition={{ duration: 0.4 }}
-                                        className="bg-brand-base/20 border border-white/10 p-8 md:p-12 backdrop-blur-sm h-full"
+                                        exit={{ opacity: 0, y: -15 }}
+                                        transition={{ duration: 0.3 }}
+                                        className="bg-brand-base/20 border border-white/10 p-5 sm:p-6 md:p-10 backdrop-blur-sm h-full"
                                     >
-                                        <div className="mb-12 border-b border-white/10 pb-8">
-                                            <h2 className="font-heading text-3xl md:text-4xl font-bold text-white mb-4">{cat.title}</h2>
-                                            <p className="font-body text-lg opacity-70 font-light max-w-3xl">{cat.description}</p>
+                                        <div className="mb-6 sm:mb-8 border-b border-white/10 pb-5 sm:pb-6">
+                                            <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-2">{cat.title}</h2>
+                                            <p className="font-body text-sm sm:text-base opacity-70 font-light max-w-3xl leading-relaxed">{cat.description}</p>
                                         </div>
 
-                                        {/* Field Notes Layout */}
+                                        {/* Field Notes Layout (2-Column Grid with interactive LogCard components) */}
                                         {cat.type === "logs" && (
-                                            <div className="space-y-12">
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
                                                 {cat.content.map((log, idx) => (
-                                                    <div key={idx} className="bg-black/30 border border-white/5 p-8 relative overflow-hidden group">
-                                                        <div className="absolute top-0 left-0 w-1 h-full bg-brand-accent-1/50 group-hover:bg-brand-accent-1 transition-colors" />
-                                                        <h3 className="font-heading text-2xl font-bold text-white mb-6">{log.title}</h3>
-                                                        
-                                                        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 font-body font-light text-sm opacity-80">
-                                                            <div><strong className="text-brand-accent-1 opacity-100 block mb-1">Client</strong>{log.client}</div>
-                                                            <div><strong className="text-brand-accent-1 opacity-100 block mb-1">Industry</strong>{log.industry}</div>
-                                                            <div><strong className="text-brand-accent-1 opacity-100 block mb-1">Our Role</strong>{log.role}</div>
-                                                        </div>
-
-                                                        <div className="space-y-6">
-                                                            <div>
-                                                                <h4 className="font-tech text-[10px] text-brand-accent-2 tracking-widest uppercase mb-2">The Challenge</h4>
-                                                                <ExpandableText text={log.challenge} />
-                                                            </div>
-                                                            <div>
-                                                                <h4 className="font-tech text-[10px] text-brand-accent-3 tracking-widest uppercase mb-2">What We Did</h4>
-                                                                <ul className="flex flex-wrap gap-2">
-                                                                    {log.whatWeDid.map((item, i) => (
-                                                                        <li key={i} className="bg-white/5 border border-white/10 px-3 py-1 font-body text-xs opacity-80">✦ {item}</li>
-                                                                    ))}
-                                                                </ul>
-                                                            </div>
-                                                            <div>
-                                                                <h4 className="font-tech text-[10px] text-brand-accent-1 tracking-widest uppercase mb-2">Impact</h4>
-                                                                <ExpandableText text={log.impact} />
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                    <LogCard key={idx} log={log} />
                                                 ))}
                                             </div>
                                         )}
@@ -304,32 +352,32 @@ export default function OurWork() {
                                         {/* Placements Layout */}
                                         {cat.type === "placements" && (
                                             <div>
-                                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-8">
                                                     {cat.content.map((placement, idx) => (
                                                         <div key={idx} className="bg-black/20 border border-white/10 flex flex-col justify-between overflow-hidden group">
-                                                            <a href={placement.link || '#'} target={placement.link ? "_blank" : "_self"} rel="noopener noreferrer" className="block relative h-64 bg-black/50 border-b border-white/10 flex flex-col items-center justify-center text-center p-6 overflow-hidden">
+                                                            <a href={placement.link || '#'} target={placement.link ? "_blank" : "_self"} rel="noopener noreferrer" className="block relative h-40 sm:h-48 bg-black/50 border-b border-white/10 flex flex-col items-center justify-center text-center p-4 overflow-hidden">
                                                                 {placement.img ? (
                                                                     <img src={placement.img} alt={placement.brand} className="absolute inset-0 w-full h-full object-contain opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500 p-4" />
                                                                 ) : (
                                                                     <>
-                                                                        <span className="font-tech text-[10px] tracking-widest text-brand-accent-1 uppercase z-10 mb-2">Insert IG Thumbnail</span>
-                                                                        <span className="font-body text-[10px] text-white/50 z-10">From: Google Drive {'>'} Website Assets</span>
+                                                                        <span className="font-tech text-[10px] tracking-widest text-brand-accent-1 uppercase z-10 mb-1">Insert IG Thumbnail</span>
+                                                                        <span className="font-body text-[10px] text-white/50 z-10">Website Assets</span>
                                                                     </>
                                                                 )}
                                                                 <div className="absolute inset-0 bg-brand-accent-1/0 group-hover:bg-brand-accent-1/10 transition-colors" />
                                                             </a>
-                                                            <div className="p-6">
+                                                            <div className="p-4 sm:p-5">
                                                                 <a href={placement.link || '#'} target={placement.link ? "_blank" : "_self"} rel="noopener noreferrer" className="block cursor-pointer">
-                                                                    <h3 className="font-heading text-2xl font-bold text-white mb-4 group-hover:text-brand-accent-1 transition-colors">{placement.brand}</h3>
+                                                                    <h3 className="font-heading text-lg sm:text-xl font-bold text-white mb-2 group-hover:text-brand-accent-1 transition-colors">{placement.brand}</h3>
                                                                 </a>
-                                                                <p className="font-tech text-[10px] text-brand-accent-2 tracking-widest uppercase mb-2">Scope</p>
-                                                                <p className="font-body text-sm opacity-80 font-light leading-relaxed mb-6">{placement.scope}</p>
+                                                                <p className="font-tech text-[10px] text-brand-accent-2 tracking-widest uppercase mb-1">Scope</p>
+                                                                <p className="font-body text-xs sm:text-sm opacity-80 font-light leading-relaxed">{placement.scope}</p>
                                                             </div>
                                                         </div>
                                                     ))}
                                                 </div>
-                                                <div className="bg-brand-accent-1/10 p-8 border border-brand-accent-1/20 text-center">
-                                                    <p className="font-body text-lg italic opacity-90 font-light leading-relaxed max-w-3xl mx-auto">
+                                                <div className="bg-brand-accent-1/10 p-5 sm:p-6 border border-brand-accent-1/20 text-center">
+                                                    <p className="font-body text-sm sm:text-base italic opacity-90 font-light leading-relaxed max-w-3xl mx-auto">
                                                         "{cat.closing}"
                                                     </p>
                                                 </div>
@@ -338,29 +386,31 @@ export default function OurWork() {
 
                                         {/* Publications Layout */}
                                         {cat.type === "publications" && (
-                                            <div className="space-y-12">
+                                            <div className="space-y-6 sm:space-y-8">
                                                 {cat.content.map((group, idx) => (
                                                     <div key={idx}>
-                                                        <h3 className="font-heading text-2xl font-bold text-brand-accent-2 mb-6 border-b border-brand-accent-2/20 pb-2">{group.group}</h3>
-                                                        <div className="grid grid-cols-1 gap-6">
+                                                        <h3 className="font-heading text-lg sm:text-xl font-bold text-brand-accent-2 mb-3 sm:mb-4 border-b border-brand-accent-2/20 pb-2">{group.group}</h3>
+                                                        <div className="grid grid-cols-1 gap-4">
                                                             {group.items.map((pub, i) => (
-                                                                <a key={i} href={pub.link} target="_blank" rel="noopener noreferrer" className="group flex flex-col md:flex-row gap-6 bg-black/20 hover:bg-white/5 border border-white/5 transition-all p-6 cursor-pointer items-start">
-                                                                    <div className="w-full md:w-48 h-48 md:h-full min-h-[120px] bg-brand-dark/50 border border-white/10 shrink-0 flex flex-col items-center justify-center relative overflow-hidden text-center p-4">
+                                                                <a key={i} href={pub.link} target="_blank" rel="noopener noreferrer" className="group flex flex-col sm:flex-row gap-4 sm:gap-5 bg-black/20 hover:bg-white/5 border border-white/5 transition-all p-4 sm:p-5 cursor-pointer items-start">
+                                                                    <div className="w-full sm:w-32 md:w-36 h-32 sm:h-36 bg-brand-dark/50 border border-white/10 shrink-0 flex flex-col items-center justify-center relative overflow-hidden text-center p-3">
                                                                         {pub.img ? (
                                                                             <img src={pub.img} alt={pub.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                                                         ) : (
                                                                             <>
-                                                                                <span className="font-tech text-[10px] tracking-widest text-brand-accent-2 uppercase z-10 mb-2">Cover Image</span>
-                                                                                <span className="font-body text-[9px] text-white/50 z-10">From: Google Drive {'>'} Website Assets</span>
+                                                                                <span className="font-tech text-[10px] tracking-widest text-brand-accent-2 uppercase z-10 mb-1">Cover Image</span>
+                                                                                <span className="font-body text-[9px] text-white/50 z-10">Website Assets</span>
                                                                             </>
                                                                         )}
                                                                         <div className="absolute inset-0 bg-brand-dark/20 mix-blend-overlay group-hover:bg-brand-dark/0 transition-colors" />
                                                                     </div>
-                                                                    <div className="flex-1 flex flex-col justify-between">
+                                                                    <div className="flex-1 flex flex-col justify-between w-full">
                                                                         <div>
-                                                                            <h4 className="font-heading text-xl md:text-2xl font-bold text-white group-hover:text-brand-accent-1 transition-colors mb-2">{pub.title}</h4>
-                                                                            <span className="inline-block px-2 py-1 bg-white/5 font-tech text-[9px] uppercase tracking-widest text-white/50 mb-4">{pub.platform}</span>
-                                                                            <p className="font-body text-base opacity-70 font-light leading-relaxed mb-6">{pub.summary}</p>
+                                                                            <div className="flex items-center justify-between gap-2 mb-1.5 flex-wrap">
+                                                                                <h4 className="font-heading text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-brand-accent-1 transition-colors">{pub.title}</h4>
+                                                                                <span className="inline-block px-2 py-0.5 bg-white/5 font-tech text-[9px] uppercase tracking-widest text-white/50">{pub.platform}</span>
+                                                                            </div>
+                                                                            <p className="font-body text-xs sm:text-sm opacity-70 font-light leading-relaxed mb-4">{pub.summary}</p>
                                                                         </div>
                                                                         <div className="font-tech text-xs tracking-widest uppercase text-brand-accent-1 mt-auto">
                                                                             Read Article →
@@ -374,19 +424,61 @@ export default function OurWork() {
                                             </div>
                                         )}
 
-                                        {/* Testimonials Layout */}
+                                        {/* Testimonials Layout (Pure Text Format Cards) */}
                                         {cat.type === "testimonials" && (
-                                            <div className="space-y-12">
-                                                <div className="space-y-8">
-                                                    {cat.content.filter(t => t.quote).map((test, idx) => (
-                                                        <ExpandableText key={idx} text={`"${test.quote}"`} source={test.source} isQuote={true} />
-                                                    ))}
-                                                </div>
-                                                
-                                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 pt-8 border-t border-white/10">
-                                                    {cat.content.filter(t => t.img).map((test, idx) => (
-                                                        <div key={idx} className="bg-white/5 border border-white/10 p-2 border-brand-accent-1/20 transition-transform hover:scale-[1.02] duration-300">
-                                                            <img src={test.img} alt="Testimonial Screenshot" className="w-full h-auto opacity-80 hover:opacity-100 transition-opacity" />
+                                            <div className="space-y-6">
+                                                {/* Featured Quote */}
+                                                {cat.featured && (
+                                                    <div className="relative bg-gradient-to-br from-brand-base/40 to-black/60 border border-brand-accent-1/30 p-6 sm:p-8 md:p-10 overflow-hidden">
+                                                        <div className="absolute top-0 right-0 p-4 sm:p-8 font-heading text-6xl sm:text-8xl text-brand-accent-1/10 select-none pointer-events-none leading-none">
+                                                            “
+                                                        </div>
+                                                        <div className="relative z-10 max-w-2xl">
+                                                            <span className="inline-block px-2.5 py-1 bg-brand-accent-1/15 border border-brand-accent-1/30 font-tech text-[10px] uppercase tracking-widest text-brand-accent-1 mb-3 sm:mb-4">
+                                                                ✦ {cat.featured.tag}
+                                                            </span>
+                                                            <p className="font-heading text-lg sm:text-xl md:text-2xl lg:text-3xl text-white font-normal italic leading-relaxed mb-5 sm:mb-6">
+                                                                "{cat.featured.quote}"
+                                                            </p>
+                                                            <div className="flex items-center gap-3 border-t border-white/10 pt-4">
+                                                                <div className="w-8 h-8 rounded-full bg-brand-accent-1/20 border border-brand-accent-1/40 flex items-center justify-center font-heading text-brand-accent-1 text-xs font-bold shrink-0">
+                                                                    SP
+                                                                </div>
+                                                                <div>
+                                                                    <p className="font-tech text-xs uppercase tracking-widest text-white font-medium">{cat.featured.author}</p>
+                                                                    <p className="font-body text-xs opacity-60 font-light">{cat.featured.role}</p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                )}
+
+                                                {/* Extracted Message Quote Cards Grid */}
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                                                    {cat.content.map((test, idx) => (
+                                                        <div key={idx} className="bg-black/30 border border-white/10 p-5 sm:p-6 flex flex-col justify-between relative hover:border-brand-accent-3/40 transition-all duration-300">
+                                                            <div>
+                                                                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                                                                    <span className="px-2 py-0.5 bg-white/5 border border-white/10 font-tech text-[9px] uppercase tracking-widest text-brand-accent-3">
+                                                                        {test.tag}
+                                                                    </span>
+                                                                    <span className="font-tech text-[10px] text-white/40 uppercase">
+                                                                        {test.date}
+                                                                    </span>
+                                                                </div>
+                                                                <div className="relative mb-5 sm:mb-6">
+                                                                    <p className="font-body text-xs sm:text-sm md:text-base text-white/90 font-light italic leading-relaxed">
+                                                                        "{test.quote}"
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div className="pt-3 sm:pt-4 border-t border-white/5 flex items-center justify-between">
+                                                                <div>
+                                                                    <p className="font-tech text-xs uppercase tracking-widest text-brand-accent-2 font-medium">{test.author}</p>
+                                                                    <p className="font-body text-[11px] opacity-60 font-light">{test.role}</p>
+                                                                </div>
+                                                                <span className="text-brand-accent-1 text-sm opacity-60">✦</span>
+                                                            </div>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -395,7 +487,7 @@ export default function OurWork() {
 
                                         {/* Visuals Layout */}
                                         {cat.type === "visuals" && (
-                                            <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                                            <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 space-y-4 sm:space-y-6">
                                                 {cat.content.map((item, idx) => (
                                                     <div key={idx} className="break-inside-avoid relative group overflow-hidden border border-white/10 shadow-lg">
                                                         <img src={item.img} alt={item.alt} className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out grayscale-[40%] group-hover:grayscale-0" />
