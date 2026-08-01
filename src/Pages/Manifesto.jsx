@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import manifestoBg from '../assets/Manifesto_ The KinStrategi Philosophy.png';
+import ademarisGreeting from '../safe-assets/navigator/ademaris.png';
 
 const beliefs = [
     {
@@ -180,48 +181,29 @@ export default function Manifesto() {
                     </div>
                 </div>
 
-                {/* 4. About the Founder */}
-                <div className="mb-48 max-w-4xl mx-auto border-t border-white/10 pt-24">
-                    <h2 className="font-heading text-5xl font-bold mb-8">About The Founder</h2>
-                    
-                    <div className="bg-brand-base/20 border border-white/5 backdrop-blur-md p-8 md:p-12">
-                        <h3 className="font-heading text-3xl font-bold text-white mb-2">Adeshewa Adeniran</h3>
-                        <p className="font-tech text-brand-accent-2 text-sm uppercase tracking-[0.2em] mb-12">Creative Development Producer</p>
-                        
-                        <div className="space-y-6 font-body opacity-70 font-light text-lg leading-relaxed">
-                            <h4 className="font-heading text-2xl font-bold text-white mb-4">Do You Believe in Aliens?</h4>
-                            <p>I do.</p>
-                            <p>Actually... I think you do, too.</p>
-                            <p>Perhaps not the little green ones from a sci-fi paperback, though I'm keeping an open mind, but the kind who never quite fit the mold. The minds that refuse to color inside the lines. The ones who look at disarray, and instantly map the unseen order underlying it.</p>
-                            <p>Allow me to introduce you to one.</p>
-                            <p>Hello, I'm Adeshewa Adeniran.</p>
-                            <p>Over the years, people have called me creative, strategic, operational, artistic, analytical, visionary, organized, or simply <span className="italic">"too many things at once."</span></p>
-                            <p>I've always suspected they were all trying to say the exact same thing.</p>
-                            <p>I have never subscribed to the notion that we must choose between imagination and structure. My mind operates as an unconventional ecosystem, a fusion of storyteller, process engineer, producer, researcher, and problem solver. One moment, I am worldbuilding for a campaign; the next, I am engineering an operational workflow, designing hiring infrastructure, mapping a launch timeline, or connecting two kindred professionals who don't yet know they are precisely what the other needs.</p>
-                            <p>To me, these are not distinct disciplines.</p>
-                            <p>They are facets of a single creative act.</p>
-                            <p>Because true creativity is not merely the production of beauty. It is the art of solving problems with elegance. It is the foresight to see possibilities before they materialize, the pattern recognition to name the invisible before it becomes obvious, and the discipline to build environments where people can safely execute the best work of their lives.</p>
-                            <p>That realization is the genesis of KinStrategi.</p>
-                            <p>After spending years immersed in the creative industries, I watched the recurring tragedy repeat itself: brilliant minds misplaced in the wrong rooms, visionary founders exhausted by the friction of unreliable teams, and profound ideas fracturing, not for a lack of imagination, but for a lack of structural alignment.</p>
-                            <p>The industry was hunting relentlessly for talent.</p>
-                            <p>Almost no one was hunting for a fit.</p>
-                            <p>That distinction became my obsession.</p>
-                            <p>Today, KinStrategi exists to bring rare harmony to creative execution, to curate and orchestrate teams that do not merely function, but fundamentally <span className="italic">click</span>. Because the most enduring creative outcomes happen precisely when the right people, the right systems, and the right vision converge at the exact right moment.</p>
-                            <p>And anchoring all of this motion...</p>
-                            <p>...are my two little anchors: Neo-Wolf (terrier-mix) and Jojo (lhasa apso).</p>
-                            <p>They are my daily reminder that life is not a separate ledger to be balanced against work, rather it is the very reason the work matters. They interrupt strategic reviews for unprompted cuddles, force me out into the world when I would happily vanish down creative rabbit holes, and possess the remarkable gift of making every deadline feel appropriately weightless.</p>
-                            <p>They have taught me a principle I carry into every boardroom, brief, and brand partnership: the most resilient relationships, whether with people, enterprises, or abstract ideas, are built on trust, patience, insatiable curiosity, and the simple act of showing up consistently.</p>
-                            <p>That is true in life.</p>
-                            <p>It is true in business.</p>
-                            <p>And it is the absolute truth in creativity.</p>
-                            <p>So, yes...</p>
-                            <p>Perhaps I am an alien.</p>
-                            <p>Not because I belong to another planet. But because I have never viewed creativity, operations, strategy, commerce, storytelling, and human connection as separate worlds.</p>
-                            <p>To me, they have always been the same universe.</p>
-                            <p>Welcome to mine.</p>
-                        </div>
+
+                {/* 4. The Navigator */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 1 }}
+                    className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-center gap-12 py-24 border-t border-white/10 mt-24 mb-24 bg-brand-base/20 backdrop-blur-sm px-8 md:px-16"
+                >
+                    <div className="w-48 h-48 md:w-64 md:h-64 relative shrink-0">
+                        <div className="absolute inset-0 bg-brand-accent-3/20 rounded-full blur-3xl animate-pulse" />
+                        <img src={ademarisGreeting} alt="Ademaris - The Navigator" className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_15px_rgba(255,255,255,0.1)] hover:scale-105 transition-transform duration-500" />
                     </div>
-                </div>
+                    <div className="text-center md:text-left max-w-xl">
+                        <h3 className="font-heading text-3xl font-bold mb-4 text-brand-accent-2">Meet Ademaris.</h3>
+                        <p className="font-body text-lg opacity-80 font-light leading-relaxed mb-6">
+                            She is our Navigator—the voice and guiding spirit of KinStrategi. Always curious, meticulously structured, and deeply attuned to the creative pulse, she ensures you never lose your way within our ecosystem.
+                        </p>
+                        <p className="font-tech text-xs tracking-widest uppercase text-white/50 border-l-2 border-brand-accent-2 pl-4">
+                            Allow her to guide you into the next phase of your vision.
+                        </p>
+                    </div>
+                </motion.div>
 
                 {/* 5. Closing CTAs */}
                 <motion.div
@@ -233,7 +215,7 @@ export default function Manifesto() {
                 >
                     <div className="pt-16 flex flex-col sm:flex-row gap-6 justify-center">
                         <motion.button
-                            onClick={() => navigate('/sign-station')}
+                            onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 167, 167, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-brand-accent-3/20 border border-brand-accent-3 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm transition-all cursor-pointer"

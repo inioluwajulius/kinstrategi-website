@@ -64,9 +64,9 @@ export default function Footer() {
                         <li><Link to="/playbook" className="hover:text-brand-accent-1 transition-colors">The Playbook</Link></li>
                         <li><Link to="/leire" className="hover:text-brand-accent-1 transition-colors">Leiré</Link></li>
                         <li><Link to="/manifesto" className="hover:text-brand-accent-1 transition-colors">Manifesto</Link></li>
-                        <li><Link to="/signal-station" className="hover:text-brand-accent-1 transition-colors">Signal Station</Link></li>
+                        {/* <li><Link to="/signal-station" className="hover:text-brand-accent-1 transition-colors">Signal Station</Link></li> */}
                         <li><Link to="/our-work" className="hover:text-brand-accent-1 transition-colors">Our Work</Link></li>
-                        <li><Link to="/kin-feed" className="hover:text-brand-accent-1 transition-colors">Kin Feed</Link></li>
+                        <li><Link to="/kin-network" className="hover:text-brand-accent-1 transition-colors">Kin Network</Link></li>
                         <li><Link to="/sign-station" className="hover:text-brand-accent-1 transition-colors">Reception</Link></li>
                     </ul>
                 </div>
@@ -75,8 +75,8 @@ export default function Footer() {
                 <div>
                     <h3 className="text-white font-heading font-medium mb-4">Signals & Legal</h3>
                     <ul className="space-y-3 text-sm font-light text-gray-400">
-                        <li><Link to="/signal-station" className="hover:text-brand-accent-3 transition-colors">Signal Station</Link></li>
-                        <li><Link to="/kin-feed" className="hover:text-brand-accent-3 transition-colors">Kin Feed</Link></li>
+                        {/* <li><Link to="/signal-station" className="hover:text-brand-accent-3 transition-colors">Signal Station</Link></li> */}
+                        <li><Link to="/kin-network" className="hover:text-brand-accent-3 transition-colors">Kin Network</Link></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Referrals</a></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Privacy Policy</a></li>
                         <li><a href="#" className="hover:text-brand-accent-3 transition-colors">Terms & Condition</a></li>

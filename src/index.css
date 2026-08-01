@@ -29,24 +29,27 @@
 }
 
 :root {
-  /* KinStrategi Mode (Default - Initial State) */
-  --color-base: #1E1B3C;
-  /* Deep Indigo */
-  --color-dark: #111111;
-  /* Charcoal Black */
-  --color-accent-1: #5B3E96;
-  /* Royal Purple */
-  --color-accent-2: #D4AF37;
-  /* Gold */
-  --color-accent-3: #00A7A7;
-  /* Teal */
+  /* KinStrategi Mode (Aligned with Client PDF) */
+  --color-base: #2C2B3C;
+  /* Muted Indigo */
+  --color-dark: #1A1A1A;
+  /* Deep Charcoal */
+  --color-accent-1: #6D5C7D;
+  /* Very Restrained Purple */
+  --color-accent-2: #C4A45C;
+  /* Hints of Brass */
+  --color-accent-3: #2B7A78;
+  /* Tiny Moments of Teal */
 
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-tech: 'Syne Mono', monospace;
 
   --bg-color: var(--color-dark);
-  --text-color: #FFFFFF;
+  --text-color: #FAF9F6;
+  /* Soft Ivory */
+  --text-muted: #F2EBE1;
+  /* Warm Beige */
 }
 
 

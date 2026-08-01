@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import homeBg from '../assets/KinStrategi Home_ Cyber-Luxury Hub.png';
+import founderImg from '../safe-assets/about/founder.jpg';
 
 function TerminalText({ text }) {
     const [displayedText, setDisplayedText] = useState('');
@@ -135,7 +136,7 @@ export default function Home() {
                     </motion.button>
 
                     <motion.button
-                        onClick={() => navigate('/sign-station')}
+                        onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
                         whileHover={{
                             scale: 1.05,
                             boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)",
@@ -202,13 +203,29 @@ export default function Home() {
                     </div>
                     {/* About the Founder */}
                     <div className="w-full md:w-1/2 border border-white/10 bg-brand-base/20 backdrop-blur-sm p-8 flex flex-col items-start text-left">
+                        <div className="w-full h-72 md:h-96 bg-brand-dark border border-white/10 mb-8 relative overflow-hidden group">
+                            <img src={founderImg} alt="Adeshewa Adeniran" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+                            <div className="absolute inset-0 bg-brand-accent-1/10 mix-blend-overlay group-hover:bg-brand-accent-1/0 transition-colors duration-500" />
+                        </div>
                         <h3 className="font-heading text-3xl font-bold mb-2">Adeshewa Adeniran</h3>
-                        <p className="font-tech text-brand-accent-3 text-sm uppercase tracking-widest mb-6 border-b border-brand-accent-3/30 pb-4 inline-block">Founding Director & Operations Specialist, KinStrategi</p>
+                        <p className="font-tech text-brand-accent-3 text-sm uppercase tracking-widest mb-6 border-b border-brand-accent-3/30 pb-4 inline-block">Creative Development Producer</p>
                         <div className="font-body opacity-70 text-base font-light leading-relaxed space-y-4 mb-8">
-                            <p>Adeshewa Adeniran didn't start KinStrategi on a whim, she built it out of conviction. Having spent years deeply embedded in the creative industry, she watched the same story play out repeatedly: talented creatives landing in the wrong rooms, and brilliant brands struggling to find the right people to bring their vision to life.</p>
-                            <p>She believes that fit matters as much as skill, that structure unlocks creativity, and that the right team changes everything.</p>
-                            <p>Beyond the business, Adeshewa is a connector in the truest sense. Through her creative communities, she has helped countless creatives step into opportunities that were actually built for them, not just roles to fill, but roles that fit. She doesn't just source talent; she advocates for it.</p>
-                            <p>She is woven into the fabric of the creative industry, understanding its rhythms, its tensions, and its potential in a way that only comes from truly living inside it. She combines a sharp instinct for spotting standout creative talent with the operational precision to build teams that don't just work… they click.</p>
+                            <h4 className="font-heading text-xl font-bold text-white mb-2">Do You Believe in Aliens?</h4>
+                            <p>I do.</p>
+                            <p>Actually... I think you do, too. Not the sci-fi kind, but the ones who never quite fit the mold. The minds that look at disarray, and instantly spot the foreboding bottlenecks.</p>
+                            <p>Allow me to introduce you to one.</p>
+                            <p>Hello, I'm Adeshewa Adeniran.</p>
+                            <p>People have called me creative, strategic, operational, analytical, or simply "too many things at once." I've always suspected they were all trying to say the same thing: I don't believe in choosing between imagination and structure.</p>
+                            <p>My mind is an ecosystem where storytelling, process engineering, and brand building live under one roof. One moment I'm worldbuilding a campaign; the next, I'm engineering operational workflows or aligning talent that was meant to cross paths. To me, these aren't separate disciplines, they are facets of a single creative act.</p>
+                            <h4 className="font-heading text-lg font-bold text-white mt-6 mb-2">Why KinStrategi Exists</h4>
+                            <p>I watched the same tragedy repeat across the creative industries: brilliant founders exhausted by friction, and profound ideas fracturing not for lack of imagination, but for lack of structural alignment. The industry was hunting for talent; no one was hunting for a fit.</p>
+                            <p>That obsession became KinStrategi.</p>
+                            <p>KinStrategi exists to bring rare harmony to creative execution—curating teams that don't merely function, but fundamentally click. Because enduring creative outcomes happen when the right people, systems, and vision converge.</p>
+                            <p>Anchoring all of this motion are my two dogs, Neo-Wolf and Jojo.</p>
+                            <p>They interrupt for unprompted cuddles and force me into a world where I'd happily vanish down creative rabbit holes. They've taught me a principle I carry into every boardroom and brand partnership: the most resilient relationships are built on trust, patience, insatiable curiosity, and showing up consistently.</p>
+                            <p>So, yes... perhaps I am an alien. Not because I belong to another planet, but because I've never viewed creativity, operations, strategy, and human connection as separate worlds.</p>
+                            <p>To me, they have always been the same universe.</p>
+                            <p>Welcome to mine.</p>
                         </div>
                         <motion.button
                             onClick={() => window.location.href = "mailto:shewa@kinstrategi.com"}
@@ -231,12 +248,12 @@ export default function Home() {
                     <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-widest block opacity-70">Services</span>
                     <h2 className="font-heading text-4xl md:text-5xl font-bold mb-2">Six ways we show up for your brand.</h2>
                     <ul className="text-left md:text-center grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mt-8 mb-12 max-w-4xl mx-auto w-full">
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Brand & Growth Strategy</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Talent & Team Building</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Operations (KinOps)</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">AI & Intelligent Operations</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Launch & Expansion</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Market Access (Leiré Passage)</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Strategy & Direction</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Partnerships</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Infrastructure (KinOps)</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Intelligent Systems</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Venture Launch & Growth</li>
+                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Leiré Passage</li>
                     </ul>
                     <motion.button
                         onClick={() => navigate('/playbook')}

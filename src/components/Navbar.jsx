@@ -12,8 +12,8 @@ const NAV_LINKS = [
     { name: 'The Playbook', path: '/playbook' },
     { name: 'Leiré', path: '/leire' },
     { name: 'Manifesto', path: '/manifesto' },
-    { name: 'Signal Station', path: '/signal-station' },
-    { name: 'Kin Feed', path: '/kin-feed' },
+    // { name: 'Signal Station', path: '/signal-station' },
+    { name: 'Kin Network', path: '/kin-network' },
     { name: 'Our Work', path: '/our-work' },
     { name: 'Reception', path: '/sign-station' }
 ];

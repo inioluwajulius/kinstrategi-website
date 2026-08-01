@@ -7,96 +7,73 @@ const services = [
     {
         level: "01",
         title: "Creative Strategy & Direction",
-        subtitle: "Every great build starts with clarity. We define your vision, positioning, and roadmap before execution begins.",
-        bestFor: "Founders shaping a new venture, repositioning a brand, or preparing to grow.",
-        pointsHeading: "Includes:",
-        points: ["Brand Positioning", "Audience & Market Insights", "Messaging Strategy", "Growth Roadmap", "Go-to-Market Strategy", "Expansion Planning"],
-        footer: "From ₦650,000",
+        subtitle: "Give your vision a clear direction before you build. Every remarkable business starts with a strong idea, but ideas need structure before they become reality. Together, we'll define your positioning, clarify your story, and develop a strategic roadmap that helps you make confident creative and business decisions.",
+        bestFor: "Founders at the beginning of a venture, preparing for a launch, repositioning an existing brand, or feeling stuck on what's next.",
+        pointsHeading: "What's Included:",
+        points: ["Brand & Creative Strategy", "Positioning & Messaging", "Audience & Experience Mapping", "Creative Direction", "Strategic Roadmap"],
+        footer: "From $1,000",
         cta: "Kini Your Strategy? →",
         accent: "brand-accent-2"
     },
     {
         level: "02",
         title: "Creative Partnerships",
-        subtitle: "The right collaborators change everything. We help you find trusted creative partners who strengthen the work.",
-        bestFor: "Founders building project teams, campaigns, or long-term creative partnerships.",
-        pointsHeading: "Includes:",
-        points: ["Role Scoping", "Creative Talent Search", "Vendor & Partner Sourcing", "Vetting & Recommendations", "Hiring Support"],
-        footer: "From ₦500,000",
-        cta: "Let's Yap.",
+        subtitle: "For founders who need more than a service—they need a creative partner. Some ideas need ongoing collaboration. We work alongside founders to shape concepts, develop campaigns, solve creative challenges, and bring ambitious ideas to life from inception through execution. Whether you're building a collection, directing a campaign, developing a publication, or creating an entirely new venture, we're part of the thinking—not just the delivery.",
+        bestFor: "Creative founders, brands, and teams looking for a trusted strategic and creative collaborator.",
+        pointsHeading: "What's Included:",
+        points: ["Creative Development", "Campaign & Concept Development", "Storytelling & Worldbuilding", "Creative Direction", "Cross-functional Collaboration"],
+        footer: "From $2,000",
+        cta: "Let's Yap. →",
         accent: "brand-accent-3"
     },
     {
         level: "03",
         title: "Creative Infrastructure (KinOps)",
-        subtitle: "Build the systems that help creativity move with clarity, consistency, and momentum.",
-        bestFor: "Growing businesses ready to scale without operational chaos.",
-        pointsHeading: "Includes:",
-        points: ["Workflow Design", "Creative Project Management", "Production Coordination", "SOP Development", "Founder Support", "Team Communication", "Quality Oversight"],
-        footer: "From ₦750,000/month",
+        subtitle: "Build the systems that protect creativity. Great ideas lose momentum without the right infrastructure. KinOps combines creative operations, project coordination, and strategic oversight to keep people, projects, and priorities moving. We remove bottlenecks, improve workflows, coordinate collaborators, and create the structure that allows creative work to thrive.",
+        bestFor: "Growing brands managing multiple projects, collaborators, or launches.",
+        pointsHeading: "What's Included:",
+        points: ["Creative Operations", "Workflow & Process Design", "Project Coordination", "Team Management", "Creative Production Support"],
+        footer: "From $2,500/month",
         cta: "Kini Your Strategy? →",
         accent: "brand-accent-1"
     },
     {
         level: "04",
         title: "Intelligent Systems",
-        subtitle: "Integrate AI and automation into your business with intention—not just trends.",
-        bestFor: "Teams looking to work smarter, automate repetitive work, and scale efficiently.",
-        pointsHeading: "Includes:",
-        points: ["AI Workflow Design", "Business Automation", "Knowledge Systems", "Workspace Design", "Dashboards & Reporting", "Technology Advisory"],
-        footer: "From ₦750,000",
+        subtitle: "Make your business work smarter—not harder. AI should enhance creativity, not replace it. We design intelligent systems that reduce repetitive work, improve collaboration, and create scalable workflows so you can spend more time building and less time managing.",
+        bestFor: "Founders who are ready to streamline operations and integrate AI into their creative or business workflows.",
+        pointsHeading: "What's Included:",
+        points: ["AI Workflow Design", "Automation Strategy", "Documentation Systems", "Knowledge Management", "Operational Efficiency"],
+        footer: "From $1,000",
         cta: "What's the Big Idea? →",
         accent: "brand-accent-2"
     },
     {
         level: "05",
-        title: "Launch & Expansion",
-        subtitle: "We coordinate the people, timelines, and moving parts behind your launch or expansion.",
-        bestFor: "Brands launching something new or scaling.",
-        pointsHeading: "Includes:",
-        points: ["Launch Strategy", "Rollout Planning", "Production Coordination", "Vendor Management", "Timeline Management", "Cross-Team Collaboration", "Market Entry Planning", "Post-Launch Review"],
-        footer: "From ₦700,000",
+        title: "Venture Launch & Growth",
+        subtitle: "Turn ambitious ideas into launch-ready ventures. Launching isn't just about going live—it's about creating an experience people remember. We help founders prepare for launch with thoughtful planning, creative strategy, and the systems needed to sustain momentum long after day one.",
+        bestFor: "New ventures, product launches, campaigns, and businesses entering a new stage of growth.",
+        pointsHeading: "What's Included:",
+        points: ["Launch Strategy", "Campaign Planning", "Creative Rollout", "Go-to-Market Support", "Growth Roadmapping"],
+        footer: "Custom Quote",
         cta: "What's the Big Idea? →",
         accent: "brand-accent-3"
     },
     {
         level: "06",
         title: "Leiré Passage",
-        subtitle: "Helping founders build confidently beyond the markets they know.",
-        bestFor: "Businesses expanding internationally or entering unfamiliar markets.",
-        pointsHeading: "Includes:",
-        points: ["Founder Travel Coordination", "Local Market Support", "Arrival & Settling Services", "Curated Founder Experiences"],
-        footer: "Custom Quote or From ₦450,000",
-        cta: "Let's Yap.",
+        subtitle: "Expand into new markets with confidence. Entering a new market takes more than logistics—it requires cultural understanding, trusted local partnerships, and strategic execution. Through Leiré Passage, we help founders navigate expansion with the support needed to build meaningful connections and lasting impact.",
+        bestFor: "Global founders, brands, and businesses exploring opportunities across new markets.",
+        pointsHeading: "What's Included:",
+        points: ["Market Entry Strategy", "Local Partnership Support", "Cultural Insights", "Vendor & Creative Network Access", "Expansion Planning"],
+        footer: "Custom Quote",
+        cta: "Let's Yap. →",
         accent: "brand-accent-1"
     }
 ];
 
 export default function Playbook() {
     const navigate = useNavigate();
-    const [exchangeRate, setExchangeRate] = useState(1 / 1500); // Default fallback NGN to USD
-
-    useEffect(() => {
-        // Fetch live NGN to USD exchange rate
-        fetch('https://open.er-api.com/v6/latest/NGN')
-            .then(res => res.json())
-            .then(data => {
-                if (data && data.rates && data.rates.USD) {
-                    setExchangeRate(data.rates.USD);
-                }
-            })
-            .catch(err => console.error("Failed to fetch exchange rate", err));
-    }, []);
-
-    // Helper to extract numbers from the string and calculate USD equivalent
-    const formatUSD = (nairaString) => {
-        const matches = nairaString.match(/₦([\d,]+)/);
-        if (matches && matches[1]) {
-            const num = parseInt(matches[1].replace(/,/g, ''), 10);
-            return " / $" + Math.round(num * exchangeRate).toLocaleString();
-        }
-        return "";
-    };
 
     return (
         <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden py-32">
@@ -202,12 +179,12 @@ export default function Playbook() {
 
                             {item.footer && (
                                 <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-sm text-${item.accent} uppercase tracking-widest font-bold drop-shadow-lg relative z-10 mb-6 flex flex-col gap-1`}>
-                                    <span>{item.footer.replace('// ', '')}{formatUSD(item.footer)}</span>
+                                    <span>Investment: {item.footer}</span>
                                 </div>
                             )}
                             <div className="mt-auto">
                                 <motion.button
-                                    onClick={() => navigate('/sign-station')}
+                                    onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
                                     whileHover={{ color: "#fff" }}
                                     className={`font-tech text-sm font-bold tracking-widest uppercase text-${item.accent} transition-colors cursor-pointer z-20 relative`}
                                 >
@@ -218,7 +195,7 @@ export default function Playbook() {
                     ))}
                 </div>
 
-                {/* Flagship Retainer: KinOps */}
+                {/* Design Your Partnership */}
                 <motion.div
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -226,7 +203,6 @@ export default function Playbook() {
                     transition={{ duration: 0.8 }}
                     className="relative w-full border border-brand-accent-2/30 bg-gradient-to-r from-brand-base/60 to-brand-dark/80 backdrop-blur-xl p-8 md:p-16 overflow-hidden group mb-24"
                 >
-                    {/* KinOps Animated Background Elements */}
                     <div className="absolute inset-0 z-0 bg-brand-accent-2/5 mix-blend-screen pointer-events-none" />
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -235,7 +211,6 @@ export default function Playbook() {
                         className="absolute right-0 bottom-0 w-96 h-96 bg-brand-accent-2/10 blur-[100px] pointer-events-none z-0"
                     />
 
-                    {/* Scanning Line */}
                     <motion.div
                         className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-brand-accent-2 to-transparent opacity-50 z-0"
                         animate={{ top: ["-100%", "100%"] }}
@@ -245,36 +220,36 @@ export default function Playbook() {
                     <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-12">
                         <div className="lg:w-1/2">
                             <span className="inline-block px-3 py-1 bg-brand-accent-2/20 border border-brand-accent-2 text-brand-accent-2 font-tech text-xs tracking-[0.2em] uppercase mb-6 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                                Flagship Retainer
+                                Custom Support
                             </span>
-                            <h2 className="font-heading text-5xl md:text-6xl font-bold mb-4 drop-shadow-md">KinOps</h2>
+                            <h2 className="font-heading text-5xl md:text-6xl font-bold mb-4 drop-shadow-md">Design Your Partnership</h2>
                             <p className="font-tech text-brand-accent-2/80 text-lg uppercase tracking-widest mb-8">
-                                Your Creative Development Partner
+                                Build the support your business actually needs.
                             </p>
 
                             <div className="bg-brand-dark/50 p-6 border-l-2 border-brand-accent-2 mb-8">
-                                <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-2">Best For</p>
                                 <p className="font-body opacity-80 text-lg md:text-xl font-light">
-                                    Founders who need ongoing strategic and operational support without building a full in-house team.
+                                    Every founder's journey is different. Instead of fitting you into a rigid package, we'll design a partnership around your goals, your team, and your stage of growth.
                                 </p>
                             </div>
                         </div>
 
                         <div className="lg:w-1/2 flex flex-col justify-between h-full w-full">
-                            <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-2">What It Is</p>
+                            <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-2">The Approach</p>
                             <p className="font-body opacity-70 font-light text-lg mb-8">
-                                KinOps is our flagship retainer. We partner with founders to bring structure to ideas, coordinate execution, and build the systems that keep creative work moving forward.
+                                Whether you need strategic guidance, creative leadership, operational support, or all of the above, we'll build a tailored engagement that grows with your business.
                             </p>
                             
-                            <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-3">Includes</p>
+                            <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-3">Partnerships may include</p>
                             <ul className="space-y-4 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
                                 {[
-                                    "Strategic Direction",
-                                    "Creative Operations",
-                                    "Workflow & Systems Design",
-                                    "Team Coordination",
-                                    "AI Implementation",
-                                    "Launch & Growth Support"
+                                    "Creative Strategy",
+                                    "Fractional Creative Development",
+                                    "Creative Operations (KinOps)",
+                                    "Team & Talent Coordination",
+                                    "AI & Intelligent Systems",
+                                    "Launch & Growth Support",
+                                    "Founder Advisory"
                                 ].map((point, idx) => (
                                     <li key={idx} className="flex items-center gap-4 bg-white/5 p-4 border border-white/5 hover:border-brand-accent-2/30 transition-colors">
                                         <div className="w-1.5 h-1.5 bg-brand-accent-2 rounded-full shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
@@ -285,11 +260,11 @@ export default function Playbook() {
 
                             <div className="flex items-center justify-between border-t border-brand-accent-2/20 pt-6">
                                 <div>
-                                    <p className="font-body text-white font-medium">Investment: From ₦1,200,000/month</p>
-                                    <p className="font-body text-sm opacity-60 mt-1 italic">Every partnership is tailored to your goals, team, and stage of growth.</p>
+                                    <p className="font-body text-white font-medium">Investment: Custom Pricing</p>
+                                    <p className="font-body text-sm opacity-60 mt-1 italic">Every partnership is tailored to your vision, scope, and level of support.</p>
                                 </div>
                                 <motion.button
-                                    onClick={() => navigate('/sign-station')}
+                                    onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
                                     whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.4)" }}
                                     whileTap={{ scale: 0.95 }}
                                     className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer"
@@ -309,16 +284,20 @@ export default function Playbook() {
                     transition={{ duration: 0.8 }}
                     className="text-center pb-24"
                 >
-                    <p className="font-body opacity-70 text-xl font-light leading-relaxed mb-6">
-                        Not sure where to start? We'll figure it out together.
+                    <h3 className="font-heading text-3xl font-bold mb-4">Not sure what you need?</h3>
+                    <p className="font-body opacity-70 text-xl font-light leading-relaxed mb-4 max-w-2xl mx-auto">
+                        Many founders come to us with an idea, not a fully defined scope, and that's perfectly okay.
+                    </p>
+                    <p className="font-body opacity-70 text-lg font-light leading-relaxed mb-8 max-w-2xl mx-auto">
+                        We'll help you clarify the vision, identify the right level of support, and recommend the partnership that makes the most sense before any work begins.
                     </p>
                     <motion.button
-                        onClick={() => navigate('/sign-station')}
+                        onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
                         whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
                         whileTap={{ scale: 0.95 }}
                         className="bg-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer"
                     >
-                        Let's Talk Strategy
+                        Let's Talk Strategy →
                     </motion.button>
                 </motion.div>
 

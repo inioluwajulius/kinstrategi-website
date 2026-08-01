@@ -3,8 +3,8 @@ import Layout from './components/Layout';
 import Home from './Pages/Home';
 import Playbook from './Pages/Playbook';
 import Manifesto from './Pages/Manifesto';
-import SignalStation from './Pages/SignalStation';
-import KinFeed from './Pages/KinFeed';
+// import SignalStation from './Pages/SignalStation';
+import KinNetwork from './Pages/KinNetwork';
 import FitHub from './Pages/FitHub';
 import Leire from './Pages/Leire';
 import OurWork from './Pages/OurWork';
@@ -21,8 +21,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/playbook" element={<Playbook />} />
           <Route path="/manifesto" element={<Manifesto />} />
-          <Route path="/signal-station" element={<SignalStation />} />
-          <Route path="/kin-feed" element={<KinFeed />} />
+          {/* <Route path="/signal-station" element={<SignalStation />} /> */}
+          <Route path="/kin-network" element={<KinNetwork />} />
           <Route path="/fit-hub" element={<FitHub />} />
           <Route path="/leire" element={<Leire />} />
           <Route path="/our-work" element={<OurWork />} />
