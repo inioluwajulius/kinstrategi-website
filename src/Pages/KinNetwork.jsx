@@ -1,20 +1,21 @@
 import { motion } from 'framer-motion';
 import { useNavigate, Link } from 'react-router-dom';
-import kinBg from '../assets/Kin Feed_ Elite Talent Network-2.png';
+import kinBg from '../assets/kin-network-bg.png';
 
 export default function KinNetwork() {
     return (
-        <div className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-24">
-            <motion.div
-                animate={{
-                    backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-                    opacity: [0.15, 0.25, 0.15]
-                }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 z-0 bg-cover bg-no-repeat"
-                style={{ backgroundImage: `url('${kinBg}')`, backgroundSize: "150% auto" }}
-            />
-            <div className="absolute inset-0 z-0 bg-black/85 backdrop-blur-[2px]" />
+        <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 bg-brand-dark">
+            {/* Background Image Setup */}
+            <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url('${kinBg}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/20 via-brand-dark/60 to-brand-dark" />
+            </div>
 
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}

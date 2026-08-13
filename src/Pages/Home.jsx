@@ -78,7 +78,7 @@ export default function Home() {
                 variants={textContainer}
                 initial="hidden"
                 animate="show"
-                className="relative z-10 text-center px-4 max-w-5xl mx-auto min-h-[80vh] flex flex-col items-center justify-center -mt-32"
+                className="relative z-10 text-center px-4 max-w-5xl mx-auto min-h-[80vh] flex flex-col items-center justify-center pt-24 md:pt-0 md:-mt-32"
             >
                 {/* Top Icon */}
                 <motion.div
