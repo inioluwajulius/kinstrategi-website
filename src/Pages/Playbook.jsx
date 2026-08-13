@@ -110,7 +110,7 @@ export default function Playbook() {
                         The KinStrategi <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-3 to-brand-accent-2">Playbook</span>
                     </h1>
                     <h2 className="font-tech text-brand-accent-2 text-xl md:text-2xl tracking-[0.2em] uppercase mb-8 opacity-90">
-                        Pick your level. Scale when ready.
+                        Select A Misson.
                     </h2>
                     <p className="font-body opacity-70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
                         We offer structured creative services across our core service categories. Identify your operational constraints, and deploy the precise architecture needed to override them.
@@ -186,7 +186,7 @@ export default function Playbook() {
                             )}
                             <div className="mt-auto">
                                 <motion.button
-                                    onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                                    onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                                     whileHover={{ color: "#fff" }}
                                     className={`font-tech text-sm font-bold tracking-widest uppercase text-${item.accent} transition-colors cursor-pointer z-20 relative`}
                                 >
@@ -266,7 +266,7 @@ export default function Playbook() {
                                     <p className="font-body text-sm opacity-60 mt-1 italic">Every partnership is tailored to your vision, scope, and level of support.</p>
                                 </div>
                                 <motion.button
-                                    onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                                    onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                                     whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.4)" }}
                                     whileTap={{ scale: 0.95 }}
                                     className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer"
@@ -305,7 +305,7 @@ export default function Playbook() {
                             We'll help you clarify the vision, identify the right level of support, and recommend the partnership that makes the most sense before any work begins.
                         </p>
                         <motion.button
-                            onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                            onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer shadow-[0_0_20px_rgba(91,62,150,0.3)] hover:shadow-[0_0_40px_rgba(91,62,150,0.5)] transition-shadow"

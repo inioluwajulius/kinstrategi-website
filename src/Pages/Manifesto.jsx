@@ -227,7 +227,7 @@ export default function Manifesto() {
                 >
                     <div className="pt-16 flex flex-col sm:flex-row gap-6 justify-center">
                         <motion.button
-                            onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                            onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(0, 167, 167, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-brand-accent-3/20 border border-brand-accent-3 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm transition-all cursor-pointer"

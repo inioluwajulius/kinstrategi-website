@@ -147,7 +147,7 @@ export default function Home() {
                     </motion.button>
 
                     <motion.button
-                        onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                        onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                         whileHover={{
                             scale: 1.05,
                             boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)",

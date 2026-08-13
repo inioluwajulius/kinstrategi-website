@@ -129,7 +129,7 @@ export default function Leire() {
                     </div>
 
                     <motion.button
-                        onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                        onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                         whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(173, 58, 60, 0.4)" }}
                         className="bg-brand-accent-1/10 border border-brand-accent-1 text-white px-10 py-5 font-heading tracking-widest uppercase text-sm shadow-[0_0_15px_rgba(173,58,60,0.2)] transition-all overflow-hidden relative group cursor-pointer z-20"
                     >
@@ -219,7 +219,7 @@ export default function Leire() {
                                 Our process removes the friction without removing the creativity. Four clear steps that take your idea from possibility to execution.
                             </p>
                             <motion.button
-                                onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                                onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                                 className="bg-brand-accent-2 text-brand-dark px-8 py-4 font-heading tracking-widest uppercase text-sm font-bold shadow-lg cursor-pointer"
@@ -278,7 +278,7 @@ export default function Leire() {
                         </p>
 
                         <motion.button
-                            onClick={() => window.location.href = 'mailto:hello@kinstrategi.com'}
+                            onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 35px rgba(209, 174, 166, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-brand-accent-2/10 border border-brand-accent-2 text-brand-accent-2 px-10 py-5 font-heading tracking-widest uppercase text-sm transition-all focus:outline-none focus:ring-2 focus:ring-brand-accent-2/50 cursor-pointer"
