@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import homeBg from '../assets/KinStrategi Home_ Cyber-Luxury Hub.png';
+import homeBg from '../assets/new-hero-bg.png';
 import founderImg from '../safe-assets/about/founder.jpg';
 import ademarisGreeting from '../safe-assets/navigator/ademaris-greeting.png';
+import iconImage from '../assets/Icon.png';
 
 function TerminalText({ text }) {
     const [displayedText, setDisplayedText] = useState('');
@@ -41,7 +42,7 @@ export default function Home() {
     const headlineText = "We help founders build businesses that work.";
 
     return (
-        <div className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-32 pb-64">
+        <div className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-20 pb-64">
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @keyframes glitch-1 {
@@ -65,20 +66,28 @@ export default function Home() {
             {/* Background Image Setup */}
             <motion.div
                 initial={{ scale: 1.1, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.3 }}
+                animate={{ scale: 1, opacity: 0.8 }}
                 transition={{ duration: 2, ease: "easeOut" }}
-                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat mix-blend-luminosity"
+                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('${homeBg}')` }}
             />
-            <div className="fixed inset-0 z-0 bg-gradient-to-t from-brand-dark via-brand-dark/80 to-brand-dark" />
+            <div className="fixed inset-0 z-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-brand-dark/90" />
 
             {/* Hero Content */}
             <motion.div
                 variants={textContainer}
                 initial="hidden"
                 animate="show"
-                className="relative z-10 text-center px-4 max-w-5xl mx-auto min-h-[80vh] flex flex-col items-center justify-center -mt-10"
+                className="relative z-10 text-center px-4 max-w-5xl mx-auto min-h-[80vh] flex flex-col items-center justify-center -mt-32"
             >
+                {/* Top Icon */}
+                <motion.div
+                    variants={textItem}
+                    className="mb-8 w-24 h-24 sm:w-32 sm:h-32 relative flex items-center justify-center mx-auto"
+                >
+                    <img src={iconImage} alt="KINISTRATEGI Icon" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(196,164,92,0.4)]" />
+                </motion.div>
+
                 <motion.span
                     variants={textItem}
                     className="font-tech text-brand-accent-3 tracking-[0.3em] uppercase text-sm mb-8 block drop-shadow-sm font-medium"
@@ -179,34 +188,98 @@ export default function Home() {
                     </div>
                 </motion.div>
 
-                {/* About / Why We Started */}
+                {/* Why We Started - Redesigned */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="w-full text-left bg-gradient-to-br from-brand-base/40 via-[#1E1B3C]/40 to-brand-dark/60 backdrop-blur-xl border border-white/10 p-8 md:p-16 mb-24 relative overflow-hidden shadow-[0_0_40px_rgba(91,62,150,0.15)] group"
+                    className="w-full relative group mb-24"
                 >
-                    {/* Cyber Accents */}
-                    <div className="absolute top-0 left-0 w-32 h-32 bg-brand-accent-1/20 blur-[80px] pointer-events-none group-hover:bg-brand-accent-1/30 transition-colors" />
-                    <div className="absolute bottom-0 right-0 w-32 h-32 bg-brand-accent-3/20 blur-[80px] pointer-events-none group-hover:bg-brand-accent-3/30 transition-colors" />
-                    <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-accent-1/50 to-transparent opacity-30" />
-                    
-                    <div className="relative z-10">
-                    <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest mb-4 block opacity-70">About / Why We Started</span>
-                    <h2 className="font-heading text-4xl md:text-5xl font-bold mb-8 leading-tight max-w-4xl">We started KinStrategi because we lived this problem.</h2>
-                    <div className="w-24 h-[2px] bg-gradient-to-r from-brand-accent-1 to-brand-accent-3 mb-12" />
-                    <div className="font-body opacity-80 text-lg md:text-xl font-light leading-relaxed space-y-6 max-w-4xl">
-                        <p>
-                            We've been in the rooms where brilliant briefs get handed to the wrong teams. Where talented creatives get placed into projects that were never built for them. Where creative ops looked like chaos dressed up as process.
-                        </p>
-                        <p>
-                            KinStrategi was built to fix that. Not by posting jobs and praying, but by building a smarter system, one that matches talent to strategy, vision to execution, and teams to the vibe they actually need.
-                        </p>
-                        <p>
-                            We work at the intersection of creative culture and operational intelligence. And we're building the infrastructure that makes creative work make sense.
-                        </p>
+                    {/* Animated Traveling Borders */}
+                    <div className="absolute top-0 left-0 w-full h-[1px] overflow-hidden z-20 pointer-events-none">
+                        <motion.div 
+                            animate={{ x: ["-100%", "200%"] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            className="w-1/2 h-full bg-gradient-to-r from-transparent via-brand-accent-2 to-transparent" 
+                        />
                     </div>
+                    <div className="absolute top-0 right-0 w-[1px] h-full overflow-hidden z-20 pointer-events-none">
+                        <motion.div 
+                            animate={{ y: ["-100%", "200%"] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 0.75 }}
+                            className="w-full h-1/2 bg-gradient-to-b from-transparent via-brand-accent-2 to-transparent" 
+                        />
+                    </div>
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] overflow-hidden z-20 pointer-events-none">
+                        <motion.div 
+                            animate={{ x: ["200%", "-100%"] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+                            className="w-1/2 h-full bg-gradient-to-l from-transparent via-brand-accent-2 to-transparent" 
+                        />
+                    </div>
+                    <div className="absolute top-0 left-0 w-[1px] h-full overflow-hidden z-20 pointer-events-none">
+                        <motion.div 
+                            animate={{ y: ["200%", "-100%"] }}
+                            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 2.25 }}
+                            className="w-full h-1/2 bg-gradient-to-t from-transparent via-brand-accent-2 to-transparent" 
+                        />
+                    </div>
+                    
+                    {/* Decorative Corner Borders for Cyber-Luxury Feel */}
+                    <motion.div 
+                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                        className="absolute top-0 left-0 border-t border-l border-brand-accent-2/60 z-20 pointer-events-none"
+                    />
+                    <motion.div 
+                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                        className="absolute top-0 right-0 border-t border-r border-brand-accent-2/60 z-20 pointer-events-none"
+                    />
+                    <motion.div 
+                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                        className="absolute bottom-0 right-0 border-b border-r border-brand-accent-2/60 z-20 pointer-events-none"
+                    />
+                    <motion.div 
+                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+                        className="absolute bottom-0 left-0 border-b border-l border-brand-accent-2/60 z-20 pointer-events-none"
+                    />
+                    
+                    <div className="w-full bg-gradient-to-br from-brand-dark/95 to-[#111111]/95 backdrop-blur-xl border border-white/5 p-10 md:p-16 lg:p-24 relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+                        {/* Glow Effects */}
+                        <div className="absolute -top-32 -right-32 w-96 h-96 bg-brand-accent-2/5 blur-[120px] rounded-full pointer-events-none group-hover:bg-brand-accent-2/15 transition-colors duration-700" />
+                        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-brand-accent-3/5 blur-[120px] rounded-full pointer-events-none group-hover:bg-brand-accent-3/15 transition-colors duration-700" />
+                        
+                        <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-24">
+                            {/* Left Column: Heading */}
+                            <div className="w-full lg:w-5/12 flex flex-col justify-start">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="w-8 h-[1px] bg-brand-accent-2/70" />
+                                    <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.2em] opacity-90">Our Genesis</span>
+                                </div>
+                                <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
+                                    We started KinStrategi because we lived this <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-2 to-brand-accent-2/60">problem.</span>
+                                </h2>
+                            </div>
+
+                            {/* Right Column: Body Text */}
+                            <div className="w-full lg:w-7/12 flex flex-col justify-center">
+                                <div className="font-body text-lg md:text-xl font-light leading-relaxed space-y-8 opacity-80">
+                                    <p className="text-xl md:text-2xl font-medium text-white opacity-100 border-l-2 border-brand-accent-2/40 pl-6">
+                                        We've been in the rooms where brilliant briefs get handed to the wrong teams. Where talented creatives get placed into projects that were never built for them. Where creative ops looked like chaos dressed up as process.
+                                    </p>
+                                    <p className="pl-6 md:pl-8">
+                                        KinStrategi was built to fix that. Not by posting jobs and praying, but by building a smarter system, one that matches talent to strategy, vision to execution, and teams to the vibe they actually need.
+                                    </p>
+                                    <p className="pl-6 md:pl-8">
+                                        We work at the intersection of creative culture and operational intelligence. And we're building the infrastructure that makes creative work make sense.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </motion.div>
 
@@ -333,7 +406,7 @@ export default function Home() {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-center gap-8 text-center"
                 >
-                    <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-widest block opacity-70">Services</span>
+                    <span className="font-tech text-brand-accent-1 text-xl font-bold uppercase tracking-[0.4em] block opacity-100 drop-shadow-md">Services</span>
                     <h2 className="font-heading text-4xl md:text-5xl font-bold mb-2">Six ways we show up for your brand.</h2>
                     <ul className="text-left md:text-center grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mt-8 mb-12 max-w-4xl mx-auto w-full">
                         <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Strategy & Direction</li>

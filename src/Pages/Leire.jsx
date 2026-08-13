@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import leireBg from '../assets/Leiré_ Alte Gothic Surrealism Studio.png';
+import leireBg from '../assets/leire-bg.png';
 
 const services = [
     "Creative Direction & World-Building",
@@ -66,15 +66,18 @@ const scenarios = [
 export default function Leire() {
     const navigate = useNavigate();
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-24 pb-32">
-            {/* Background with slow push-in animation */}
-            <motion.div
-                animate={{ scale: [1, 1.15, 1] }}
-                transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-30 grayscale sepia-[0.2]"
-                style={{ backgroundImage: `url('${leireBg}')` }}
-            />
-            <div className="fixed inset-0 z-0 bg-gradient-to-b from-brand-dark/80 via-brand-dark/95 to-brand-dark" />
+        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-24 pb-32 bg-brand-dark">
+            {/* Background Image Setup (Only at the top so it doesn't enter the content below) */}
+            <div className="absolute top-0 left-0 w-full h-[120vh] z-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 0.8 }}
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url('${leireBg}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/70 to-brand-dark" />
+            </div>
 
             {/* Floating dust particles */}
             {[...Array(15)].map((_, i) => (
@@ -97,12 +100,12 @@ export default function Leire() {
             ))}
 
             {/* Hero Section */}
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-16 min-h-[85vh]">
+            <div className="relative z-10 w-full max-w-5xl mx-auto px-4 lg:px-8 flex flex-col items-center justify-center min-h-[85vh] pt-20">
                 <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="md:w-1/2 text-left"
+                    className="w-full text-center flex flex-col items-center"
                 >
                     <motion.span
                         initial={{ opacity: 0, letterSpacing: "0.1em" }}
@@ -120,7 +123,7 @@ export default function Leire() {
                         Where ideas <br />
                         <span className="text-brand-accent-2">burst into form.</span>
                     </motion.h1>
-                    <div className="font-body text-2xl opacity-70 font-light leading-relaxed mb-10 max-w-lg border-l-2 border-brand-accent-1 pl-6">
+                    <div className="font-body text-xl md:text-2xl opacity-70 font-light leading-relaxed mb-10 max-w-lg">
                         <p className="mb-2"><span className="font-medium text-white shadow-sm">KinStrategi</span> builds the system.</p>
                         <p><span className="font-medium text-brand-accent-2 shadow-sm italic">Leiré</span> builds the idea.</p>
                     </div>
@@ -138,38 +141,6 @@ export default function Leire() {
                             transition={{ duration: 0.4, ease: "easeInOut" }}
                         />
                     </motion.button>
-                </motion.div>
-
-                {/* Floating Abstract Element */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={{ opacity: 1, scale: 1, y: [-10, 10, -10] }}
-                    transition={{
-                        opacity: { duration: 1.0, delay: 0.2 },
-                        scale: { duration: 1.0, delay: 0.2 },
-                        y: { duration: 6, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    className="md:w-1/2 flex justify-center"
-                >
-                    <div className="w-80 h-[28rem] border border-brand-accent-2/20 rounded-t-full bg-brand-accent-2/5 relative overflow-hidden flex items-center justify-center group shadow-2xl">
-                        <motion.div
-                            animate={{ opacity: [0.2, 0.5, 0.2] }}
-                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                            className="absolute inset-0 bg-gradient-to-t from-brand-accent-1/30 to-transparent mix-blend-overlay"
-                        />
-                        <motion.div
-                            animate={{ rotate: 360 }}
-                            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                            className="w-56 h-56 border border-brand-accent-2/40 rounded-full border-dashed flex items-center justify-center relative z-10"
-                        >
-                            <motion.div
-                                animate={{ rotate: -720 }}
-                                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                                className="w-40 h-40 border border-brand-accent-1/40 rounded-full border-dotted"
-                            />
-                        </motion.div>
-                        <div className="absolute inset-0 bg-white/0 group-hover:bg-brand-accent-2/10 transition-colors duration-700 pointer-events-none" />
-                    </div>
                 </motion.div>
             </div>
 

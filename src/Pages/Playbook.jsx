@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import playbookBg from '../assets/The Playbook_ Creative Ops Hierarchy.png';
+import playbookBg from '../assets/playbook-bg.png';
 import ademarisGuiding from '../safe-assets/navigator/ademaris-guiding.png';
 
 const services = [
@@ -77,16 +76,18 @@ export default function Playbook() {
     const navigate = useNavigate();
 
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden py-32">
-            {/* Background Image Setup */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 0.15 }}
-                transition={{ duration: 2 }}
-                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat mix-blend-color-dodge"
-                style={{ backgroundImage: `url('${playbookBg}')` }}
-            />
-            <div className="fixed inset-0 z-0 bg-brand-dark/95" />
+        <div className="relative min-h-screen flex flex-col items-center justify-start py-32 bg-brand-dark">
+            {/* Background Image Setup (Only at the top so it doesn't enter the services list below) */}
+            <div className="absolute top-0 left-0 w-full h-[120vh] z-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 0.8 }}
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url('${playbookBg}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/70 to-brand-dark" />
+            </div>
 
             {/* Grid Overlay */}
             <div
@@ -103,7 +104,7 @@ export default function Playbook() {
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="text-center max-w-4xl mx-auto mb-24"
+                    className="relative z-10 text-center max-w-4xl mx-auto mb-24 flex flex-col items-center mt-12"
                 >
                     <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase">
                         The KinStrategi <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-3 to-brand-accent-2">Playbook</span>
@@ -111,7 +112,7 @@ export default function Playbook() {
                     <h2 className="font-tech text-brand-accent-2 text-xl md:text-2xl tracking-[0.2em] uppercase mb-8 opacity-90">
                         Pick your level. Scale when ready.
                     </h2>
-                    <p className="font-body opacity-70 text-lg md:text-xl font-light leading-relaxed">
+                    <p className="font-body opacity-70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
                         We offer structured creative services across our core service categories. Identify your operational constraints, and deploy the precise architecture needed to override them.
                     </p>
                 </motion.div>

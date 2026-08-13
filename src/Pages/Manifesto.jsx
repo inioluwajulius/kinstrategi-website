@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import manifestoBg from '../assets/Manifesto_ The KinStrategi Philosophy.png';
+import manifestoBg from '../assets/manifesto-bg.png';
 import ademarisSmile from '../safe-assets/navigator/ademaris-smile.png';
 
 const beliefs = [
@@ -42,13 +42,18 @@ export default function Manifesto() {
     const y1 = useTransform(scrollY, [0, 2000], [0, 400]);
 
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32 pb-48">
-            {/* Dynamic scrolling background */}
-            <motion.div
-                style={{ y: y1, backgroundImage: `url('${manifestoBg}')` }}
-                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-screen scale-110"
-            />
-            <div className="fixed inset-0 z-0 bg-gradient-to-b from-brand-dark via-brand-dark/95 to-brand-dark" />
+        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32 pb-48 bg-brand-dark">
+            {/* Background Image Setup (Only at the top so it doesn't enter the content below) */}
+            <div className="absolute top-0 left-0 w-full h-[120vh] z-0 overflow-hidden pointer-events-none">
+                <motion.div
+                    initial={{ scale: 1.1, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 2, ease: "easeOut" }}
+                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+                    style={{ backgroundImage: `url('${manifestoBg}')` }}
+                />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/20 via-brand-dark/50 to-brand-dark" />
+            </div>
 
             <div className="relative z-10 w-full max-w-5xl mx-auto px-6">
 
