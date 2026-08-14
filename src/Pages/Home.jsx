@@ -308,7 +308,7 @@ export default function Home() {
                         <div>
                             <h3 className="font-heading text-3xl md:text-4xl font-bold mb-2 text-white">Adeshewa Adeniran</h3>
                             <p className="font-tech text-brand-accent-3 text-xs md:text-sm uppercase tracking-widest mb-6 border-b border-brand-accent-3/30 pb-3 inline-block">
-                                Creative Development Producer
+                                Creative Development Strategist
                             </p>
                             
                             {/* Balanced Visible Excerpt */}

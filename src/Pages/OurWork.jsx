@@ -1,6 +1,33 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 
+// Placements
+import livingInSanaaImg from '../safe-assets/brands/living-sanaa.png';
+import aySubzImg from '../safe-assets/brands/aysubz.png';
+import seemiImg from '../safe-assets/brands/seemi.png';
+import bmeImg from '../safe-assets/brands/bme.png';
+import confidentialImg from '../safe-assets/brands/confidential.jpg';
+import ajopawImg from '../safe-assets/brands/ajopaw-logo.png';
+
+// Publications
+import coffeeCreamCover from '../safe-assets/metrics/coffee.png';
+import wickedTiesCover from '../safe-assets/metrics/wicked.png';
+
+// Brand Experience (Visuals)
+import venus1 from '../safe-assets/brands/venus1.jpg';
+import venus2 from '../safe-assets/brands/venus2.jpg';
+import venus3 from '../safe-assets/brands/venus3.jpg';
+import venus4 from '../safe-assets/brands/venus4.jpg';
+import ajopawC1 from '../safe-assets/brands/ajopaw1.jpeg';
+import ajopawC2 from '../safe-assets/brands/ajopaw2.jpeg';
+import ajopawC3 from '../safe-assets/brands/ajopaw3.jpeg';
+import jameson1 from '../safe-assets/brands/jameson1.jpg';
+import jameson2 from '../safe-assets/brands/jameson2.jpg';
+import jameson3 from '../safe-assets/brands/jameson3.jpg';
+
+// Avatar
+import ademarisExcited from '../safe-assets/navigator/ademaris-excited.png';
+
 // Dedicated Stateful Log Card for Field Notes with Smooth Read More / Read Less
 function LogCard({ log }) {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -92,30 +119,6 @@ function LogCard({ log }) {
     );
 }
 
-// Placements
-import aySubzImg from '../safe-assets/brands/aysubz.png';
-import bmeImg from '../safe-assets/brands/bme.png';
-import ajopawImg from '../safe-assets/brands/ajopaw-logo.png';
-
-// Publications
-import coffeeCreamCover from '../safe-assets/metrics/coffee.png';
-import wickedTiesCover from '../safe-assets/metrics/wicked.png';
-
-// Brand Experience (Visuals)
-import venus1 from '../safe-assets/brands/venus1.jpg';
-import venus2 from '../safe-assets/brands/venus2.jpg';
-import venus3 from '../safe-assets/brands/venus3.jpg';
-import venus4 from '../safe-assets/brands/venus4.jpg';
-import ajopawC1 from '../safe-assets/brands/ajopaw1.jpeg';
-import ajopawC2 from '../safe-assets/brands/ajopaw2.jpeg';
-import ajopawC3 from '../safe-assets/brands/ajopaw3.jpeg';
-import jameson1 from '../safe-assets/brands/jameson1.jpg';
-import jameson2 from '../safe-assets/brands/jameson2.jpg';
-import jameson3 from '../safe-assets/brands/jameson3.jpg';
-
-// Avatar
-import ademarisExcited from '../safe-assets/navigator/ademaris-excited.png';
-
 const categories = [
     {
         id: "field-notes",
@@ -198,12 +201,12 @@ const categories = [
         type: "placements",
         closing: "No two engagements are the same. Sometimes we're brought in to build the right team. Other times we're asked to shape a brand, develop creative systems, improve operations, or guide execution from concept through delivery. Our role is to identify what a business truly needs, assemble the right people and processes, and build the operational foundation that enables sustainable creative growth.",
         content: [
-            { brand: "Living in Sanaa", scope: "Recruited and placed a Social Media Manager to support both the brand and the founder's personal brand, ensuring alignment between creative execution, audience growth, and business objectives.", link: "https://www.instagram.com/reel/DVrc09Ejejq/?igsh=MW4zNzUzMnp1aHpqNg==" },
+            { brand: "Living in Sanaa", scope: "Recruited and placed a Social Media Manager to support both the brand and the founder's personal brand, ensuring alignment between creative execution, audience growth, and business objectives.", link: "https://www.instagram.com/reel/DVrc09Ejejq/?igsh=MW4zNzUzMnp1aHpqNg==", img: livingInSanaaImg },
             { brand: "AY Subs", scope: "Led the recruitment and placement of a Personal Assistant to streamline executive operations and strengthen the founder's day-to-day workflow.", link: "", img: aySubzImg },
-            { brand: "SEEMI", scope: "Recruited and placed a Personal Assistant to improve internal operations and founder support, while also leading model sourcing and casting for campaign production.", link: "" },
+            { brand: "SEEMI", scope: "Recruited and placed a Personal Assistant to improve internal operations and founder support, while also leading model sourcing and casting for campaign production.", link: "", img: seemiImg },
             { brand: "BME", scope: "Identified, recruited, and placed operational talent to support the business at its stage of growth and expansion.", link: "", img: bmeImg },
-            { brand: "TOFO House / Caisson Lighthouse Publishing", scope: "Recruited a Social Media & AI Digital Content Creator to help establish a modern content ecosystem and strengthen the brand's digital presence.", link: "https://www.instagram.com/reel/DZh8VFpCJVy/?igsh=bXkxcDVmNWhiaWtx" },
-            { brand: "CAMP", scope: "Recruited and assembled key creative partners, including a Brand Identity Designer and Website Developer, to establish the organization's visual identity and digital foundation.", link: "" },
+            { brand: "TOFO House / Caisson Lighthouse Publishing", scope: "Recruited a Social Media & AI Digital Content Creator to help establish a modern content ecosystem and strengthen the brand's digital presence.", link: "https://www.instagram.com/reel/DZh8VFpCJVy/?igsh=bXkxcDVmNWhiaWtx", img: confidentialImg },
+            { brand: "CAMP", scope: "Recruited and assembled key creative partners, including a Brand Identity Designer and Website Developer, to establish the organization's visual identity and digital foundation.", link: "", img: confidentialImg },
             { brand: "ÀJỌPAW", scope: "Led initiatives across Talent Management, Creative Operations, Product Development, and Brand Experience Strategy, supporting both internal systems and the overall customer experience.", link: "https://www.instagram.com/p/DZInzkpjWwg/?igsh=MXMzMmRlZWZvNTJwZA==", img: ajopawImg }
         ]
     },
@@ -254,8 +257,8 @@ const categories = [
             },
             {
                 quote: "The world is waiting. 🌍 Something is coming to this page — a new country, every single weekday, for every curious kid... Shewaaaa! We are moving! 🔥",
-                author: "Publishing Partner",
-                role: "ÀJỌPÀW / TOFO House Collaboration",
+                author: "TOFO House",
+                role: "Talent Placement and Onboarding",
                 tag: "Launch Momentum",
                 date: "Campaign Launch"
             }
