@@ -42,7 +42,7 @@ export default function Home() {
     const headlineText = "We help founders build businesses that work.";
 
     return (
-        <div className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-20 pb-64">
+        <div className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-12 md:pt-20 pb-24 md:pb-64">
             <style dangerouslySetInnerHTML={{
                 __html: `
                 @keyframes glitch-1 {
@@ -78,7 +78,7 @@ export default function Home() {
                 variants={textContainer}
                 initial="hidden"
                 animate="show"
-                className="relative z-10 text-center px-4 max-w-5xl mx-auto min-h-[80vh] flex flex-col items-center justify-center pt-24 md:pt-0 md:-mt-32"
+                className="relative z-10 text-center px-4 max-w-5xl mx-auto md:min-h-[80vh] flex flex-col items-center justify-start md:justify-center mt-[-2rem] md:-mt-32 pt-2 md:pt-0"
             >
                 {/* Top Icon */}
                 <motion.div

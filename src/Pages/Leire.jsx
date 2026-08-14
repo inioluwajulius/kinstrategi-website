@@ -66,7 +66,7 @@ const scenarios = [
 export default function Leire() {
     const navigate = useNavigate();
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-24 pb-32 bg-brand-dark">
+        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-20 md:pt-24 pb-32 bg-brand-dark">
             {/* Background Image Setup (Only at the top so it doesn't enter the content below) */}
             <div className="absolute top-0 left-0 w-full h-[120vh] z-0 overflow-hidden pointer-events-none">
                 <motion.div
@@ -100,7 +100,7 @@ export default function Leire() {
             ))}
 
             {/* Hero Section */}
-            <div className="relative z-10 w-full max-w-5xl mx-auto px-4 lg:px-8 flex flex-col items-center justify-center min-h-[85vh] pt-20">
+            <div className="relative z-10 w-full max-w-5xl mx-auto px-4 lg:px-8 flex flex-col items-center justify-start md:justify-center md:min-h-[85vh] mt-[-2rem] md:mt-0 pt-8 md:pt-20">
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -108,22 +108,22 @@ export default function Leire() {
                     className="w-full text-center flex flex-col items-center"
                 >
                     <motion.span
-                        initial={{ opacity: 0, letterSpacing: "0.1em" }}
-                        animate={{ opacity: 1, letterSpacing: "0.4em" }}
+                        initial={{ opacity: 0, letterSpacing: "0.05em" }}
+                        animate={{ opacity: 1, letterSpacing: "0.15em" }}
                         transition={{ duration: 0.6, delay: 0.1 }}
-                        className="font-tech text-brand-accent-1 uppercase text-sm mb-6 block drop-shadow-sm"
+                        className="font-tech text-brand-accent-1 uppercase text-xs md:text-sm mb-6 block drop-shadow-sm px-2"
                     >
                         Leiré is our creative ideation and storytelling studio.
                     </motion.span>
                     <motion.h1
                         animate={{ textShadow: ["0 0 0px #AD3A3C", "0 0 20px #AD3A3C", "0 0 0px #AD3A3C"] }}
                         transition={{ duration: 4, repeat: Infinity }}
-                        className="font-heading text-7xl md:text-8xl lg:text-9xl font-bold mb-8 text-white drop-shadow-2xl italic leading-tight"
+                        className="font-heading text-5xl md:text-7xl lg:text-9xl font-bold mb-8 text-white drop-shadow-2xl italic leading-tight"
                     >
-                        Where ideas <br />
+                        Where ideas <br className="hidden md:block" />
                         <span className="text-brand-accent-2">burst into form.</span>
                     </motion.h1>
-                    <div className="font-body text-xl md:text-2xl opacity-70 font-light leading-relaxed mb-10 max-w-lg">
+                    <div className="font-body text-lg md:text-2xl opacity-70 font-light leading-relaxed mb-10 max-w-lg">
                         <p className="mb-2"><span className="font-medium text-white shadow-sm">KinStrategi</span> builds the system.</p>
                         <p><span className="font-medium text-brand-accent-2 shadow-sm italic">Leiré</span> builds the idea.</p>
                     </div>
@@ -144,14 +144,14 @@ export default function Leire() {
                 </motion.div>
             </div>
 
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 mt-32 space-y-40">
+            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 lg:px-8 mt-12 md:mt-32 space-y-12 md:space-y-40">
                 {/* What We Do */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5 }}
-                    className="flex flex-col lg:flex-row gap-16"
+                    className="flex flex-col lg:flex-row gap-8 lg:gap-16"
                 >
                     <div className="lg:w-1/3 text-left">
                         <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 italic text-brand-accent-2">What We Do</h2>
@@ -185,7 +185,7 @@ export default function Leire() {
                     <span className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-4 block">Specialties</span>
                     <h2 className="font-heading text-4xl font-bold mb-6">We specialize in a few things most studios don't.</h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 text-left">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 md:mt-16 text-left">
                         {specialties.map((spec, idx) => (
                             <div key={idx} className="border-t border-brand-accent-2/30 pt-6 relative group">
                                 <h3 className="font-heading text-2xl font-bold mb-4 italic text-brand-accent-2 group-hover:text-white transition-colors">{spec.title}</h3>
@@ -209,7 +209,7 @@ export default function Leire() {
                     transition={{ duration: 0.5 }}
                     className="border border-white/5 bg-brand-base p-8 lg:p-16 shadow-xl"
                 >
-                    <div className="flex flex-col lg:flex-row gap-16 justify-between items-start">
+                    <div className="flex flex-col lg:flex-row gap-8 lg:gap-16 justify-between items-start">
                         <div className="lg:w-1/3">
                             <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 italic text-brand-accent-2">How to Work with Us</h2>
                             <p className="font-body opacity-70 font-light text-lg mb-4 leading-relaxed font-bold">
@@ -228,7 +228,7 @@ export default function Leire() {
                             </motion.button>
                         </div>
 
-                        <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-12">
+                        <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
                             {steps.map((item, idx) => (
                                 <div key={idx} className="relative pt-6">
                                     <span className="font-tech text-3xl text-brand-accent-1/40 absolute top-0 left-0 z-0 font-bold select-none">{item.step}</span>
@@ -248,7 +248,7 @@ export default function Leire() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.5 }}
-                    className="flex flex-col md:flex-row gap-16 items-center"
+                    className="flex flex-col md:flex-row gap-8 md:gap-16 items-center"
                 >
                     <div className="w-full md:w-1/2 p-12 bg-brand-base shadow-xl border border-brand-accent-1/20">
                         <h2 className="font-tech text-brand-accent-1 text-xs uppercase tracking-[0.2em] mb-4 block">How KinStrategi & Leiré Work Together</h2>

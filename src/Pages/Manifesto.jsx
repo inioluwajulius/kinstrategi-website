@@ -42,7 +42,7 @@ export default function Manifesto() {
     const y1 = useTransform(scrollY, [0, 2000], [0, 400]);
 
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-32 pb-48 bg-brand-dark">
+        <div className="relative min-h-screen flex flex-col items-center justify-start overflow-hidden pt-20 md:pt-32 pb-48 bg-brand-dark">
             {/* Background Image Setup (Only at the top so it doesn't enter the content below) */}
             <div className="absolute top-0 left-0 w-full h-[120vh] z-0 overflow-hidden pointer-events-none">
                 <motion.div

@@ -4,7 +4,7 @@ import kinBg from '../assets/kin-network-bg.png';
 
 export default function KinNetwork() {
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-24 bg-brand-dark">
+        <div className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-20 pb-24 md:py-24 bg-brand-dark">
             {/* Background Image Setup */}
             <div className="absolute top-0 left-0 w-full h-full z-0 overflow-hidden pointer-events-none">
                 <motion.div
@@ -21,7 +21,7 @@ export default function KinNetwork() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
-                className="relative z-10 w-full max-w-4xl mx-auto px-4 mt-16 text-center"
+                className="relative z-10 w-full max-w-4xl mx-auto px-4 mt-4 md:mt-16 text-center"
             >
                 <h1 className="font-heading text-5xl md:text-7xl font-bold mb-8 tracking-tighter text-white">
                     Your next opportunity starts with the <span className="text-brand-accent-1">right community.</span>
