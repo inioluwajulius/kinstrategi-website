@@ -7,6 +7,7 @@ import aySubzImg from '../safe-assets/brands/aysubz.png';
 import seemiImg from '../safe-assets/brands/seemi.png';
 import bmeImg from '../safe-assets/brands/bme.png';
 import confidentialImg from '../safe-assets/brands/confidential.jpg';
+import campImg from '../safe-assets/brands/camp.jpeg';
 import ajopawImg from '../safe-assets/brands/ajopaw-logo.png';
 
 // Publications
@@ -205,8 +206,8 @@ const categories = [
             { brand: "AY Subs", scope: "Led the recruitment and placement of a Personal Assistant to streamline executive operations and strengthen the founder's day-to-day workflow.", link: "", img: aySubzImg },
             { brand: "SEEMI", scope: "Recruited and placed a Personal Assistant to improve internal operations and founder support, while also leading model sourcing and casting for campaign production.", link: "", img: seemiImg },
             { brand: "BME", scope: "Identified, recruited, and placed operational talent to support the business at its stage of growth and expansion.", link: "", img: bmeImg },
-            { brand: "TOFO House / Caisson Lighthouse Publishing", scope: "Recruited a Social Media & AI Digital Content Creator to help establish a modern content ecosystem and strengthen the brand's digital presence.", link: "https://www.instagram.com/reel/DZh8VFpCJVy/?igsh=bXkxcDVmNWhiaWtx", img: confidentialImg },
-            { brand: "CAMP", scope: "Recruited and assembled key creative partners, including a Brand Identity Designer and Website Developer, to establish the organization's visual identity and digital foundation.", link: "", img: confidentialImg },
+            // { brand: "TOFO House / Caisson Lighthouse Publishing", scope: "Recruited a Social Media & AI Digital Content Creator to help establish a modern content ecosystem and strengthen the brand's digital presence.", link: "https://www.instagram.com/reel/DZh8VFpCJVy/?igsh=bXkxcDVmNWhiaWtx", img: confidentialImg },
+            { brand: "CAMP", scope: "Recruited and assembled key creative partners, including a Brand Identity Designer and Website Developer, to establish the organization's visual identity and digital foundation.", link: "", img: campImg },
             { brand: "ÀJỌPAW", scope: "Led initiatives across Talent Management, Creative Operations, Product Development, and Brand Experience Strategy, supporting both internal systems and the overall customer experience.", link: "https://www.instagram.com/p/DZInzkpjWwg/?igsh=MXMzMmRlZWZvNTJwZA==", img: ajopawImg }
         ]
     },
