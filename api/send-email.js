@@ -14,7 +14,7 @@ export default async function handler(req, res) {
       // Resend allows 'onboarding@resend.dev' for testing. 
       // Replace with 'reception@kinstrategi.com' once domain is verified on Resend.
       from: 'KinStrategi Reception <onboarding@resend.dev>',
-      to: ['shewa@kinstrategi.com'],
+      to: ['behindthedesksofficial@gmail.com'],
       subject: `New Reception Signal from ${first_name} ${last_name} (${company})`,
       html: `
         <h2>New Signal Received!</h2>
