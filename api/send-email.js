@@ -11,10 +11,9 @@ export default async function handler(req, res) {
     const { first_name, last_name, company, role, email, phone, message } = req.body;
 
     const data = await resend.emails.send({
-      // Resend allows 'onboarding@resend.dev' for testing. 
       // Replace with 'reception@kinstrategi.com' once domain is verified on Resend.
-      from: 'KinStrategi Reception <onboarding@resend.dev>',
-      to: ['behindthedesksofficial@gmail.com'],
+      from: 'KinStrategi Reception <reception@kinstrategi.com>',
+      to: ['shewa@kinstrategi.com'],
       subject: `New Reception Signal from ${first_name} ${last_name} (${company})`,
       html: `
         <h2>New Signal Received!</h2>
