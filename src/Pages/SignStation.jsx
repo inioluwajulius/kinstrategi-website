@@ -13,14 +13,11 @@ export default function SignStation() {
         
         const formData = new FormData(e.target);
         
-        // IMPORTANT: Replace this with your actual Web3Forms access key
-        formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
-
         const object = Object.fromEntries(formData);
         const json = JSON.stringify(object);
 
         try {
-            const res = await fetch("https://api.web3forms.com/submit", {
+            const res = await fetch("/api/send-email", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
