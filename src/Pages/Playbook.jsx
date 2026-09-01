@@ -193,7 +193,7 @@ export default function Playbook() {
                             )}
                             <div className="mt-auto">
                                 <motion.button
-                                    onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
+                                    onClick={() => navigate('/sign-station')}
                                     whileHover={{ color: "#fff" }}
                                     className={`font-tech text-sm font-bold tracking-widest uppercase text-${item.accent} transition-colors cursor-pointer z-20 relative`}
                                 >
@@ -273,7 +273,7 @@ export default function Playbook() {
                                     <p className="font-body text-sm opacity-60 mt-1 italic">We scope each partnership around the work, the people, and the level of support your business actually needs.</p>
                                 </div>
                                 <motion.button
-                                    onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
+                                    onClick={() => navigate('/sign-station')}
                                     whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.4)" }}
                                     whileTap={{ scale: 0.95 }}
                                     className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer shrink-0"
@@ -312,7 +312,7 @@ export default function Playbook() {
                             We'll help you clarify the vision, identify the right level of support, and recommend the partnership that makes the most sense before any work begins.
                         </p>
                         <motion.button
-                            onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
+                            onClick={() => navigate('/sign-station')}
                             whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
                             whileTap={{ scale: 0.95 }}
                             className="bg-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer shadow-[0_0_20px_rgba(91,62,150,0.3)] hover:shadow-[0_0_40px_rgba(91,62,150,0.5)] transition-shadow"

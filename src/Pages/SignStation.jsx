@@ -1,8 +1,48 @@
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import ademarisCurious from '../safe-assets/navigator/ademaris-curious.png';
 import signStationBg from '../assets/sign-station-bg.png';
 
 export default function SignStation() {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        
+        const formData = new FormData(e.target);
+        
+        // IMPORTANT: Replace this with your actual Web3Forms access key
+        formData.append("access_key", "YOUR_ACCESS_KEY_HERE");
+
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+
+        try {
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json"
+                },
+                body: json
+            }).then((res) => res.json());
+
+            if (res.success) {
+                e.target.reset();
+                setIsModalOpen(true);
+            } else {
+                alert("Something went wrong. Please try again.");
+            }
+        } catch (error) {
+            console.error(error);
+            alert("An error occurred while sending. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="relative min-h-screen py-32 overflow-hidden flex flex-col justify-start bg-brand-dark">
             {/* Background Image Setup */}
@@ -62,47 +102,44 @@ export default function SignStation() {
                     <div className="lg:col-span-3 lg:pl-8 relative z-10">
                         <form
                             className="space-y-10 relative z-10"
-                            onSubmit={(e) => {
-                                e.preventDefault();
-                                alert("Thanks for reaching out! A KinStrategi representative will respond within 24 hours.");
-                            }}
+                            onSubmit={handleSubmit}
                         >
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                                 <div className="flex flex-col gap-3 relative group">
                                     <label className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/50 group-focus-within:text-brand-accent-2 transition-colors">First Name *</label>
-                                    <input type="text" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
+                                    <input type="text" name="first_name" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
                                 </div>
                                 <div className="flex flex-col gap-3 relative group">
                                     <label className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/50 group-focus-within:text-brand-accent-2 transition-colors">Last Name *</label>
-                                    <input type="text" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
+                                    <input type="text" name="last_name" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                                 <div className="flex flex-col gap-3 relative group">
                                     <label className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/50 group-focus-within:text-brand-accent-2 transition-colors">Company *</label>
-                                    <input type="text" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
+                                    <input type="text" name="company" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
                                 </div>
                                 <div className="flex flex-col gap-3 relative group">
                                     <label className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/50 group-focus-within:text-brand-accent-2 transition-colors">Role / Title *</label>
-                                    <input type="text" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
+                                    <input type="text" name="role" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
                                 </div>
                             </div>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                                 <div className="flex flex-col gap-3 relative group">
                                     <label className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/50 group-focus-within:text-brand-accent-2 transition-colors">Email Address *</label>
-                                    <input type="email" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
+                                    <input type="email" name="email" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" required />
                                 </div>
                                 <div className="flex flex-col gap-3 relative group">
                                     <label className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/50 group-focus-within:text-brand-accent-2 transition-colors">Phone Number</label>
-                                    <input type="tel" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" />
+                                    <input type="tel" name="phone" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors" />
                                 </div>
                             </div>
 
                             <div className="flex flex-col gap-3 relative group">
                                 <label className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/50 group-focus-within:text-brand-accent-2 transition-colors">Your Message *</label>
-                                <textarea rows="4" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors resize-none" required></textarea>
+                                <textarea name="message" rows="4" className="bg-transparent border-0 border-b border-white/10 pb-2 text-white font-body focus:ring-0 focus:border-brand-accent-2 transition-colors resize-none" required></textarea>
                             </div>
 
                             <label className="flex items-start gap-4 cursor-pointer pt-6">
@@ -115,11 +152,12 @@ export default function SignStation() {
                             <div className="pt-10 flex flex-row items-center gap-8">
                                 <motion.button
                                     type="submit"
-                                    whileHover={{ scale: 1.02 }}
-                                    whileTap={{ scale: 0.98 }}
-                                    className="border border-brand-accent-2 text-brand-accent-2 hover:bg-brand-accent-2 hover:text-brand-dark hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] px-12 py-5 font-heading uppercase tracking-widest font-bold text-sm w-full sm:w-auto cursor-pointer transition-all duration-300 shrink-0"
+                                    disabled={isSubmitting}
+                                    whileHover={!isSubmitting ? { scale: 1.02 } : {}}
+                                    whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+                                    className={`border border-brand-accent-2 text-brand-accent-2 hover:bg-brand-accent-2 hover:text-brand-dark hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] px-12 py-5 font-heading uppercase tracking-widest font-bold text-sm w-full sm:w-auto cursor-pointer transition-all duration-300 shrink-0 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
                                 >
-                                    What's the Big Idea?
+                                    {isSubmitting ? "Sending..." : "What's the Big Idea?"}
                                 </motion.button>
                                 
                                 <div className="hidden sm:block w-40 h-40 relative shrink-0 -mt-8">
@@ -136,6 +174,41 @@ export default function SignStation() {
                 </div>
 
             </div>
+
+            {/* Success Modal */}
+            <AnimatePresence>
+                {isModalOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brand-dark/80 backdrop-blur-sm"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, opacity: 0, y: 20 }}
+                            animate={{ scale: 1, opacity: 1, y: 0 }}
+                            exit={{ scale: 0.9, opacity: 0, y: 20 }}
+                            className="bg-[#111111] border border-brand-accent-2/30 p-8 md:p-12 max-w-lg w-full text-center relative shadow-[0_0_50px_rgba(212,175,55,0.15)]"
+                        >
+                            <div className="w-16 h-16 bg-brand-accent-2/10 rounded-full flex items-center justify-center mx-auto mb-6">
+                                <span className="text-brand-accent-2 text-2xl">✦</span>
+                            </div>
+                            <h3 className="font-heading text-3xl font-bold mb-4 text-white">Signal Received.</h3>
+                            <p className="font-body text-white/80 font-light text-lg mb-8">
+                                Thanks for reaching out! A KinStrategi representative will review your details and respond within 24 hours.
+                            </p>
+                            <motion.button
+                                onClick={() => setIsModalOpen(false)}
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="bg-brand-accent-2 text-brand-dark px-10 py-4 font-tech uppercase tracking-widest text-sm font-bold w-full cursor-pointer"
+                            >
+                                Close
+                            </motion.button>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 }

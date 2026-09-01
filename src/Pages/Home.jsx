@@ -147,7 +147,7 @@ export default function Home() {
                     </motion.button>
 
                     <motion.button
-                        onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
+                        onClick={() => navigate('/sign-station')}
                         whileHover={{
                             scale: 1.05,
                             boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)",
@@ -387,7 +387,7 @@ export default function Home() {
                                 <span>{isFounderExpanded ? '↑' : '↓'}</span>
                             </button>
                             <motion.button
-                                onClick={() => window.location.href = "mailto:shewa@kinstrategi.com"}
+                                onClick={() => window.open("https://www.linkedin.com/in/adeshewa-adeniran-76a6a0166", "_blank")}
                                 whileHover={{ x: 4, color: "#fff" }}
                                 className="text-brand-accent-2 font-tech uppercase tracking-widest text-xs md:text-sm transition-all cursor-pointer flex items-center gap-1.5"
                             >
