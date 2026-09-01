@@ -11,18 +11,20 @@ const services = [
         bestFor: "Founders at the beginning of a venture, preparing for a launch, repositioning an existing brand, or feeling stuck on what's next.",
         pointsHeading: "What's Included:",
         points: ["Brand & Creative Strategy", "Positioning & Messaging", "Audience & Experience Mapping", "Creative Direction", "Strategic Roadmap"],
-        footer: "From $1,000",
+        ctaTitle: "Think We’re a Fit?",
+        ctaDesc: "Tell us what you're building, where you're stuck, and what you need next.",
         cta: "Kini Your Strategy? →",
         accent: "brand-accent-2"
     },
     {
         level: "02",
         title: "Creative Partnerships",
-        subtitle: "For founders who need more than a service—they need a creative partner. Some ideas need ongoing collaboration. We work alongside founders to shape concepts, develop campaigns, solve creative challenges, and bring ambitious ideas to life from inception through execution. Whether you're building a collection, directing a campaign, developing a publication, or creating an entirely new venture, we're part of the thinking—not just the delivery.",
+        subtitle: "For founders who need more than a service, they need a creative partner. Some ideas need ongoing collaboration. We work alongside founders to shape concepts, develop campaigns, solve creative challenges, and bring ambitious ideas to life from inception through execution. Whether you're building a collection, directing a campaign, developing a publication, or creating an entirely new venture, we're part of the thinking—not just the delivery.",
         bestFor: "Creative founders, brands, and teams looking for a trusted strategic and creative collaborator.",
         pointsHeading: "What's Included:",
         points: ["Creative Development", "Campaign & Concept Development", "Storytelling & Worldbuilding", "Creative Direction", "Cross-functional Collaboration"],
-        footer: "From $2,000",
+        ctaTitle: "Got a Big Idea?",
+        ctaDesc: "Bring us the idea. We'll figure out what it needs to become.",
         cta: "Let's Yap. →",
         accent: "brand-accent-3"
     },
@@ -33,18 +35,20 @@ const services = [
         bestFor: "Growing brands managing multiple projects, collaborators, or launches.",
         pointsHeading: "What's Included:",
         points: ["Creative Operations", "Workflow & Process Design", "Project Coordination", "Team Management", "Creative Production Support"],
-        footer: "From $2,500/month",
+        ctaTitle: "Need Better Infrastructure?",
+        ctaDesc: "Let's look at what's slowing your business down and build what you actually need.",
         cta: "Kini Your Strategy? →",
         accent: "brand-accent-1"
     },
     {
         level: "04",
         title: "Intelligent Systems",
-        subtitle: "Make your business work smarter—not harder. AI should enhance creativity, not replace it. We design intelligent systems that reduce repetitive work, improve collaboration, and create scalable workflows so you can spend more time building and less time managing.",
+        subtitle: "Make your business work smarter, not harder. AI should enhance creativity, not replace it. We design intelligent systems that reduce repetitive work, improve collaboration, and create scalable workflows so you can spend more time building and less time managing.",
         bestFor: "Founders who are ready to streamline operations and integrate AI into their creative or business workflows.",
         pointsHeading: "What's Included:",
         points: ["AI Workflow Design", "Automation Strategy", "Documentation Systems", "Knowledge Management", "Operational Efficiency"],
-        footer: "From $1,000",
+        ctaTitle: "Ready to Work Smarter?",
+        ctaDesc: "Tell us what's taking too much time. We'll help you figure out what can be redesigned, automated, or made simpler.",
         cta: "What's the Big Idea? →",
         accent: "brand-accent-2"
     },
@@ -55,7 +59,8 @@ const services = [
         bestFor: "New ventures, product launches, campaigns, and businesses entering a new stage of growth.",
         pointsHeading: "What's Included:",
         points: ["Launch Strategy", "Campaign Planning", "Creative Rollout", "Go-to-Market Support", "Growth Roadmapping"],
-        footer: "Custom Quote",
+        ctaTitle: "Building Something New?",
+        ctaDesc: "Tell us what you're launching, where you are in the process, and what needs to happen next.",
         cta: "What's the Big Idea? →",
         accent: "brand-accent-3"
     },
@@ -66,7 +71,8 @@ const services = [
         bestFor: "Global founders, brands, and businesses exploring opportunities across new markets.",
         pointsHeading: "What's Included:",
         points: ["Market Entry Strategy", "Local Partnership Support", "Cultural Insights", "Vendor & Creative Network Access", "Expansion Planning"],
-        footer: "Custom Quote",
+        ctaTitle: "Thinking Beyond Your Current Market?",
+        ctaDesc: "Let's talk about where you're going and what it will take to get there.",
         cta: "Let's Yap. →",
         accent: "brand-accent-1"
     }
@@ -179,9 +185,10 @@ export default function Playbook() {
                                 )}
                             </div>
 
-                            {item.footer && (
-                                <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-sm text-${item.accent} uppercase tracking-widest font-bold drop-shadow-lg relative z-10 mb-6 flex flex-col gap-1`}>
-                                    <span>Investment: {item.footer}</span>
+                            {(item.ctaTitle || item.ctaDesc) && (
+                                <div className={`mt-8 pt-6 border-t border-white/10 relative z-10 mb-6 flex flex-col gap-2`}>
+                                    {item.ctaTitle && <p className={`font-heading text-xl font-bold text-${item.accent}`}>{item.ctaTitle}</p>}
+                                    {item.ctaDesc && <p className="font-body text-base text-white/90">{item.ctaDesc}</p>}
                                 </div>
                             )}
                             <div className="mt-auto">
@@ -260,18 +267,18 @@ export default function Playbook() {
                                 ))}
                             </ul>
 
-                            <div className="flex items-center justify-between border-t border-brand-accent-2/20 pt-6">
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-t border-brand-accent-2/20 pt-6 gap-6">
                                 <div>
-                                    <p className="font-body text-white font-medium">Investment: Custom Pricing</p>
-                                    <p className="font-body text-sm opacity-60 mt-1 italic">Every partnership is tailored to your vision, scope, and level of support.</p>
+                                    <p className="font-body text-white font-medium">No rigid packages. No unnecessary layers.</p>
+                                    <p className="font-body text-sm opacity-60 mt-1 italic">We scope each partnership around the work, the people, and the level of support your business actually needs.</p>
                                 </div>
                                 <motion.button
                                     onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
                                     whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.4)" }}
                                     whileTap={{ scale: 0.95 }}
-                                    className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer"
+                                    className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer shrink-0"
                                 >
-                                    Kini Your Strategy? →
+                                    Let's Build Something That Fits →
                                 </motion.button>
                             </div>
                         </div>
