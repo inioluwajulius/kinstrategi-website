@@ -246,7 +246,7 @@ const categories = [
                 quote: "Shewa is amazing 👏🏾 hired someone. Orientation is today. Feedback from my friend: 👌🏾",
                 author: "Venture Founder",
                 role: "Talent Placement & Operations",
-                tag: "Talent Matching",
+                tag: "Talent & Operations",
                 date: "Partner Feedback"
             },
             {

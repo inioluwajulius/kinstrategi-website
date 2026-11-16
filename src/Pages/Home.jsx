@@ -1,28 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { ArrowRight, ChevronRight, Palette, Megaphone, Monitor, Film, Users2, Sparkles, Check } from 'lucide-react';
 import homeBg from '../assets/new-hero-bg.png';
 import founderImg from '../safe-assets/about/founder.jpg';
 import landaImg from '../assets/about/landa.jpg';
-import mimiImg from '../assets/about/mimi.jpg';
 import ademarisGreeting from '../safe-assets/navigator/ademaris-greeting.png';
 import iconImage from '../assets/Icon.png';
-
-function TerminalText({ text }) {
-    const [displayedText, setDisplayedText] = useState('');
-
-    useEffect(() => {
-        let i = 0;
-        const interval = setInterval(() => {
-            setDisplayedText(text.slice(0, i + 1));
-            i++;
-            if (i >= text.length) clearInterval(interval);
-        }, 50); // fast typing
-        return () => clearInterval(interval);
-    }, [text]);
-
-    return <>{displayedText}</>;
-}
+import TypewriterHeadline from '../components/TypewriterHeadline';
 
 const FounderCard = ({ founder, isReversed }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -33,7 +18,7 @@ const FounderCard = ({ founder, isReversed }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
-            className={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} border border-white/10 bg-gradient-to-br from-[#25224A]/90 to-brand-dark/95 backdrop-blur-2xl overflow-hidden shadow-[0_0_50px_rgba(0,167,167,0.1)] relative group`}
+            className={`flex flex-col ${isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} border border-white/10 bg-gradient-to-br from-[#1E1B3C]/80 via-brand-dark/95 to-[#111111]/95 backdrop-blur-2xl overflow-hidden shadow-[0_0_50px_rgba(0,167,167,0.08)] relative group`}
         >
             {/* Cyber Grid Overlay */}
             <div className="absolute inset-0 z-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: `linear-gradient(rgba(255, 255, 255, 1) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 1) 1px, transparent 1px)`, backgroundSize: '40px 40px' }} />
@@ -44,19 +29,22 @@ const FounderCard = ({ founder, isReversed }) => {
                     alt={founder.name} 
                     className="w-full h-full object-cover object-center group-hover/img:scale-105 transition-transform duration-700 ease-out" 
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/60 via-transparent to-transparent pointer-events-none" />
-                <div className="absolute inset-0 bg-brand-accent-1/10 mix-blend-overlay group-hover/img:opacity-0 transition-opacity duration-500 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-brand-accent-2/10 mix-blend-overlay group-hover/img:opacity-0 transition-opacity duration-500 pointer-events-none" />
             </div>
             
             <div className="w-full lg:w-3/5 p-8 md:p-12 lg:p-14 flex flex-col justify-between text-left relative z-10">
                 <div>
+                    <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-widest block mb-2 font-medium">
+                        Founding Leadership
+                    </span>
                     <h3 className="font-heading text-3xl md:text-4xl font-bold mb-2 text-white">{founder.name}</h3>
-                    <p className="font-tech text-brand-accent-3 text-xs md:text-sm uppercase tracking-widest mb-6 border-b border-brand-accent-3/30 pb-3 inline-block">
+                    <p className="font-tech text-brand-accent-3 text-xs md:text-sm uppercase tracking-widest mb-6 border-b border-white/10 pb-3 inline-block">
                         {founder.role}
                     </p>
                     
                     {/* Balanced Visible Excerpt */}
-                    <div className="font-body opacity-80 text-base md:text-lg font-light leading-relaxed space-y-4">
+                    <div className="font-body opacity-85 text-base md:text-lg font-light leading-relaxed space-y-4 text-gray-200">
                         {founder.bio1}
                     </div>
 
@@ -68,7 +56,7 @@ const FounderCard = ({ founder, isReversed }) => {
                                 animate={{ opacity: 1, height: 'auto' }}
                                 exit={{ opacity: 0, height: 0 }}
                                 transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
-                                className="overflow-hidden font-body opacity-80 text-base md:text-lg font-light leading-relaxed space-y-4 pt-4"
+                                className="overflow-hidden font-body opacity-85 text-base md:text-lg font-light leading-relaxed space-y-4 pt-4 text-gray-200 border-t border-white/5 mt-4"
                             >
                                 {founder.bio2}
                             </motion.div>
@@ -79,18 +67,18 @@ const FounderCard = ({ founder, isReversed }) => {
                 <div className="flex flex-wrap gap-4 items-center justify-between mt-8 pt-6 border-t border-white/10 w-full relative z-10">
                     <button 
                         onClick={() => setIsExpanded(!isExpanded)}
-                        className="text-brand-accent-3 font-tech uppercase tracking-widest text-xs md:text-sm border border-brand-accent-3/50 px-5 py-2.5 hover:bg-brand-accent-3 hover:text-brand-dark transition-all duration-300 cursor-pointer flex items-center gap-2"
+                        className="text-brand-accent-2 font-tech uppercase tracking-widest text-xs border border-brand-accent-2/50 px-5 py-2.5 hover:bg-brand-accent-2 hover:text-brand-dark transition-all duration-300 cursor-pointer flex items-center gap-2"
                     >
-                        <span>{isExpanded ? 'Read Less' : 'Read More'}</span>
+                        <span>{isExpanded ? 'Read Less' : 'Read Full Bio'}</span>
                         <span>{isExpanded ? '↑' : '↓'}</span>
                     </button>
                     {founder.linkedin && (
                         <motion.button
                             onClick={() => window.open(founder.linkedin, "_blank")}
                             whileHover={{ x: 4, color: "#fff" }}
-                            className="text-brand-accent-2 font-tech uppercase tracking-widest text-xs md:text-sm transition-all cursor-pointer flex items-center gap-1.5"
+                            className="text-brand-accent-3 font-tech uppercase tracking-widest text-xs transition-all cursor-pointer flex items-center gap-1.5"
                         >
-                            <span>Connect with {founder.firstName}</span>
+                            <span>Connect on LinkedIn</span>
                             <span>→</span>
                         </motion.button>
                     )}
@@ -107,7 +95,7 @@ export default function Home() {
         {
             name: "Adeshewa Adeniran",
             firstName: "Adeshewa",
-            role: "Founder / Chief Strategy Officer & Creative Development Strategist",
+            role: "Visionary & Creative Strategist",
             image: founderImg,
             linkedin: "https://www.linkedin.com/in/adeshewa-adeniran-76a6a0166",
             bio1: (
@@ -125,7 +113,7 @@ export default function Home() {
             ),
             bio2: (
                 <>
-                    <h5 className="font-heading text-xl text-white font-bold pt-2 text-brand-accent-1">Why KinStrategi Exists</h5>
+                    <h5 className="font-heading text-xl text-white font-bold pt-2 text-brand-accent-2">Why KinStrategi Exists</h5>
                     <p>I watched the same tragedy repeat across the creative industries: brilliant founders exhausted by friction, and profound ideas fracturing not for lack of imagination, but for lack of structural alignment. The industry was hunting for talent; no one was hunting for a fit.</p>
                     <p>That obsession became <strong className="text-white font-medium">KinStrategi</strong>.</p>
                     <p><strong className="text-white font-medium">KinStrategi</strong> exists to bring rare harmony to creative execution—curating teams that don't merely function, but fundamentally click. Because enduring creative outcomes happen when the right people, systems, and vision converge.</p>
@@ -140,13 +128,13 @@ export default function Home() {
         {
             name: "Iolanda Apulu",
             firstName: "Landa",
-            role: "Co-Founder & Culture & Partnerships Strategist",
+            role: "Co-Founder & Marketing & Partnerships Strategist",
             image: landaImg,
             linkedin: null,
             bio1: (
                 <>
                     <p>Landa is a lawyer, community builder, brand and experience strategist, talent manager and PR professional working at the intersection of people, culture, relationships and opportunity.</p>
-                    <p>As Co-Founder & Culture & Partnerships Strategist at KinStrategi, she builds the relationship ecosystem around the company—connecting ideas, brands and people with the communities, talent, partners and cultural spaces that can help them move further.</p>
+                    <p>As Co-Founder & Marketing & Partnerships Strategist at KinStrategi, she builds the relationship ecosystem around the company—connecting ideas, brands and people with the communities, talent, partners and cultural spaces that can help them move further.</p>
                     <p>Her multidisciplinary background across law, strategy, events, talent and communications gives her a unique ability to move between the human and the structural. She understands how to build genuine relationships while also thinking about the commercial, strategic and practical frameworks that allow those relationships to create value.</p>
                 </>
             ),
@@ -161,283 +149,379 @@ export default function Home() {
                     </h4>
                 </>
             )
-        },
-        {
-            name: "Mimi Benedict",
-            firstName: "Mimi",
-            role: "Co-Founder & Creative & Media Strategist",
-            image: mimiImg,
-            linkedin: null,
-            bio1: (
-                <>
-                    <p>Mimi is a creative, host and content creator working at the intersection of media, storytelling, conversation and culture.</p>
-                    <p>As Co-Founder & Creative & Media Strategist at KinStrategi, she shapes how ideas are expressed, communicated and experienced, from content and campaigns to interviews, media formats and creative experiences.</p>
-                    <p>With a natural curiosity about people and the stories they carry, Mimi brings a distinctly human lens to creative work. Her experience in hosting and interviewing has taught her to look beyond what is being said, to notice the details, tensions, perspectives and personalities that make a story worth telling.</p>
-                </>
-            ),
-            bio2: (
-                <>
-                    <p>Her creative perspective is shaped by the everyday cadence of Lagos, cinema, music, culture and the nuances of human behaviour. She is particularly drawn to the micro-moments people often overlook: the change in someone's expression, the subtext in a conversation, the detail that makes something feel real.</p>
-                    <p>At KinStrategi, Mimi works at the point where strategy becomes expression—asking not only what should we say?, but how should people experience it?</p>
-                    <p>She leads creative and media development across content, storytelling, campaigns, interviews, original media and Leiré, translating strategic direction into work that people can see, hear, feel and remember.</p>
-                    <h4 className="font-heading text-xl md:text-2xl text-brand-accent-2 italic font-semibold mt-6">
-                        “I’m interested in what drives people behind closed doors, because everybody carries an entire world of unspoken thoughts, and my job is to translate that into something people can actually feel.”
-                    </h4>
-                </>
-            )
         }
     ];
 
-    const textContainer = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: { staggerChildren: 0.1 }
-        }
-    };
-
-    const textItem = {
-        hidden: { opacity: 0, y: 20 },
-        show: { opacity: 1, y: 0 }
-    };
-
-    const headlineText = "We help founders build businesses that work.";
-
     return (
-        <div className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-12 md:pt-20 pb-24 md:pb-64">
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                @keyframes glitch-1 {
-                    0%, 100% { transform: translate(0); }
-                    20% { transform: translate(-4px, 3px); }
-                    40% { transform: translate(-4px, -3px); }
-                    60% { transform: translate(4px, 3px); }
-                    80% { transform: translate(4px, -3px); }
-                }
-                @keyframes glitch-2 {
-                    0%, 100% { transform: translate(0); }
-                    20% { transform: translate(4px, -3px); }
-                    40% { transform: translate(4px, 3px); }
-                    60% { transform: translate(-4px, -3px); }
-                    80% { transform: translate(-4px, 3px); }
-                }
-                .group:hover .animate-glitch-1 { animation: glitch-1 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
-                .group:hover .animate-glitch-2 { animation: glitch-2 0.15s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite reverse; }
-            `}} />
-
+        <div className="relative w-full flex flex-col items-center justify-start overflow-hidden pt-10 md:pt-16 pb-24 md:pb-48">
             {/* Background Image Setup */}
             <motion.div
                 initial={{ scale: 1.1, opacity: 0 }}
-                animate={{ scale: 1, opacity: 0.8 }}
+                animate={{ scale: 1, opacity: 0.7 }}
                 transition={{ duration: 2, ease: "easeOut" }}
-                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat"
+                className="fixed inset-0 z-0 bg-cover bg-center bg-no-repeat pointer-events-none"
                 style={{ backgroundImage: `url('${homeBg}')` }}
             />
-            <div className="fixed inset-0 z-0 bg-gradient-to-t from-brand-dark/90 via-brand-dark/50 to-brand-dark/90" />
+            <div className="fixed inset-0 z-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/90 pointer-events-none" />
 
-            {/* Hero Content */}
-            <motion.div
-                variants={textContainer}
-                initial="hidden"
-                animate="show"
-                className="relative z-10 text-center px-4 max-w-5xl mx-auto md:min-h-[80vh] flex flex-col items-center justify-start md:justify-center mt-[-2rem] md:-mt-32 pt-2 md:pt-0"
-            >
+            {/* Ambient Hero Glows */}
+            <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[400px] bg-brand-accent-2/10 rounded-full blur-[150px] pointer-events-none z-0" />
+            <div className="absolute top-40 left-1/3 w-[450px] h-[350px] bg-brand-accent-3/10 rounded-full blur-[130px] pointer-events-none z-0" />
+
+            {/* HERO SECTION */}
+            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto min-h-[75vh] flex flex-col items-center justify-center mt-2 md:mt-6">
                 {/* Top Icon */}
                 <motion.div
-                    variants={textItem}
-                    className="mb-8 w-24 h-24 sm:w-32 sm:h-32 relative flex items-center justify-center mx-auto"
+                    initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    transition={{ duration: 0.7 }}
+                    className="mb-6 w-20 h-20 sm:w-28 sm:h-28 relative flex items-center justify-center mx-auto"
                 >
-                    <img src={iconImage} alt="KINISTRATEGI Icon" className="w-full h-full object-contain drop-shadow-[0_0_15px_rgba(196,164,92,0.4)]" />
+                    <div className="absolute inset-0 bg-brand-accent-2/20 rounded-full blur-[20px] pointer-events-none animate-pulse-slow" />
+                    <img src={iconImage} alt="KINSTRATEGI Icon" className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_20px_rgba(196,164,92,0.4)]" />
                 </motion.div>
 
                 <motion.span
-                    variants={textItem}
-                    className="font-tech text-brand-accent-3 tracking-[0.3em] uppercase text-sm mb-8 block drop-shadow-sm font-medium"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="font-tech text-brand-accent-3 tracking-[0.3em] uppercase text-xs md:text-sm mb-6 block drop-shadow-sm font-medium"
                 >
                     For founders building beyond borders.
                 </motion.span>
 
-                <motion.div variants={textItem} className="relative group cursor-crosshair w-full flex justify-center mb-10">
-                    <h1 className="font-tech text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight uppercase relative inline-block mx-auto max-w-[95%] md:max-w-full">
-                        <span className="relative z-10 text-white group-hover:opacity-0 transition-opacity duration-75 block">
-                            <TerminalText text={headlineText} />
-                            <span className="inline-block w-[0.4em] h-[0.9em] bg-brand-accent-2 ml-2 animate-pulse align-middle translate-y-[-4px]" />
-                        </span>
-
-                        {/* Glitch layers on hover */}
-                        <span className="absolute left-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 animate-glitch-1 text-brand-accent-3 z-0 pointer-events-none mix-blend-screen w-full text-center">
-                            {headlineText}
-                            <span className="inline-block w-[0.4em] h-[0.9em] bg-brand-accent-3 ml-2 opacity-50 align-middle translate-y-[-4px]" />
-                        </span>
-                        <span className="absolute left-0 top-0 opacity-0 group-hover:opacity-100 transition-opacity duration-75 animate-glitch-2 text-brand-accent-1 z-0 pointer-events-none mix-blend-screen w-full text-center">
-                            {headlineText}
-                            <span className="inline-block w-[0.4em] h-[0.9em] bg-brand-accent-1 ml-2 opacity-50 align-middle translate-y-[-4px]" />
-                        </span>
-                        <span className="absolute left-0 top-0 opacity-0 group-hover:opacity-100 text-white z-10 pointer-events-none w-full text-center">
-                            {headlineText}
-                            <span className="inline-block w-[0.4em] h-[0.9em] bg-white ml-2 align-middle translate-y-[-4px]" />
-                        </span>
-                    </h1>
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.3 }}
+                    className="relative w-full flex justify-center mb-8"
+                >
+                    <TypewriterHeadline />
                 </motion.div>
 
                 <motion.p
-                    variants={textItem}
-                    className="font-body text-lg md:text-xl opacity-70 font-light max-w-2xl mx-auto mb-16 leading-relaxed"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.4 }}
+                    className="font-body text-base md:text-xl text-gray-300 font-light max-w-3xl mx-auto mb-8 leading-relaxed"
                 >
-                    We match vibe to vision for businesses who need real firepower, and creatives who deserve the right fit.
+                    KinStrategi is a creative strategy and operations company helping founders and businesses develop their brands, create meaningful experiences and bring ideas to life. From brand development and marketing to digital experiences, content production and creative team management, we bring the right strategy, people and execution together.
                 </motion.p>
 
-                <motion.div variants={textItem} className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-3xl mx-auto">
-                    <motion.button
-                        onClick={() => navigate('/playbook')}
-                        whileHover={{
-                            scale: 1.05,
-                            boxShadow: "0 0 30px rgba(0, 167, 167, 0.4)",
-                            backgroundColor: "rgba(0, 167, 167, 0.15)"
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex-1 bg-brand-accent-2/10 border border-brand-accent-3 text-white px-8 py-5 font-heading uppercase tracking-widest text-sm backdrop-blur-md transition-all relative overflow-hidden group/btn flex flex-col items-center justify-center gap-1 cursor-pointer z-20"
-                    >
-                        <span className="relative z-10 font-bold tracking-[0.2em] text-lg">Explore the Playbook</span>
-                        <span className="relative z-10 text-[11px] opacity-70 normal-case tracking-widest font-tech text-brand-accent-3">— discover our services</span>
-                        <motion.div
-                            className="absolute inset-0 bg-brand-accent-3/20 z-0 origin-left"
-                            initial={{ scaleX: 0 }}
-                            whileHover={{ scaleX: 1 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                        />
-                    </motion.button>
+                <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.7, delay: 0.5 }}
+                    className="font-heading text-lg md:text-xl text-brand-accent-2 italic mb-12"
+                >
+                    Our work is about building more than a brand. It's about building the world around it.
+                </motion.p>
 
-                    <motion.button
-                        onClick={() => navigate('/sign-station')}
-                        whileHover={{
-                            scale: 1.05,
-                            boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)",
-                            backgroundColor: "rgba(91, 62, 150, 0.15)"
-                        }}
-                        whileTap={{ scale: 0.95 }}
-                        className="flex-1 bg-brand-accent-1/5 border border-brand-accent-1 text-white px-8 py-5 font-heading uppercase tracking-widest text-sm backdrop-blur-md transition-all relative overflow-hidden group/btn flex flex-col items-center justify-center gap-1 cursor-pointer z-20"
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 0.6 }}
+                    className="flex flex-col sm:flex-row gap-5 justify-center w-full max-w-md mx-auto"
+                >
+                    <button
+                        onClick={() => navigate('/services')}
+                        className="bg-brand-accent-2 text-brand-dark px-8 py-4 font-tech uppercase tracking-widest text-xs font-bold cursor-pointer transition-all hover:bg-white hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2"
                     >
-                        <span className="relative z-10 font-bold tracking-[0.2em] text-lg">Let's Talk Strategy</span>
-                        <span className="relative z-10 text-[11px] opacity-70 normal-case tracking-widest font-tech text-brand-accent-1">— get started</span>
-                        <motion.div
-                            className="absolute inset-0 bg-brand-accent-1/20 z-0 origin-left"
-                            initial={{ scaleX: 0 }}
-                            whileHover={{ scaleX: 1 }}
-                            transition={{ duration: 0.4, ease: "easeInOut" }}
-                        />
-                    </motion.button>
+                        <span>Explore Our Services</span>
+                        <ArrowRight size={14} />
+                    </button>
+
+                    <button
+                        onClick={() => navigate('/contact')}
+                        className="border border-white/20 text-white hover:bg-white/10 px-8 py-4 font-tech uppercase tracking-widest text-xs cursor-pointer transition-all flex items-center justify-center gap-2"
+                    >
+                        <span>Work With Us</span>
+                        <ChevronRight size={14} />
+                    </button>
                 </motion.div>
-            </motion.div>
+            </div>
 
-            <div className="relative z-10 w-full max-w-6xl mx-auto px-6 mt-32 space-y-48">
-                {/* Pain Point Section */}
+            {/* MAIN SECTIONS CONTAINER */}
+            <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-28 space-y-36">
+
+                {/* 1. WHAT WE DO SECTION */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center gap-8 text-center"
+                    className="flex flex-col items-center text-center"
                 >
-                    <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4">Does any of this sound familiar?</h2>
-                    <div className="font-body opacity-70 text-lg md:text-xl font-light leading-relaxed max-w-3xl space-y-4">
-                        <p>You're briefing agencies who don't understand your market.</p>
-                        <p>You post consistently. But nothing is actually connecting.</p>
-                        <p>You've hired creatives who looked great on paper. It still didn't work out.</p>
-                        <p>You know your brand has more to say, but the right people to say it haven't shown up yet.</p>
-                        <p>Your audience is specific. Your content keeps looking too generic.</p>
-                        <p className="pt-4 font-medium opacity-100">If any of that hit, then you already know the cost of the wrong creative partner.</p>
+                    <div className="flex items-center gap-3 mb-3">
+                        <div className="w-8 h-[1px] bg-brand-accent-3/70" />
+                        <span className="font-tech text-brand-accent-3 text-xs uppercase tracking-[0.3em] font-medium">What We Do</span>
+                        <div className="w-8 h-[1px] bg-brand-accent-3/70" />
+                    </div>
+
+                    <h2 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-white">
+                        Five Connected Areas of Work
+                    </h2>
+                    <p className="font-body text-gray-300 text-lg md:text-xl font-light max-w-2xl mb-14 leading-relaxed">
+                        We help businesses build, position and grow through five connected areas of work.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full text-left">
+                        {/* 01 */}
+                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-2/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                            <div>
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="font-tech text-brand-accent-2 text-sm font-bold tracking-widest">01.</span>
+                                    <Palette className="w-5 h-5 text-brand-accent-2/80 group-hover:text-brand-accent-2 transition-colors" />
+                                </div>
+                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-2 transition-colors">
+                                    Brand Strategy & Identity
+                                </h3>
+                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
+                                    We help businesses define who they are, how they are positioned and how they show up.
+                                </p>
+                            </div>
+                            <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
+                                <li>• Brand strategy & positioning</li>
+                                <li>• Visual identity development</li>
+                                <li>• Brand development & creative direction</li>
+                            </ul>
+                        </div>
+
+                        {/* 02 */}
+                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-3/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                            <div>
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="font-tech text-brand-accent-3 text-sm font-bold tracking-widest">02.</span>
+                                    <Megaphone className="w-5 h-5 text-brand-accent-3/80 group-hover:text-brand-accent-3 transition-colors" />
+                                </div>
+                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-3 transition-colors">
+                                    Marketing & Brand Experiences
+                                </h3>
+                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
+                                    We develop marketing campaigns and experiences that connect brands with their audiences.
+                                </p>
+                            </div>
+                            <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
+                                <li>• Experiential & Event Marketing</li>
+                                <li>• Fashion & Lifestyle Marketing</li>
+                                <li>• Influencer Strategy & Creator Collabs</li>
+                            </ul>
+                        </div>
+
+                        {/* 03 */}
+                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-1/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                            <div>
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="font-tech text-brand-accent-1 text-sm font-bold tracking-widest">03.</span>
+                                    <Monitor className="w-5 h-5 text-brand-accent-1/80 group-hover:text-brand-accent-1 transition-colors" />
+                                </div>
+                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-1 transition-colors">
+                                    Digital Experience & Product Design
+                                </h3>
+                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
+                                    We design and develop digital experiences that make businesses easier to discover, use and engage with.
+                                </p>
+                            </div>
+                            <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
+                                <li>• UI/UX design</li>
+                                <li>• Website design and development</li>
+                                <li>• Digital product design and experiences</li>
+                            </ul>
+                        </div>
+
+                        {/* 04 */}
+                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-2/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                            <div>
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="font-tech text-brand-accent-2 text-sm font-bold tracking-widest">04.</span>
+                                    <Film className="w-5 h-5 text-brand-accent-2/80 group-hover:text-brand-accent-2 transition-colors" />
+                                </div>
+                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-2 transition-colors">
+                                    Creative Strategy & Content Production
+                                </h3>
+                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
+                                    We turn ideas into creative concepts, campaigns and content that communicate a brand's vision.
+                                </p>
+                            </div>
+                            <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
+                                <li>• Creative strategy & campaign conceptualisation</li>
+                                <li>• Creative content development</li>
+                                <li>• Video production, editing & short-form content</li>
+                            </ul>
+                        </div>
+
+                        {/* 05 */}
+                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-3/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)] lg:col-span-2">
+                            <div>
+                                <div className="flex items-center justify-between mb-4">
+                                    <span className="font-tech text-brand-accent-3 text-sm font-bold tracking-widest">05.</span>
+                                    <Users2 className="w-5 h-5 text-brand-accent-3/80 group-hover:text-brand-accent-3 transition-colors" />
+                                </div>
+                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-3 transition-colors">
+                                    Creative Operations & Talent
+                                </h3>
+                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed max-w-xl">
+                                    We help businesses find the right creative people and put the structure in place to make good work happen.
+                                </p>
+                            </div>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
+                                <div>• Creative talent sourcing & recruitment</div>
+                                <div>• Talent coordination & management</div>
+                                <div>• Creative team building</div>
+                                <div>• Ongoing creative operations support</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="mt-12">
+                        <button
+                            onClick={() => navigate('/services')}
+                            className="inline-flex items-center gap-2 border border-brand-accent-2/40 bg-brand-accent-2/10 text-brand-accent-2 hover:bg-brand-accent-2 hover:text-brand-dark px-6 py-3 font-tech text-xs uppercase tracking-widest font-bold transition-all duration-300 cursor-pointer shadow-[0_0_15px_rgba(212,175,55,0.15)]"
+                        >
+                            <span>Explore Detailed Deliverables in Services</span>
+                            <ArrowRight size={14} />
+                        </button>
                     </div>
                 </motion.div>
 
-                {/* Why We Started - Redesigned */}
+                {/* 2. HOW WE WORK */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="w-full relative group mb-24"
+                    className="relative border border-white/10 bg-gradient-to-br from-[#1C1835]/60 via-brand-dark/95 to-[#111111]/95 backdrop-blur-2xl p-8 md:p-14 overflow-hidden"
+                >
+                    {/* Decorative Corner Borders */}
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-accent-2/60 z-20 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-accent-2/60 z-20 pointer-events-none" />
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-accent-2/60 z-20 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-accent-2/60 z-20 pointer-events-none" />
+
+                    <div className="absolute top-0 right-0 w-72 h-72 bg-brand-accent-2/10 rounded-full blur-[80px] pointer-events-none" />
+
+                    <div className="relative z-10 max-w-4xl mx-auto text-center mb-12">
+                        <div className="flex items-center justify-center gap-3 mb-3">
+                            <div className="w-8 h-[1px] bg-brand-accent-2/70" />
+                            <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.3em] font-medium">Engagement Models</span>
+                            <div className="w-8 h-[1px] bg-brand-accent-2/70" />
+                        </div>
+                        <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-4">
+                            How We Work
+                        </h2>
+                        <p className="font-body text-gray-300 font-light text-lg md:text-xl leading-relaxed">
+                            Every business has different needs. Some need us for a specific project. Others need an ongoing creative partner. We work through two engagement models:
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 relative z-10">
+                        {/* Model 1 */}
+                        <div className="p-8 border border-white/10 bg-white/[0.02] flex flex-col justify-between hover:border-brand-accent-3/50 transition-colors">
+                            <div>
+                                <span className="inline-block px-3 py-1 bg-brand-accent-3/15 border border-brand-accent-3/40 text-brand-accent-3 font-tech text-[10px] tracking-widest uppercase mb-4">
+                                    Model 01
+                                </span>
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4">
+                                    Project-Based Engagements
+                                </h3>
+                                <p className="font-body text-gray-300 font-light text-base leading-relaxed mb-6">
+                                    Have a launch, campaign, rebrand, website or creative project in mind? We work with you from planning to execution, with a clearly defined scope, deliverables and timeline.
+                                </p>
+                            </div>
+                            <ul className="space-y-2.5 border-t border-white/10 pt-4 text-xs font-tech text-gray-300 tracking-wider">
+                                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-brand-accent-3 shrink-0" /> Defined deliverables & clear timelines</li>
+                                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-brand-accent-3 shrink-0" /> Full lifecycle project oversight</li>
+                                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-brand-accent-3 shrink-0" /> Transparent scoping & milestone execution</li>
+                            </ul>
+                        </div>
+
+                        {/* Model 2 */}
+                        <div className="p-8 border border-white/10 bg-white/[0.02] flex flex-col justify-between hover:border-brand-accent-2/50 transition-colors">
+                            <div>
+                                <span className="inline-block px-3 py-1 bg-brand-accent-2/15 border border-brand-accent-2/40 text-brand-accent-2 font-tech text-[10px] tracking-widest uppercase mb-4">
+                                    Model 02
+                                </span>
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-4">
+                                    Ongoing Creative Partnerships
+                                </h3>
+                                <p className="font-body text-gray-300 font-light text-base leading-relaxed mb-6">
+                                    Need a creative team in your corner? Retain KinStrategi for ongoing creative strategy, direction, coordination and operational support. We adapt our involvement to your business, your goals and the work ahead.
+                                </p>
+                            </div>
+                            <ul className="space-y-2.5 border-t border-white/10 pt-4 text-xs font-tech text-gray-300 tracking-wider">
+                                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-brand-accent-2 shrink-0" /> Embedded strategy & creative direction</li>
+                                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-brand-accent-2 shrink-0" /> Continuous operational coordination</li>
+                                <li className="flex items-center gap-2"><Check className="w-3.5 h-3.5 text-brand-accent-2 shrink-0" /> Flexible scale that grows with your business</li>
+                            </ul>
+                        </div>
+                    </div>
+                </motion.div>
+
+                {/* 3. BUILDING BEYOND THE BRIEF (WITH TRAVELING BEAM ANIMATION) */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-100px" }}
+                    transition={{ duration: 0.8 }}
+                    className="w-full relative group"
                 >
                     {/* Animated Traveling Borders */}
                     <div className="absolute top-0 left-0 w-full h-[1px] overflow-hidden z-20 pointer-events-none">
                         <motion.div 
                             animate={{ x: ["-100%", "200%"] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "linear" }}
                             className="w-1/2 h-full bg-gradient-to-r from-transparent via-brand-accent-2 to-transparent" 
                         />
                     </div>
                     <div className="absolute top-0 right-0 w-[1px] h-full overflow-hidden z-20 pointer-events-none">
                         <motion.div 
                             animate={{ y: ["-100%", "200%"] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 0.75 }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "linear", delay: 0.8 }}
                             className="w-full h-1/2 bg-gradient-to-b from-transparent via-brand-accent-2 to-transparent" 
                         />
                     </div>
                     <div className="absolute bottom-0 left-0 w-full h-[1px] overflow-hidden z-20 pointer-events-none">
                         <motion.div 
                             animate={{ x: ["200%", "-100%"] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 1.5 }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "linear", delay: 1.6 }}
                             className="w-1/2 h-full bg-gradient-to-l from-transparent via-brand-accent-2 to-transparent" 
                         />
                     </div>
                     <div className="absolute top-0 left-0 w-[1px] h-full overflow-hidden z-20 pointer-events-none">
                         <motion.div 
                             animate={{ y: ["200%", "-100%"] }}
-                            transition={{ duration: 3, repeat: Infinity, ease: "linear", delay: 2.25 }}
+                            transition={{ duration: 3.5, repeat: Infinity, ease: "linear", delay: 2.4 }}
                             className="w-full h-1/2 bg-gradient-to-t from-transparent via-brand-accent-2 to-transparent" 
                         />
                     </div>
-                    
-                    {/* Decorative Corner Borders for Cyber-Luxury Feel */}
-                    <motion.div 
-                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                        className="absolute top-0 left-0 border-t border-l border-brand-accent-2/60 z-20 pointer-events-none"
-                    />
-                    <motion.div 
-                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                        className="absolute top-0 right-0 border-t border-r border-brand-accent-2/60 z-20 pointer-events-none"
-                    />
-                    <motion.div 
-                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                        className="absolute bottom-0 right-0 border-b border-r border-brand-accent-2/60 z-20 pointer-events-none"
-                    />
-                    <motion.div 
-                        animate={{ width: ["2rem", "3rem", "2rem"], height: ["2rem", "3rem", "2rem"] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-                        className="absolute bottom-0 left-0 border-b border-l border-brand-accent-2/60 z-20 pointer-events-none"
-                    />
-                    
-                    <div className="w-full bg-gradient-to-br from-brand-dark/95 to-[#111111]/95 backdrop-blur-xl border border-white/5 p-10 md:p-16 lg:p-24 relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)]">
-                        {/* Glow Effects */}
-                        <div className="absolute -top-32 -right-32 w-96 h-96 bg-brand-accent-2/5 blur-[120px] rounded-full pointer-events-none group-hover:bg-brand-accent-2/15 transition-colors duration-700" />
-                        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-brand-accent-3/5 blur-[120px] rounded-full pointer-events-none group-hover:bg-brand-accent-3/15 transition-colors duration-700" />
+
+                    <div className="w-full bg-gradient-to-br from-brand-dark/95 to-[#111111]/95 backdrop-blur-xl border border-white/10 p-10 md:p-16 lg:p-20 relative overflow-hidden shadow-[0_0_40px_rgba(0,0,0,0.6)]">
+                        <div className="absolute -top-32 -right-32 w-96 h-96 bg-brand-accent-2/10 blur-[120px] rounded-full pointer-events-none" />
+                        <div className="absolute -bottom-32 -left-32 w-96 h-96 bg-brand-accent-3/10 blur-[120px] rounded-full pointer-events-none" />
                         
-                        <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-24">
-                            {/* Left Column: Heading */}
+                        <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-20 items-center">
+                            {/* Left Column */}
                             <div className="w-full lg:w-5/12 flex flex-col justify-start">
-                                <div className="flex items-center gap-4 mb-6">
+                                <div className="flex items-center gap-4 mb-4">
                                     <div className="w-8 h-[1px] bg-brand-accent-2/70" />
-                                    <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.2em] opacity-90">Our Genesis</span>
+                                    <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.2em] font-medium">The KinStrategi Approach</span>
                                 </div>
-                                <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight">
-                                    We started KinStrategi because we lived this <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-2 to-brand-accent-2/60">problem.</span>
+                                <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white">
+                                    Building Beyond the <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-2 to-brand-accent-3">Brief.</span>
                                 </h2>
                             </div>
 
-                            {/* Right Column: Body Text */}
+                            {/* Right Column */}
                             <div className="w-full lg:w-7/12 flex flex-col justify-center">
-                                <div className="font-body text-lg md:text-xl font-light leading-relaxed space-y-8 opacity-80">
-                                    <p className="text-xl md:text-2xl font-medium text-white opacity-100 border-l-2 border-brand-accent-2/40 pl-6">
-                                        We've been in the rooms where brilliant briefs get handed to the wrong teams. Where talented creatives get placed into projects that were never built for them. Where creative ops looked like chaos dressed up as process.
+                                <div className="font-body text-lg md:text-xl font-light leading-relaxed space-y-6 text-gray-300">
+                                    <p className="text-xl md:text-2xl font-medium text-white border-l-2 border-brand-accent-2/60 pl-6">
+                                        A brand is more than its logo. A campaign is more than its content. And a business is more than the products or services it sells.
                                     </p>
                                     <p className="pl-6 md:pl-8">
-                                        KinStrategi was built to fix that. Not by posting jobs and praying, but by building a smarter system, one that matches talent to strategy, vision to execution, and teams to the vibe they actually need.
+                                        Everything connects: the identity, the people, the experiences, the marketing, the digital touchpoints and the systems behind the work.
                                     </p>
-                                    <p className="pl-6 md:pl-8">
-                                        We work at the intersection of creative culture and operational intelligence. And we're building the infrastructure that makes creative work make sense.
+                                    <p className="pl-6 md:pl-8 text-brand-accent-2 font-medium">
+                                        We bring these elements together to help businesses build with intention and grow with structure. That's the KinStrategi approach.
                                     </p>
                                 </div>
                             </div>
@@ -445,11 +529,11 @@ export default function Home() {
                     </div>
                 </motion.div>
 
-                {/* The Founders */}
+                {/* 4. THE FOUNDERS SECTION */}
                 <div className="space-y-16 lg:space-y-24 mb-16 relative w-full">
-                    <div className="flex items-center gap-4 justify-center relative z-10 w-full pt-10">
+                    <div className="flex items-center gap-4 justify-center relative z-10 w-full pt-6">
                         <div className="w-12 md:w-24 h-[1px] bg-brand-accent-2/70" />
-                        <span className="font-tech text-brand-accent-2 text-sm md:text-base uppercase tracking-[0.4em] opacity-90 drop-shadow-md">The Founders</span>
+                        <span className="font-tech text-brand-accent-2 text-sm md:text-base uppercase tracking-[0.4em] font-medium">The Founding Team</span>
                         <div className="w-12 md:w-24 h-[1px] bg-brand-accent-2/70" />
                     </div>
                     {foundersData.map((founder, index) => (
@@ -457,90 +541,81 @@ export default function Home() {
                     ))}
                 </div>
 
-                {/* Services Snapshot (on Homepage) */}
+                {/* 5. LET'S BUILD SOMETHING (FINAL CTA SECTION) */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col items-center gap-8 text-center"
+                    className="relative border border-brand-accent-2/40 bg-gradient-to-r from-[#1E1B3C]/90 via-brand-dark/95 to-[#1E1B3C]/90 backdrop-blur-2xl p-10 md:p-16 text-center overflow-hidden"
                 >
-                    <span className="font-tech text-brand-accent-1 text-xl font-bold uppercase tracking-[0.4em] block opacity-100 drop-shadow-md">Services</span>
-                    <h2 className="font-heading text-4xl md:text-5xl font-bold mb-2">Six ways we show up for your brand.</h2>
-                    <ul className="text-left md:text-center grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 mt-8 mb-12 max-w-4xl mx-auto w-full">
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Strategy & Direction</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Partnerships</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Creative Infrastructure (KinOps)</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Intelligent Systems</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Venture Launch & Growth</li>
-                        <li className="font-body text-xl font-light opacity-70 border-b border-white/5 pb-4">Leiré Passage</li>
-                    </ul>
-                    <motion.button
-                        onClick={() => navigate('/playbook')}
-                        whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-brand-accent-1 text-white px-8 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer"
-                    >
-                        Explore the Playbook
-                    </motion.button>
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-brand-accent-2/15 rounded-full blur-[100px] pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-accent-3/15 rounded-full blur-[100px] pointer-events-none" />
+
+                    <div className="relative z-10 max-w-3xl mx-auto space-y-6">
+                        <span className="font-tech text-brand-accent-3 text-xs uppercase tracking-[0.3em] font-medium">
+                            Take The Next Step
+                        </span>
+                        <h2 className="font-heading text-4xl md:text-6xl font-bold text-white">
+                            Let's Build Something
+                        </h2>
+                        <p className="font-body text-gray-300 font-light text-lg md:text-xl leading-relaxed">
+                            Have a project in mind? Need a creative team? Looking for a long-term strategic partner? Let's figure out what your business needs and how we can help.
+                        </p>
+                        <div className="pt-4 flex flex-col sm:flex-row gap-5 justify-center">
+                            <button
+                                onClick={() => navigate('/contact')}
+                                className="bg-brand-accent-2 text-brand-dark px-10 py-4 font-tech uppercase tracking-widest text-xs font-bold cursor-pointer transition-all hover:bg-white hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2"
+                            >
+                                <span>Start a Project</span>
+                                <ArrowRight size={14} />
+                            </button>
+                            <button
+                                onClick={() => navigate('/contact')}
+                                className="border border-white/20 text-white hover:bg-white/10 px-10 py-4 font-tech uppercase tracking-widest text-xs cursor-pointer transition-all flex items-center justify-center gap-2"
+                            >
+                                <span>Partner With KinStrategi</span>
+                                <ChevronRight size={14} />
+                            </button>
+                        </div>
+                    </div>
                 </motion.div>
 
-                {/* Testimonial Strip */}
+                {/* 6. BROADCAST CHANNEL (NEWSLETTER) */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="w-full max-w-4xl mx-auto text-center py-16"
+                    className="relative max-w-5xl mx-auto pt-16 md:pt-0"
                 >
-                    <h2 className="font-heading text-3xl md:text-4xl font-light italic text-white mb-8 leading-relaxed">
-                        "Hi Shewa, thank you so much for all your help. I’ve recommended your services to a few friends. Looking forward to working on other projects."
-                    </h2>
-                    <p className="font-tech text-brand-accent-2 text-sm uppercase tracking-widest">Bisola A. — Founder & Aesthetician, Bacardi B/Living in Sanaa</p>
-                </motion.div>
-
-                {/* Newsletter Sign-Up & Avatar Container */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
-                    className="relative max-w-5xl mx-auto mb-24 pt-24 md:pt-0"
-                >
-                    {/* Cyber Console Background */}
                     <div className="w-full border border-white/10 bg-gradient-to-br from-brand-base/60 via-[#1E1B3C]/70 to-brand-dark/80 backdrop-blur-2xl shadow-[0_0_60px_rgba(91,62,150,0.2)] flex flex-col md:flex-row relative z-0 overflow-visible rounded-sm">
-                        
-                        {/* Abstract Tech Decorations */}
                         <div className="absolute top-0 right-0 w-32 h-[1px] bg-brand-accent-2/50" />
                         <div className="absolute bottom-0 left-0 w-32 h-[1px] bg-brand-accent-1/50" />
                         
-                        {/* Avatar Section - Absolutely positioned to break the box */}
-                        <div className="md:w-1/3 flex justify-center relative md:-ml-8 md:mt-[-80px] -mt-32 z-20 pointer-events-none">
-                            {/* Glowing Aura behind Avatar */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-accent-3/30 rounded-full blur-[60px] mix-blend-screen" />
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-1/20 rounded-full blur-[40px] mix-blend-plus-lighter" />
-                            
+                        {/* Avatar */}
+                        <div className="md:w-1/3 flex justify-center relative md:-ml-8 md:mt-[-60px] -mt-24 z-20 pointer-events-none">
+                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-brand-accent-3/20 rounded-full blur-[60px] mix-blend-screen" />
                             <img 
                                 src={ademarisGreeting} 
                                 alt="Ademaris" 
-                                className="w-full h-auto max-w-[320px] drop-shadow-[0_0_20px_rgba(212,175,55,0.3)] relative z-10 animate-[floating_6s_ease-in-out_infinite] mix-blend-screen"
-                                style={{ animationName: 'floating' }}
+                                className="w-full h-auto max-w-[280px] drop-shadow-[0_0_20px_rgba(212,175,55,0.3)] relative z-10 mix-blend-screen"
                             />
-                            <style dangerouslySetInnerHTML={{
-                                __html: `
-                                @keyframes floating {
-                                    0%, 100% { transform: translateY(0); }
-                                    50% { transform: translateY(-15px); }
-                                }
-                            `}} />
                         </div>
                         
-                        {/* Newsletter Form Section */}
-                        <div className="w-full md:w-2/3 p-10 md:p-16 text-left relative z-10 flex flex-col justify-center">
-                            <span className="font-tech text-brand-accent-3 text-[10px] uppercase tracking-[0.3em] mb-4 block opacity-70">Broadcast Channel</span>
-                            <h2 className="font-heading text-4xl lg:text-5xl font-bold mb-6 text-white drop-shadow-md">Stay in the Know.</h2>
-                            <p className="font-body opacity-80 font-light text-lg leading-relaxed mb-8 max-w-lg">
-                                Industry trends. Benchmark campaigns. African brand strategy. Cultural storytelling. Brand evolution. And the occasional hot take from Team KinStrategi. Straight to your inbox.
+                        {/* Form Section */}
+                        <div className="w-full md:w-2/3 p-10 md:p-14 text-left relative z-10 flex flex-col justify-center">
+                            <span className="font-tech text-brand-accent-3 text-[10px] uppercase tracking-[0.3em] mb-3 block opacity-80">
+                                Broadcast Channel
+                            </span>
+                            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4 text-white drop-shadow-md">
+                                Good Ideas. Fresh Perspectives. Straight to Your Inbox.
+                            </h2>
+                            <p className="font-body opacity-80 font-light text-base md:text-lg leading-relaxed mb-6 text-gray-300">
+                                Creative insights, industry trends, standout campaigns, brand storytelling and fresh perspectives on strategy, marketing and culture. Plus, the occasional hot take from Team KinStrategi.
+                            </p>
+                            <p className="font-tech text-xs text-brand-accent-2 uppercase tracking-widest mb-6">
+                                Stay informed. Stay inspired. Stay in the know.
                             </p>
                             <form
                                 className="flex flex-col sm:flex-row gap-3 w-full max-w-md relative z-20"
@@ -555,13 +630,14 @@ export default function Home() {
                                     className="bg-brand-dark/60 border border-white/20 px-5 py-4 text-white placeholder-white/40 font-body outline-none focus:border-brand-accent-3 focus:bg-brand-dark/80 transition-all flex-1 backdrop-blur-sm"
                                     required
                                 />
-                                <button type="submit" className="bg-brand-accent-3 text-brand-dark font-bold px-8 py-4 font-tech uppercase tracking-widest text-sm hover:bg-brand-accent-3/90 transition-colors cursor-pointer shadow-[0_0_20px_rgba(0,167,167,0.3)] hover:shadow-[0_0_30px_rgba(0,167,167,0.5)]">
+                                <button type="submit" className="bg-brand-accent-3 text-brand-dark font-bold px-8 py-4 font-tech uppercase tracking-widest text-xs hover:bg-brand-accent-3/90 transition-colors cursor-pointer shadow-[0_0_20px_rgba(0,167,167,0.3)]">
                                     Tune In
                                 </button>
                             </form>
                         </div>
                     </div>
                 </motion.div>
+
             </div>
         </div>
     );

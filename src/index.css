@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Space+Grotesk:wght@400;500;600;700&family=Syne+Mono&display=swap');
 
 @import "tailwindcss";
 
@@ -17,59 +17,79 @@
 }
 
 @keyframes pulse-slow {
-
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 
 :root {
-  /* KinStrategi Mode (Aligned with Client PDF) */
-  --color-base: #2C2B3C;
-  /* Muted Indigo */
-  --color-dark: #1A1A1A;
-  /* Deep Charcoal */
-  --color-accent-1: #6D5C7D;
-  /* Very Restrained Purple */
-  --color-accent-2: #C4A45C;
-  /* Hints of Brass */
-  --color-accent-3: #2B7A78;
-  /* Tiny Moments of Teal */
+  /* KinStrategi Cyber-Luxury Dark System */
+  --color-base: #1A1828;
+  --color-dark: #0D0D11;
+  --color-surface: #14131D;
+  --color-accent-1: #6D5C7D; /* Restrained Purple/Violet */
+  --color-accent-2: #D4AF37; /* Refined Gold / Brass */
+  --color-accent-3: #00A7A7; /* Strategic Teal */
 
   --font-heading: 'Space Grotesk', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-tech: 'Syne Mono', monospace;
 
   --bg-color: var(--color-dark);
-  --text-color: #FAF9F6;
-  /* Soft Ivory */
-  --text-muted: #F2EBE1;
-  /* Warm Beige */
+  --text-color: #F8F8FC;
+  --text-muted: #9E9DA8;
 }
 
-
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-dark);
+  color-scheme: dark;
+}
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-family: var(--font-body);
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+/* Luxury text selection */
+::selection {
+  background-color: #D4AF37;
+  color: #0D0D11;
+}
+
+/* Subtle luxury scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D11;
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2838;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D4AF37;
+}
+
+h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
 .font-tech {
   font-family: var(--font-tech);
-}
+}
+
+/* Premium editorial line divider */
+.editorial-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), rgba(255, 255, 255, 0.1), transparent);
+}
