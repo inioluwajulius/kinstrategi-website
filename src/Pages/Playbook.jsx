@@ -1,74 +1,94 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import playbookBg from '../assets/playbook-bg.png';
+import { ArrowRight, CheckCircle2, Check, Sparkles } from 'lucide-react';
+import playbookBg from '../assets/playbook-bg.webp';
 import ademarisGuiding from '../safe-assets/navigator/ademaris-guiding.png';
 
-const services = [
+const connectedAreas = [
     {
-        level: "01",
-        title: "Creative Strategy & Direction",
-        subtitle: "Give your vision a clear direction before you build. Every remarkable business starts with a strong idea, but ideas need structure before they become reality. Together, we'll define your positioning, clarify your story, and develop a strategic roadmap that helps you make confident creative and business decisions.",
-        bestFor: "Founders at the beginning of a venture, preparing for a launch, repositioning an existing brand, or feeling stuck on what's next.",
-        pointsHeading: "What's Included:",
-        points: ["Brand & Creative Strategy", "Positioning & Messaging", "Audience & Experience Mapping", "Creative Direction", "Strategic Roadmap"],
-        footer: "From $1,000",
-        cta: "Kini Your Strategy? →",
-        accent: "brand-accent-2"
+        num: "01",
+        title: "Brand Strategy & Identity",
+        desc: "Building brand positioning, identity and direction.",
+        accent: "brand-accent-2",
+        accentHex: "#D4AF37"
     },
     {
-        level: "02",
-        title: "Creative Partnerships",
-        subtitle: "For founders who need more than a service—they need a creative partner. Some ideas need ongoing collaboration. We work alongside founders to shape concepts, develop campaigns, solve creative challenges, and bring ambitious ideas to life from inception through execution. Whether you're building a collection, directing a campaign, developing a publication, or creating an entirely new venture, we're part of the thinking—not just the delivery.",
-        bestFor: "Creative founders, brands, and teams looking for a trusted strategic and creative collaborator.",
-        pointsHeading: "What's Included:",
-        points: ["Creative Development", "Campaign & Concept Development", "Storytelling & Worldbuilding", "Creative Direction", "Cross-functional Collaboration"],
-        footer: "From $2,000",
-        cta: "Let's Yap. →",
-        accent: "brand-accent-3"
+        num: "02",
+        title: "Marketing & Brand Experiences",
+        desc: "Developing campaigns, launches, activations and experiences.",
+        accent: "brand-accent-3",
+        accentHex: "#00A7A7"
     },
     {
-        level: "03",
-        title: "Creative Infrastructure (KinOps)",
-        subtitle: "Build the systems that protect creativity. Great ideas lose momentum without the right infrastructure. KinOps combines creative operations, project coordination, and strategic oversight to keep people, projects, and priorities moving. We remove bottlenecks, improve workflows, coordinate collaborators, and create the structure that allows creative work to thrive.",
-        bestFor: "Growing brands managing multiple projects, collaborators, or launches.",
-        pointsHeading: "What's Included:",
-        points: ["Creative Operations", "Workflow & Process Design", "Project Coordination", "Team Management", "Creative Production Support"],
-        footer: "From $2,500/month",
-        cta: "Kini Your Strategy? →",
-        accent: "brand-accent-1"
+        num: "03",
+        title: "Digital Experience & Product Design",
+        desc: "Creating websites, digital products and user experiences.",
+        accent: "brand-accent-1",
+        accentHex: "#5B3E96"
     },
     {
-        level: "04",
-        title: "Intelligent Systems",
-        subtitle: "Make your business work smarter—not harder. AI should enhance creativity, not replace it. We design intelligent systems that reduce repetitive work, improve collaboration, and create scalable workflows so you can spend more time building and less time managing.",
-        bestFor: "Founders who are ready to streamline operations and integrate AI into their creative or business workflows.",
-        pointsHeading: "What's Included:",
-        points: ["AI Workflow Design", "Automation Strategy", "Documentation Systems", "Knowledge Management", "Operational Efficiency"],
-        footer: "From $1,000",
-        cta: "What's the Big Idea? →",
-        accent: "brand-accent-2"
+        num: "04",
+        title: "Creative Strategy & Content Production",
+        desc: "Developing creative concepts, narratives, campaigns and content.",
+        accent: "brand-accent-2",
+        accentHex: "#D4AF37"
     },
     {
-        level: "05",
-        title: "Venture Launch & Growth",
-        subtitle: "Turn ambitious ideas into launch-ready ventures. Launching isn't just about going live—it's about creating an experience people remember. We help founders prepare for launch with thoughtful planning, creative strategy, and the systems needed to sustain momentum long after day one.",
-        bestFor: "New ventures, product launches, campaigns, and businesses entering a new stage of growth.",
-        pointsHeading: "What's Included:",
-        points: ["Launch Strategy", "Campaign Planning", "Creative Rollout", "Go-to-Market Support", "Growth Roadmapping"],
-        footer: "Custom Quote",
-        cta: "What's the Big Idea? →",
-        accent: "brand-accent-3"
+        num: "05",
+        title: "Creative Operations & Talent",
+        desc: "Sourcing talent, coordinating creative teams and managing projects.",
+        accent: "brand-accent-3",
+        accentHex: "#00A7A7"
+    }
+];
+
+const supportOptions = [
+    {
+        num: "01",
+        title: "Individual Services",
+        subtitle: "Targeted Sprints",
+        desc: "Engage us for a specific service or deliverable—whether that's identity development, a digital product design, content production or talent placement.",
+        bestFor: "Businesses with a singular priority or clear-cut deliverable.",
+        tag: "Standalone"
     },
     {
-        level: "06",
-        title: "Leiré Passage",
-        subtitle: "Expand into new markets with confidence. Entering a new market takes more than logistics—it requires cultural understanding, trusted local partnerships, and strategic execution. Through Leiré Passage, we help founders navigate expansion with the support needed to build meaningful connections and lasting impact.",
-        bestFor: "Global founders, brands, and businesses exploring opportunities across new markets.",
-        pointsHeading: "What's Included:",
-        points: ["Market Entry Strategy", "Local Partnership Support", "Cultural Insights", "Vendor & Creative Network Access", "Expansion Planning"],
-        footer: "Custom Quote",
-        cta: "Let's Yap. →",
-        accent: "brand-accent-1"
+        num: "02",
+        title: "Combined Services",
+        subtitle: "Integrated Campaigns",
+        desc: "Combine multiple services across branding, marketing, digital experience and creative ops for a larger initiative, launch or cross-functional campaign.",
+        bestFor: "Businesses launching, rebranding or running multi-channel campaigns.",
+        tag: "Most Popular"
+    },
+    {
+        num: "03",
+        title: "Ongoing Support",
+        subtitle: "Dedicated Retainer",
+        desc: "Retain KinStrategi for ongoing creative strategy, marketing, creative direction and operational support. We adapt our involvement to your business, goals and roadmap.",
+        bestFor: "Growing businesses needing a high-level creative team in their corner.",
+        tag: "Partnership"
+    }
+];
+
+const processSteps = [
+    {
+        step: "01",
+        title: "Tell us what you need.",
+        desc: "Share your business, goals and the support you're looking for."
+    },
+    {
+        step: "02",
+        title: "We define the scope.",
+        desc: "We identify the relevant services, capabilities and resources required."
+    },
+    {
+        step: "03",
+        title: "We put a plan together.",
+        desc: "You'll receive a proposed scope, deliverables, timeline and fees."
+    },
+    {
+        step: "04",
+        title: "We get to work.",
+        desc: "Once agreed, we bring the right people together and get started."
     }
 ];
 
@@ -76,17 +96,17 @@ export default function Playbook() {
     const navigate = useNavigate();
 
     return (
-        <div className="relative min-h-screen flex flex-col items-center justify-start pt-20 pb-32 md:py-32 bg-brand-dark">
-            {/* Background Image Setup (Only at the top so it doesn't enter the services list below) */}
+        <div className="relative min-h-screen flex flex-col items-center justify-start pt-20 pb-32 md:py-32 bg-brand-dark overflow-hidden">
+            {/* Top Background Image */}
             <div className="absolute top-0 left-0 w-full h-[120vh] z-0 overflow-hidden pointer-events-none">
                 <motion.div
                     initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 0.8 }}
+                    animate={{ scale: 1, opacity: 0.7 }}
                     transition={{ duration: 2, ease: "easeOut" }}
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{ backgroundImage: `url('${playbookBg}')` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/50 via-brand-dark/70 to-brand-dark" />
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/70 to-brand-dark" />
             </div>
 
             {/* Grid Overlay */}
@@ -98,220 +118,242 @@ export default function Playbook() {
                 }}
             />
 
-            <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8">
-                {/* Hero Section */}
+            <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-32">
+                {/* 1. Hero Section */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
-                    className="relative z-10 text-center max-w-4xl mx-auto mb-24 flex flex-col items-center mt-4 md:mt-12"
+                    className="text-center max-w-4xl mx-auto flex flex-col items-center mt-6 md:mt-12"
                 >
-                    <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase">
-                        The KinStrategi <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-3 to-brand-accent-2">Playbook</span>
+                    <div className="flex items-center gap-3 mb-4">
+                        <div className="w-8 h-[1px] bg-brand-accent-2/70" />
+                        <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.3em] font-medium">
+                            Operational Philosophy
+                        </span>
+                        <div className="w-8 h-[1px] bg-brand-accent-2/70" />
+                    </div>
+
+                    <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase text-white">
+                        The KinStrategi <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-2 via-white to-brand-accent-3">Playbook</span>
                     </h1>
-                    <h2 className="font-tech text-brand-accent-2 text-xl md:text-2xl tracking-[0.2em] uppercase mb-8 opacity-90">
-                        Select A Misson.
+
+                    <h2 className="font-tech text-brand-accent-3 text-lg md:text-xl tracking-[0.25em] uppercase mb-8 opacity-90 font-medium">
+                        How we think. How we work. What we build.
                     </h2>
-                    <p className="font-body opacity-70 text-lg md:text-xl font-light leading-relaxed max-w-2xl mx-auto">
-                        We offer structured creative services across our core service categories. Identify your operational constraints, and deploy the precise architecture needed to override them.
+
+                    <p className="font-body opacity-80 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-gray-300 mb-8">
+                        Turning a business vision into something people can see, experience and connect with takes more than a good idea. It takes strategy, creativity, the right people and thoughtful execution. The KinStrategi Playbook brings together our services, approach and ways of working.
                     </p>
-                </motion.div>
 
-                {/* Levels Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-24">
-                    {services.map((item, idx) => (
-                        <motion.div
-                            key={item.level}
-                            initial={{ opacity: 0, y: 40 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ duration: 0.6, delay: idx * 0.1 }}
-                            whileHover={{ y: -5, boxShadow: "0 20px 40px rgba(0,0,0,0.5)" }}
-                            className="bg-brand-dark/90 border border-white/10 p-8 relative overflow-hidden group flex flex-col h-full"
-                        >
-                            {/* Accent Glow Top Right */}
-                            <div className={`absolute top-0 right-0 w-48 h-48 bg-${item.accent}/10 rounded-full blur-[60px] group-hover:bg-${item.accent}/20 transition-colors duration-700 pointer-events-none translate-x-1/2 -translate-y-1/2`} />
-
-                            {/* Decorative line mapping path */}
-                            <motion.div
-                                className={`absolute top-0 left-0 h-[2px] bg-${item.accent}`}
-                                initial={{ width: 0 }}
-                                whileHover={{ width: "100%" }}
-                                transition={{ duration: 0.4 }}
-                            />
-
-                            <div className="flex items-baseline justify-between mb-8 relative z-10 border-b border-white/10 pb-6">
-                                <div>
-                                    <span className={`font-tech text-${item.accent} tracking-widest uppercase text-sm mb-2 block`}>
-                                        {item.level}
-                                    </span>
-                                    <h3 className="font-heading text-3xl font-bold">{item.title}</h3>
-                                </div>
-                            </div>
-
-                            <div className="flex-grow space-y-6 relative z-10">
-                                <div>
-                                    <p className="font-tech text-white/70 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Positioning</p>
-                                    <p className="font-body text-white font-medium text-lg leading-snug">{item.subtitle}</p>
-                                </div>
-
-                                <div>
-                                    <p className="font-tech text-white/70 text-xs tracking-widest uppercase mb-1 drop-shadow-sm">Best For</p>
-                                    <p className="font-body opacity-80 font-medium text-base">{item.bestFor}</p>
-                                </div>
-
-                                <div>
-                                    <p className={`font-tech text-xs tracking-widest uppercase mb-3 text-${item.accent}`}>{item.pointsHeading}</p>
-                                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                        {item.points.map((point, pIdx) => (
-                                            <li key={pIdx} className="flex items-start gap-2 font-body text-base opacity-90 font-medium">
-                                                <span className={`text-${item.accent} mt-[2px]`}>✦</span>
-                                                <span className="leading-tight">{point}</span>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {item.description && (
-                                    <p className="font-body opacity-80 font-medium text-sm italic border-l-2 border-white/20 pl-4 py-1">
-                                        {item.description}
-                                    </p>
-                                )}
-                            </div>
-
-                            {item.footer && (
-                                <div className={`mt-8 pt-6 border-t border-white/10 font-tech text-sm text-${item.accent} uppercase tracking-widest font-bold drop-shadow-lg relative z-10 mb-6 flex flex-col gap-1`}>
-                                    <span>Investment: {item.footer}</span>
-                                </div>
-                            )}
-                            <div className="mt-auto">
-                                <motion.button
-                                    onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
-                                    whileHover={{ color: "#fff" }}
-                                    className={`font-tech text-sm font-bold tracking-widest uppercase text-${item.accent} transition-colors cursor-pointer z-20 relative`}
-                                >
-                                    {item.cta}
-                                </motion.button>
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Design Your Partnership */}
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="relative w-full border border-brand-accent-2/30 bg-gradient-to-r from-brand-base/60 to-brand-dark/80 backdrop-blur-xl p-8 md:p-16 overflow-hidden group mb-24"
-                >
-                    <div className="absolute inset-0 z-0 bg-brand-accent-2/5 mix-blend-screen pointer-events-none" />
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ duration: 2 }}
-                        className="absolute right-0 bottom-0 w-96 h-96 bg-brand-accent-2/10 blur-[100px] pointer-events-none z-0"
-                    />
-
-                    <motion.div
-                        className="absolute left-0 top-0 w-1 h-full bg-gradient-to-b from-transparent via-brand-accent-2 to-transparent opacity-50 z-0"
-                        animate={{ top: ["-100%", "100%"] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                    />
-
-                    <div className="relative z-10 flex flex-col lg:flex-row items-start justify-between gap-12">
-                        <div className="lg:w-1/2">
-                            <span className="inline-block px-3 py-1 bg-brand-accent-2/20 border border-brand-accent-2 text-brand-accent-2 font-tech text-xs tracking-[0.2em] uppercase mb-6 shadow-[0_0_15px_rgba(212,175,55,0.2)]">
-                                Custom Support
-                            </span>
-                            <h2 className="font-heading text-5xl md:text-6xl font-bold mb-4 drop-shadow-md">Design Your Partnership</h2>
-                            <p className="font-tech text-brand-accent-2/80 text-lg uppercase tracking-widest mb-8">
-                                Build the support your business actually needs.
-                            </p>
-
-                            <div className="bg-brand-dark/50 p-6 border-l-2 border-brand-accent-2 mb-8">
-                                <p className="font-body opacity-80 text-lg md:text-xl font-light">
-                                    Every founder's journey is different. Instead of fitting you into a rigid package, we'll design a partnership around your goals, your team, and your stage of growth.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="lg:w-1/2 flex flex-col justify-between h-full w-full">
-                            <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-2">The Approach</p>
-                            <p className="font-body opacity-70 font-light text-lg mb-8">
-                                Whether you need strategic guidance, creative leadership, operational support, or all of the above, we'll build a tailored engagement that grows with your business.
-                            </p>
-                            
-                            <p className="font-tech text-white/50 text-xs tracking-widest uppercase mb-3">Partnerships may include</p>
-                            <ul className="space-y-4 mb-8 grid grid-cols-1 sm:grid-cols-2 gap-x-4">
-                                {[
-                                    "Creative Strategy",
-                                    "Fractional Creative Development",
-                                    "Creative Operations (KinOps)",
-                                    "Team & Talent Coordination",
-                                    "AI & Intelligent Systems",
-                                    "Launch & Growth Support",
-                                    "Founder Advisory"
-                                ].map((point, idx) => (
-                                    <li key={idx} className="flex items-center gap-4 bg-white/5 p-4 border border-white/5 hover:border-brand-accent-2/30 transition-colors">
-                                        <div className="w-1.5 h-1.5 bg-brand-accent-2 rounded-full shadow-[0_0_5px_rgba(212,175,55,0.8)]" />
-                                        <span className="font-body text-sm font-medium">{point}</span>
-                                    </li>
-                                ))}
-                            </ul>
-
-                            <div className="flex items-center justify-between border-t border-brand-accent-2/20 pt-6">
-                                <div>
-                                    <p className="font-body text-white font-medium">Investment: Custom Pricing</p>
-                                    <p className="font-body text-sm opacity-60 mt-1 italic">Every partnership is tailored to your vision, scope, and level of support.</p>
-                                </div>
-                                <motion.button
-                                    onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
-                                    whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(212, 175, 55, 0.4)" }}
-                                    whileTap={{ scale: 0.95 }}
-                                    className="bg-brand-accent-2 text-brand-dark px-8 py-3 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer"
-                                >
-                                    Kini Your Strategy? →
-                                </motion.button>
-                            </div>
-                        </div>
+                    <div className="p-6 border border-white/10 bg-white/[0.02] backdrop-blur-md max-w-2xl text-center shadow-[0_4px_25px_rgba(0,0,0,0.3)]">
+                        <p className="font-heading text-lg md:text-xl text-brand-accent-2 italic">
+                            “Our approach is simple: understand what a business needs, bring the right capabilities together and move the work from idea to execution.”
+                        </p>
                     </div>
                 </motion.div>
 
-                {/* Closing Call to Action */}
+                {/* 2. Five Connected Areas Section */}
+                <div>
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.4em] block mb-2 font-medium">
+                            Integrated System
+                        </span>
+                        <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-4">
+                            We Work Across Five Connected Areas
+                        </h2>
+                        <p className="font-body text-gray-400 font-light text-base md:text-lg">
+                            Rather than isolated siloes, our capabilities reinforce one another to build enduring brand worlds.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {connectedAreas.map((area, idx) => (
+                            <motion.div
+                                key={area.num}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                                className={`border border-white/10 bg-gradient-to-br from-[#1C1835]/50 via-brand-dark/95 to-[#111111]/95 p-8 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-2/50 transition-all duration-300 group hover:-translate-y-1 ${
+                                    idx === 4 ? "md:col-span-2 lg:col-span-1" : ""
+                                }`}
+                            >
+                                <div>
+                                    <span className="font-tech text-brand-accent-2 text-sm font-bold tracking-widest block mb-4">
+                                        {area.num}
+                                    </span>
+                                    <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-2 transition-colors">
+                                        {area.title}
+                                    </h3>
+                                    <p className="font-body text-gray-300 font-light text-base leading-relaxed">
+                                        {area.desc}
+                                    </p>
+                                </div>
+                                <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
+                                    <span className="text-xs font-tech uppercase text-gray-500 tracking-wider">KinStrategi Core</span>
+                                    <span className="text-brand-accent-2 text-xs">✦</span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 3. Build Your Support Section */}
+                <motion.div
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="relative border border-brand-accent-2/40 bg-gradient-to-br from-[#1C1835]/70 via-brand-dark/95 to-[#111111]/95 backdrop-blur-2xl p-8 md:p-14 overflow-hidden"
+                >
+                    {/* Decorative Corner Accents */}
+                    <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-accent-2/60 pointer-events-none" />
+                    <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-brand-accent-2/60 pointer-events-none" />
+                    <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-brand-accent-2/60 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-brand-accent-2/60 pointer-events-none" />
+
+                    <div className="absolute top-0 right-0 w-96 h-96 bg-brand-accent-2/10 rounded-full blur-[100px] pointer-events-none" />
+
+                    <div className="relative z-10 max-w-3xl mb-12">
+                        <span className="inline-block px-3 py-1 bg-brand-accent-2/15 border border-brand-accent-2/40 text-brand-accent-2 font-tech text-[10px] tracking-widest uppercase mb-4">
+                            Engagement Framework
+                        </span>
+                        <h2 className="font-heading text-4xl md:text-5xl font-bold text-white mb-3">
+                            Build Your Support
+                        </h2>
+                        <p className="font-tech text-brand-accent-3 text-sm md:text-base uppercase tracking-widest mb-4">
+                            Different needs. One creative partner.
+                        </p>
+                        <p className="font-body text-gray-300 font-light text-base md:text-lg leading-relaxed">
+                            You can engage KinStrategi for a specific service or deliverable, combine multiple capabilities for a full campaign, or retain us for continuous creative direction and operations.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative z-10 mb-10">
+                        {supportOptions.map((opt) => (
+                            <div
+                                key={opt.num}
+                                className="border border-white/10 bg-white/[0.02] p-8 flex flex-col justify-between hover:border-brand-accent-2/50 transition-colors"
+                            >
+                                <div>
+                                    <div className="flex items-center justify-between mb-3">
+                                        <span className="font-tech text-brand-accent-2 text-xs font-bold tracking-widest uppercase">
+                                            Option {opt.num}
+                                        </span>
+                                        <span className="px-2 py-0.5 bg-brand-accent-2/15 text-brand-accent-2 font-tech text-[10px] uppercase tracking-wider border border-brand-accent-2/30">
+                                            {opt.tag}
+                                        </span>
+                                    </div>
+                                    <h3 className="font-heading text-2xl font-bold text-white mb-1">
+                                        {opt.title}
+                                    </h3>
+                                    <p className="font-tech text-[11px] text-brand-accent-3 uppercase tracking-wider mb-4 font-medium">
+                                        {opt.subtitle}
+                                    </p>
+                                    <p className="font-body text-gray-300 font-light text-sm leading-relaxed mb-6">
+                                        {opt.desc}
+                                    </p>
+                                </div>
+                                <div className="border-t border-white/10 pt-4">
+                                    <p className="text-xs font-tech text-gray-400">
+                                        <strong className="text-white">Best for:</strong> {opt.bestFor}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="relative z-10 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                        <p className="font-body text-sm text-gray-400 italic">
+                            No rigid packages. We scope each partnership around the work, the people, and the level of support your business actually needs.
+                        </p>
+                        <button
+                            onClick={() => navigate('/contact')}
+                            className="bg-brand-accent-2 text-brand-dark px-8 py-3.5 font-tech uppercase text-xs tracking-widest font-bold cursor-pointer shrink-0 hover:bg-white transition-colors"
+                        >
+                            Build Your Support →
+                        </button>
+                    </div>
+                </motion.div>
+
+                {/* 4. How It Works (4-Step Workflow with Visual Track) */}
+                <div>
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <span className="font-tech text-brand-accent-3 text-xs uppercase tracking-[0.3em] block mb-2 font-medium">
+                            Clear Cadence
+                        </span>
+                        <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-4">
+                            How It Works
+                        </h2>
+                        <p className="font-body text-gray-400 font-light text-base md:text-lg">
+                            From initial conversation to execution, our process is transparent, structured and collaborative.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+                        {processSteps.map((step, idx) => (
+                            <div
+                                key={step.step}
+                                className="border border-white/10 bg-gradient-to-br from-[#1C1835]/40 to-brand-dark/95 p-7 relative flex flex-col justify-between hover:border-brand-accent-2/40 transition-colors"
+                            >
+                                <div className="flex items-center justify-between mb-6">
+                                    <span className="font-tech text-3xl font-bold text-brand-accent-2/70">
+                                        {step.step}
+                                    </span>
+                                    <span className="text-xs font-tech text-gray-500 uppercase">Phase 0{idx + 1}</span>
+                                </div>
+                                <div>
+                                    <h3 className="font-heading text-xl font-bold text-white mb-2.5">
+                                        {step.title}
+                                    </h3>
+                                    <p className="font-body text-gray-300 font-light text-sm leading-relaxed">
+                                        {step.desc}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* 5. Closing Call to Action */}
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8 }}
-                    className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto pb-24 relative"
+                    className="flex flex-col md:flex-row items-center justify-center gap-12 max-w-5xl mx-auto pb-16 relative"
                 >
                     <div className="w-full md:w-1/3 relative z-10 flex justify-center order-2 md:order-1">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-1/20 rounded-full blur-[40px] mix-blend-screen pointer-events-none" />
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-accent-2/20 rounded-full blur-[40px] pointer-events-none" />
                         <img 
                             src={ademarisGuiding} 
                             alt="Ademaris Guiding" 
-                            className="relative z-10 w-full h-full object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] animate-[floating_6s_ease-in-out_infinite] mix-blend-screen"
-                            style={{ animationName: 'floating' }}
+                            className="relative z-10 w-full h-full max-w-[240px] object-contain drop-shadow-[0_0_20px_rgba(212,175,55,0.4)] mix-blend-screen"
                         />
                     </div>
                     
-                    <div className="w-full md:w-2/3 text-center md:text-left order-1 md:order-2">
-                        <h3 className="font-heading text-3xl md:text-5xl font-bold mb-6">Not sure what you need?</h3>
-                        <p className="font-body opacity-80 text-xl font-light leading-relaxed mb-4 max-w-2xl">
-                            Many founders come to us with an idea, not a fully defined scope, and that's perfectly okay.
+                    <div className="w-full md:w-2/3 text-center md:text-left order-1 md:order-2 space-y-6">
+                        <span className="font-tech text-xs uppercase tracking-[0.25em] text-brand-accent-2 font-medium">
+                            Let's Connect
+                        </span>
+                        <h3 className="font-heading text-3xl md:text-5xl font-bold text-white">
+                            Have something in mind?
+                        </h3>
+                        <p className="font-body opacity-80 text-lg md:text-xl font-light leading-relaxed text-gray-300 max-w-2xl">
+                            Whether it's a single project or ongoing support, let's talk about what you're building.
                         </p>
-                        <p className="font-body opacity-80 text-lg font-light leading-relaxed mb-8 max-w-2xl">
-                            We'll help you clarify the vision, identify the right level of support, and recommend the partnership that makes the most sense before any work begins.
-                        </p>
-                        <motion.button
-                            onClick={() => window.location.href = 'mailto:shewa@kinstrategi.com'}
-                            whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(91, 62, 150, 0.4)" }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-brand-accent-1 text-white px-10 py-5 font-heading uppercase tracking-widest text-sm cursor-pointer shadow-[0_0_20px_rgba(91,62,150,0.3)] hover:shadow-[0_0_40px_rgba(91,62,150,0.5)] transition-shadow"
-                        >
-                            Let's Talk Strategy →
-                        </motion.button>
+                        <div className="pt-2">
+                            <motion.button
+                                onClick={() => navigate('/contact')}
+                                whileHover={{ scale: 1.03, boxShadow: "0 0 30px rgba(212, 175, 55, 0.4)" }}
+                                whileTap={{ scale: 0.97 }}
+                                className="bg-brand-accent-2 text-brand-dark px-10 py-4 font-tech uppercase tracking-widest text-xs font-bold cursor-pointer transition-all flex items-center justify-center gap-2"
+                            >
+                                <span>Start a Conversation</span>
+                                <ArrowRight size={14} />
+                            </motion.button>
+                        </div>
                     </div>
                 </motion.div>
 
