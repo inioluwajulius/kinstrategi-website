@@ -156,8 +156,8 @@ export default function Playbook() {
                 {/* 2. Five Connected Areas Section */}
                 <div>
                     <div className="text-center max-w-3xl mx-auto mb-16">
-                        <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.3em] block mb-2 font-medium">
-                            Integrated Architecture
+                        <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.4em] block mb-2 font-medium">
+                            Integrated System
                         </span>
                         <h2 className="font-heading text-3xl md:text-5xl font-bold text-white mb-4">
                             We Work Across Five Connected Areas

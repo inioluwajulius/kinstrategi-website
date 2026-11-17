@@ -45,8 +45,7 @@ export default function Footer() {
                     </div>
                     <div className="flex gap-4 mt-4 text-xs font-tech tracking-wider uppercase">
                         <a href="https://www.instagram.com/kinstrategi/" target="_blank" rel="noreferrer" className="hover:text-brand-accent-2 transition-colors">Instagram</a>
-                        <a href="https://www.linkedin.com/in/adeshewa-adeniran-76a6a0166/" target="_blank" rel="noreferrer" className="hover:text-brand-accent-2 transition-colors">LinkedIn</a>
-                        <a href="#" className="hover:text-brand-accent-2 transition-colors">X</a>
+                        <a href="https://www.linkedin.com/company/kinstrategi" target="_blank" rel="noreferrer" className="hover:text-brand-accent-2 transition-colors">LinkedIn</a>
                     </div>
                 </div>
 

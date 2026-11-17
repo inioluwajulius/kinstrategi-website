@@ -7,7 +7,7 @@ import founderImg from '../safe-assets/about/founder.jpg';
 import landaImg from '../assets/about/landa.jpg';
 import ademarisGreeting from '../safe-assets/navigator/ademaris-greeting.png';
 import iconImage from '../assets/Icon.png';
-import TypewriterHeadline from '../components/TypewriterHeadline';
+import HeroHeadline from '../components/HeroHeadline';
 
 const FounderCard = ({ founder, isReversed }) => {
     const [isExpanded, setIsExpanded] = useState(false);
@@ -169,80 +169,84 @@ export default function Home() {
             <div className="absolute top-40 left-1/3 w-[450px] h-[350px] bg-brand-accent-3/10 rounded-full blur-[130px] pointer-events-none z-0" />
 
             {/* HERO SECTION */}
-            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto min-h-[75vh] flex flex-col items-center justify-center mt-2 md:mt-6">
+            <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center justify-center pt-2 md:pt-6 pb-6 md:pb-12">
                 {/* Top Icon */}
                 <motion.div
-                    initial={{ opacity: 0, y: -20, scale: 0.9 }}
+                    initial={{ opacity: 0, y: -16, scale: 0.92 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
-                    transition={{ duration: 0.7 }}
-                    className="mb-6 w-20 h-20 sm:w-28 sm:h-28 relative flex items-center justify-center mx-auto"
+                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                    className="mb-3.5 w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 relative flex items-center justify-center mx-auto"
                 >
                     <div className="absolute inset-0 bg-brand-accent-2/20 rounded-full blur-[20px] pointer-events-none animate-pulse-slow" />
-                    <img src={iconImage} alt="KINSTRATEGI Icon" className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_20px_rgba(196,164,92,0.4)]" />
+                    <img 
+                        src={iconImage} 
+                        alt="KINSTRATEGI Emblem" 
+                        className="w-full h-full object-contain relative z-10 drop-shadow-[0_0_25px_rgba(212,175,55,0.35)]" 
+                    />
                 </motion.div>
 
+                {/* Tagline directly beneath emblem */}
                 <motion.span
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
-                    className="font-tech text-brand-accent-3 tracking-[0.3em] uppercase text-xs md:text-sm mb-6 block drop-shadow-sm font-medium"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.15 }}
+                    className="font-tech text-brand-accent-3 tracking-[0.28em] uppercase text-xs md:text-sm mb-6 block drop-shadow-sm font-medium"
                 >
                     For founders building beyond borders.
                 </motion.span>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.3 }}
-                    className="relative w-full flex justify-center mb-8"
-                >
-                    <TypewriterHeadline />
-                </motion.div>
+                {/* Staggered Editorial Headline */}
+                <div className="relative w-full flex justify-center mb-6 md:mb-7">
+                    <HeroHeadline />
+                </div>
 
+                {/* Supporting Paragraph */}
                 <motion.p
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.4 }}
-                    className="font-body text-base md:text-xl text-gray-300 font-light max-w-3xl mx-auto mb-8 leading-relaxed"
+                    transition={{ duration: 0.7, delay: 0.45 }}
+                    className="font-body text-[15px] sm:text-[16px] md:text-[17px] text-gray-300/90 font-light max-w-3xl lg:max-w-[780px] mx-auto mb-5 leading-[1.7] md:leading-[1.75]"
                 >
                     KinStrategi is a creative strategy and operations company helping founders and businesses develop their brands, create meaningful experiences and bring ideas to life. From brand development and marketing to digital experiences, content production and creative team management, we bring the right strategy, people and execution together.
                 </motion.p>
 
+                {/* Italic Supporting Subtext */}
                 <motion.p
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.7, delay: 0.5 }}
-                    className="font-heading text-lg md:text-xl text-brand-accent-2 italic mb-12"
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.55 }}
+                    className="font-heading text-base md:text-lg text-brand-accent-2 italic tracking-wide mb-8 md:mb-10"
                 >
                     Our work is about building more than a brand. It's about building the world around it.
                 </motion.p>
 
+                {/* CTA Buttons */}
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7, delay: 0.6 }}
-                    className="flex flex-col sm:flex-row gap-5 justify-center w-full max-w-md mx-auto"
+                    transition={{ duration: 0.6, delay: 0.65 }}
+                    className="flex flex-col sm:flex-row gap-4 sm:gap-5 justify-center w-full max-w-md mx-auto"
                 >
                     <button
                         onClick={() => navigate('/services')}
-                        className="bg-brand-accent-2 text-brand-dark px-8 py-4 font-tech uppercase tracking-widest text-xs font-bold cursor-pointer transition-all hover:bg-white hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2"
+                        className="bg-brand-accent-2 text-brand-dark px-8 py-4 font-tech uppercase tracking-widest text-xs font-bold cursor-pointer transition-all hover:bg-white hover:shadow-[0_0_25px_rgba(212,175,55,0.4)] flex items-center justify-center gap-2 group"
                     >
                         <span>Explore Our Services</span>
-                        <ArrowRight size={14} />
+                        <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </button>
 
                     <button
                         onClick={() => navigate('/contact')}
-                        className="border border-white/20 text-white hover:bg-white/10 px-8 py-4 font-tech uppercase tracking-widest text-xs cursor-pointer transition-all flex items-center justify-center gap-2"
+                        className="border border-white/20 text-white hover:border-brand-accent-2 hover:text-brand-accent-2 hover:bg-brand-accent-2/5 px-8 py-4 font-tech uppercase tracking-widest text-xs cursor-pointer transition-all flex items-center justify-center gap-2 group"
                     >
                         <span>Work With Us</span>
-                        <ChevronRight size={14} />
+                        <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                     </button>
                 </motion.div>
             </div>
 
             {/* MAIN SECTIONS CONTAINER */}
-            <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-28 space-y-36">
+            <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mt-20 md:mt-24 space-y-32">
 
                 {/* 1. WHAT WE DO SECTION */}
                 <motion.div
@@ -317,26 +321,34 @@ export default function Home() {
                         {/* 03: Digital Experience & Product Design (Featured Span 6) */}
                         <div 
                             onClick={() => navigate('/services')}
-                            className="lg:col-span-6 p-8 md:p-10 border border-white/10 bg-gradient-to-br from-[#201C3E]/60 via-brand-dark/95 to-[#151226]/95 backdrop-blur-md flex flex-col md:flex-row justify-between gap-6 hover:border-brand-accent-1/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_25px_rgba(0,0,0,0.3)] cursor-pointer"
+                            className="lg:col-span-6 p-8 md:p-10 border border-white/10 bg-gradient-to-br from-[#201C3E]/60 via-brand-dark/95 to-[#151226]/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-1/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_25px_rgba(0,0,0,0.3)] cursor-pointer"
                         >
-                            <div className="md:w-1/2">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <span className="font-tech text-brand-accent-1 text-sm font-bold tracking-widest">03.</span>
-                                    <span className="px-2.5 py-0.5 bg-brand-accent-1/20 text-brand-accent-1 font-tech text-[10px] uppercase tracking-widest border border-brand-accent-1/40">Interactive</span>
+                            <div>
+                                <div className="flex items-center justify-between mb-4 w-full">
+                                    <div className="flex items-center gap-3">
+                                        <span className="font-tech text-brand-accent-1 text-sm font-bold tracking-widest">03.</span>
+                                        <span className="px-2.5 py-0.5 bg-brand-accent-1/20 text-brand-accent-1 font-tech text-[10px] uppercase tracking-widest border border-brand-accent-1/40">Interactive</span>
+                                    </div>
+                                    <Monitor className="w-5 h-5 text-brand-accent-1/80 group-hover:text-brand-accent-1 transition-colors" />
                                 </div>
-                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-accent-1 transition-colors">
-                                    Digital Experience & Product Design
-                                </h3>
-                                <p className="font-body text-gray-300 font-light text-base leading-relaxed">
-                                    We design and develop digital experiences that make businesses easier to discover, navigate, and engage with worldwide.
-                                </p>
-                            </div>
-                            <div className="md:w-1/2 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/10 pt-4 md:pt-0 md:pl-8">
-                                <ul className="space-y-2.5 text-xs font-tech tracking-wider text-gray-300 uppercase">
-                                    <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> UI/UX design & design systems</li>
-                                    <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> Custom website design & engineering</li>
-                                    <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> Digital product design & interactive experiences</li>
-                                </ul>
+
+                                <div className="flex flex-col md:flex-row justify-between gap-6 md:gap-10">
+                                    <div className="md:w-1/2">
+                                        <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-accent-1 transition-colors">
+                                            Digital Experience & Product Design
+                                        </h3>
+                                        <p className="font-body text-gray-300 font-light text-sm md:text-base leading-relaxed">
+                                            We design and develop digital experiences that make businesses easier to discover, navigate, and engage with worldwide.
+                                        </p>
+                                    </div>
+                                    <div className="md:w-1/2 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/10 pt-4 md:pt-0 md:pl-8">
+                                        <ul className="space-y-2.5 text-xs font-tech tracking-wider text-gray-300 uppercase">
+                                            <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> UI/UX design & design systems</li>
+                                            <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> Custom website design & engineering</li>
+                                            <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> Digital product design & interactive experiences</li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
