@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ArrowRight, Palette, Megaphone, Monitor, Film, Users2, Sparkles, CheckCircle2 } from 'lucide-react';
-import servicesBg from '../assets/playbook-bg.webp';
+import servicesBg from '../assets/Services.webp';
 
 const serviceCategories = [
     {
@@ -149,16 +149,17 @@ export default function Services() {
 
     return (
         <div className="relative min-h-screen flex flex-col items-center justify-start pt-20 pb-32 md:py-32 bg-brand-dark overflow-hidden">
-            {/* Top Background Glow and Texture */}
-            <div className="absolute top-0 left-0 w-full h-[110vh] z-0 overflow-hidden pointer-events-none">
+            {/* Top Background Image - Scrolls naturally with the page (not sticky) */}
+            <div className="absolute top-0 left-0 w-full h-[115vh] z-0 overflow-hidden pointer-events-none">
                 <motion.div
-                    initial={{ scale: 1.1, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 0.6 }}
+                    initial={{ scale: 1.08, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 0.92 }}
                     transition={{ duration: 1.8, ease: "easeOut" }}
                     className="absolute inset-0 bg-cover bg-center bg-no-repeat"
                     style={{ backgroundImage: `url('${servicesBg}')` }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/40 via-brand-dark/80 to-brand-dark" />
+                {/* Light smooth transition: keeps image clear & vibrant at the top, softly fades into dark at the bottom */}
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-dark/25 via-transparent to-brand-dark" />
             </div>
 
             {/* Subtle Cyber Grid */}
@@ -186,15 +187,15 @@ export default function Services() {
                         <div className="w-8 h-[1px] bg-brand-accent-2/70" />
                     </div>
 
-                    <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase text-white">
+                    <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 tracking-tight uppercase text-white drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">
                         Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-2 via-white to-brand-accent-3">Services</span>
                     </h1>
 
-                    <h2 className="font-heading text-2xl md:text-3xl text-brand-accent-2/90 font-light italic mb-6">
+                    <h2 className="font-heading text-2xl md:text-3xl text-brand-accent-2 font-light italic mb-6 drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                         Everything your brand needs to move forward.
                     </h2>
 
-                    <p className="font-body opacity-80 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto text-gray-300">
+                    <p className="font-body text-gray-200 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
                         From the first stages of brand development to marketing, digital experiences and creative operations, we bring together the expertise and execution needed to build and grow businesses.
                     </p>
 
@@ -229,7 +230,7 @@ export default function Services() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-50px" }}
                                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                                className={`border border-white/10 bg-gradient-to-br from-[#1C1835]/70 via-brand-dark/95 to-[#111111]/95 backdrop-blur-xl relative overflow-hidden transition-all duration-300 ${category.borderClass}`}
+                                className={`border border-white/15 bg-gradient-to-br from-[#181428]/60 via-brand-dark/75 to-[#0E0C16]/80 backdrop-blur-2xl shadow-[0_8px_32px_rgba(0,0,0,0.5)] relative overflow-hidden transition-all duration-300 ${category.borderClass}`}
                             >
                                 {/* Category Header Button */}
                                 <button
@@ -277,7 +278,7 @@ export default function Services() {
                                             transition={{ duration: 0.4, ease: [0.04, 0.62, 0.23, 0.98] }}
                                             className="overflow-hidden border-t border-white/10"
                                         >
-                                            <div className="p-6 md:p-8 bg-black/25">
+                                            <div className="p-6 md:p-8 bg-black/40 backdrop-blur-xl">
                                                 <span className="font-tech text-[11px] uppercase tracking-[0.25em] text-brand-accent-2 mb-5 block font-medium">
                                                     Deliverables & Scope
                                                 </span>
@@ -354,7 +355,7 @@ export default function Services() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.8 }}
-                    className="relative border border-brand-accent-2/40 bg-gradient-to-r from-brand-base/80 via-brand-dark/95 to-brand-base/80 backdrop-blur-2xl p-8 md:p-14 text-center overflow-hidden"
+                    className="relative border border-brand-accent-2/40 bg-gradient-to-r from-[#1E1B3C]/60 via-brand-dark/75 to-[#1A1733]/60 backdrop-blur-2xl p-8 md:p-14 text-center overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.5)]"
                 >
                     {/* Decorative Corner Accents */}
                     <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-brand-accent-2/60 pointer-events-none" />
