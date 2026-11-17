@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Users, Sparkles, Network, Globe, Compass, CheckCircle2 } from 'lucide-react';
-import kinBg from '../assets/kin-network-bg.png';
+import kinBg from '../assets/kin-network-bg.webp';
 
 const pillars = [
     {

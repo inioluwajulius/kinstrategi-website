@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Clock, Globe, ArrowRight, CheckCircle2, MessageSquare } from 'lucide-react';
 import ademarisCurious from '../safe-assets/navigator/ademaris-curious.png';
-import signStationBg from '../assets/sign-station-bg.png';
+import signStationBg from '../assets/sign-station-bg.webp';
 
 const enquiryOptions = [
     { id: "project", label: "Start a Project" },

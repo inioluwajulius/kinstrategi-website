@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import manifestoBg from '../assets/manifesto-bg.png';
+import manifestoBg from '../assets/manifesto-bg.webp';
 import { ArrowRight, Quote } from 'lucide-react';
 
 const coreBeliefs = [

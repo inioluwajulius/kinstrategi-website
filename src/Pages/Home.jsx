@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, ChevronRight, Palette, Megaphone, Monitor, Film, Users2, Sparkles, Check } from 'lucide-react';
-import homeBg from '../assets/new-hero-bg.png';
+import homeBg from '../assets/new-hero-bg.webp';
 import founderImg from '../safe-assets/about/founder.jpg';
 import landaImg from '../assets/about/landa.jpg';
 import ademarisGreeting from '../safe-assets/navigator/ademaris-greeting.png';

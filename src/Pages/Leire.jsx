@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import leireBg from '../assets/leire-bg.png';
+import leireBg from '../assets/leire-bg.webp';
 
 const services = [
     "Creative Direction & World-Building",

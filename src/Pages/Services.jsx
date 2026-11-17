@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ChevronDown, ArrowRight, Palette, Megaphone, Monitor, Film, Users2, Sparkles, CheckCircle2 } from 'lucide-react';
-import servicesBg from '../assets/playbook-bg.png';
+import servicesBg from '../assets/playbook-bg.webp';
 
 const serviceCategories = [
     {

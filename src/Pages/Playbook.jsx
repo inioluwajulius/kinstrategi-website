@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { ArrowRight, CheckCircle2, Check, Sparkles } from 'lucide-react';
-import playbookBg from '../assets/playbook-bg.png';
+import playbookBg from '../assets/playbook-bg.webp';
 import ademarisGuiding from '../safe-assets/navigator/ademaris-guiding.png';
 
 const connectedAreas = [
