@@ -265,19 +265,22 @@ export default function Home() {
                         We help businesses build, position and grow through five connected areas of work.
                     </p>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full text-left">
-                        {/* 01 */}
-                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-2/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 w-full text-left">
+                        {/* 01: Brand Strategy & Identity (Span 3) */}
+                        <div 
+                            onClick={() => navigate('/services')}
+                            className="lg:col-span-3 p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-2/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
+                        >
                             <div>
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="font-tech text-brand-accent-2 text-sm font-bold tracking-widest">01.</span>
                                     <Palette className="w-5 h-5 text-brand-accent-2/80 group-hover:text-brand-accent-2 transition-colors" />
                                 </div>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-2 transition-colors">
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-accent-2 transition-colors">
                                     Brand Strategy & Identity
                                 </h3>
                                 <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
-                                    We help businesses define who they are, how they are positioned and how they show up.
+                                    We help businesses define who they are, how they are positioned and how they show up with distinction.
                                 </p>
                             </div>
                             <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
@@ -287,18 +290,21 @@ export default function Home() {
                             </ul>
                         </div>
 
-                        {/* 02 */}
-                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-3/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                        {/* 02: Marketing & Brand Experiences (Span 3) */}
+                        <div 
+                            onClick={() => navigate('/services')}
+                            className="lg:col-span-3 p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-3/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
+                        >
                             <div>
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="font-tech text-brand-accent-3 text-sm font-bold tracking-widest">02.</span>
                                     <Megaphone className="w-5 h-5 text-brand-accent-3/80 group-hover:text-brand-accent-3 transition-colors" />
                                 </div>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-3 transition-colors">
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-accent-3 transition-colors">
                                     Marketing & Brand Experiences
                                 </h3>
                                 <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
-                                    We develop marketing campaigns and experiences that connect brands with their audiences.
+                                    We develop marketing campaigns and experiences that connect brands deeply with their audiences.
                                 </p>
                             </div>
                             <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
@@ -308,68 +314,78 @@ export default function Home() {
                             </ul>
                         </div>
 
-                        {/* 03 */}
-                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-1/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
-                            <div>
-                                <div className="flex items-center justify-between mb-4">
+                        {/* 03: Digital Experience & Product Design (Featured Span 6) */}
+                        <div 
+                            onClick={() => navigate('/services')}
+                            className="lg:col-span-6 p-8 md:p-10 border border-white/10 bg-gradient-to-br from-[#201C3E]/60 via-brand-dark/95 to-[#151226]/95 backdrop-blur-md flex flex-col md:flex-row justify-between gap-6 hover:border-brand-accent-1/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_25px_rgba(0,0,0,0.3)] cursor-pointer"
+                        >
+                            <div className="md:w-1/2">
+                                <div className="flex items-center gap-3 mb-3">
                                     <span className="font-tech text-brand-accent-1 text-sm font-bold tracking-widest">03.</span>
-                                    <Monitor className="w-5 h-5 text-brand-accent-1/80 group-hover:text-brand-accent-1 transition-colors" />
+                                    <span className="px-2.5 py-0.5 bg-brand-accent-1/20 text-brand-accent-1 font-tech text-[10px] uppercase tracking-widest border border-brand-accent-1/40">Interactive</span>
                                 </div>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-1 transition-colors">
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-accent-1 transition-colors">
                                     Digital Experience & Product Design
                                 </h3>
-                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
-                                    We design and develop digital experiences that make businesses easier to discover, use and engage with.
+                                <p className="font-body text-gray-300 font-light text-base leading-relaxed">
+                                    We design and develop digital experiences that make businesses easier to discover, navigate, and engage with worldwide.
                                 </p>
                             </div>
-                            <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
-                                <li>• UI/UX design</li>
-                                <li>• Website design and development</li>
-                                <li>• Digital product design and experiences</li>
-                            </ul>
+                            <div className="md:w-1/2 flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/10 pt-4 md:pt-0 md:pl-8">
+                                <ul className="space-y-2.5 text-xs font-tech tracking-wider text-gray-300 uppercase">
+                                    <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> UI/UX design & design systems</li>
+                                    <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> Custom website design & engineering</li>
+                                    <li className="flex items-center gap-2"><span className="text-brand-accent-1">✦</span> Digital product design & interactive experiences</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        {/* 04 */}
-                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-2/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)]">
+                        {/* 04: Creative Strategy & Content Production (Span 3) */}
+                        <div 
+                            onClick={() => navigate('/services')}
+                            className="lg:col-span-3 p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-2/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
+                        >
                             <div>
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="font-tech text-brand-accent-2 text-sm font-bold tracking-widest">04.</span>
                                     <Film className="w-5 h-5 text-brand-accent-2/80 group-hover:text-brand-accent-2 transition-colors" />
                                 </div>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-2 transition-colors">
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-accent-2 transition-colors">
                                     Creative Strategy & Content Production
                                 </h3>
                                 <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
-                                    We turn ideas into creative concepts, campaigns and content that communicate a brand's vision.
+                                    We turn ideas into creative concepts, narratives, campaigns and video content that communicate a brand's vision.
                                 </p>
                             </div>
                             <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
                                 <li>• Creative strategy & campaign conceptualisation</li>
                                 <li>• Creative content development</li>
-                                <li>• Video production, editing & short-form content</li>
+                                <li>• Video production, editing & campaign media</li>
                             </ul>
                         </div>
 
-                        {/* 05 */}
-                        <div className="p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-3/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)] lg:col-span-2">
+                        {/* 05: Creative Operations & Talent (Span 3) */}
+                        <div 
+                            onClick={() => navigate('/services')}
+                            className="lg:col-span-3 p-8 border border-white/10 bg-gradient-to-br from-[#1C1835]/50 to-brand-dark/95 backdrop-blur-md flex flex-col justify-between hover:border-brand-accent-3/60 transition-all duration-300 group hover:-translate-y-1 shadow-[0_4px_20px_rgba(0,0,0,0.3)] cursor-pointer"
+                        >
                             <div>
                                 <div className="flex items-center justify-between mb-4">
                                     <span className="font-tech text-brand-accent-3 text-sm font-bold tracking-widest">05.</span>
                                     <Users2 className="w-5 h-5 text-brand-accent-3/80 group-hover:text-brand-accent-3 transition-colors" />
                                 </div>
-                                <h3 className="font-heading text-2xl font-bold text-white mb-3 group-hover:text-brand-accent-3 transition-colors">
+                                <h3 className="font-heading text-2xl md:text-3xl font-bold text-white mb-3 group-hover:text-brand-accent-3 transition-colors">
                                     Creative Operations & Talent
                                 </h3>
-                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed max-w-xl">
-                                    We help businesses find the right creative people and put the structure in place to make good work happen.
+                                <p className="font-body text-gray-300 font-light text-sm mb-6 leading-relaxed">
+                                    We help businesses source talent, build creative teams and manage the processes that keep work moving.
                                 </p>
                             </div>
-                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
-                                <div>• Creative talent sourcing & recruitment</div>
-                                <div>• Talent coordination & management</div>
-                                <div>• Creative team building</div>
-                                <div>• Ongoing creative operations support</div>
-                            </div>
+                            <ul className="space-y-2 border-t border-white/10 pt-4 text-xs font-tech tracking-wider text-gray-400 uppercase">
+                                <li>• Creative talent sourcing & recruitment</li>
+                                <li>• Talent coordination & management</li>
+                                <li>• Ongoing creative operations & workflow support</li>
+                            </ul>
                         </div>
                     </div>
 

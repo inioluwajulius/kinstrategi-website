@@ -292,11 +292,15 @@ export default function OurWork() {
                     className="flex flex-col md:flex-row items-center md:items-start justify-between mb-8 sm:mb-12 md:mb-16 relative"
                 >
                     <div className="text-center md:text-left max-w-2xl relative z-10 pt-2 sm:pt-4 md:pt-6">
-                        <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-wider mb-3 sm:mb-4 text-white drop-shadow-xl">
-                            The <span className="text-brand-accent-1">Work.</span>
+                        <div className="flex items-center gap-3 mb-3 justify-center md:justify-start">
+                            <div className="w-8 h-[1px] bg-brand-accent-2/70" />
+                            <span className="font-tech text-brand-accent-2 text-xs uppercase tracking-[0.3em] font-medium">Portfolio & Archives</span>
+                        </div>
+                        <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold uppercase tracking-tight mb-3 sm:mb-4 text-white drop-shadow-xl">
+                            Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-accent-2 via-white to-brand-accent-3">Work.</span>
                         </h1>
-                        <p className="font-body text-base sm:text-lg md:text-xl opacity-70 font-light leading-relaxed">
-                            Strategy in action. A curated index of our field notes, cases, and the talent we've placed.
+                        <p className="font-body text-base sm:text-lg md:text-xl text-gray-300 font-light leading-relaxed">
+                            Strategy in action. A curated index of our field notes, cases, brand experiences, and placed capabilities.
                         </p>
                     </div>
 
@@ -319,7 +323,11 @@ export default function OurWork() {
                             <button
                                 key={cat.id}
                                 onClick={() => setActiveTab(cat.id)}
-                                className={`text-left px-4 sm:px-5 py-3 sm:py-3.5 font-heading text-base sm:text-lg md:text-xl transition-all duration-300 border-b-2 lg:border-b-0 lg:border-l-2 whitespace-nowrap cursor-pointer ${activeTab === cat.id ? 'border-brand-accent-1 text-white bg-white/10 font-semibold' : 'border-transparent text-white/50 hover:text-white/80 hover:bg-white/5'}`}
+                                className={`text-left px-4 sm:px-5 py-3 sm:py-3.5 font-heading text-base sm:text-lg md:text-xl transition-all duration-300 border-b-2 lg:border-b-0 lg:border-l-2 whitespace-nowrap cursor-pointer ${
+                                    activeTab === cat.id 
+                                        ? 'border-brand-accent-2 text-white bg-brand-accent-2/10 font-bold shadow-[inset_4px_0_0_0_#D4AF37]' 
+                                        : 'border-transparent text-white/50 hover:text-white/90 hover:bg-white/5'
+                                }`}
                             >
                                 {cat.title}
                             </button>

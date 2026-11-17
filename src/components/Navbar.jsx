@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
@@ -18,13 +18,31 @@ const NAV_LINKS = [
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 25) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
 
     return (
         <>
-            <nav className="fixed w-full top-0 left-0 right-0 z-[100] bg-brand-dark/90 backdrop-blur-md border-b border-white/5 transition-colors duration-500">
+            <nav className={`fixed w-full top-0 left-0 right-0 z-[100] transition-all duration-500 ${
+                scrolled
+                    ? 'bg-[#0D0D11]/92 backdrop-blur-xl border-b border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.7)] py-0'
+                    : 'bg-brand-dark/80 backdrop-blur-md border-b border-white/5 py-1'
+            }`}>
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="flex justify-between items-center h-20">
+                    <div className="flex justify-between items-center h-20 transition-all duration-300">
 
                         {/* LEFT AREA: KinStrategi Logo */}
                         <div className="flex-1 flex items-center justify-start">
@@ -60,15 +78,15 @@ export default function Navbar() {
                                     <Link
                                         key={link.path}
                                         to={link.path}
-                                        className={`text-sm font-medium transition-colors duration-300 relative group py-1.5 whitespace-nowrap ${
-                                            isActive ? 'text-white' : 'text-gray-300 hover:text-brand-accent-2'
+                                        className={`text-sm font-medium transition-all duration-300 relative group py-1.5 whitespace-nowrap tracking-wide ${
+                                            isActive ? 'text-white font-semibold' : 'text-gray-300 hover:text-brand-accent-2'
                                         }`}
                                     >
                                         {link.name}
                                         {isActive && (
                                             <motion.div
                                                 layoutId="navbar-indicator"
-                                                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-accent-2 shadow-[0_0_8px_rgba(212,175,55,0.8)]"
+                                                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-accent-2 shadow-[0_0_10px_rgba(212,175,55,0.9)]"
                                             />
                                         )}
                                     </Link>
@@ -76,11 +94,11 @@ export default function Navbar() {
                             })}
                         </div>
 
-                        {/* RIGHT AREA: WORK WITH US CTA Button (Independently Positioned at Far Right) */}
+                        {/* RIGHT AREA: WORK WITH US CTA Button */}
                         <div className="hidden xl:flex flex-1 items-center justify-end relative z-[110]">
                             <Link
                                 to="/contact"
-                                className="inline-flex items-center gap-1.5 bg-brand-accent-2/15 border border-brand-accent-2/60 text-brand-accent-2 hover:bg-brand-accent-2 hover:text-brand-dark px-4 py-2 font-tech text-xs tracking-wider uppercase transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_20px_rgba(212,175,55,0.35)] font-bold rounded-sm whitespace-nowrap"
+                                className="inline-flex items-center gap-1.5 bg-brand-accent-2/15 border border-brand-accent-2/70 text-brand-accent-2 hover:bg-brand-accent-2 hover:text-brand-dark px-4.5 py-2 font-tech text-xs tracking-wider uppercase transition-all duration-300 shadow-[0_0_15px_rgba(212,175,55,0.15)] hover:shadow-[0_0_22px_rgba(212,175,55,0.4)] font-bold rounded-sm whitespace-nowrap"
                             >
                                 <span>Work With Us</span>
                                 <ArrowUpRight size={13} />
