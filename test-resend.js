@@ -1,6 +1,6 @@
 import { Resend } from 'resend';
 
-const resend = new Resend('re_5urvCVDJ_9usBCa1wrtpoBYEEPP5gb2hj');
+const resend = new Resend(process.env.RESEND_API_KEY || '');
 
 async function testEmail() {
   console.log("Attempting to send a test email via Resend...");
